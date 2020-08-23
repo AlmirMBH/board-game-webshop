@@ -7,7 +7,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -17,6 +17,9 @@
         <option value="composer.json" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -135,7 +138,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../top-restaurant" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../functional-university" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
@@ -156,6 +159,7 @@
       <workItem from="1598219404941" duration="24000" />
       <workItem from="1598219457047" duration="21000" />
       <workItem from="1598219520741" duration="1595000" />
+      <workItem from="1598221135177" duration="88000" />
     </task>
     <servers />
   </component>
@@ -166,10 +170,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="171" key="FileChooserDialogImpl" timestamp="1598220806825">
+    <state x="580" y="171" key="FileChooserDialogImpl" timestamp="1598221222474">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1598220806825" />
+    <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1598221222474" />
     <state x="301" y="75" key="SettingsEditor" timestamp="1598219470775">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
