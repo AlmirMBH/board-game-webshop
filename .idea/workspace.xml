@@ -135,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../top-restaurant" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
@@ -155,7 +155,7 @@
       <updated>1598219403880</updated>
       <workItem from="1598219404941" duration="24000" />
       <workItem from="1598219457047" duration="21000" />
-      <workItem from="1598219520741" duration="1117000" />
+      <workItem from="1598219520741" duration="1595000" />
     </task>
     <servers />
   </component>
@@ -166,10 +166,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="171" key="FileChooserDialogImpl" timestamp="1598219468807">
+    <state x="580" y="171" key="FileChooserDialogImpl" timestamp="1598220806825">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1598219468807" />
+    <state x="580" y="171" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1598220806825" />
     <state x="301" y="75" key="SettingsEditor" timestamp="1598219470775">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
