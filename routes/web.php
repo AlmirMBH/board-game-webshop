@@ -19,4 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'MasterController@home')->name('home');
+
+Route::get('/uber-uns', 'MasterController@uber_uns')->name('about-us');
+
+Route::get('/web-shop', 'MasterController@web_shop')->name('webshop');
+
+Route::get('/lizenznehmer', 'MasterController@lizenznehmer')->name('license-providers');
+
+Route::get('/teilnehmende-betriebe', 'MasterController@betriebe')->name('participating-companies');
+
+Route::get('/kontakt', 'MasterController@kontakt')->name('contact');
