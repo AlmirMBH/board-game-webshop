@@ -1,9 +1,9 @@
 /* General CSS */
-html, 
+html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;    
+    font-family: 'Roboto', sans-serif;
 }
 a:hover {
     text-decoration: none;
@@ -50,7 +50,7 @@ input[type="radio"] {
 
 /* PAGE BANNER */
 .page-banner {
-    background-image: url("../img/page-banner/pager-banner.jpg");
+    background-image: url("../img/page-banner.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     padding: 7rem 0;
@@ -95,7 +95,7 @@ input[type="radio"] {
 /* FONTS*/
 /* Slider title */
 .carousel-title{
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 100px;
     color: white;
@@ -135,8 +135,8 @@ input[type="radio"] {
     line-height:65px;
     color: #262626;
 }
-.section-title-prominent{    
-    color: #502281;    
+.section-title-prominent{
+    color: #502281;
 }
 
 /* Section Subtitle */
@@ -152,7 +152,7 @@ input[type="radio"] {
     font-weight: 700;
     font-size: 35px;
     color: #919191;
-    line-height:35px;    
+    line-height:35px;
 }
 
 /* Menu font */

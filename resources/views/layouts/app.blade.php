@@ -115,22 +115,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">Über uns</a>
+              <a class="nav-link" href="{{route('about-us')}}">Über uns</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="shop.html">Webshop</a>
+              <a class="nav-link" href="{{route('webshop')}}">Webshop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="page-licensee.html">Lizenznehmer</a>
+              <a class="nav-link" href="{{route('license-providers')}}">Lizenznehmer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="participating-companies.html">Teilnehmende Betriebe</a>
+              <a class="nav-link" href="{{route('participating-companies')}}">Teilnehmende Betriebe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Kontakt</a>
+              <a class="nav-link" href="{{route('contact')}}">Kontakt</a>
             </li>
           </ul>
         </div>
