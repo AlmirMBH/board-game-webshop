@@ -42,7 +42,8 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem at nulla. Suspendisse lobortis ante ut convallis vehicula. Proin id nibh nec velit tempus gravida sed in purus. Sed suscipit leo et lorem pellentesque cursus.</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper, magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem at nulla. Suspendisse lobortis ante ut convallis vehicula. Proin id nibh nec velit tempus gravida sed in purus. Sed suscipit leo et lorem pellentesque cursus.</p>
 
-              <button class="btn slider-btn">Zertifzierte Lizenznehmer</button>
+              <button class="btn slider-btn"><a href="{{route('list-lizenznehmer')}}">Zertifzierte Lizenznehmer</a></button>
+
             </div>
 
           </div>

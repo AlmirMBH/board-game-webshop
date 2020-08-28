@@ -1,5 +1,8 @@
 <?php
 
+use App\Canton;
+use App\City;
+use App\Provider;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        factory(Canton::class, 10)->create();
+        factory(City::class, 10)->create();
+        factory(Provider::class, 10)->create();
     }
 }

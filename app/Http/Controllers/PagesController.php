@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Canton;
+use App\Provider;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -30,6 +32,18 @@ class PagesController extends Controller
 
   public function kontakt(){
      return view('kontakt');
+  }
+
+  public function list_lizenznehmer()
+  {
+    $cantons = Canton::all();
+    return view('list-lizenznehmer', compact('cantons'));
+  }
+
+  public function get_provider($slug)
+  {
+    $provider = Provider::where('slug', $slug)->firstOrFail();
+    return view('provider', compact('provider'));
   }
 
 }

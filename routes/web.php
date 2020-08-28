@@ -26,7 +26,10 @@ Route::get('/uber-uns', 'PagesController@uber_uns')->name('about-us');
 Route::get('/web-shop', 'PagesController@web_shop')->name('webshop');
 
 Route::get('/lizenznehmer', 'PagesController@lizenznehmer')->name('license-providers');
+Route::get('/lizenznehmer/auffuhren', 'pagesController@list_lizenznehmer')->name('list-lizenznehmer');
 
 Route::get('/teilnehmende-betriebe', 'PagesController@betriebe')->name('participating-companies');
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
+
+Route::get('/anbieter/{slug}', 'PagesController@get_provider')->name('provider_id');
