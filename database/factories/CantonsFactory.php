@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(Canton::class, function (Faker $faker) {
     return [
-      'name' => $faker->country
+      'name' => $faker->randomElement($array = array('ZH', 'SH', 'TG', 'SG', 'AR', 'AI', 'LI', 'ZG', 'SZ', 'GL', 'LU', 'NW', 'OW', 'UR', 'GR', 'BE', 'BS', 'BL', 'AG', 'SO'))
     ];
 });
