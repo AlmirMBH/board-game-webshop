@@ -173,7 +173,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/howItWorks1.JPG')}}" alt="Brettspielbibliothek"/>
+                            <img class="img-fluid w-100" src="{{asset('img/howItWorks1.jpeg')}}" alt="Brettspielbibliothek"/>
                         </div>
                         <div class="blog-item-content">
                             <div class="blog-item-title">
@@ -196,7 +196,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/howItWorks2.JPG')}}" alt="Spiel mit deinen Freunden"/>
+                            <img class="img-fluid w-100" src="{{asset('img/howItWorks2.jpeg')}}" alt="Spiel mit deinen Freunden"/>
                         </div>
                         <div class="blog-item-content">
                             <div class="blog-item-title">
@@ -219,7 +219,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/howItWorks3.JPG')}}" alt="Vorteile von Brettspielen"/>
+                            <img class="img-fluid w-100" src="{{asset('img/howItWorks3.jpeg')}}" alt="Vorteile von Brettspielen"/>
                         </div>
                         <div class="blog-item-content">
                             <div class="blog-item-title">
@@ -311,48 +311,48 @@
         </div>
     </section>
 
-    <section class="shop section-padding-top section-padding-bottom">
-        <div class="container">
-            <div class="shop-title text-center">
-                <h2 class="section-title">UNSER SPIEL</h2>
-            </div>
-            <div class="row d-flex justify-content-center my-5">
-                <div class="col-md-8">
-                    <div class="card product-card">
-                        <div class="card-body product-card-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-6">
-                                    <div class="product-image-box">
-                                        <img src="{{asset('img/product/product-image.png')}}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-12 col-lg-6">
-                                    <div class="product-title">
-                                        <h3>GEWERBE-SPIEL</h3>
-                                    </div>
-                                    <div class="product-price">
-                                        <span class="currency">CHF</span>
-                                        <span class="price">100.00</span>
-                                    </div>
-                                    <div class="product-desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper,
-                                            magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem
-                                            at nulla.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper,
-                                            magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem
-                                            at nulla.</p>
-                                    </div>
-                                    <div class="product-btn-box">
-                                        <a href="#" class="btn product-btn">Kaufe jetzt</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section class="shop section-padding-top section-padding-bottom">--}}
+{{--        <div class="container">--}}
+{{--            <div class="shop-title text-center">--}}
+{{--                <h2 class="section-title">UNSER SPIEL</h2>--}}
+{{--            </div>--}}
+{{--            <div class="row d-flex justify-content-center my-5">--}}
+{{--                <div class="col-md-8">--}}
+{{--                    <div class="card product-card">--}}
+{{--                        <div class="card-body product-card-body">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                                    <div class="product-image-box">--}}
+{{--                                        <img src="{{asset('img/product/product-image.png')}}" alt="">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                                    <div class="product-title">--}}
+{{--                                        <h3>GEWERBE-SPIEL</h3>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-price">--}}
+{{--                                        <span class="currency">CHF</span>--}}
+{{--                                        <span class="price">100.00</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-desc">--}}
+{{--                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper,--}}
+{{--                                            magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem--}}
+{{--                                            at nulla.</p>--}}
+{{--                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper,--}}
+{{--                                            magna quis tempor mollis, erat augue eleifend ipsum, ut imperdiet turpis sem--}}
+{{--                                            at nulla.</p>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-btn-box">--}}
+{{--                                        <a href="#" class="btn product-btn">Kaufe jetzt</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
     <section class="our-team section-margin-top">
         <div class="container">

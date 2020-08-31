@@ -68,10 +68,10 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
                         <div class="header-search-form-box">
                             <form class="header-search-form">
-                                <div class="form-group header-search-form-input-box">
+                                <div class="form-group header-search-form-input-box d-inline-block float-right">
                                     <input class="form-control header-search-form-input" type="search"
                                            placeholder="Suche..."/>
                                     <button class="header-search-btn"><i class="fas fa-search"></i></button>
@@ -80,30 +80,30 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-6 col-lg-3">
-                        <div class="header-shop-widgets-box">
-                            <ul class="header-shop-widget-list">
-                                <li class="header-item-list item-shop">
-                                    <a href="#" target="blank">
-                                        <i class="icon-shop"></i>
-                                    </a>
-                                    <span>Geschäft</span>
-                                </li>
-                                <li class="header-item-list item-login">
-                                    <a href="#" target="blank">
-                                        <i class="icon-man"></i>
-                                    </a>
-                                    <span>Anmeldung</span>
-                                </li>
-                                <li class="header-item-list item-basket">
-                                    <a href="#" target="blank">
-                                        <i class="icon-shopping-basket-go"></i>
-                                    </a>
-                                    <span>Mein Einkaufswagen</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+{{--                    <div class="col-sm-6 col-md-6 col-lg-3">--}}
+{{--                        <div class="header-shop-widgets-box">--}}
+{{--                            <ul class="header-shop-widget-list">--}}
+{{--                                <li class="header-item-list item-shop">--}}
+{{--                                    <a href="#" target="blank">--}}
+{{--                                        <i class="icon-shop"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <span>Geschäft</span>--}}
+{{--                                </li>--}}
+{{--                                <li class="header-item-list item-login">--}}
+{{--                                    <a href="#" target="blank">--}}
+{{--                                        <i class="icon-man"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <span>Anmeldung</span>--}}
+{{--                                </li>--}}
+{{--                                <li class="header-item-list item-basket">--}}
+{{--                                    <a href="#" target="blank">--}}
+{{--                                        <i class="icon-shopping-basket-go"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <span>Mein Einkaufswagen</span>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
