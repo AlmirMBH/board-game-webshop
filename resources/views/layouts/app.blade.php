@@ -126,9 +126,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('about-us')}}">Über uns</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('webshop')}}">Webshop</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="{{route('webshop')}}">Webshop</a>--}}
+{{--                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('license-providers')}}">Lizenznehmer</a>
                             </li>

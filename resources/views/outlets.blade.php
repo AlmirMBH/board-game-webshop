@@ -54,11 +54,17 @@
                     <select class="form-control w-100 rounded-0 p-3" name="" id="select-option-api-cities"></select>
                 </div>
 
-                <table class="table" id="table">
+                <div class="text-center mt-5">
+                    <div id="no-entry-for-cities"></div>
+                </div>
+
+                <table class="table mb-5" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">Name der Firma</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">E-Mail</th>
                     </tr>
                     </thead>
                     <tbody id="select-option-api-providers"></tbody>
@@ -68,10 +74,6 @@
                     </div>
 
                 </table>
-
-                <div class="text-center">
-                    <div id="no-entry-for-cities"></div>
-                </div>
             </div>
         </div>
     </div>
@@ -102,14 +104,14 @@
                             let text = "";
                             for (let i = 0; i < data.length; i++) {
                                 if (i == 0) {
-                                    text += "<option class='cc2' value='dada'>choose city</option>";
+                                    text += "<option class='cc2' value='dada'>Wählen Sie Ihre Stadt</option>";
                                 }
                                 text += "<option class='cc' value='" + data[i].id + "'>" + data[i].name + "</option>";
                             }
                             $("#select-option-api-cities").show().append(text);
 
                         } else {
-                            $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir haben derzeit keine Filialen in dieser Stadt</p>')
+                            $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, derzeit haben wir keine registrierten Kantone.</p>')
                         }
                         $(".first-spinner").css('visibility', 'hidden')
 
@@ -139,8 +141,10 @@
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             text += "<tr>" +
-                                "<td class='provider-td'>" + data[i].address + "</td>" +
                                 "<td class='provider-td'> <a href='http://board-game.dep/details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
+                                "<td class='provider-td'>" + data[i].address + "</td>" +
+                                "<td class='provider-td'>" + data[i].phone + "</td>" +
+                                "<td class='provider-td'>" + data[i].email + "</td>" +
                                 "</tr>";
                         }
 
@@ -148,7 +152,7 @@
                             console.log('selektovan cc2')
                         } else {
                             if (data.length == 0) {
-                                $("#no-entry-for-cities").css("display", "block").append('<p>no entry</p>')
+                                $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir haben derzeit keine Filialen in dieser Stadt.</p>')
                                 $(".second-spinner").css('visibility', 'hidden')
                             } else {
                                 $("#table").css("visibility", "visible")

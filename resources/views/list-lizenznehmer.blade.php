@@ -54,11 +54,16 @@
                 <select class="form-control w-100 rounded-0 p-3" name="" id="select-option-api-cities"></select>
             </div>
 
-            <table class="table" id="table">
+            <table class="table mb-5" id="table">
                 <thead>
                 <tr>
                     <th scope="col">Name der Firma</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">Mobiltelefon</th>
+                    <th scope="col">Webseite</th>
+                    <th scope="col">E-Mail</th>
                 </tr>
                 </thead>
                 <tbody id="select-option-api-providers"></tbody>
@@ -108,7 +113,7 @@
                         $("#select-option-api-cities").show().append(text);
 
                     } else {
-                        $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber in dieser Stadt haben wir momentan keine Lizenz</p>')
+                        $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, derzeit haben wir keine registrierten Kantone.</p>')
                     }
                     $(".first-spinner").css('visibility', 'hidden')
 
@@ -140,6 +145,11 @@
                         text += "<tr>" +
                             "<td class='provider-td'>" + data[i].company_name + "</td>" +
                             "<td class='provider-td'> <a href='http://board-game.dep/anbieter/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
+                            "<td class='provider-td'>" + data[i].address + "</td>" +
+                            "<td class='provider-td'>" + data[i].phone + "</td>" +
+                            "<td class='provider-td'>" + data[i].mobile + "</td>" +
+                            "<td class='provider-td'>" + data[i].url + "</td>" +
+                            "<td class='provider-td'>" + data[i].email + "</td>" +
                             "</tr>";
                     }
 
@@ -147,7 +157,7 @@
                         console.log('selektovan cc2')
                     } else {
                         if (data.length == 0) {
-                            $("#no-entry-for-cities").css("display", "block").append('<p>no entry</p>')
+                            $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber in dieser Stadt haben wir momentan keine Lizenz.</p>')
                             $(".second-spinner").css('visibility', 'hidden')
                         } else {
                             $("#table").css("visibility", "visible")
