@@ -15,9 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Canton::class, 9)->create();
-        factory(City::class, 9)->create();
-        factory(Provider::class, 9)->create();
-        factory(Outlets::class, 9)->create();
+        $this->call([
+            CantonSeeder::class
+        ]);
     }
 }
