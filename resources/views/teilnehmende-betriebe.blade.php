@@ -45,7 +45,7 @@
             </div>
 
             <div class="participating-companies-btn">
-              <buttton class="btn slider-btn">Verkaufsstellen</buttton>
+              <buttton class="btn slider-btn"><a href="{{route('outlets')}}">Verkaufsstellen</a></buttton>
             </div>
 
           </div>

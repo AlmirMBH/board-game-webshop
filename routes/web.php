@@ -29,7 +29,9 @@ Route::get('/lizenznehmer', 'PagesController@lizenznehmer')->name('license-provi
 Route::get('/lizenznehmer/auffuhren', 'pagesController@list_lizenznehmer')->name('list-lizenznehmer');
 
 Route::get('/teilnehmende-betriebe', 'PagesController@betriebe')->name('participating-companies');
+Route::get('/verkaufsstellen', 'PagesController@outlets')->name('outlets');
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 
 Route::get('/anbieter/{slug}', 'PagesController@get_provider')->name('provider_id');
+Route::get('/details/{slug}', 'PagesController@get_place')->name('place_id');

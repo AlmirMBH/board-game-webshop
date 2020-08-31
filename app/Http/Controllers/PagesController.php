@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Canton;
+use App\Outlets;
 use App\Provider;
 use Illuminate\Http\Request;
 
@@ -44,6 +45,18 @@ class PagesController extends Controller
   {
     $provider = Provider::where('slug', $slug)->firstOrFail();
     return view('provider', compact('provider'));
+  }
+
+  public function get_place($slug)
+  {
+    $place = Outlets::where('slug', $slug)->firstOrFail();
+    return view('point-of-sale-details', compact('place'));
+  }
+
+  public function outlets()
+  {
+    $cantons = Canton::all();
+    return view('outlets', compact('cantons'));
   }
 
 }
