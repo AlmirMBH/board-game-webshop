@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cities/list/{id}', 'PagesControllerApi@list_cities');
 Route::get('/providers/list/{id}', 'PagesControllerApi@list_providers');
+Route::get('/outlets/list/{id}', 'PagesControllerApi@list_outlets');

@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="participating-companies-btn mt-5">
-                        <a href="#" class="btn slider-btn">Teilnehmende Betriebe</a>
+                        <a href="{{route('outlets')}}" class="btn slider-btn">Teilnehmende Betriebe</a>
                     </div>
 
                 </div>
