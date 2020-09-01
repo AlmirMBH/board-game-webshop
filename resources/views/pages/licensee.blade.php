@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('content')
 <section class="page-banner">
@@ -34,7 +34,7 @@
                         <h2>Hier finden Sie alle <span class="section-title-prominent">
                             zertifizierten Lizenznehmer</span>, gegliederten nach Kantone und Gemeinde
                         </h2>
-                        <a class="btn slider-btn" href="{{route('list-lizenznehmer')}}">Zertifzierte Lizenznehmer</a>
+                        <a class="btn slider-btn" href="{{route('licensee-list')}}">Zertifzierte Lizenznehmer</a>
                     </div>
 
                     <div class="border-top pt-5 mt-5">

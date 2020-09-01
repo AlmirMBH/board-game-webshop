@@ -10,54 +10,59 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
 
-  public function home(){
-    return view('index');
-  }
+    public function home()
+    {
+        return view('index');
+    }
 
+    public function about()
+    {
+        return view('pages.about');
+    }
 
-   public function uber_uns(){
-     return view('uber-uns');
-   }
+    public function webShop()
+    {
+        return view('pages.web-shop');
+    }
 
-  public function web_shop(){
-    return view('web-shop');
-  }
+    public function licensee()
+    {
+        return view('pages.licensee');
+    }
 
-  public function lizenznehmer(){
-    return view('lizenznehmer');
-  }
+    public function participatingCompanies()
+    {
+        return view('pages.participating-companies');
+    }
 
-  public function betriebe(){
-    return view('teilnehmende-betriebe');
-  }
+    public function contact()
+    {
+        return view('pages.contact');
+    }
 
-  public function kontakt(){
-     return view('kontakt');
-  }
+    public function licenseeList()
+    {
+        $cantons = Canton::all();
+        return view('licensee.list', compact('cantons'));
+    }
 
-  public function list_lizenznehmer()
-  {
-    $cantons = Canton::all();
-    return view('list-lizenznehmer', compact('cantons'));
-  }
+    public function licenseeDetails($slug)
+    {
+        $provider = Provider::where('slug', $slug)->firstOrFail();
+        return view('licensee.details', compact('provider'));
+    }
 
-  public function get_provider($slug)
-  {
-    $provider = Provider::where('slug', $slug)->firstOrFail();
-    return view('provider', compact('provider'));
-  }
+    public function outletDetails($slug)
+    {
+        $place = Outlets::where('slug', $slug)->firstOrFail();
+        return view('outlet.details', compact('place'));
+    }
 
-  public function get_place($slug)
-  {
-    $place = Outlets::where('slug', $slug)->firstOrFail();
-    return view('point-of-sale-details', compact('place'));
-  }
-
-  public function outlets()
-  {
-    $cantons = Canton::all();
-    return view('outlets', compact('cantons'));
-  }
+    public function outlets()
+    {
+        $cantons = Canton::all();
+        return view('pages.outlets', compact('cantons'));
+    }
 
 }
 

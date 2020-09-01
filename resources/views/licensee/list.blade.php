@@ -25,7 +25,7 @@
 </section>
 
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center row mt-5">
         <div class="col-lg-8">
             <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
                 <h4 class="alert-heading">Vor dem Start lesen!</h4>
@@ -54,6 +54,13 @@
                 <select class="form-control w-100 rounded-0 p-3" name="" id="select-option-api-cities"></select>
             </div>
 
+            <div class="text-center">
+                <div id="no-entry-for-cities"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <table class="table mb-5" id="table">
                 <thead>
                 <tr>
@@ -64,6 +71,7 @@
                     <th scope="col">Mobiltelefon</th>
                     <th scope="col">Webseite</th>
                     <th scope="col">E-Mail</th>
+                    <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
                 <tbody id="select-option-api-providers"></tbody>
@@ -73,10 +81,6 @@
                 </div>
 
             </table>
-
-            <div class="text-center">
-                <div id="no-entry-for-cities"></div>
-            </div>
         </div>
     </div>
 </div>
@@ -102,7 +106,7 @@
                 type: 'GET',
                 success: function (data) {
 
-                    if (data != 0) {
+                    if (data !== 0) {
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             if (i == 0) {
@@ -117,6 +121,12 @@
                     }
                     $(".first-spinner").css('visibility', 'hidden')
 
+                },
+
+                error: function (request, status, error) {
+                    console.log(request.responseText);
+                    console.log(status);
+                    console.log(error);
                 }
             })
         });
@@ -142,15 +152,17 @@
 
                     let text = "";
                     for (let i = 0; i < data.length; i++) {
-                        text += "<tr>" +
-                            "<td class='provider-td'>" + data[i].company_name + "</td>" +
-                            "<td class='provider-td'> <a href='http://board-game.dep/anbieter/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
-                            "<td class='provider-td'>" + data[i].address + "</td>" +
-                            "<td class='provider-td'>" + data[i].phone + "</td>" +
-                            "<td class='provider-td'>" + data[i].mobile + "</td>" +
-                            "<td class='provider-td'>" + data[i].url + "</td>" +
-                            "<td class='provider-td'>" + data[i].email + "</td>" +
-                            "</tr>";
+                        text +=
+                            '<tr>' +
+                                '<td class="licensee-td">' + data[i].company_name + '</td>' +
+                                '<td class="licensee-td">' + data[i].name + '</td>' +
+                                '<td class="licensee-td">' + data[i].address + '</td>' +
+                                '<td class="licensee-td">' + data[i].phone + '</td>' +
+                                '<td class="licensee-td">' + data[i].mobile + '</td>' +
+                                '<td class="licensee-td">' + data[i].url + '</td>' +
+                                '<td class="licensee-td">' + data[i].email + '</td>' +
+                                '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/lizenznehmer-details/' + data[i].slug + '">Details anzeigen</a></td>' +
+                            '</tr>';
                     }
 
                     if (value == 'dada') {
