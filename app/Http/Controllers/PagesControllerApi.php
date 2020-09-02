@@ -20,7 +20,7 @@ class PagesControllerApi extends Controller
 
     public function listProviders($id)
     {
-        $providers = DB::table('canton_provider_group')->where('canton_id', $id)->get();
+        $providers = Canton::find($id)->providers()->get();
         return response()->json($providers, Response::HTTP_OK);
     }
 
