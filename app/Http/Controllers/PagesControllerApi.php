@@ -8,6 +8,7 @@ use App\Outlets;
 use App\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class PagesControllerApi extends Controller
 {
@@ -19,7 +20,7 @@ class PagesControllerApi extends Controller
 
     public function listProviders($id)
     {
-        $providers = Provider::where('city_id', $id)->get();
+        $providers = DB::table('canton_provider_group')->where('canton_id', $id)->get();
         return response()->json($providers, Response::HTTP_OK);
     }
 

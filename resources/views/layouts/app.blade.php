@@ -37,89 +37,90 @@
     <!-- End Header Color bar -->
 
     <!-- Top header -->
-    <div class="top-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-2">
-                    <div class="logo-box py-3">
-                        <img class="logo img-fluid w-50" src="{{asset('img/logo.png')}}">
-                    </div>
-                </div>
+{{--    <div class="top-header">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-sm-6 col-md-6 col-lg-12">--}}
+{{--                    <div class="logo-box py-3">--}}
 
-                <div class="col-sm-6 col-md-6 col-lg-4">
-                    <div class="header-social-media-box">
-                        <ul class="header-social-media-list">
-                            <li>
-                                <a href="https://www.facebook.com/" target="blank" class="facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/" target="blank" class="instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/" target="blank" class="twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="header-search-form-box">
-                        <form class="header-search-form">
-                            <div class="form-group header-search-form-input-box d-inline-block float-right">
-                                <input class="form-control header-search-form-input" type="search"
-                                       placeholder="Suche..."/>
-                                <button class="header-search-btn"><i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+{{--                <div class="col-sm-6 col-md-6 col-lg-4">--}}
+{{--                    <div class="header-social-media-box">--}}
+{{--                        <ul class="header-social-media-list">--}}
+{{--                            <li>--}}
+{{--                                <a href="https://www.facebook.com/" target="blank" class="facebook">--}}
+{{--                                    <i class="fab fa-facebook-f"></i>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="https://www.instagram.com/" target="blank" class="instagram">--}}
+{{--                                    <i class="fab fa-instagram"></i>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li>--}}
+{{--                                <a href="https://twitter.com/" target="blank" class="twitter">--}}
+{{--                                    <i class="fab fa-twitter"></i>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                {{--                    <div class="col-sm-6 col-md-6 col-lg-3">--}}
-                {{--                        <div class="header-shop-widgets-box">--}}
-                {{--                            <ul class="header-shop-widget-list">--}}
-                {{--                                <li class="header-item-list item-shop">--}}
-                {{--                                    <a href="#" target="blank">--}}
-                {{--                                        <i class="icon-shop"></i>--}}
-                {{--                                    </a>--}}
-                {{--                                    <span>Geschäft</span>--}}
-                {{--                                </li>--}}
-                {{--                                <li class="header-item-list item-login">--}}
-                {{--                                    <a href="#" target="blank">--}}
-                {{--                                        <i class="icon-man"></i>--}}
-                {{--                                    </a>--}}
-                {{--                                    <span>Anmeldung</span>--}}
-                {{--                                </li>--}}
-                {{--                                <li class="header-item-list item-basket">--}}
-                {{--                                    <a href="#" target="blank">--}}
-                {{--                                        <i class="icon-shopping-basket-go"></i>--}}
-                {{--                                    </a>--}}
-                {{--                                    <span>Mein Einkaufswagen</span>--}}
-                {{--                                </li>--}}
-                {{--                            </ul>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-            </div>
-        </div>
-    </div>
+{{--                <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                    <div class="header-search-form-box">--}}
+{{--                        <form class="header-search-form">--}}
+{{--                            <div class="form-group header-search-form-input-box d-inline-block float-right">--}}
+{{--                                <input class="form-control header-search-form-input" type="search"--}}
+{{--                                       placeholder="Suche..."/>--}}
+{{--                                <button class="header-search-btn"><i class="fas fa-search"></i></button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="col-sm-6 col-md-6 col-lg-3">--}}
+{{--                    <div class="header-shop-widgets-box">--}}
+{{--                        <ul class="header-shop-widget-list">--}}
+{{--                            <li class="header-item-list item-shop">--}}
+{{--                                <a href="#" target="blank">--}}
+{{--                                    <i class="icon-shop"></i>--}}
+{{--                                </a>--}}
+{{--                                <span>Geschäft</span>--}}
+{{--                            </li>--}}
+{{--                            <li class="header-item-list item-login">--}}
+{{--                                <a href="#" target="blank">--}}
+{{--                                    <i class="icon-man"></i>--}}
+{{--                                </a>--}}
+{{--                                <span>Anmeldung</span>--}}
+{{--                            </li>--}}
+{{--                            <li class="header-item-list item-basket">--}}
+{{--                                <a href="#" target="blank">--}}
+{{--                                    <i class="icon-shopping-basket-go"></i>--}}
+{{--                                </a>--}}
+{{--                                <span>Mein Einkaufswagen</span>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- End Top header -->
 
     <!-- Bottom Header, Navigation -->
     <div class="header-bottom">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
+                <a href="" class="navbar-brand"><img class="logo img-fluid" style="max-width: 90px; width: 100%; margin-right: 40px;" src="{{asset('img/logo.png')}}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('home')}}">Home</a>
                         </li>

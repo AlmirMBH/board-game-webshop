@@ -70,72 +70,72 @@
     </div>
 </section>
 
-<section class="benefits-playing section-padding-top section-padding-bottom">
-    <div class="container">
-        <div class="row">
+{{--<section class="benefits-playing section-padding-top section-padding-bottom">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
 
-            <div class="col-sm-12 col-md-12 col-lg-8">
-                <div class="benefits-text-box">
-                    <div class="benefits-titles">
-                        <h6 class="section-strapline">Spielvorteile</h6>
-                        <h2 class="section-title">Vorteile des Spielens<br/>
-                            <span class="section-title-prominent">Brettspiel</span></h2>
-                    </div>
-                    <div class="benefits-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque ac nisi
-                            ultricies eleifend. Integer finibus odio in massa elementum, eget finibus justo cursus.
-                            Vestibulum at lobortis arcu. Donec cursus, magna at placerat dictum, arcu metus ornare
-                            diam, non semper ligula risus sed purus.</p>
-                    </div>
-                </div>
+{{--            <div class="col-sm-12 col-md-12 col-lg-8">--}}
+{{--                <div class="benefits-text-box">--}}
+{{--                    <div class="benefits-titles">--}}
+{{--                        <h6 class="section-strapline">Spielvorteile</h6>--}}
+{{--                        <h2 class="section-title">Vorteile des Spielens<br/>--}}
+{{--                            <span class="section-title-prominent">Brettspiel</span></h2>--}}
+{{--                    </div>--}}
+{{--                    <div class="benefits-text">--}}
+{{--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque ac nisi--}}
+{{--                            ultricies eleifend. Integer finibus odio in massa elementum, eget finibus justo cursus.--}}
+{{--                            Vestibulum at lobortis arcu. Donec cursus, magna at placerat dictum, arcu metus ornare--}}
+{{--                            diam, non semper ligula risus sed purus.</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="benefits-wrapper">
-                    <div class="row mb-4">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="benefits-box">
-                                    <span class="benefits-icon-box">
-                                        <i class="icon-problem"></i>
-                                    </span>
-                                <p>Unterrichtet das Lösen von Problemen</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="benefits-box">
-                                    <span class="benefits-icon-box">
-                                        <i class="icon-union"></i>
-                                    </span>
-                                <p>Spiele können Stress reduzieren</p>
-                            </div>
-                        </div>
-                    </div>
+{{--                <div class="benefits-wrapper">--}}
+{{--                    <div class="row mb-4">--}}
+{{--                        <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                            <div class="benefits-box">--}}
+{{--                                    <span class="benefits-icon-box">--}}
+{{--                                        <i class="icon-problem"></i>--}}
+{{--                                    </span>--}}
+{{--                                <p>Unterrichtet das Lösen von Problemen</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                            <div class="benefits-box">--}}
+{{--                                    <span class="benefits-icon-box">--}}
+{{--                                        <i class="icon-union"></i>--}}
+{{--                                    </span>--}}
+{{--                                <p>Spiele können Stress reduzieren</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="benefits-box">
-                                    <span class="benefits-icon-box">
-                                        <i class="icon-goal"></i>
-                                    </span>
-                                <p>Fördert die Teamarbeit</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="benefits-box">
-                                    <span class="benefits-icon-box">
-                                        <i class="icon-target"></i>
-                                    </span>
-                                <p>Lehrt, Ziele zu setzen</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                            <div class="benefits-box">--}}
+{{--                                    <span class="benefits-icon-box">--}}
+{{--                                        <i class="icon-goal"></i>--}}
+{{--                                    </span>--}}
+{{--                                <p>Fördert die Teamarbeit</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-sm-12 col-md-12 col-lg-6">--}}
+{{--                            <div class="benefits-box">--}}
+{{--                                    <span class="benefits-icon-box">--}}
+{{--                                        <i class="icon-target"></i>--}}
+{{--                                    </span>--}}
+{{--                                <p>Lehrt, Ziele zu setzen</p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <div class=" benefits-image">
-                    <img src="{{asset('img/benefits3.jpg')}}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{{--            <div class="col-sm-12 col-md-12 col-lg-4">--}}
+{{--                <div class=" benefits-image">--}}
+{{--                    <img src="{{asset('img/benefits3.jpg')}}" alt="">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 @endsection

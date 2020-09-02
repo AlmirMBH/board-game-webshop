@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                    <h1>Lizenznehmer auffuhren</h1>
+                    <h1>Lizenznehmer aufgelistet</h1>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
                     <ul class="breadcrumbs">
                         <li>Home</li>
                         <li>Lizenznehmer</li>
-                        <li>Auffuhren</li>
+                        <li>Aufgelistet</li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <h4 class="alert-heading">Vor dem Start lesen!</h4>
                 <p>Um Ihren Lizenznehmer zuerst zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Danach erhalten Sie eine Tabelle mit allen Lizenznehmern in der ausgewählten Stadt.</p>
                 <hr>
-                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz für die ausgewählte Stadt haben</p>
+                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz diesen Sektor vergaben haben.</p>
             </div>
             <div class="form-group text-center pt-1">
                 <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">

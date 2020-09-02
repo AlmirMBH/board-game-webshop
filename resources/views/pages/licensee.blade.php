@@ -34,12 +34,8 @@
                         <h2>Hier finden Sie alle <span class="section-title-prominent">
                             zertifizierten Lizenznehmer</span>, gegliederten nach Kantone und Gemeinde
                         </h2>
+                        <h3>Bei unseren Lizenznehmer können Sie gerne nachfragen bzgl. zukünftigen Erscheinungen.</h3>
                         <a class="btn slider-btn" href="{{route('licensee-list')}}">Zertifzierte Lizenznehmer</a>
-                    </div>
-
-                    <div class="border-top pt-5 mt-5">
-                        <h2>Bei unseren Lizenznehmer können Sie gerne nachfragen bzgl. zukünftigen Erscheinungen.</h2>
-                        <a class="btn slider-btn" href="{{route('contact')}}">Lizenznehmer kontaktieren</a>
                     </div>
 
                 </div>
