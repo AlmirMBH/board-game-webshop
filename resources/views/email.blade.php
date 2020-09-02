@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Password Reset</title>
+    <title>Kontakt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
         /**
@@ -96,7 +96,7 @@
 
 <!-- start preheader -->
 <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    A preheader is the short summary text that follows the subject line when an email is viewed in the inbox.
+    Ein Preheader ist der kurze Zusammenfassungstext, der der Betreffzeile folgt, wenn eine E-Mail im Posteingang angezeigt wird.
 </div>
 <!-- end preheader -->
 
@@ -115,7 +115,7 @@
                 <tr>
                     <td align="center" valign="top" style="padding: 36px 24px;">
                         <a href="https://sendgrid.com" target="_blank" style="display: inline-block;">
-                            <img src="./img/paste-logo-light@2x.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+                            <img src="https://gewerbe-spiel.ch/img/logo.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
                         </a>
                     </td>
                 </tr>
@@ -152,10 +152,7 @@
 
                 <!-- start copy -->
                 <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        {{--                        <p style="margin: 0;">If that doesn't work, copy and paste the following link in your browser:</p>--}}
-                        {{--                        <p style="margin: 0;"><a href="http://webapp.dep/{{$parametarExport}}/password/reset/{{$token}}" target="_blank">http://webapp.dep/{{$parametarExport}}/password/reset/{{$token}}</a></p>--}}
-                    </td>
+                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"></td>
                 </tr>
                 <!-- end copy -->
 
