@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Lizenznehmer - Anbieter')
+
 @section('content')
 <section class="page-banner">
     <div class="container">

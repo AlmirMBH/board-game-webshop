@@ -17,21 +17,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'PagesController@home')->name('home');
 
-Route::get('/uber-uns', 'PagesController@uber_uns')->name('about-us');
+Route::get('/uber-uns', 'PagesController@about')->name('about');
 
-Route::get('/web-shop', 'PagesController@web_shop')->name('webshop');
+Route::get('/web-shop', 'PagesController@webShop')->name('web-shop');
 
-Route::get('/lizenznehmer', 'PagesController@lizenznehmer')->name('license-providers');
-Route::get('/lizenznehmer/auffuhren', 'pagesController@list_lizenznehmer')->name('list-lizenznehmer');
+Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
+Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');
 
-Route::get('/teilnehmende-betriebe', 'PagesController@betriebe')->name('participating-companies');
-Route::get('/verkaufsstellen', 'PagesController@outlets')->name('outlets');
+Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
+Route::get('/teilnehmende-betriebe-list', 'PagesController@outletsList')->name('outlets-list');
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
+Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
 
-Route::get('/anbieter/{slug}', 'PagesController@get_provider')->name('provider_id');
-Route::get('/details/{slug}', 'PagesController@get_place')->name('place_id');
+Route::get('/kontakt', 'PagesController@contact')->name('contact');
+
+Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
+Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');

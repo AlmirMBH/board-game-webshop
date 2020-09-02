@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Webshop')
+
 @section('content')
 
     <section class="page-banner">

@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@section('title', 'Lizenznehmer aufgelistet')
+
 @section('content')
 <section class="page-banner">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                    <h1>Lizenznehmer auffuhren</h1>
+                    <h1>Lizenznehmer aufgelistet</h1>
                 </div>
             </div>
         </div>
@@ -16,7 +18,7 @@
                     <ul class="breadcrumbs">
                         <li>Home</li>
                         <li>Lizenznehmer</li>
-                        <li>Auffuhren</li>
+                        <li>Aufgelistet</li>
                     </ul>
                 </div>
             </div>
@@ -25,13 +27,13 @@
 </section>
 
 <div class="container">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center row mt-5">
         <div class="col-lg-8">
             <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
                 <h4 class="alert-heading">Vor dem Start lesen!</h4>
                 <p>Um Ihren Lizenznehmer zuerst zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Danach erhalten Sie eine Tabelle mit allen Lizenznehmern in der ausgewählten Stadt.</p>
                 <hr>
-                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz für die ausgewählte Stadt haben</p>
+                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz diesen Sektor vergaben haben.</p>
             </div>
             <div class="form-group text-center pt-1">
                 <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">
@@ -54,6 +56,13 @@
                 <select class="form-control w-100 rounded-0 p-3" name="" id="select-option-api-cities"></select>
             </div>
 
+            <div class="text-center">
+                <div id="no-entry-for-cities"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <table class="table mb-5" id="table">
                 <thead>
                 <tr>
@@ -64,6 +73,7 @@
                     <th scope="col">Mobiltelefon</th>
                     <th scope="col">Webseite</th>
                     <th scope="col">E-Mail</th>
+                    <th scope="col">Aktionen</th>
                 </tr>
                 </thead>
                 <tbody id="select-option-api-providers"></tbody>
@@ -73,10 +83,6 @@
                 </div>
 
             </table>
-
-            <div class="text-center">
-                <div id="no-entry-for-cities"></div>
-            </div>
         </div>
     </div>
 </div>
@@ -85,52 +91,12 @@
 @section('script')
 <script>
     $(document).ready(function () {
-        let base_url = '{!! url('/') !!}';
+        let base_url = '{{ url('/')  }}';
         $("#select-option-api-cantons").change(function (data) {
-            $("#select-option-api-cities").empty().hide();
-            $("#select-option-api-providers").empty().hide();
-            $("#no-entry-for-cities").css("display", "none").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir verkaufen im Moment nicht in dieser Stadt.</p>')
-            $("#table").css('visibility', 'hidden');
-            $(".first-spinner").css('visibility', 'visible');
-            $("#no-entry-for-cantons").css('visibility', 'hidden').empty();
             let value = data.currentTarget.value
-            $.ajax({
-                url: base_url + '/api/cities/list/' + value,
-                data: {
-                    format: 'json'
-                },
-                type: 'GET',
-                success: function (data) {
-
-                    if (data != 0) {
-                        let text = "";
-                        for (let i = 0; i < data.length; i++) {
-                            if (i == 0) {
-                                text += "<option class='cc2' value='dada'>Wählen Sie Ihre Stadt</option>";
-                            }
-                            text += "<option class='cc' value='" + data[i].id + "'>" + data[i].name + "</option>";
-                        }
-                        $("#select-option-api-cities").show().append(text);
-
-                    } else {
-                        $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, derzeit haben wir keine registrierten Kantone.</p>')
-                    }
-                    $(".first-spinner").css('visibility', 'hidden')
-
-                }
-            })
-        });
-
-
-        $("#select-option-api-cities").change(function (data) {
-            let value = data.currentTarget.value
-            let valueIs = $("#select-option-api-cities").val();
-            // console.log(valueIs);
-
             $("#select-option-api-providers").empty().hide();
             $("#no-entry-for-cities").empty().hide();
             $(".second-spinner").css('visibility', 'visible');
-
 
             $.ajax({
                 url: base_url + '/api/providers/list/' + value,
@@ -142,15 +108,17 @@
 
                     let text = "";
                     for (let i = 0; i < data.length; i++) {
-                        text += "<tr>" +
-                            "<td class='provider-td'>" + data[i].company_name + "</td>" +
-                            "<td class='provider-td'> <a href='http://board-game.dep/anbieter/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
-                            "<td class='provider-td'>" + data[i].address + "</td>" +
-                            "<td class='provider-td'>" + data[i].phone + "</td>" +
-                            "<td class='provider-td'>" + data[i].mobile + "</td>" +
-                            "<td class='provider-td'>" + data[i].url + "</td>" +
-                            "<td class='provider-td'>" + data[i].email + "</td>" +
-                            "</tr>";
+                        text +=
+                            '<tr>' +
+                                '<td class="licensee-td">' + data[i].company + '</td>' +
+                                '<td class="licensee-td">' + data[i].name + '</td>' +
+                                '<td class="licensee-td">' + data[i].address + '</td>' +
+                                '<td class="licensee-td">' + data[i].phone + '</td>' +
+                                '<td class="licensee-td">' + data[i].mobile + '</td>' +
+                                '<td class="licensee-td">' + data[i].web_url + '</td>' +
+                                '<td class="licensee-td">' + data[i].email + '</td>' +
+                                '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/lizenznehmer-details/' + data[i].slug + '">Details anzeigen</a></td>' +
+                            '</tr>';
                     }
 
                     if (value == 'dada') {

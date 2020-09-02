@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@section('title', 'Teilnehmende Betriebe / POS')
+
 @section('content')
 <section class="page-banner">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
-                    <h1>Teilnehmende Betriebe</h1>
+                    <h1>Teilnehmende Betriebe / Verkaufsstellen</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +17,7 @@
                 <div class="breadcrumbs-box">
                     <ul class="breadcrumbs">
                         <li>Home</li>
-                        <li>Teilnehmende Betriebe</li>
+                        <li>Teilnehmende Betriebe - Verkaufsstellen</li>
                     </ul>
                 </div>
             </div>
@@ -39,12 +41,13 @@
                     <div class="participating-companies-desc mt-5">
                         <p>Hier finden Sie alle teilnehmenden Betriebe, Geschäfte, Büros,
                             Praxen usw.., sowie auch alle öffentliche Verkaufstellen (wo Sie die GEWERBE-SPIELE kaufen
-                            Können) gegliedert nach Kantone und Gemeinde.
+                            können) gegliedert nach Kantone und Gemeinde.
                         </p>
                     </div>
 
                     <div class="participating-companies-btn mt-5">
-                        <a href="{{route('outlets')}}" class="btn slider-btn">Teilnehmende Betriebe</a>
+                        <a href="{{route('outlets-list')}}" class="btn slider-btn">Teilnehmende Betriebe</a>
+                        <a href="#" class="btn slider-btn">Verkaufsstellen (POS)</a>
                     </div>
 
                 </div>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Kontakt')
+
 @section('content')
 <section class="page-banner">
     <div class="container">
@@ -33,7 +35,8 @@
                         <h2 class="section-title">Irgendwelche Fragen?</h2>
                     </div>
                     <div class="contact-form">
-                        <form method="post" action="#">
+
+                        {!! Form::open(['url'=>'kontakt', 'class'=>'']) !!}
                             <div class="form-group contact-field-group">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6 mt-4">
@@ -54,7 +57,7 @@
                             <div class="form-group contact-field-group mt-4">
                                 <div class="form-field-message">
                                     <textarea class="textarea form-control" placeholder="Nachricht"
-                                              name="home-textarea" rows="8"></textarea>
+                                              name="comment" rows="8"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -62,7 +65,8 @@
                                     <button class="btn contact-btn">Senden</button>
                                 </div>
                             </div>
-                        </form>
+                        {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>
