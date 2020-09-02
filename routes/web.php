@@ -32,6 +32,7 @@ Route::get('/teilnehmende-betriebe', 'PagesController@betriebe')->name('particip
 Route::get('/verkaufsstellen', 'PagesController@outlets')->name('outlets');
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
+Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
 
 Route::get('/anbieter/{slug}', 'PagesController@get_provider')->name('provider_id');
 Route::get('/details/{slug}', 'PagesController@get_place')->name('place_id');
