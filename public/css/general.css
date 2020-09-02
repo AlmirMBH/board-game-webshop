@@ -51,9 +51,7 @@ input[type="radio"] {
 
 /* PAGE BANNER */
 .page-banner {
-    background-image: url("../img/page-banner.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-color: #502281;
     padding: 7rem 0;
 }
 .page-title h1 {
@@ -74,6 +72,9 @@ input[type="radio"] {
     content: "/";
     display: inline-block;
     margin-left: 5px;
+}
+.breadcrumbs li:last-child:after {
+    content: '';
 }
 
 /*SECTION MARGINS AND PADDINGS*/

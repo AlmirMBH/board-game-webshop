@@ -46,7 +46,7 @@
 }
 
 .header-search-form-box {
-    padding: 40px 0 0 0;
+    padding: 25px 0 0 0;
 }
 .header-search-form-input-box {
     position: relative;
@@ -207,8 +207,8 @@
 }
 .welcome-title {
     margin-top: 80px;
-    font-size: 48px;
-    line-height: 55px;
+    font-size: 68px;
+    line-height: 72px;
 }
 .welcome-box-title h3 a {
     font-size: 36px;
@@ -241,7 +241,7 @@
 
 /* Blog Section */
 .blog {
-    background-color: #f0f2f5;
+    background-color: #32a6C5;
 }
 .blog-title {
     margin-bottom: 40px;
@@ -253,7 +253,7 @@
     padding: 10px 0;
 }
 .blog-item-img {
-    padding: 20px 0;
+    border: 4px solid #502281;
 }
 .blog-item-title {
     margin: 20px 0 0 0;
@@ -766,6 +766,10 @@ select {
 
 .address p a:hover {
     color: #e72150;
+}
+
+#video {
+    border: 4px solid #502281;
 }
 
 /* Media Query */
