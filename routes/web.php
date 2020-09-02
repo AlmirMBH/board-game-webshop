@@ -29,7 +29,7 @@ Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
 Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');
 
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
-Route::get('/verkaufsstellen', 'PagesController@outlets')->name('outlets');
+Route::get('/teilnehmende-betriebe-list', 'PagesController@outletsList')->name('outlets-list');
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');

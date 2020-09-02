@@ -60,10 +60,10 @@ class PagesController extends Controller
         return view('outlet.details', compact('place'));
     }
 
-    public function outlets()
+    public function outletsList()
     {
         $cantons = Canton::all();
-        return view('pages.outlets', compact('cantons'));
+        return view('outlet.list', compact('cantons'));
     }
 
     public function send_contact(Request $request)

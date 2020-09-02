@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
-                        <h1>Verkaufsstellen</h1>
+                        <h1>Teilnehmende Betriebe</h1>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,6 @@
                         <ul class="breadcrumbs">
                             <li>Home</li>
                             <li>Teilnehmende Betriebe</li>
-                            <li>Verkaufsstellen</li>
                         </ul>
                     </div>
                 </div>
@@ -29,9 +28,7 @@
             <div class="col-lg-8">
                 <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
                     <h4 class="alert-heading">Vor dem Start lesen!</h4>
-                    <p>Um zuerst Ihre Filialen zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Sie erhalten dann einen Tisch mit allen Filialen in der ausgewählten Stadt.</p>
-                    <hr>
-                    <p class="mb-0">Wenn Sie kein Ergebnis finden, haben wir derzeit keine Verkaufsstellen für die ausgewählte Stadt.</p>
+                    <p>Um zuerst Ihre Filialen zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen.</p>
                 </div>
                 <div class="form-group text-center pt-1">
                     <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">

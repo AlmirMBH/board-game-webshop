@@ -12,6 +12,11 @@ class Provider extends Model
 
     public function getRouteKeyName()
     {
-      return 'slug';
+        return 'slug';
+    }
+
+    public function cantons()
+    {
+        return $this->belongsToMany(Canton::class);
     }
 }
