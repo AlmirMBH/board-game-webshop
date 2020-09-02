@@ -31,12 +31,10 @@ Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('lic
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
 Route::get('/verkaufsstellen', 'PagesController@outlets')->name('outlets');
 
-<<<<<<< HEAD
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
-=======
+
 Route::get('/kontakt', 'PagesController@contact')->name('contact');
->>>>>>> a3c4cbcd693bf333e37b2b1e4e2f6d27aa004c26
 
 Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
 Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
