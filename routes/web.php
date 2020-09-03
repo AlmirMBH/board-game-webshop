@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'PagesController@home')->name('home');
 
@@ -38,3 +38,9 @@ Route::get('/kontakt', 'PagesController@contact')->name('contact');
 
 Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
 Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
+
+// ADMIN PANEL
+Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+
+Route::get('/admin/outlets', 'AdminOutletsController@index')->name('index-outlets');
+

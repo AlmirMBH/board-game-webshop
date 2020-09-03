@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
 //            CitySeeder::class,
             ProviderSeeder::class
         ]);
+        factory(Outlets::class, 100)->create();
     }
 }
