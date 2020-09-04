@@ -40,7 +40,8 @@ Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->n
 Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
 
 // ADMIN PANEL
-Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
-
-Route::get('/admin/outlets', 'AdminOutletsController@index')->name('index-outlets');
-
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::get('/admin/outlets', 'AdminOutletsController@index')->name('index-outlets');
+    Route::get('/admin/outlets/create', 'AdminOutletsController@create')->name('create-outlets');
+});

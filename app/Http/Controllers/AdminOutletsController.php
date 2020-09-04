@@ -12,4 +12,9 @@ class AdminOutletsController extends Controller
         $outlets = Outlets::all();
         return view('admin.outlets.index', compact('outlets'));
     }
+
+    public function create()
+    {
+        return view('admin.outlets.create');
+    }
 }
