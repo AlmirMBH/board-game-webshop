@@ -44,4 +44,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::get('/admin/outlets', 'AdminOutletsController@index')->name('index-outlets');
     Route::get('/admin/outlets/create', 'AdminOutletsController@create')->name('create-outlets');
+    Route::post('/admin/outlets/create', 'AdminOutletsController@store');
+    Route::get('/admin/outlets/edit/{id}', 'AdminOutletsController@edit')->name('edit-outlets');
+    Route::patch('/admin/outlets/{id}/update', 'AdminOutletsController@update')->name('update-outlets');
 });
