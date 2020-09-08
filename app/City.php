@@ -9,4 +9,9 @@ class City extends Model
     protected $guarded = [];
 
     protected $table = "cities";
+
+    public function canton()
+    {
+        return $this->belongsTo(Canton::class);
+    }
 }

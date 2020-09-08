@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+<link rel="stylesheet" href="{{asset('css/admin/toastr.min.css')}}">
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
@@ -9,6 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
+
+                        @if(Session::has('update_outlets'))
+                            <span id="update_outlets"></span>
+                        @endif
+
                         <div class="card card-secondary">
                             <div class="card-header">
                                 <h3 class="card-title">Edit</h3>
@@ -42,8 +47,6 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
-{{--                                                {!! Form::checkbox('is_availability', null, ['class' => 'custom-control-input', 'id' => 'customSwitch3']) !!}--}}
-{{--                                                {!! Form::label('customSwitch3', 'Is Available', ['class' => 'custom-control-label']) !!}--}}
                                                 <input type="checkbox" @if($outlets->is_availability == true) checked @else @endif name="is_availability" class="custom-control-input" id="customSwitch3">
                                                 <label class="custom-control-label" for="customSwitch3">Is Available</label>
                                             </div>
@@ -52,13 +55,41 @@
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-end">
+                                <button type="button" class="btn btn-danger mr-2" data-toggle="modal" data-target="#modal-default">
+                                    Delete
+                                </button>
                                 <button class="btn btn-primary">Update</button>
+
                             </div>
                             {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
+
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Are you sure you want to delete this?</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminOutletsController@destroy', $outlets->id]]) !!}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            {!! Form::close() !!}
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
         </section>
     </div>
 
@@ -67,6 +98,8 @@
 @section('script')
     <script src="{{asset('js/admin/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/admin/additional-methods.min.js')}}"></script>
+    <script src="{{asset('js/admin/sweetalert2.min.js')}}"></script>
+    <script src="{{asset('js/admin/toastr.min.js')}}"></script>
     <script>
         $(document).ready(function () {
             $('#quickForm').validate({
@@ -112,6 +145,11 @@
                     $(element).removeClass('is-invalid');
                 }
             });
+
+            if ( $( "#update_outlets" ).length ) {
+                toastr.success('Update was successful.')
+            }
+
         });
     </script>
 @endsection

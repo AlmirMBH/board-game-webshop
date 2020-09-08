@@ -76,7 +76,6 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-
                     <li class="nav-item">
                         <a href="{{route('dashboard')}}" class="nav-link {{Request::segment(1) === 'dashboard' ? 'active' : null}}">
                             <i class="nav-icon fas fa-home"></i>
@@ -87,10 +86,19 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-outlets')}}" class="nav-link {{Request::segment(2 ) === 'outlets' ? 'active' : null}}">
+                        <a href="{{route('index-outlets')}}" class="nav-link {{Request::segment(2) === 'outlets' ? 'active' : null}}">
                             <i class="nav-icon fas fa-store"></i>
                             <p>
                                 Outlets
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('index-cities')}}" class="nav-link {{Request::segment(2) === 'cities' ? 'active' : null}}">
+                            <i class="nav-icon fas fa-building"></i>
+                            <p>
+                                Cities
                             </p>
                         </a>
                     </li>

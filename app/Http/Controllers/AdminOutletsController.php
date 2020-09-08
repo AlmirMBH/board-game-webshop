@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Outlets;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class AdminOutletsController extends Controller
@@ -28,9 +29,14 @@ class AdminOutletsController extends Controller
         return view('admin.outlets.edit', compact('outlets', 'cities'));
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-
+        $input = $request->all();
+        $input = $this->isAvailable($input);
+        $outlets = Outlets::findOrFail($id);
+        $outlets->update($input);
+        Session::flash('update_outlets', 'Update was successful');
+        return redirect()->back();
     }
 
     public function store(Request $request)
@@ -54,5 +60,26 @@ class AdminOutletsController extends Controller
         ]);
 
         return redirect('/admin/outlets');
+    }
+
+    public function destroy($id)
+    {
+        $outlets = Outlets::findOrFail($id);
+        $outlets->delete();
+        return redirect('/admin/outlets');
+    }
+
+    /**
+     * @param array $input
+     * @return array
+     */
+    public function isAvailable(array $input): array
+    {
+        if (isset($input['is_availability'])) {
+            $input['is_availability'] = true;
+        } else {
+            $input['is_availability'] = false;
+        }
+        return $input;
     }
 }

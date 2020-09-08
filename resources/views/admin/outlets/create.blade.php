@@ -15,6 +15,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+                                @if(count($cities) > 0)
                                 {!! Form::open(['method'=>'POST', 'action'=>'AdminOutletsController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -51,6 +52,9 @@
                                 <button class="btn btn-primary">Submit</button>
                             </div>
                             {!! Form::close() !!}
+                            @else
+                                <p>There are currently no cities entered!</p>
+                            @endif
                         </div>
                     </div>
                 </div>

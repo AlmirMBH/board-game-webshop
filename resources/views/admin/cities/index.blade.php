@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Outlets</h1>
+                        <h1>Cities</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
@@ -29,7 +29,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Outlets with pagination</h3>
+                                <h3 class="card-title">Cities with pagination</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -37,38 +37,32 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
+                                        <th>Canton</th>
                                         <th>Is Available</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($outlets as $item)
-                                    <tr>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->address}}</td>
-                                        <td>{{$item->phone}}</td>
-                                        <td>{{$item->email}}</td>
-                                        @if($item->is_availability == 1)
-                                            <td style="color: green">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
-                                        @else
-                                            <td style="color: red">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
-                                        @endif
-                                        <td class="d-flex justify-content-center"><a href="{{route('edit-outlets', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                    @foreach($cities as $item)
+                                        <tr>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->canton->name}}</td>
+                                            @if($item->is_available == 1)
+                                                <td style="color: green">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
+                                            @else
+                                                <td style="color: red">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
+                                            @endif
+                                            <td class="d-flex justify-content-center"><a href=""><button type="button" class="btn btn-primary">View</button></a></td>
 
-                                    </tr>
+                                        </tr>
                                     @endforeach
 
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
+                                        <th>Canton</th>
                                         <th>Is Available</th>
                                         <th></th>
                                     </tr>

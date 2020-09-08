@@ -47,4 +47,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/admin/outlets/create', 'AdminOutletsController@store');
     Route::get('/admin/outlets/edit/{id}', 'AdminOutletsController@edit')->name('edit-outlets');
     Route::patch('/admin/outlets/{id}/update', 'AdminOutletsController@update')->name('update-outlets');
+    Route::delete('/admin/outlets/{id}/delete', 'AdminOutletsController@destroy');
+
+    Route::get('/admin/cities', 'AdminCitiesController@index')->name('index-cities');
 });
