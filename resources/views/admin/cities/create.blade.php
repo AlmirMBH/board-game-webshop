@@ -15,33 +15,22 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @if(count($cities) > 0)
-                                {!! Form::open(['method'=>'POST', 'action'=>'AdminOutletsController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
+                                @if(count($cantons) > 0)
+                                    {!! Form::open(['method'=>'POST', 'action'=>'AdminCitiesController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                {!! Form::label('city_id', 'City') !!}
-                                                {!! Form::select('city_id', $cities, null, ['class'=>'custom-select']) !!}
+                                                {!! Form::label('canton_id', 'Canton') !!}
+                                                {!! Form::select('canton_id', $cantons, null, ['class'=>'custom-select']) !!}
                                             </div>
                                             <div class="form-group">
                                                 <label>Name</label>
                                                 <input type="text" name="name" class="form-control">
                                             </div>
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <input type="text" name="address" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Phone</label>
-                                                <input type="text" name="phone" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" name="email" class="form-control">
-                                            </div>
+
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
-                                                    <input type="checkbox" checked name="is_availability" class="custom-control-input" id="customSwitch3">
+                                                    <input type="checkbox" checked name="is_available" class="custom-control-input" id="customSwitch3">
                                                     <label class="custom-control-label" for="customSwitch3">Is Available</label>
                                                 </div>
                                             </div>
@@ -53,7 +42,7 @@
                             </div>
                             {!! Form::close() !!}
                             @else
-                                <p>There are currently no Cities entered!</p>
+                                <p>There are currently no Cantons entered!</p>
                             @endif
                         </div>
                     </div>
@@ -71,32 +60,12 @@
         $(document).ready(function () {
             $('#quickForm').validate({
                 rules: {
-                    email: {
-                        required: true,
-                        email: true,
-                    },
                     name: {
-                        required: true,
-                    },
-                    address: {
-                        required: true,
-                    },
-                    phone: {
                         required: true,
                     },
                 },
                 messages: {
-                    email: {
-                        required: "Please enter a email address",
-                        email: "Please enter a vaild email address"
-                    },
                     name: {
-                        required: "Field is required",
-                    },
-                    address: {
-                        required: "Field is required",
-                    },
-                    phone: {
                         required: "Field is required",
                     },
                 },

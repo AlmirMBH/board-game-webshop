@@ -42,6 +42,8 @@ Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('out
 // ADMIN PANEL
 Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+
+    // OUTLETS
     Route::get('/admin/outlets', 'AdminOutletsController@index')->name('index-outlets');
     Route::get('/admin/outlets/create', 'AdminOutletsController@create')->name('create-outlets');
     Route::post('/admin/outlets/create', 'AdminOutletsController@store');
@@ -49,5 +51,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::patch('/admin/outlets/{id}/update', 'AdminOutletsController@update')->name('update-outlets');
     Route::delete('/admin/outlets/{id}/delete', 'AdminOutletsController@destroy');
 
+    // CITIES
     Route::get('/admin/cities', 'AdminCitiesController@index')->name('index-cities');
+    Route::get('/admin/cities/create', 'AdminCitiesController@create')->name('create-cities');
+    Route::post('/admin/cities/create', 'AdminCitiesController@store');
+    Route::get('/admin/cities/edit/{id}', 'AdminCitiesController@edit')->name('edit-cities');
+    Route::patch('/admin/cities/{id}/update', 'AdminCitiesController@update')->name('update-cities');
+    Route::delete('/admin/cities/{id}/delete', 'AdminCitiesController@destroy');
+
+    // PROVIDERS
+    Route::get('/admin/providers', 'AdminProvidersController@index')->name('index-providers');
+    Route::get('/admin/providers/create', 'AdminProvidersController@create')->name('create-providers');
+    Route::post('/admin/providers/create', 'AdminProvidersController@store');
 });

@@ -103,6 +103,15 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{route('index-providers')}}" class="nav-link {{Request::segment(2) === 'providers' ? 'active' : null}}">
+                            <i class="nav-icon fas fa-address-card"></i>
+                            <p>
+                                Providers
+                            </p>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

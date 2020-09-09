@@ -15,13 +15,21 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @if(count($cities) > 0)
-                                {!! Form::open(['method'=>'POST', 'action'=>'AdminOutletsController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=>'AdminProvidersController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group">
-                                                {!! Form::label('city_id', 'City') !!}
-                                                {!! Form::select('city_id', $cities, null, ['class'=>'custom-select']) !!}
+                                            <h4>Cantons</h4>
+
+                                            @foreach($cantons as $item)
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" name="canton_id[]" type="checkbox" id="customCheckbox{{$item->id}}" value="{{$item->id}}">
+                                                <label for="customCheckbox{{$item->id}}" class="custom-control-label">{{$item->name}}</label>
+                                            </div>
+                                            @endforeach
+
+                                            <div class="form-group mt-3">
+                                                <label>Company</label>
+                                                <input type="text" name="company" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label>Name</label>
@@ -36,15 +44,18 @@
                                                 <input type="text" name="phone" class="form-control">
                                             </div>
                                             <div class="form-group">
+                                                <label>Mobile</label>
+                                                <input type="text" name="mobile" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Web Url</label>
+                                                <input type="text" name="web_url" class="form-control">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" name="email" class="form-control">
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
-                                                    <input type="checkbox" checked name="is_availability" class="custom-control-input" id="customSwitch3">
-                                                    <label class="custom-control-label" for="customSwitch3">Is Available</label>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                             </div>
@@ -52,9 +63,6 @@
                                 <button class="btn btn-primary">Submit</button>
                             </div>
                             {!! Form::close() !!}
-                            @else
-                                <p>There are currently no Cities entered!</p>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -75,6 +83,9 @@
                         required: true,
                         email: true,
                     },
+                    company: {
+                        required: true,
+                    },
                     name: {
                         required: true,
                     },
@@ -82,6 +93,9 @@
                         required: true,
                     },
                     phone: {
+                        required: true,
+                    },
+                    "canton_id[]": {
                         required: true,
                     },
                 },
@@ -90,6 +104,9 @@
                         required: "Please enter a email address",
                         email: "Please enter a vaild email address"
                     },
+                    company: {
+                        required: "Field is required",
+                    },
                     name: {
                         required: "Field is required",
                     },
@@ -98,6 +115,9 @@
                     },
                     phone: {
                         required: "Field is required",
+                    },
+                    "canton_id[]": {
+                        required: "Select an option",
                     },
                 },
                 errorElement: 'span',

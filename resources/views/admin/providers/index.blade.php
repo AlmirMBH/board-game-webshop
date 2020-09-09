@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Cities</h1>
+                        <h1>Providers</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-cities')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-providers')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
                         </div>
                     </div>
                 </div>
@@ -29,31 +29,35 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Cities with pagination</h3>
+                                <h3 class="card-title">Providers with pagination</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
+                                        <th>Company</th>
                                         <th>Name</th>
-                                        <th>Canton</th>
-                                        <th>Is Available</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Mobile</th>
+                                        <th>Web Url</th>
+                                        <th>Email</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($cities as $item)
+                                    @foreach($providers as $item)
                                         <tr>
+                                            <td>{{$item->company}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->canton->name}}</td>
-                                            @if($item->is_available == 1)
-                                                <td style="color: green">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
-                                            @else
-                                                <td style="color: red">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
-                                            @endif
-                                            <td class="d-flex justify-content-center"><a href="{{route('edit-cities', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                            <td>{{$item->address}}</td>
+                                            <td>{{$item->phone}}</td>
+                                            <td>{{$item->mobile}}</td>
+                                            <td>{{$item->web_url}}</td>
+                                            <td>{{$item->email}}</td>
+                                            <td class="d-flex justify-content-center"><a href=""><button type="button" class="btn btn-primary">View</button></a></td>
 
                                         </tr>
                                     @endforeach
@@ -61,9 +65,13 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
+                                        <th>Company</th>
                                         <th>Name</th>
-                                        <th>Canton</th>
-                                        <th>Is Available</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Mobile</th>
+                                        <th>Web Url</th>
+                                        <th>Email</th>
                                         <th></th>
                                     </tr>
                                     </tfoot>
