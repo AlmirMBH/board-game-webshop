@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Canton;
+use App\Http\Requests\ContactFormRequest;
 use App\Outlets;
 use App\Provider;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -66,16 +68,17 @@ class PagesController extends Controller
         return view('outlet.list', compact('cantons'));
     }
 
-    public function send_contact(Request $request)
+    public function send_contact(ContactFormRequest $request)
     {
-        $data = $request->all();
-
-        Mail::send('email', $data, function($message) use ($data) {
-            $message->to('verkauf@rueegg-management.ch')->subject($data['email']);
-        });
-
-        //Session::flash('form_submitted', 'Form is sent!');
-        return redirect()->back();
+        $data = $request->validated();
+        try {
+            Mail::send('email', $data, function($message) use ($data) {
+                $message->to('verkauf@rueegg-management.ch')->subject($data['email']);
+            });
+            return redirect()->back()->with('success', 'Danke für deine Nachricht. Es wurde gesendet.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Beim Versuch, Ihre Nachricht zu senden, ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.');
+        }
     }
 
 }
