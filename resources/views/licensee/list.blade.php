@@ -33,7 +33,7 @@
                 <h4 class="alert-heading">Vor dem Start lesen!</h4>
                 <p>Um Ihren Lizenznehmer zuerst zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Danach erhalten Sie eine Tabelle mit allen Lizenznehmern in der ausgewählten Stadt.</p>
                 <hr>
-                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz diesen Sektor vergaben haben.</p>
+                <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz für, diesen Sektor vergaben haben.</p>
             </div>
             <div class="form-group text-center pt-1">
                 <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">
@@ -113,10 +113,10 @@
                                 '<td class="licensee-td">' + data[i].company + '</td>' +
                                 '<td class="licensee-td">' + data[i].name + '</td>' +
                                 '<td class="licensee-td">' + data[i].address + '</td>' +
-                                '<td class="licensee-td">' + data[i].phone + '</td>' +
-                                '<td class="licensee-td">' + data[i].mobile + '</td>' +
-                                '<td class="licensee-td">' + data[i].web_url + '</td>' +
-                                '<td class="licensee-td">' + data[i].email + '</td>' +
+                                '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
+                                '<td class="licensee-td"><a href="tel:' + data[i].mobile + '">' + data[i].mobile + '</a></td>' +
+                                '<td class="licensee-td"><a href="http://' + data[i].web_url + '" target="_blank">' + data[i].web_url + '</a></td>' +
+                                '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
                                 '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/lizenznehmer-details/' + data[i].slug + '">Details anzeigen</a></td>' +
                             '</tr>';
                     }
@@ -125,7 +125,7 @@
                         console.log('selektovan cc2')
                     } else {
                         if (data.length == 0) {
-                            $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber in dieser Stadt haben wir momentan keine Lizenz.</p>')
+                            $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber in diesem Sektor haben wir momentan noch keine Lizenz vergeben. <a href="mailto:verkauf@rueegg-management.ch">Interessiert?</a></p>')
                             $(".second-spinner").css('visibility', 'hidden')
                         } else {
                             $("#table").css("visibility", "visible")

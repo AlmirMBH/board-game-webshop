@@ -28,7 +28,6 @@
 <section class="licensee-section section-margin-top section-margin-bottom">
     <div class="container">
         <div class="row">
-
             <div class="col-sm-12 col-md-8">
                 <div class="licensee-text">
 
@@ -47,6 +46,13 @@
                 <div class="licensee-image">
                     <img src="{{asset('img/licenseePhoto2.png')}}" alt="">
                 </div>
+            </div>
+        </div>
+        <div class="row mt-5" style="height:1467px;">
+            <div class="col-12">
+                <object data="{{ asset('/img/pdf/Spielfeld-mit-Angaben-Feldergrössen.pdf') }}" type="application/pdf" width="100%" height="100%">
+                    This browser does not support PDFs. Please download the PDF to view it: Download PDF
+                </object>
             </div>
         </div>
     </div>
