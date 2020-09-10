@@ -33,18 +33,20 @@
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-7">
-                <div class="who-we-are-titles mt-5">
-                    <h5 class="section-strapline">Willkommen bei Gewerbe-Spiel</h5>
-                    <h2 class="section-title">Wer wir sind?</h2>
-                </div>
-                <div class="who-we-are-text">
-                    <p>Die Rüegg Management GmbH. wurde im 2003 von mir (Thomas Rüegg) gegründet.</p>
-                    <p>Im Jahr 2020 kam mir dann die Idee des GEWERBE-SPIEL und zusammen mit meinen 2 Kindern und meiner Partnerin begann die intensive Entwicklung dieses interessanten und spannenden Gesellschaftsspiels.</p>
-                    <p>An dieser Stelle möchte ich mich gerne für die Hilfe und Unterstützung bedanken. Ich bin überzeugt, dass vor allem bei Familien, das GEWERBE-SPIEL gut ankommen wird und wünsche ein spannendes, handyfreies Spiel.</p>
-                </div>
-                <div class="video-arrow mt-5">
-                    <h3>Schauen Sie sich unser Video an</h3>
-                    <a href="#video" class="btn btn-lg btn-info d-inline-block w-50 video-btn"><i class="fas fa-hand-point-down fa-5x"></i></a>
+                <div class="p-5">
+                    <div class="who-we-are-titles mt-5">
+                        <h5 class="section-strapline">Willkommen bei Gewerbe-Spiel</h5>
+                        <h2 class="section-title">Wer wir sind?</h2>
+                    </div>
+                    <div class="who-we-are-text">
+                        <p>Die Rüegg Management GmbH. wurde im 2003 von mir (Thomas Rüegg) gegründet.</p>
+                        <p>Im Jahr 2020 kam mir dann die Idee des GEWERBE-SPIEL und zusammen mit meinen 2 Kindern und meiner Partnerin begann die intensive Entwicklung dieses interessanten und spannenden Gesellschaftsspiels.</p>
+                        <p>An dieser Stelle möchte ich mich gerne für die Hilfe und Unterstützung bedanken. Ich bin überzeugt, dass vor allem bei Familien, das GEWERBE-SPIEL gut ankommen wird und wünsche ein spannendes, handyfreies Spiel.</p>
+                    </div>
+                    <div class="video-arrow mt-5">
+                        <h3 class="text-center">Schauen Sie sich unser Video an</h3>
+                        <a href="#video" class="btn btn-lg btn-info d-block w-100 video-btn"><i class="fas fa-hand-point-down fa-5x"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
