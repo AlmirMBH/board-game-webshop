@@ -57,7 +57,7 @@
                                             <td>{{$item->mobile}}</td>
                                             <td>{{$item->web_url}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td class="d-flex justify-content-center"><a href=""><button type="button" class="btn btn-primary">View</button></a></td>
+                                            <td class="d-flex justify-content-center"><a href="{{route('edit-providers', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
 
                                         </tr>
                                     @endforeach
