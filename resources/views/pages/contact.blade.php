@@ -35,29 +35,45 @@
                         <h2 class="section-title">Irgendwelche Fragen?</h2>
                     </div>
                     <div class="contact-form">
-
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         {!! Form::open(['url'=>'kontakt', 'class'=>'']) !!}
                             <div class="form-group contact-field-group">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6 mt-4">
                                         <div class="form-field-name">
-                                            <input class="question-form-name form-control" type="text" name="name"
+                                            <input class="contact-form-name form-control {{ ($errors->first('name')) ? 'border-danger' : '' }}" type="text" name="name"
                                                    placeholder="Ihr Name"/>
+                                            @if ($errors)
+                                                <small class="text-danger form-text mt-1 contact-form-name-error">{{ $errors->first('name')  }}</small>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-6 mt-4">
                                         <div class="form-field-email">
-                                            <input class="question-form-email form-control" type="email"
+                                            <input class="contact-form-email form-control {{ ($errors->first('email')) ? 'border-danger' : '' }}" type="email"
                                                    name="email"
                                                    placeholder="Ihr E-Mail"/>
+                                            @if ($errors)
+                                                <small class="text-danger form-text mt-1 contact-form-email-error">{{ $errors->first('email')  }}</small>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group contact-field-group mt-4">
                                 <div class="form-field-message">
-                                    <textarea class="textarea form-control" placeholder="Nachricht"
+                                    <textarea class="textarea contact-form-comment form-control {{ ($errors->first('comment')) ? 'border-danger' : '' }}" placeholder="Nachricht"
                                               name="comment" rows="8"></textarea>
+                                    @if ($errors)
+                                        <small class="text-danger form-text mt-1 contact-form-comment-error">{{ $errors->first('comment')  }}</small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
@@ -93,4 +109,23 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('.contact-form-name').keypress(function () {
+                $('.contact-form-name').removeClass('border-danger');
+                $('.contact-form-name-error').hide(200);
+            });
+            $('.contact-form-email').keypress(function () {
+                $('.contact-form-email').removeClass('border-danger');
+                $('.contact-form-email-error').hide(200);
+            });
+            $('.contact-form-comment').keypress(function () {
+                $('.contact-form-comment').removeClass('border-danger');
+                $('.contact-form-comment-error').hide(200);
+            });
+        });
+    </script>
 @endsection

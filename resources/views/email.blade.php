@@ -24,6 +24,7 @@
                 src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
             }
         }
+
         /**
          * Avoid browser level font resizing.
          * 1. Windows Mobile
@@ -36,6 +37,7 @@
             -ms-text-size-adjust: 100%; /* 1 */
             -webkit-text-size-adjust: 100%; /* 2 */
         }
+
         /**
          * Remove extra space added to tables and cells in Outlook.
          */
@@ -44,12 +46,14 @@
             mso-table-rspace: 0pt;
             mso-table-lspace: 0pt;
         }
+
         /**
          * Better fluid images in Internet Explorer.
          */
         img {
             -ms-interpolation-mode: bicubic;
         }
+
         /**
          * Remove blue links for iOS devices.
          */
@@ -61,27 +65,32 @@
             color: inherit !important;
             text-decoration: none !important;
         }
+
         /**
          * Fix centering issues in Android 4.4.
          */
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
+
         body {
             width: 100% !important;
             height: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
         }
+
         /**
          * Collapse table borders to avoid space between cells.
          */
         table {
             border-collapse: collapse !important;
         }
+
         a {
             color: #1a82e2;
         }
+
         img {
             height: auto;
             line-height: 100%;
@@ -95,8 +104,10 @@
 <body style="background-color: #e9ecef;">
 
 <!-- start preheader -->
-<div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    Ein Preheader ist der kurze Zusammenfassungstext, der der Betreffzeile folgt, wenn eine E-Mail im Posteingang angezeigt wird.
+<div class="preheader"
+     style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
+    Ein Preheader ist der kurze Zusammenfassungstext, der der Betreffzeile folgt, wenn eine E-Mail im Posteingang
+    angezeigt wird.
 </div>
 <!-- end preheader -->
 
@@ -114,8 +125,9 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="center" valign="top" style="padding: 36px 24px;">
-                        <a href="https://sendgrid.com" target="_blank" style="display: inline-block;">
-                            <img src="https://gewerbe-spiel.ch/img/logo.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+                        <a href="https://gewerbe-spiel.ch" target="_blank" style="display: inline-block;">
+                            <img src="https://gewerbe-spiel.ch/img/logo.png" alt="Logo" border="0" width="48"
+                                 style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
                         </a>
                     </td>
                 </tr>
@@ -144,15 +156,22 @@
 
                 <!-- start copy -->
                 <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        <p style="margin: 0;">{{$comment}}</p>
+                    <td align="left" bgcolor="#ffffff"
+                        style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                        <p style="margin: 0;"><strong>Name</strong></p>
                     </td>
+                    <td align="left" bgcolor="#ffffff"
+                        style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">{{$name}}</td>
                 </tr>
                 <!-- end copy -->
-
                 <!-- start copy -->
                 <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;"></td>
+                    <td align="left" bgcolor="#ffffff"
+                        style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                        <p style="margin: 0;"><strong>Nachricht</strong></p>
+                    </td>
+                    <td align="left" bgcolor="#ffffff"
+                        style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">{{$comment}}</td>
                 </tr>
                 <!-- end copy -->
 
@@ -166,42 +185,42 @@
     </tr>
     <!-- end copy block -->
 
-{{--    <!-- start footer -->--}}
-{{--    <tr>--}}
-{{--        <td align="center" bgcolor="#e9ecef" style="padding: 24px;">--}}
-{{--            <!--[if (gte mso 9)|(IE)]>--}}
-{{--            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">--}}
-{{--            <tr>--}}
-{{--                <td align="center" valign="top" width="600">--}}
-{{--            <![endif]-->--}}
-{{--            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">--}}
+    {{--    <!-- start footer -->--}}
+    {{--    <tr>--}}
+    {{--        <td align="center" bgcolor="#e9ecef" style="padding: 24px;">--}}
+    {{--            <!--[if (gte mso 9)|(IE)]>--}}
+    {{--            <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">--}}
+    {{--            <tr>--}}
+    {{--                <td align="center" valign="top" width="600">--}}
+    {{--            <![endif]-->--}}
+    {{--            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">--}}
 
-{{--                <!-- start permission -->--}}
-{{--                <tr>--}}
-{{--                    <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">--}}
-{{--                        <p style="margin: 0;">You received this email because we received a request for [type_of_action] for your account. If you didn't request [type_of_action] you can safely delete this email.</p>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--                <!-- end permission -->--}}
+    {{--                <!-- start permission -->--}}
+    {{--                <tr>--}}
+    {{--                    <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">--}}
+    {{--                        <p style="margin: 0;">You received this email because we received a request for [type_of_action] for your account. If you didn't request [type_of_action] you can safely delete this email.</p>--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <!-- end permission -->--}}
 
-{{--                <!-- start unsubscribe -->--}}
-{{--                <tr>--}}
-{{--                    <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">--}}
-{{--                        <p style="margin: 0;">To stop receiving these emails, you can <a href="http://webapp.dep" target="_blank">unsubscribe</a> at any time.</p>--}}
-{{--                        <p style="margin: 0;">Paste 1234 S. Broadway St. City, State 12345</p>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--                <!-- end unsubscribe -->--}}
+    {{--                <!-- start unsubscribe -->--}}
+    {{--                <tr>--}}
+    {{--                    <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">--}}
+    {{--                        <p style="margin: 0;">To stop receiving these emails, you can <a href="http://webapp.dep" target="_blank">unsubscribe</a> at any time.</p>--}}
+    {{--                        <p style="margin: 0;">Paste 1234 S. Broadway St. City, State 12345</p>--}}
+    {{--                    </td>--}}
+    {{--                </tr>--}}
+    {{--                <!-- end unsubscribe -->--}}
 
-{{--            </table>--}}
-{{--            <!--[if (gte mso 9)|(IE)]>--}}
-{{--            </td>--}}
-{{--            </tr>--}}
-{{--            </table>--}}
-{{--            <![endif]-->--}}
-{{--        </td>--}}
-{{--    </tr>--}}
-{{--    <!-- end footer -->--}}
+    {{--            </table>--}}
+    {{--            <!--[if (gte mso 9)|(IE)]>--}}
+    {{--            </td>--}}
+    {{--            </tr>--}}
+    {{--            </table>--}}
+    {{--            <![endif]-->--}}
+    {{--        </td>--}}
+    {{--    </tr>--}}
+    {{--    <!-- end footer -->--}}
 
 </table>
 <!-- end body -->
