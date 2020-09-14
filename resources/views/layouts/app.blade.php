@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Styles -->
+    @stack('styles')
     <link rel="stylesheet" href="{{asset('css/general.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
     <!-- Google Fonts -->
@@ -133,7 +134,7 @@
         <div class="header-bottom">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
-                    <a href="" class="navbar-brand"><img class="logo img-fluid" style="max-width: 90px; width: 100%; margin-right: 40px;" src="{{asset('img/logo.png')}}"></a>
+                    <a href="{{ url('/') }}" class="navbar-brand"><img class="logo img-fluid" style="max-width: 90px; width: 100%; margin-right: 40px;" src="{{asset('img/logo.png')}}"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
