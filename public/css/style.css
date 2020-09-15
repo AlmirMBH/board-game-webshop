@@ -772,6 +772,19 @@ select {
     border: 4px solid #502281;
 }
 
+.provider-profile-card {
+    min-height: 450px;
+}
+ul.list-group li a {
+    color: #212529;
+    transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+}
+ul.list-group li:hover a {
+    color: #502281;
+}
+
 /* Media Query */
 @media only screen and (max-width: 1200px) {
     .top-header {
