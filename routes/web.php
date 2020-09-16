@@ -24,6 +24,9 @@ Route::get('/home', 'PagesController@home')->name('home');
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
 Route::get('/web-shop', 'PagesController@webShop')->name('web-shop');
+Route::get('/web-shop/auftrag', 'PagesController@order')->name('order');
+Route::post('/web-shop/auftrag', 'PagesController@sendOrder');
+Route::get('/web-shop/auftrag/auschecken', 'PagesController@checkout')->name('checkout');
 
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
 Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');

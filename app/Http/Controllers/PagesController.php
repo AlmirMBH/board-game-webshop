@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Canton;
 use App\Http\Requests\ContactFormRequest;
+use App\Order;
 use App\Outlets;
+use App\Product;
 use App\Provider;
 use Exception;
 use Illuminate\Http\Request;
@@ -26,11 +28,41 @@ class PagesController extends Controller
 
     public function webShop()
     {
-        return view('pages.web-shop');
+        $product = Product::where('name', 'GEWERBE-SPIEL')->first();
+        return view('pages.web-shop', compact('product'));
+    }
+
+    public function order(Request $request)
+    {
+        $product = Product::where('name', 'GEWERBE-SPIEL')->first();
+        return view('pages.order', compact('product'));
+    }
+
+    public function sendOrder(Request $request)
+    {
+        $subTotal = number_format($request['price'] * $request['quantity'], 2);
+        $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 2);
+        $randomNumber = substr(str_shuffle("0123456789"), 0, 2);
+        $randomNumLet = $randomLetter . '-' . $randomNumber;
+
+        Order::create([
+            'order_id' => $randomNumLet,
+            'price' => $request['price'],
+            'quantity' => $request['quantity'],
+            'sub_total' => $subTotal
+        ]);
+
+        return redirect('/web-shop/auftrag/auschecken');
+    }
+
+    public function checkout()
+    {
+        return view('pages.checkout');
     }
 
     public function licensee()
     {
+
         return view('pages.licensee');
     }
 
