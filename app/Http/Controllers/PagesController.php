@@ -38,26 +38,41 @@ class PagesController extends Controller
         return view('pages.order', compact('product'));
     }
 
-    public function sendOrder(Request $request)
+    public function confirmOrder(Request $request)
     {
         $subTotal = number_format($request['price'] * $request['quantity'], 2);
-        $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 2);
-        $randomNumber = substr(str_shuffle("0123456789"), 0, 2);
-        $randomNumLet = $randomLetter . '-' . $randomNumber;
 
-        Order::create([
+        $randomNumLet = $this->generateOrderId();
+
+        $order = Order::create([
             'order_id' => $randomNumLet,
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal
         ]);
 
+        session()->put('order', $order);
+        session()->put('productName', $request['name']);
+        session()->save();
+
         return redirect('/web-shop/auftrag/auschecken');
     }
 
     public function checkout()
     {
-        return view('pages.checkout');
+        if (session()->get('order')) {
+            $order = session()->get('order');
+            $productName = session()->get('productName');
+            return view('pages.checkout', compact('order', 'productName'));
+        } else {
+            return redirect('/web-shop/auftrag');
+        }
+    }
+
+    public function confirmCheckout()
+    {
+        session()->forget(['order', 'productName']);
+        return redirect('/web-shop');
     }
 
     public function licensee()
@@ -111,6 +126,27 @@ class PagesController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Beim Versuch, Ihre Nachricht zu senden, ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.');
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function generateOrderId(): string
+    {
+        $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 5);
+        $randomNumber = substr(str_shuffle("0123456789"), 0, 5);
+        $randomNumLet = $randomLetter . '-' . $randomNumber;
+
+        if ($this->orderIdExists($randomNumLet)) {
+            return $this->generateOrderId();
+        }
+
+        return $randomNumLet;
+    }
+
+    public function orderIdExists($randomNumLet)
+    {
+        return Order::where('order_id', $randomNumLet)->exists();
     }
 
 }

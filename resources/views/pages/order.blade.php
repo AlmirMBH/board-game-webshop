@@ -40,9 +40,10 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
-                                    {!! Form::open(['method'=>'POST', 'action'=>'PagesController@sendOrder', 'role'=>'form', 'id'=>'quickForm']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=>'PagesController@confirmOrder', 'role'=>'form', 'id'=>'quickForm']) !!}
                                     @csrf
                                     <input type="hidden" name="price" value="{{$product->regular_price}}">
+                                    <input type="hidden" name="name" value="{{$product->name}}">
                                     <div class="product-title">
                                         <h3>{{$product->name}}</h3>
                                     </div>
