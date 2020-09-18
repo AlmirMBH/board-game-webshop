@@ -52,22 +52,22 @@ class PagesController extends Controller
             'sub_total' => $subTotal
         ]);
 
-//        session()->put('order', $order);
-//        session()->put('productName', $request['name']);
-//        session()->save();
+        session()->put('order', $order);
+        session()->put('productName', $request['name']);
+        session()->save();
 
         return redirect()->route('checkout');
     }
 
     public function checkout()
     {
-//        if (session()->get('order')) {
-//            $order = session()->get('order');
-//            $productName = session()->get('productName');
-            return view('pages.checkout');
-//        } else {
-//            return redirect('/web-shop/auftrag');
-//        }
+        if (session()->get('order')) {
+            $order = session()->get('order');
+            $productName = session()->get('productName');
+            return view('pages.checkout', compact('order', 'productName'));
+        } else {
+            return redirect('/web-shop/auftrag');
+        }
     }
 
     public function confirmCheckout(Request $request)
