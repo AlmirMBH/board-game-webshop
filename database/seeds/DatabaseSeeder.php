@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CitySeeder::class,
             ProviderSeeder::class,
-            User::class
         ]);
         factory(Outlets::class, 10)->create();
         factory(City::class,10)->create();
