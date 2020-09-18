@@ -91,16 +91,16 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="product-title">
-                                        <h3>{{$productName}}</h3>
+                                        <h3>name</h3>
                                     </div>
                                     <div class="product-price">
                                         <span class="currency">CHF</span>
-                                        <span class="price">{{$order->price}}</span>
+{{--                                        <span class="price">{{$order->price}}</span>--}}
                                     </div>
                                     <div class="product-desc">
-                                        <p>Quantity: {{$order->quantity}}</p>
+{{--                                        <p>Quantity: {{$order->quantity}}</p>--}}
                                     </div>
-                                    <p>Total: {{$order->sub_total}}</p>
+{{--                                    <p>Total: {{$order->sub_total}}</p>--}}
                                     <div class="product-btn-box">
                                         <button type="submit" class="btn product-btn">Kaufe jetzt</button>
                                     </div>

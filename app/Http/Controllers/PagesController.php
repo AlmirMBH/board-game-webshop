@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Canton;
 use App\Http\Requests\ContactFormRequest;
 use App\Order;
+use App\OrderCustomer;
 use App\Outlets;
 use App\Product;
 use App\Provider;
@@ -32,7 +33,7 @@ class PagesController extends Controller
         return view('pages.web-shop', compact('product'));
     }
 
-    public function order(Request $request)
+    public function order()
     {
         $product = Product::where('name', 'GEWERBE-SPIEL')->first();
         return view('pages.order', compact('product'));
@@ -51,26 +52,28 @@ class PagesController extends Controller
             'sub_total' => $subTotal
         ]);
 
-        session()->put('order', $order);
-        session()->put('productName', $request['name']);
-        session()->save();
+//        session()->put('order', $order);
+//        session()->put('productName', $request['name']);
+//        session()->save();
 
-        return redirect('/web-shop/auftrag/auschecken');
+        return redirect()->route('checkout');
     }
 
     public function checkout()
     {
-        if (session()->get('order')) {
-            $order = session()->get('order');
-            $productName = session()->get('productName');
-            return view('pages.checkout', compact('order', 'productName'));
-        } else {
-            return redirect('/web-shop/auftrag');
-        }
+//        if (session()->get('order')) {
+//            $order = session()->get('order');
+//            $productName = session()->get('productName');
+            return view('pages.checkout');
+//        } else {
+//            return redirect('/web-shop/auftrag');
+//        }
     }
 
-    public function confirmCheckout()
+    public function confirmCheckout(Request $request)
     {
+        $input = $request->all();
+        OrderCustomer::create($input);
         session()->forget(['order', 'productName']);
         return redirect('/web-shop');
     }
