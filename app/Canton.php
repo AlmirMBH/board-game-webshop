@@ -10,13 +10,9 @@ class Canton extends Model
 
     protected $table = "cantons";
 
+
     public function providers()
     {
         return $this->belongsToMany(Provider::class, 'canton_provider_group', 'canton_id', 'provider_id');
-    }
-
-    public function provider()
-    {
-        return $this->hasOne('App\CantonProviderGroup', 'canton_id');
     }
 }

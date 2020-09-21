@@ -26,10 +26,10 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <h4>Cantons</h4>
-                                        @foreach($cantons as $item)
+                                        @foreach($cantons as $canton)
                                             <div class="custom-control custom-checkbox">
-                                                <input @if($item->provider['canton_id'] == $item->id) checked @endif class="custom-control-input" name="canton_id[]" type="checkbox" id="customCheckbox{{$item->id}}" value="{{$item->id}}">
-                                                <label for="customCheckbox{{$item->id}}" class="custom-control-label">{{$item->name}}</label>
+                                                <input @if($provider->cantons->contains('id', $canton->id)) checked @endif class="custom-control-input" name="canton_id[]" type="checkbox" id="customCheckbox{{$canton->id}}" value="{{$canton->id}}">
+                                                <label for="customCheckbox{{$canton->id}}" class="custom-control-label">{{$canton->name}}</label>
                                             </div>
                                         @endforeach
 
