@@ -28,6 +28,7 @@ Route::get('/web-shop/auftrag', 'PagesController@order')->name('order');
 Route::post('/web-shop/auftrag/post', 'PagesController@confirmOrder');
 Route::get('/web-shop/auftrag/auschecken', 'PagesController@checkout')->name('checkout');
 Route::post('/web-shop/auftrag/auschecken/post', 'PagesController@confirmCheckout');
+Route::get('/bestellvorgang-erfolgreich', 'PagesController@orderSuccessful')->name('order-successful');
 
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
 Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');

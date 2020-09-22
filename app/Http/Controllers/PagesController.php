@@ -74,8 +74,32 @@ class PagesController extends Controller
     {
         $input = $request->all();
         OrderCustomer::create($input);
+
+        $sessionOrder = $request->session()->get('order');
+
+        $sessionData = [
+            'order_id' => $sessionOrder['order_id'],
+            'price' => $sessionOrder['price'],
+            'quantity' => $sessionOrder['quantity'],
+            'sub_total' => $sessionOrder['sub_total']
+        ];
+
+        Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
+            $message->to('your@email.com')->subject('subject');
+        });
+
         session()->forget(['order', 'productName']);
-        return redirect('/web-shop');
+        return redirect()->route('order-successful')->with('status', 'order_successful');
+    }
+
+    public function orderSuccessful()
+    {
+        if(session('status'))
+        {
+            return view('pages.order-successful');
+        }
+
+        return redirect('/');
     }
 
     public function licensee()

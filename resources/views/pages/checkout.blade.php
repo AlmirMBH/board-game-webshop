@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
-                        <h1>Webshop</h1>
+                        <h1>Auschecken</h1>
                     </div>
                 </div>
             </div>
@@ -19,6 +19,8 @@
                         <ul class="breadcrumbs">
                             <li>Home</li>
                             <li>Webshop</li>
+                            <li>Auftrag</li>
+                            <li>Auschecken</li>
                         </ul>
                     </div>
                 </div>
