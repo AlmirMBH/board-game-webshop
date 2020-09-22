@@ -57,9 +57,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="/home" class="brand-link">
-
-            <span class="brand-text font-weight-light pl-2">Home</span>
+        <a href="{{ route('home') }}" class="brand-link">
+            <span class="brand-text font-weight-light pl-2">Visit website</span>
         </a>
 
         <!-- Sidebar -->
@@ -67,7 +66,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="d-block">{{auth()->user()->name}}</a>
+                    <p class="d-block" style="color: rgba(255,255,255,.8); margin-bottom: 0;">{{auth()->user()->name}}</p>
                 </div>
             </div>
 
