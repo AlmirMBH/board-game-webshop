@@ -29,7 +29,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Providers with pagination</h3>
+                                <h3 class="card-title">Providers detail list</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

@@ -42,7 +42,7 @@
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
                                                     <input type="checkbox" checked name="is_availability" class="custom-control-input" id="customSwitch3">
-                                                    <label class="custom-control-label" for="customSwitch3">Is Available</label>
+                                                    <label class="custom-control-label" for="customSwitch3">Is Game Available</label>
                                                 </div>
                                             </div>
                                         </div>

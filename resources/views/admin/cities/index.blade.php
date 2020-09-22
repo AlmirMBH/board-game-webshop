@@ -38,7 +38,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Canton</th>
-                                        <th>Is Available</th>
+                                        <th>Is Game Available</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -63,7 +63,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Canton</th>
-                                        <th>Is Available</th>
+                                        <th>Is Game Available</th>
                                         <th></th>
                                     </tr>
                                     </tfoot>
