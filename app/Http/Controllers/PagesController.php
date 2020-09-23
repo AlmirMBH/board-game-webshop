@@ -11,6 +11,7 @@ use App\Product;
 use App\Provider;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
@@ -81,7 +82,18 @@ class PagesController extends Controller
             'order_id' => $sessionOrder['order_id'],
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
-            'sub_total' => $sessionOrder['sub_total']
+            'sub_total' => $sessionOrder['sub_total'],
+            'created_at' => $sessionOrder['created_at']->format('Y.m.d H:i:s'),
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'address' => $request['address'],
+            'company' => $request['company'],
+            'state' => $request['state'],
+            'address2' => $request['address2'],
+            'post_code' => $request['post_code'],
+            'city' => $request['city'],
+            'phone' => $request['phone'],
+            'email' => $request['email']
         ];
 
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
