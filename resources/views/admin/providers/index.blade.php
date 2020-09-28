@@ -57,9 +57,14 @@
                                             <td>{{$item->mobile}}</td>
                                             <td>{{$item->web_url}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td class="d-flex justify-content-center"><a href="{{route('edit-providers', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                            <td class="d-flex justify-content-around"><a href="{{route('edit-providers', $item->id)}}">
+                                                <button type="button" class="btn btn-primary">View</button></a>
+                                                <button type="button" data-url="{{url('/admin/providers/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
+                                                    Delete
+                                                </button></td>
 
                                         </tr>
+
                                     @endforeach
 
                                     </tbody>
@@ -86,6 +91,31 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
+
+            <div class="modal fade" id="modal-default">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Are you sure you want to delete this?</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <form action="" method="post" id="deleteForm">
+                                @csrf
+                                @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
         </section>
         <!-- /.content -->
     </div>
@@ -112,6 +142,11 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+
+            $('.delete-company').click(function () {
+                let url = $(this).attr('data-url');
+                $("#deleteForm").attr("action", url);
             });
         });
     </script>
