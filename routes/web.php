@@ -66,4 +66,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/providers/edit/{id}', 'AdminProvidersController@edit')->name('edit-providers');
     Route::patch('/admin/providers/{id}/update', 'AdminProvidersController@update')->name('update-providers');
     Route::delete('/admin/providers/{id}/delete', 'AdminProvidersController@destroy');
+
+    // PRODUCTS
+    Route::get('/admin/products', 'AdminProductsController@index')->name('index-products');
 });

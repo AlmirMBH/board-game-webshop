@@ -36,83 +36,103 @@
                         <div class="card-body product-card-body p-5">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-6">
+                                    <div class="product-title mb-5">
+                                        <h3>Zahlungsdetails</h3>
+                                    </div>
                                     {!! Form::open(['method'=>'POST', 'action'=>'PagesController@confirmCheckout', 'role'=>'form', 'id'=>'quickForm']) !!}
 
                                     <div class="form-group">
-                                        {!! Form::label('first_name', 'First Name') !!}
-                                        {!! Form::text('first_name', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('first_name', 'Vorname') !!}--}}
+                                        {!! Form::text('first_name', null, ['class'=>'form-control', 'placeholder' => 'Vorname *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('last_name', 'Last Name') !!}
-                                        {!! Form::text('last_name', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('last_name', 'Nachname') !!}--}}
+                                        {!! Form::text('last_name', null, ['class'=>'form-control', 'placeholder' => 'Nachname *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('company', 'Company') !!}
-                                        {!! Form::text('company', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('company', 'Unternehmen') !!}--}}
+                                        {!! Form::text('company', null, ['class'=>'form-control', 'placeholder' => 'Unternehmen *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('state', 'State') !!}
-                                        {!! Form::text('state', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('state', 'Staat') !!}--}}
+                                        {!! Form::text('state', null, ['class'=>'form-control', 'placeholder' => 'Staat *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('address', 'Address 1') !!}
-                                        {!! Form::text('address', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('address', 'Adresse 1') !!}--}}
+                                        {!! Form::text('address', null, ['class'=>'form-control', 'placeholder' => 'Adresse 1 *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('address2', 'Address 2') !!}
-                                        {!! Form::text('address2', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('address2', 'Adresse 2') !!}--}}
+                                        {!! Form::text('address2', null, ['class'=>'form-control', 'placeholder' => 'Adresse 2 *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('post_code', 'Post Code') !!}
-                                        {!! Form::text('post_code', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('post_code', 'Postleitzahl') !!}--}}
+                                        {!! Form::text('post_code', null, ['class'=>'form-control', 'placeholder' => 'Postleitzahl *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('city', 'City') !!}
-                                        {!! Form::text('city', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('city', 'Stadt') !!}--}}
+                                        {!! Form::text('city', null, ['class'=>'form-control', 'placeholder' => 'Stadt *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('phone', 'Phone') !!}
-                                        {!! Form::text('phone', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('phone', 'Telefon') !!}--}}
+                                        {!! Form::text('phone', null, ['class'=>'form-control', 'placeholder' => 'Telefon *']) !!}
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::label('email', 'Email') !!}
-                                        {!! Form::email('email', null, ['class'=>'form-control']) !!}
+                                        {{--{!! Form::label('email', 'Email') !!}--}}
+                                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'Email *']) !!}
                                     </div>
-
 
 
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
-                                    <div class="product-title">
-                                        <h3>name</h3>
+                                    <div class="order_review">
+                                        <div class="product-title mb-5 mt-3">
+                                            <h3>Bestellung</h3>
+                                        </div>
+                                        <div class="table-responsive order_table">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Produkt</th>
+                                                    <th>Gesamt</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Board Game <span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span></td>
+                                                    <td>{{$order->price}} CHF</td>
+                                                </tr>
+
+                                                </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th>Total</th>
+                                                    <td class="product-subtotal" style="font-weight: bold">{{$order->sub_total}} CHF</td>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                            <div class="product-btn-box">
+                                                <button type="submit" class="btn product-btn d-block w-100">Kaufe jetzt</button>
+                                            </div>
+                                        </div>
+
+
                                     </div>
-                                    <div class="product-price">
-                                        <span class="currency">CHF</span>
-                                        <span class="price">{{$order->price}}</span>
-                                    </div>
-                                    <div class="product-desc">
-                                        <p>Quantity: {{$order->quantity}}</p>
-                                    </div>
-                                    <p>Total: {{$order->sub_total}}</p>
-                                    <div class="product-btn-box">
-                                        <button type="submit" class="btn product-btn">Kaufe jetzt</button>
-                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
-                                {!! Form::close() !!}
+
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+        {{--</div>--}}
     </section>
 @endsection

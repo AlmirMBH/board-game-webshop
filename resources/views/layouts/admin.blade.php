@@ -111,6 +111,15 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{route('index-products')}}" class="nav-link {{Request::segment(2) === 'products' ? 'active' : null}}">
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <p>
+                                Products
+                            </p>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
