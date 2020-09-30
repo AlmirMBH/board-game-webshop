@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Providers</h1>
+                        <h1>Products</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{--{{route('create-providers')}}--}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-products')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
                         </div>
                     </div>
                 </div>
@@ -40,6 +40,7 @@
                                         <th>Description</th>
                                         <th>Regular price</th>
                                         <th>Discount price</th>
+                                        <th>Quantity</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
                                         <th></th>
@@ -50,14 +51,15 @@
                                     @foreach($products as $item)
                                         <tr>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->description}}</td>
+                                            <td>{{Str::limit($item->description, 100)}}</td>
                                             <td>{{$item->regular_price}}</td>
                                             <td>{{$item->discount_price}}</td>
+                                            <td>{{$item->quantity}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>{{$item->updated_at}}</td>
-                                            <td class="d-flex justify-content-around"><a href="{{--{{route('edit-providers', $item->id)}}--}}">
+                                            <td class="d-flex justify-content-around"><a href="{{route('edit-products', $item->id)}}">
                                                     <button type="button" class="btn btn-primary">View</button></a>
-                                                <button type="button" data-url="{{--{{url('/admin/providers/' . $item->id . '/delete')}}--}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
+                                                <button type="button" data-url="{{url('/admin/products/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
                                                     Delete
                                                 </button></td>
 
@@ -72,6 +74,7 @@
                                         <th>Description</th>
                                         <th>Regular price</th>
                                         <th>Discount price</th>
+                                        <th>Quantity</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
                                         <th></th>
