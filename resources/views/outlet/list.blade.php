@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
-                        <h1>Teilnehmende Betriebe</h1>
+                        <h1>Verkaufsstellen (POS)</h1>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                     <div class="breadcrumbs-box">
                         <ul class="breadcrumbs">
                             <li>Home</li>
-                            <li>Teilnehmende Betriebe</li>
+                            <li>Verkaufsstellen (POS)</li>
                         </ul>
                     </div>
                 </div>
