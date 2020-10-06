@@ -39,7 +39,7 @@
                                     <div class="product-title mb-5">
                                         <h3>Zahlungsdetails</h3>
                                     </div>
-                                    {!! Form::open(['method'=>'POST', 'action'=>'PagesController@confirmCheckout', 'role'=>'form', 'id'=>'quickForm']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=>'ShopController@confirmCheckout', 'role'=>'form', 'id'=>'quickForm']) !!}
 
                                     <div class="form-group">
                                         {{--{!! Form::label('first_name', 'Vorname') !!}--}}
@@ -108,7 +108,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game <span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span></td>
+                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span></td>
                                                     <td>{{$order->price}} CHF</td>
                                                 </tr>
 

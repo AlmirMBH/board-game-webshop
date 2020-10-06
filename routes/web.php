@@ -18,24 +18,32 @@ Route::get('/', 'PagesController@home')->name('home');
 
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
-Route::get('/web-shop', 'PagesController@webShop')->name('web-shop');
-Route::get('/web-shop/auftrag', 'PagesController@order')->name('order');
-Route::post('/web-shop/auftrag/post', 'PagesController@confirmOrder');
-Route::get('/web-shop/auftrag/auschecken', 'PagesController@checkout')->name('checkout');
-Route::post('/web-shop/auftrag/auschecken/post', 'PagesController@confirmCheckout');
-Route::get('/bestellvorgang-erfolgreich', 'PagesController@orderSuccessful')->name('order-successful');
 
+// WEB-SHOP
+Route::get('/web-shop', 'ShopController@webShop')->name('web-shop');
+Route::get('/web-shop/auftrag', 'ShopController@order')->name('order');
+Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
+Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
+Route::post('/web-shop/auftrag/auschecken/post', 'ShopController@confirmCheckout');
+Route::get('/bestellvorgang-erfolgreich', 'ShopController@orderSuccessful')->name('order-successful');
+
+// FRONTEND PAGES
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
 Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');
 
+// PARTICIPATING COMPANIES AND OUTLETS
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
-Route::get('/teilnehmende-betriebe-list', 'PagesController@outletsList')->name('outlets-list');
+// OUTLETS
+Route::get('/verkaufsstellen-list', 'PagesController@outletsList')->name('outlets-list');
+// PARTICIPATING COMPANIES
+Route::get('teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
+
+
+
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
-
 Route::get('/kontakt', 'PagesController@contact')->name('contact');
-
 Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
 Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
 
