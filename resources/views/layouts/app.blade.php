@@ -148,9 +148,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('about')}}">Über uns</a>
                             </li>
-                            {{--                            <li class="nav-item">--}}
-                            {{--                                <a class="nav-link" href="{{route('web-shop')}}">Webshop</a>--}}
-                            {{--                            </li>--}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('web-shop')}}">Webshop</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('licensee')}}">Lizenznehmer</a>
                             </li>
@@ -193,6 +193,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
+
+    <!--Almir Auftrag-->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="../../dist/js/demo.js"></script>
+
 
     @yield('script')
 </body>
