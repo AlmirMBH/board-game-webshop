@@ -140,7 +140,7 @@
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             text += "<tr>" +
-                                "<td class='licensee-td'> <a href='http://board-game.dep/details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
+                                "<td class='licensee-td'> <a href='" + base_url + "/outlet-details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
                                 "<td class='licensee-td'>" + data[i].address + "</td>" +
                                 "<td class='licensee-td'>" + data[i].phone + "</td>" +
                                 "<td class='licensee-td'>" + data[i].email + "</td>" +
