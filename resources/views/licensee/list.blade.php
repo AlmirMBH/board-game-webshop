@@ -108,6 +108,9 @@
 
                     let text = "";
                     for (let i = 0; i < data.length; i++) {
+                        if (data[i].mobile == null) {
+                            data[i].mobile = '';
+                        }
                         text +=
                             '<tr>' +
                                 '<td class="licensee-td">' + data[i].company + '</td>' +
