@@ -46,6 +46,11 @@ class PagesController extends Controller
         return view('partcompanies.list', compact('cantons'));
     }
 
+    public function participatingCompaniesDetails($slug){
+        $partcompanies = ParticipatingCompanies::where('slug', $slug)->firstOrFail();
+        return view('partcompanies.details', compact('partcompanies'));
+    }
+
     public function contact()
     {
         return view('pages.contact');

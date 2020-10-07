@@ -20,7 +20,6 @@ class CreateParticipatingCompaniesTable extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->integer('city_id')->unsigned();
-            $table->boolean('is_availability')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

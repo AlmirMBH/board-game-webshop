@@ -64,6 +64,7 @@
                         <th scope="col">Adresse</th>
                         <th scope="col">Phone</th>
                         <th scope="col">E-Mail</th>
+                        <th scope="col">Aktionen</th>
                     </tr>
                     </thead>
                     <tbody id="select-option-api-providers"></tbody>
@@ -139,20 +140,23 @@
 
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
-                            text += "<tr>" +
-                                "<td class='licensee-td'> <a href='" + base_url + "/outlet-details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
-                                "<td class='licensee-td'>" + data[i].address + "</td>" +
-                                "<td class='licensee-td'>" + data[i].phone + "</td>" +
-                                "<td class='licensee-td'>" + data[i].email + "</td>" +
-                                "</tr>";
+                            text +=
+                                "<tr>" +
+                                    "<td class='licensee-td'>" + data[i].name + '</td>' +
+                                    "<td class='licensee-td'>" + data[i].address + "</td>" +
+                                    '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
+                                    '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
+                                    '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/teilnehmende-betriebe-details/' + data[i].slug + '">Details anzeigen</a></td>' +
+                                '</tr>';
                         }
 
                         if (value == 'dada') {
                             console.log('selektovan cc2')
                         } else {
                             if (data.length == 0) {
-                                $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir haben derzeit keine Filialen in dieser Stadt.</p>')
+                                $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir haben derzeit keine Teilnehmende Betriebe in dieser Stadt.</p>')
                                 $(".second-spinner").css('visibility', 'hidden')
+                                $("#table").css("visibility", "hidden")
                             } else {
                                 $("#table").css("visibility", "visible")
                                 $("#select-option-api-providers").show().append(text)

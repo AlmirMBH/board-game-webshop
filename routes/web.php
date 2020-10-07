@@ -35,8 +35,10 @@ Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('lic
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
 // OUTLETS
 Route::get('/verkaufsstellen-list', 'PagesController@outletsList')->name('outlets-list');
+Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
 // PARTICIPATING COMPANIES
-Route::get('teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
+Route::get('/teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
+Route::get('/teilnehmende-betriebe-details/{slug}', 'PagesController@participatingCompaniesDetails')->name('partcompanies-details');
 
 
 
@@ -45,7 +47,7 @@ Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
 Route::get('/kontakt', 'PagesController@contact')->name('contact');
 Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
-Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
+
 
 // ADMIN PANEL
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -82,4 +84,37 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/products/edit/{id}', 'AdminProductsController@edit')->name('edit-products');
     Route::patch('/admin/products/{id}/update', 'AdminProductsController@update')->name('update-products');
     Route::delete('/admin/products/{id}/delete', 'AdminProductsController@destroy');
+
+    // PARTICIPATING COMPANIES
+    Route::get('/admin/participating-companies', 'AdminPartCompaniesController@index')->name('index-partcompanies');
+    Route::get('/admin/participating-companies/create', 'AdminPartCompaniesController@create')->name('create-partcompanies');
+    Route::post('/admin/participating-companies/create', 'AdminPartCompaniesController@store');
+    Route::get('/admin/participating-companies/edit/{id}', 'AdminPartCompaniesController@edit')->name('edit-partcompanies');
+    Route::patch('/admin/participating-companies/{id}/update', 'AdminPartCompaniesController@update')->name('update-partcompanies');
+    Route::delete('/admin/participating-companies/{id}/delete', 'AdminPartCompaniesController@destroy');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

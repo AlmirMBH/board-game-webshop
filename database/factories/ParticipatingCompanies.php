@@ -15,7 +15,6 @@ $factory->define(ParticipatingCompanies::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'email' => $faker->email,
         'city_id' => $faker->numberBetween(1,10),
-        'is_availability' => $faker->boolean,
         'slug' => Str::slug($companyName),
     ];
 });
