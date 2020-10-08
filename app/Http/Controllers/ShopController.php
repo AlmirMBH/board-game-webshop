@@ -79,6 +79,30 @@ class ShopController extends Controller
     public function confirmCheckout(Request $request)
     {
         $input = $request->all();
+
+        $messages = [
+            'required' => 'Dieses Feld wird benötigt',
+            'max' => 'Zeichenbegrenzung überschritten',
+            'regex' => 'Ungültige Eingabe',
+            'numeric' => 'Nur Zahlen erlaubt',
+            'alpha' => 'Nur Buchstaben erlaubt',
+            'email' => 'Falsches E-Mail-Format',
+        ];
+
+        $request->validate([
+            'first_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'last_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'company' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'state' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'address' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'address2' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'post_code' => 'required|numeric',
+            'city' => 'required|max:50|alpha',
+            'phone' => 'required|numeric',
+            'email' => 'required|max:50'
+
+        ], $messages);
+
         OrderCustomer::create($input);
 
         $sessionOrder = $request->session()->get('order');
@@ -100,6 +124,8 @@ class ShopController extends Controller
             'phone' => $request['phone'],
             'email' => $request['email']
         ];
+
+
 
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('subject');

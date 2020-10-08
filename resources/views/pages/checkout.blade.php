@@ -43,52 +43,92 @@
 
                                     <div class="form-group">
                                         {{--{!! Form::label('first_name', 'Vorname') !!}--}}
-                                        {!! Form::text('first_name', null, ['class'=>'form-control', 'placeholder' => 'Vorname *']) !!}
+                                        {!! Form::text('first_name', null, ['class' => 'form-control checkout-form' . ( $errors->has('first_name') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Vorname*']) !!}
+                                        @error('first_name')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('last_name', 'Nachname') !!}--}}
-                                        {!! Form::text('last_name', null, ['class'=>'form-control', 'placeholder' => 'Nachname *']) !!}
+                                        {!! Form::text('last_name', null, ['class'=>'form-control checkout-form' . ( $errors->has('last_name') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Nachname *']) !!}
+                                        @error('last_name')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('company', 'Unternehmen') !!}--}}
-                                        {!! Form::text('company', null, ['class'=>'form-control', 'placeholder' => 'Unternehmen *']) !!}
+                                        {!! Form::text('company', null, ['class'=>'form-control checkout-form' . ( $errors->has('company') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Unternehmen *']) !!}
+                                        @error('company')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('state', 'Staat') !!}--}}
-                                        {!! Form::text('state', null, ['class'=>'form-control', 'placeholder' => 'Staat *']) !!}
+                                        {!! Form::text('state', null, ['class'=>'form-control checkout-form' . ( $errors->has('state') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Kanton *']) !!}
+                                        @error('state')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('address', 'Adresse 1') !!}--}}
-                                        {!! Form::text('address', null, ['class'=>'form-control', 'placeholder' => 'Adresse 1 *']) !!}
+                                        {!! Form::text('address', null, ['class'=>'form-control checkout-form' . ( $errors->has('address') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Adresse 1 *']) !!}
+                                        @error('address')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('address2', 'Adresse 2') !!}--}}
-                                        {!! Form::text('address2', null, ['class'=>'form-control', 'placeholder' => 'Adresse 2 *']) !!}
+                                        {!! Form::text('address2', null, ['class'=>'form-control checkout-form' . ( $errors->has('address2') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Adresse 2 *']) !!}
+                                        @error('address2')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('post_code', 'Postleitzahl') !!}--}}
-                                        {!! Form::text('post_code', null, ['class'=>'form-control', 'placeholder' => 'Postleitzahl *']) !!}
+                                        {!! Form::text('post_code', null, ['class'=>'form-control checkout-form' . ( $errors->has('post_code') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Postleitzahl *']) !!}
+                                        @error('post_code')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('city', 'Stadt') !!}--}}
-                                        {!! Form::text('city', null, ['class'=>'form-control', 'placeholder' => 'Stadt *']) !!}
+                                        {!! Form::text('city', null, ['class'=>'form-control checkout-form' . ( $errors->has('city') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Stadt *']) !!}
+                                        @error('city')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('phone', 'Telefon') !!}--}}
-                                        {!! Form::text('phone', null, ['class'=>'form-control', 'placeholder' => 'Telefon *']) !!}
+                                        {!! Form::text('phone', null, ['class'=>'form-control checkout-form' . ( $errors->has('phone') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Telefon *']) !!}
+                                        @error('phone')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         {{--{!! Form::label('email', 'Email') !!}--}}
-                                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder' => 'Email *']) !!}
+                                        {!! Form::email('email', null, ['class'=>'form-control checkout-form' . ( $errors->has('email') ? ' required is-invalid' : '' ),
+                                        'placeholder' => 'Email *', 'oninput' => "this.setCustomValidity('')"]) !!}
+                                        @error('email')
+                                        <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
 
@@ -108,7 +148,8 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span></td>
+                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span>
+                                                    </td>
                                                     <td>{{$order->price}} CHF</td>
                                                 </tr>
 
@@ -116,12 +157,16 @@
                                                 <tfoot>
                                                 <tr>
                                                     <th>Total</th>
-                                                    <td class="product-subtotal" style="font-weight: bold">{{$order->sub_total}} CHF</td>
+                                                    <td class="product-subtotal"
+                                                        style="font-weight: bold">{{$order->sub_total}} CHF
+                                                    </td>
                                                 </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="product-btn-box">
-                                                <button type="submit" class="btn product-btn d-block w-100">Kaufe jetzt</button>
+                                                <button type="submit" class="btn product-btn d-block w-100">Jetzt
+                                                    kaufen
+                                                </button>
                                             </div>
                                         </div>
 
@@ -133,6 +178,8 @@
                             </div>
                         </div>
                     </div>
-        {{--</div>--}}
+                </div>
+            </div>
+        </div>
     </section>
 @endsection
