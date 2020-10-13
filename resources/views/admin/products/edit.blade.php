@@ -8,7 +8,7 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
 
                         @if(Session::has('update_providers'))
                             <span id="update_providers"></span>
@@ -18,47 +18,114 @@
                             <div class="card-header">
                                 <h3 class="card-title">Edit</h3>
                             </div>
+
                             <!-- /.card-header -->
-
-
                             <div class="card-body">
-                                {!! Form::model($product, ['method'=>'PATCH', 'action'=>['AdminProductsController@update', $product->id], 'role'=>'form', 'id'=>'quickForm']) !!}
+                                {!! Form::model($product, ['method'=>'PATCH', 'action'=>['AdminProductsController@update', $product->id], 'enctype' => 'multipart/form-data',
+                                'files' => 'true', 'role'=>'form', 'id'=>'quickForm']) !!}
                                 {{csrf_field()}}
-
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-group mt-3">
                                             {!! Form::label('name', 'Name') !!}
-                                            {!! Form::text('name', null, ['placeholder' => 'Product name' , 'class'=>'form-control']) !!}
+
+                                            {!! Form::text('name', $product->name, ['placeholder' => 'Product name' , 'class'=>'form-control'
+                                            . ( $errors->has('name') ? ' required is-invalid' : '')]) !!}
+
+                                            @error('name')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            {!! Form::label('description', 'Description') !!}
-                                            {!! Form::textarea('description', null, ['placeholder' => 'Product description', 'class'=>'form-control']) !!}
+                                            {!! Form::label('short_description', 'Short description') !!}
+
+                                            {!! Form::textarea('short_description', $product->short_description, ['placeholder' => 'Short description', 'class'=>'form-control'
+                                            . ( $errors->has('short_description') ? ' required is-invalid' : '')]) !!}
+
+                                            @error('short_description')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            {!! Form::label('regular_price', 'Regular price') !!}
+                                            {!! Form::label('long_description', 'Long description') !!}
+
+                                            {!! Form::textarea('long_description', $product->long_description, ['placeholder' => 'Long description', 'class'=>'form-control'
+                                            . ( $errors->has('long_description') ? ' required is-invalid' : '')]) !!}
+
+                                            @error('long_description')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label('price', 'Price') !!}
                                             <div class="input-group-append">
-                                                {!! Form::text('regular_price', null, ['placeholder' => 'Regular price', 'class'=>'form-control']) !!}
+                                                {!! Form::text('price', $product->price, ['placeholder' => 'Price', 'class'=>'form-control'
+                                                . ( $errors->has('price') ? ' required is-invalid' : '')]) !!}
                                                 <span class="input-group-text">CHF</span>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            {!! Form::label('discount_price', 'Discount price') !!}
-                                            <div class="input-group-append">
-                                                {!! Form::text('discount_price', null, ['placeholder' => 'Discount price', 'class'=>'form-control']) !!}
-                                                <span class="input-group-text">CHF</span>
-                                            </div>
+                                            @error('price')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
-
                                         <div class="form-group">
                                             {!! Form::label('quantity', 'Quantity') !!}
-                                            {!! Form::number('quantity', null, ['placeholder' => 'product quantity', 'class'=>'form-control']) !!}
+                                            {!! Form::number('quantity', $product->quantity, ['placeholder' => 'Quantity', 'class'=>'form-control'
+                                            . ( $errors->has('quantity') ? ' required is-invalid' : '')]) !!}
+
+                                            @error('quantity')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Featured image</label>
+                                            <input type="file" name="featured_image" class="form-control"
+                                                   style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px"/>
+                                            @error('featured_image')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+
+                                            @if($product->featured_image == null)
+                                                <div class="form-group mt-3">
+                                                    <img style="width: 245px; height: 200px"
+                                                         src="{{asset('img/product/imageplaceholder.png')}}"/>
+                                                </div>
+                                            @else
+                                                <div class="form-group mt-3">
+                                                    <img style="width: 245px; height: 200px"
+                                                         src="{{asset('img/product/' . $product->featured_image)}}"/>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-3">
+                                        <div class="form-group">
+                                            <label>Gallery</label>
+                                            <input type="file" name="gallery" class="form-control"
+                                                   style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px"/>
+                                            @error('gallery')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                            @if($product->gallery == null)
+                                                <div class="form-group mt-3">
+                                                    <img style="width: 245px; height: 200px"
+                                                         src="{{asset('img/product/imageplaceholder.png')}}"/>
+                                                </div>
+                                            @else
+                                                <div class="form-group mt-3">
+                                                    <img style="width: 245px; height: 200px"
+                                                         src="{{asset('img/product/' . $product->gallery)}}"/>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="card-footer d-flex justify-content-end">
                                 <button type="button" class="btn btn-danger mr-2" data-toggle="modal"
                                         data-target="#modal-default">
@@ -67,11 +134,11 @@
                                 <button class="btn btn-primary">Update</button>
                             </div>
                             {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
-
             <div class="modal fade" id="modal-default">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -82,7 +149,8 @@
                             </button>
                         </div>
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                            </button>
                             {!! Form::open(['method'=>'DELETE', 'action'=>['AdminProductsController@destroy', $product->id]]) !!}
                             <button type="submit" class="btn btn-danger">Delete</button>
                             {!! Form::close() !!}
@@ -94,7 +162,6 @@
                 <!-- /.modal-dialog -->
             </div>
             <!-- /.modal -->
-
         </section>
     </div>
 
@@ -112,13 +179,13 @@
                     name: {
                         required: true,
                     },
-                    description: {
+                    short_description: {
                         required: true,
                     },
-                    regular_price: {
+                    long_description: {
                         required: true,
                     },
-                    discount_price: {
+                    price: {
                         required: true,
                     },
                     quantity: {
@@ -127,20 +194,20 @@
                 },
                 messages: {
                     name: {
-                        required: "Please enter name",
-                        name: "Please enter a valid name"
+                        required: "Feld ist forderlich",
+                        name: "Ungültiger Name"
                     },
-                    description: {
-                        required: "Field is required",
+                    short_description: {
+                        required: "Feld ist forderlich",
                     },
-                    regular_price: {
-                        required: "Field is required",
+                    long_description: {
+                        required: "Feld ist forderlich",
                     },
-                    discount_price: {
-                        required: "Field is required",
+                    price: {
+                        required: "Feld ist forderlich",
                     },
                     quantity: {
-                        required: "Field is required",
+                        required: "Feld ist forderlich",
                     },
                 },
                 errorElement: 'span',
@@ -159,7 +226,6 @@
             if ($("#update_providers").length) {
                 toastr.success('Update was successful.')
             }
-
         });
     </script>
 @endsection

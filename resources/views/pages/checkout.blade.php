@@ -164,8 +164,7 @@
                                                 </tfoot>
                                             </table>
                                             <div class="product-btn-box">
-                                                <button type="submit" class="btn product-btn d-block w-100">Jetzt
-                                                    kaufen
+                                                <button type="submit" class="btn product-btn d-block w-100">Jetzt kaufen
                                                 </button>
                                             </div>
                                         </div>

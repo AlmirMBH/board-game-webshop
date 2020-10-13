@@ -10,4 +10,10 @@ class Product extends Model
 
     protected $guarded = [];
 
+    public $directory = '/img/product/';
+
+    public function getPathAttribute($value){
+        return $this->directory . $value;
+    }
+
 }
