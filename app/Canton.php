@@ -15,6 +15,4 @@ class Canton extends Model
     {
         return $this->belongsToMany(Provider::class, 'canton_provider_group', 'canton_id', 'provider_id');
     }
-
-
 }
