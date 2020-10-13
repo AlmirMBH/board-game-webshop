@@ -10,8 +10,8 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
 
-                        @if(Session::has('update_city'))
-                            <span id="update_outlets"></span>
+                        @if(Session::has('update_partcompanies'))
+                            <span id="update_partcompanies"></span>
                         @endif
 
                         <div class="card card-secondary">
@@ -20,26 +20,37 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                {!! Form::model($city, ['method'=>'PATCH', 'action'=>['AdminCitiesController@update', $city->id], 'role'=>'form', 'id'=>'quickForm']) !!}
+                                {!! Form::model($partcompanies, ['method'=>'PATCH', 'action'=>['AdminPartCompaniesController@update', $partcompanies->id], 'role'=>'form', 'id'=>'quickForm']) !!}
                                 {{csrf_field()}}
 
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            {!! Form::label('canton_id', 'City') !!}
-                                            {!! Form::select('canton_id', $cantons, null, ['class'=>'custom-select']) !!}
+                                            {!! Form::label('city_id', 'City') !!}
+                                            {!! Form::select('city_id', $cities, null, ['class'=>'custom-select']) !!}
                                         </div>
                                         <div class="form-group">
                                             {!! Form::label('name', 'Name') !!}
                                             {!! Form::text('name', null, ['class'=>'form-control']) !!}
                                         </div>
-
                                         <div class="form-group">
+                                            {!! Form::label('address', 'Address') !!}
+                                            {!! Form::text('address', null, ['class'=>'form-control']) !!}
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label('phone', 'Phone') !!}
+                                            {!! Form::text('phone', null, ['class'=>'form-control']) !!}
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label('email', 'Email') !!}
+                                            {!! Form::email('email', null, ['class'=>'form-control']) !!}
+                                        </div>
+                                        {{--<div class="form-group">
                                             <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
-                                                <input type="checkbox" @if($city->is_available == true) checked @else @endif name="is_available" class="custom-control-input" id="customSwitch3">
+                                                <input type="checkbox" @if($outlets->is_availability == true) checked @else @endif name="is_availability" class="custom-control-input" id="customSwitch3">
                                                 <label class="custom-control-label" for="customSwitch3">Is Game Available</label>
                                             </div>
-                                        </div>
+                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +78,7 @@
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminCitiesController@destroy', $city->id]]) !!}
+                            {!! Form::open(['method'=>'DELETE', 'action'=>['AdminPartCompaniesController@destroy', $partcompanies->id]]) !!}
                             <button type="submit" class="btn btn-danger">Delete</button>
                             {!! Form::close() !!}
 
@@ -135,10 +146,11 @@
                 }
             });
 
-            if ( $( "#update_outlets" ).length ) {
+            if ( $( "#update_partcompanies" ).length ) {
                 toastr.success('Update was successful.')
             }
 
         });
     </script>
 @endsection
+

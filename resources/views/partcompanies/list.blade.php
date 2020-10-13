@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Lizenznehmer aufgelistet')
+@section('title', 'Teilnehmende Betriebe')
 
 @section('content')
     <section class="page-banner">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
-                        <h1>Lizenznehmer aufgelistet</h1>
+                        <h1>Teilnehmende Betriebe</h1>
                     </div>
                 </div>
             </div>
@@ -17,8 +17,7 @@
                     <div class="breadcrumbs-box">
                         <ul class="breadcrumbs">
                             <li>Home</li>
-                            <li>Lizenznehmer</li>
-                            <li>Aufgelistet</li>
+                            <li>Teilnehmende Betriebe</li>
                         </ul>
                     </div>
                 </div>
@@ -27,15 +26,11 @@
     </section>
 
     <div class="container">
-        <div class="d-flex justify-content-center row mt-5">
+        <div class="d-flex justify-content-center">
             <div class="col-lg-8">
                 <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
                     <h4 class="alert-heading">Vor dem Start lesen!</h4>
-                    <p>Um Ihren Lizenznehmer zuerst zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Danach
-                        erhalten Sie eine Tabelle mit allen Lizenznehmern in der ausgewählten Stadt.</p>
-                    <hr>
-                    <p class="mb-0">Wenn Sie kein Ergebnis finden, bedeutet dies, dass wir derzeit keine Lizenz für
-                        diesen Sektor vergaben haben.</p>
+                    <p>Um zuerst Ihre Filialen zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen.</p>
                 </div>
                 <div class="form-group text-center pt-1">
                     <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">
@@ -58,22 +53,16 @@
                     <select class="form-control w-100 rounded-0 p-3" name="" id="select-option-api-cities"></select>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center mt-5">
                     <div id="no-entry-for-cities"></div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+
                 <table class="table mb-5" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">Name der Firma</th>
                         <th scope="col">Name</th>
                         <th scope="col">Adresse</th>
-                        <th scope="col">Telefon</th>
-                        <th scope="col">Mobiltelefon</th>
-                        <th scope="col">Webseite</th>
+                        <th scope="col">Phone</th>
                         <th scope="col">E-Mail</th>
                         <th scope="col">Aktionen</th>
                     </tr>
@@ -92,16 +81,57 @@
 
 @section('script')
     <script>
+
         $(document).ready(function () {
-            let base_url = '{{ url('/')  }}';
+            let base_url = '{!! url('/') !!}';
             $("#select-option-api-cantons").change(function (data) {
+                $("#select-option-api-cities").empty().hide();
+                $("#select-option-api-providers").empty().hide();
+                $("#no-entry-for-cities").css("display", "none").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir verkaufen im Moment nicht in dieser Stadt.</p>')
+                $("#table").css('visibility', 'hidden');
+                $(".first-spinner").css('visibility', 'visible');
+                $("#no-entry-for-cantons").css('visibility', 'hidden').empty();
                 let value = data.currentTarget.value
+                $.ajax({
+                    url: base_url + '/api/cities/list/' + value,
+                    data: {
+                        format: 'json'
+                    },
+                    type: 'GET',
+                    success: function (data) {
+
+                        if (data != 0) {
+                            let text = "";
+                            for (let i = 0; i < data.length; i++) {
+                                if (i == 0) {
+                                    text += "<option class='cc2' value='dada'>Wählen Sie Ihre Stadt</option>";
+                                }
+                                text += "<option class='cc' value='" + data[i].id + "'>" + data[i].name + "</option>";
+                            }
+                            $("#select-option-api-cities").show().append(text);
+
+                        } else {
+                            $("#no-entry-for-cantons").css('visibility', 'visible').append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, derzeit haben wir keine registrierten Kantone.</p>')
+                        }
+                        $(".first-spinner").css('visibility', 'hidden')
+
+                    }
+                })
+            });
+
+
+            $("#select-option-api-cities").change(function (data) {
+                let value = data.currentTarget.value
+                let valueIs = $("#select-option-api-cities").val();
+                // console.log(valueIs);
+
                 $("#select-option-api-providers").empty().hide();
                 $("#no-entry-for-cities").empty().hide();
                 $(".second-spinner").css('visibility', 'visible');
 
+
                 $.ajax({
-                    url: base_url + '/api/providers/list/' + value,
+                    url: base_url + '/api/partcompanies/list/' + value,
                     data: {
                         format: 'json'
                     },
@@ -110,19 +140,13 @@
 
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
-                            if (data[i].mobile == null) {
-                                data[i].mobile = '';
-                            }
                             text +=
-                                '<tr>' +
-                                '<td class="licensee-td">' + data[i].company + '</td>' +
-                                '<td class="licensee-td">' + data[i].name + '</td>' +
-                                '<td class="licensee-td">' + data[i].address + '</td>' +
-                                '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
-                                '<td class="licensee-td"><a href="tel:' + data[i].mobile + '">' + data[i].mobile + '</a></td>' +
-                                '<td class="licensee-td"><a href="http://' + data[i].web_url + '" target="_blank">' + data[i].web_url + '</a></td>' +
-                                '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
-                                '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/lizenznehmer-details/' + data[i].slug + '">Details anzeigen</a></td>' +
+                                "<tr>" +
+                                    "<td class='licensee-td'>" + data[i].name + '</td>' +
+                                    "<td class='licensee-td'>" + data[i].address + "</td>" +
+                                    '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
+                                    '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
+                                    '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/teilnehmende-betriebe-details/' + data[i].slug + '">Details anzeigen</a></td>' +
                                 '</tr>';
                         }
 
@@ -130,7 +154,7 @@
                             console.log('selektovan cc2')
                         } else {
                             if (data.length == 0) {
-                                $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber in diesem Sektor haben wir momentan noch keine Lizenz vergeben. <a href="mailto:verkauf@rueegg-management.ch">Interessiert?</a></p>')
+                                $("#no-entry-for-cities").css("display", "block").append('<p class="alert alert-info p-3 rounded-0">Es tut uns leid, aber wir haben derzeit keine Teilnehmende Betriebe in dieser Stadt.</p>')
                                 $(".second-spinner").css('visibility', 'hidden')
                                 $("#table").css("visibility", "hidden")
                             } else {
@@ -144,9 +168,9 @@
                     }
                 })
             });
+
+
         })
     </script>
 @endsection
-
-
 

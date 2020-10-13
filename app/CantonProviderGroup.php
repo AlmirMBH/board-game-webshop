@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class CantonProviderGroup extends Model
+class CantonProviderGroup extends Pivot
 {
     protected $table = 'canton_provider_group';
 

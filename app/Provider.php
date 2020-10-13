@@ -17,11 +17,6 @@ class Provider extends Model
 
     public function cantons()
     {
-        return $this->belongsToMany(Canton::class);
-    }
-
-    public function cantonsGroup()
-    {
-        return $this->hasMany(CantonProviderGroup::class);
+        return $this->belongsToMany(Canton::class, 'canton_provider_group', 'provider_id', 'canton_id');
     }
 }

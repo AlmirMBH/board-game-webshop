@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="participating-companies-btn mt-5">
-                        <a href="{{route('outlets-list')}}" class="btn slider-btn">Teilnehmende Betriebe</a>
-                        <a href="#" class="btn slider-btn">Verkaufsstellen (POS)</a>
+                        <a href="{{route('partcompanies-list')}}" class="btn slider-btn">Teilnehmende Betriebe</a>
+                        <a href="{{route('outlets-list')}}" class="btn slider-btn">Verkaufsstellen (POS)</a>
                     </div>
 
                 </div>

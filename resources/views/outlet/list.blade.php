@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
-                        <h1>Teilnehmende Betriebe</h1>
+                        <h1>Verkaufsstellen (POS)</h1>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                     <div class="breadcrumbs-box">
                         <ul class="breadcrumbs">
                             <li>Home</li>
-                            <li>Teilnehmende Betriebe</li>
+                            <li>Verkaufsstellen (POS)</li>
                         </ul>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             text += "<tr>" +
-                                "<td class='licensee-td'> <a href='http://board-game.dep/details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
+                                "<td class='licensee-td'> <a href='" + base_url + "/outlet-details/" + data[i].slug + "'>" + data[i].name + "</a> </td>" +
                                 "<td class='licensee-td'>" + data[i].address + "</td>" +
                                 "<td class='licensee-td'>" + data[i].phone + "</td>" +
                                 "<td class='licensee-td'>" + data[i].email + "</td>" +

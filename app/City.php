@@ -12,6 +12,6 @@ class City extends Model
 
     public function canton()
     {
-        return $this->belongsTo(Canton::class);
+        return $this->belongsTo(Canton::class, 'canton_id', 'id');
     }
 }

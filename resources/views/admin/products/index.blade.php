@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Providers</h1>
+                        <h1>Products</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-providers')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-products')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
                         </div>
                     </div>
                 </div>
@@ -29,37 +29,37 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Providers with pagination</h3>
+                                <h3 class="card-title">Products with pagination</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Company</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Mobile</th>
-                                        <th>Web Url</th>
-                                        <th>Email</th>
+                                        <th>Description</th>
+                                        <th>Regular price</th>
+                                        <th>Discount price</th>
+                                        <th>Quantity</th>
+                                        <th>Created at</th>
+                                        <th>Updated at</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($providers as $item)
+                                    @foreach($products as $item)
                                         <tr>
-                                            <td>{{$item->company}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->address}}</td>
-                                            <td>{{$item->phone}}</td>
-                                            <td>{{$item->mobile}}</td>
-                                            <td>{{$item->web_url}}</td>
-                                            <td>{{$item->email}}</td>
-                                            <td class="d-flex justify-content-around"><a href="{{route('edit-providers', $item->id)}}">
-                                                <button type="button" class="btn btn-primary">View</button></a>
-                                                <button type="button" data-url="{{url('/admin/providers/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
+                                            <td>{{Str::limit($item->description, 100)}}</td>
+                                            <td>{{$item->regular_price}}</td>
+                                            <td>{{$item->discount_price}}</td>
+                                            <td>{{$item->quantity}}</td>
+                                            <td>{{$item->created_at}}</td>
+                                            <td>{{$item->updated_at}}</td>
+                                            <td class="d-flex justify-content-around"><a href="{{route('edit-products', $item->id)}}">
+                                                    <button type="button" class="btn btn-primary">View</button></a>
+                                                <button type="button" data-url="{{url('/admin/products/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
                                                     Delete
                                                 </button></td>
 
@@ -70,13 +70,13 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>Company</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Mobile</th>
-                                        <th>Web Url</th>
-                                        <th>Email</th>
+                                        <th>Description</th>
+                                        <th>Regular price</th>
+                                        <th>Discount price</th>
+                                        <th>Quantity</th>
+                                        <th>Created at</th>
+                                        <th>Updated at</th>
                                         <th></th>
                                     </tr>
                                     </tfoot>
@@ -106,7 +106,7 @@
                             <form action="" method="post" id="deleteForm">
                                 @csrf
                                 @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
 
                         </div>

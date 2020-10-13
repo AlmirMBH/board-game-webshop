@@ -16,7 +16,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 @if(count($cities) > 0)
-                                {!! Form::open(['method'=>'POST', 'action'=>'AdminOutletsController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
+                                    {!! Form::open(['method'=>'POST', 'action'=>'AdminPartCompaniesController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
@@ -38,12 +38,6 @@
                                             <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" name="email" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch custom-switch-on-success custom-switch-off-danger">
-                                                    <input type="checkbox" checked name="is_availability" class="custom-control-input" id="customSwitch3">
-                                                    <label class="custom-control-label" for="customSwitch3">Is Game Available</label>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

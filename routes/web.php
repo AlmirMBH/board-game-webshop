@@ -12,32 +12,42 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('index');
-});
-
 Auth::routes();
 
-Route::get('/home', 'PagesController@home')->name('home');
+Route::get('/', 'PagesController@home')->name('home');
 
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
-Route::get('/web-shop', 'PagesController@webShop')->name('web-shop');
 
+// WEB-SHOP
+Route::get('/web-shop', 'ShopController@webShop')->name('web-shop');
+Route::get('/web-shop/auftrag', 'ShopController@order')->name('order');
+Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
+Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
+Route::post('/web-shop/auftrag/auschecken/post', 'ShopController@confirmCheckout');
+Route::get('/bestellvorgang-erfolgreich', 'ShopController@orderSuccessful')->name('order-successful');
+
+// FRONTEND PAGES
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
 Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('licensee-list');
 
+// PARTICIPATING COMPANIES AND OUTLETS
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
-Route::get('/teilnehmende-betriebe-list', 'PagesController@outletsList')->name('outlets-list');
+// OUTLETS
+Route::get('/verkaufsstellen-list', 'PagesController@outletsList')->name('outlets-list');
+Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
+// PARTICIPATING COMPANIES
+Route::get('/teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
+Route::get('/teilnehmende-betriebe-details/{slug}', 'PagesController@participatingCompaniesDetails')->name('partcompanies-details');
+
+
+
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
-
 Route::get('/kontakt', 'PagesController@contact')->name('contact');
-
 Route::get('/lizenznehmer-details/{slug}', 'PagesController@licenseeDetails')->name('licensee-details');
-Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
+
 
 // ADMIN PANEL
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -66,4 +76,45 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/providers/edit/{id}', 'AdminProvidersController@edit')->name('edit-providers');
     Route::patch('/admin/providers/{id}/update', 'AdminProvidersController@update')->name('update-providers');
     Route::delete('/admin/providers/{id}/delete', 'AdminProvidersController@destroy');
+
+    // PRODUCTS
+    Route::get('/admin/products', 'AdminProductsController@index')->name('index-products');
+    Route::get('/admin/products/create', 'AdminProductsController@create')->name('create-products');
+    Route::post('/admin/products/create', 'AdminProductsController@store');
+    Route::get('/admin/products/edit/{id}', 'AdminProductsController@edit')->name('edit-products');
+    Route::patch('/admin/products/{id}/update', 'AdminProductsController@update')->name('update-products');
+    Route::delete('/admin/products/{id}/delete', 'AdminProductsController@destroy');
+
+    // PARTICIPATING COMPANIES
+    Route::get('/admin/participating-companies', 'AdminPartCompaniesController@index')->name('index-partcompanies');
+    Route::get('/admin/participating-companies/create', 'AdminPartCompaniesController@create')->name('create-partcompanies');
+    Route::post('/admin/participating-companies/create', 'AdminPartCompaniesController@store');
+    Route::get('/admin/participating-companies/edit/{id}', 'AdminPartCompaniesController@edit')->name('edit-partcompanies');
+    Route::patch('/admin/participating-companies/{id}/update', 'AdminPartCompaniesController@update')->name('update-partcompanies');
+    Route::delete('/admin/participating-companies/{id}/delete', 'AdminPartCompaniesController@destroy');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

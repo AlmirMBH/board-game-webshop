@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Canton;
 use App\City;
 use App\Outlets;
+use App\ParticipatingCompanies;
 use App\Provider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,5 +31,11 @@ class PagesControllerApi extends Controller
             ->where('is_availability', true)
             ->get();
         return response()->json($outlets, Response::HTTP_OK);
+    }
+
+    public function listPartCompanies($id){
+        $partcompanies = ParticipatingCompanies::where('city_id', $id)->get();
+        return response()->json($partcompanies, response::HTTP_OK);
+
     }
 }

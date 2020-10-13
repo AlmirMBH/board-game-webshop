@@ -40,22 +40,21 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6">
                                     <div class="product-title">
-                                        <h3>GEWERBE-SPIEL</h3>
+                                        <h3>{{$product->name}}</h3>
                                     </div>
                                     <div class="product-price">
                                         <span class="currency">CHF</span>
-                                        <span class="price">29.90</span>
+                                        <span class="price">{{$product->regular_price}}</span>
                                     </div>
                                     <div class="product-desc">
-                                        <p>Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich. Wir haben die Ausführungen gemäss Kantone gegliedert. Monatlich kommen wieder neue Gemeinde/ Dörfer dazu. Gerne können Sie unseren Newsletter abonnieren (Verlinkung auf newsletter@gewerbe-spiel.ch), damit Sie nicht verpassen, wenn Ihr Dorf realisiert wird!</p>
-                                        <p>Der Preis pro Spiel beträgt Fr. 29.90 zusätzlich kommen folgende Portokosten (Paket Inland Post Economy) dazu:</p>
+                                        <p>{!! $product->description !!}</p>
                                         <ul>
                                             <li>Fr. 7.- für 1- 2 Spiele</li>
                                             <li>Ab 3 Spiele ist der Versand kostenlos!</li>
                                         </ul>
                                     </div>
                                     <div class="product-btn-box">
-                                        <a href="#" class="btn product-btn">Kaufe jetzt</a>
+                                        <a href="{{route('order')}}" class="btn product-btn">Kaufe jetzt</a>
                                     </div>
                                 </div>
                             </div>

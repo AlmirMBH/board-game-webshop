@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Cities</h1>
+                        <h1>Participating companies</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-cities')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-partcompanies')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Cities with pagination</h3>
+                                <h3 class="card-title">Participating companies with pagination</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -37,24 +37,26 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Canton</th>
-                                        <th>Is Game Available</th>
-                                        <th></th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Edit</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($cities as $item)
+                                    @foreach($partcompanies as $item)
                                         <tr>
                                             <td>{{$item->name}}</td>
-{{--                                            {{dd($item->canton->name)}}--}}
-                                            <td>{{$item->canton['name']}}</td>
-                                            @if($item->is_available == 1)
-                                                <td style="color: green">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
+                                            <td>{{$item->address}}</td>
+                                            <td>{{$item->phone}}</td>
+                                            <td>{{$item->email}}</td>
+                                           {{-- @if($item->is_availability == 1)
+                                                <td style="color: green">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
                                             @else
-                                                <td style="color: red">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
-                                            @endif
-                                            <td class="d-flex justify-content-center"><a href="{{route('edit-cities', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                                <td style="color: red">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
+                                            @endif--}}
+                                            <td class="d-flex justify-content-center"><a href="{{route('edit-partcompanies', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
 
                                         </tr>
                                     @endforeach
@@ -63,9 +65,10 @@
                                     <tfoot>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Canton</th>
-                                        <th>Is Game Available</th>
-                                        <th></th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Edit</th>
                                     </tr>
                                     </tfoot>
                                 </table>

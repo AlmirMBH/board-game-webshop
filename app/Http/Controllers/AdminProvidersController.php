@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Canton;
-use App\CantonProviderGroup;
 use App\Provider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
+use App\CantonProviderGroup;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminProvidersController extends Controller
 {
@@ -28,6 +27,7 @@ class AdminProvidersController extends Controller
     {
         $provider = Provider::findOrFail($id);
         $cantons = Canton::all();
+
         return view('admin.providers.edit', compact('provider', 'cantons'));
     }
 

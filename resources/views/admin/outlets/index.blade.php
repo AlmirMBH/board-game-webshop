@@ -40,7 +40,7 @@
                                         <th>Address</th>
                                         <th>Phone</th>
                                         <th>Email</th>
-                                        <th>Is Available</th>
+                                        <th>Is Game Available</th>
                                         <th></th>
                                     </tr>
                                     </thead>

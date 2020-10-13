@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Canton;
 use App\Http\Requests\ContactFormRequest;
+use App\Order;
+use App\OrderCustomer;
 use App\Outlets;
+use App\ParticipatingCompanies;
+use App\Product;
 use App\Provider;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
@@ -24,19 +29,26 @@ class PagesController extends Controller
         return view('pages.about');
     }
 
-    public function webShop()
-    {
-        return view('pages.web-shop');
-    }
-
     public function licensee()
     {
+
         return view('pages.licensee');
     }
 
     public function participatingCompanies()
     {
         return view('pages.participating-companies');
+    }
+
+    public function participatingCompaniesList()
+    {
+        $cantons = Canton::all();
+        return view('partcompanies.list', compact('cantons'));
+    }
+
+    public function participatingCompaniesDetails($slug){
+        $partcompanies = ParticipatingCompanies::where('slug', $slug)->firstOrFail();
+        return view('partcompanies.details', compact('partcompanies'));
     }
 
     public function contact()

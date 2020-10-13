@@ -3,6 +3,8 @@
 use App\Canton;
 use App\City;
 use App\Outlets;
+use App\ParticipatingCompanies;
+use App\Product;
 use App\Provider;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -24,5 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
         factory(Outlets::class, 10)->create();
         factory(City::class,10)->create();
+        factory(Product::class, 10)->create();
+        factory(ParticipatingCompanies::class, 10)->create();
     }
 }
