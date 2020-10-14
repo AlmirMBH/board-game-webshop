@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -137,8 +138,8 @@ class AdminProductsController extends Controller
             'long_description' => 'required|max:2000',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
-            'featured_image' => 'required|file',
-            'gallery' => 'required|file'
+//            'featured_image' => 'required|file',
+//            'gallery' => 'required|file'
         ], $messages);
 
         $name = $request->input('name');
@@ -151,10 +152,6 @@ class AdminProductsController extends Controller
         $image_name = $featured_image->getClientOriginalName();
         $featured_image->move('img/product/', time() . $image_name);
 
-        $gallery = $request->file('gallery');
-        $gallery_name = $gallery->getClientOriginalName();
-        $gallery->move('img/product/', time() . $gallery_name);
-
         $product = new Product();
         $product->name = $name;
         $product->short_description = $short_description;
@@ -162,7 +159,13 @@ class AdminProductsController extends Controller
         $product->price = floatval($string_price);
         $product->quantity = $quantity;
         $product->featured_image = time() . $image_name;
-        $product->gallery = time() . $gallery_name;
+
+
+        //GALLERY
+        $file = $request->file('file');
+        $image = time() . $file->getClientOriginalName();
+        $file->move('img/product', $image);
+        ProductGallery::create(['title' => $name, 'image' => time() . $name]);
 
         $product->save();
         return redirect()->route('index-products');
