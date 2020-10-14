@@ -92,6 +92,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/participating-companies/edit/{id}', 'AdminPartCompaniesController@edit')->name('edit-partcompanies');
     Route::patch('/admin/participating-companies/{id}/update', 'AdminPartCompaniesController@update')->name('update-partcompanies');
     Route::delete('/admin/participating-companies/{id}/delete', 'AdminPartCompaniesController@destroy');
+
+    // ORDERS
+    Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');
+    Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
 });
 
 
