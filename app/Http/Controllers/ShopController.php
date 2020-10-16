@@ -49,7 +49,7 @@ class ShopController extends Controller
     {
         $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 5);
         $randomNumber = substr(str_shuffle("0123456789"), 0, 5);
-        $randomNumLet = $randomLetter . '-' . $randomNumber;
+        $randomNumLet = strtoupper($randomLetter . '-' . $randomNumber);
 
         if ($this->orderIdExists($randomNumLet)) {
             return $this->generateOrderId();
