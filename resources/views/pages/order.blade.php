@@ -57,7 +57,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         {!! Form::open(['method'=>'POST', 'action'=>'ShopController@confirmOrder', 'role'=>'form', 'id'=>'quickForm']) !!}
                         @csrf
-                        <input type="hidden" name="price" value="{{$product->regular_price}}">
+                        <input type="hidden" name="price" value="{{$product->price}}">
                         <input type="hidden" name="name" value="{{$product->name}}">
                         <div class="product-title mt-0">
                             <h3>{{$product->name}}</h3>
@@ -80,10 +80,10 @@
                         <div class="product-price py-2 px-3">
                             <h2 class="mb-0">
                                 <span class="currency">CHF</span>
-                                <span class="price">{{$product->regular_price}}</span>
+                                <span class="price">{{$product->price}}</span>
                             </h2>
                             <h4 class="mt-0">
-                                <small>Incl. Tax: {{$product->regular_price}} </small>
+                                <small>Incl. Tax: {{$product->price}} </small>
                             </h4>
                         </div>
 

@@ -107,6 +107,9 @@ class ShopController extends Controller
 
         ], $messages);
 
+
+        $sessionOrder = $request->session()->get('order');
+
         $input['order_id'] = $sessionOrder['order_id'];
         $customer = OrderCustomer::create($input);
 
@@ -116,6 +119,20 @@ class ShopController extends Controller
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total']
+        ]);
+
+        OrderCustomer::create([
+            'order_id' => $input['order_id'],
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'address' => $input['address'],
+            'company' => $input['company'],
+            'state' => $input['state'],
+            'address2' => $input['address2'],
+            'post_code' => $input['post_code'],
+            'city' => $input['city'],
+            'phone' => $input['phone'],
+            'email' => $input['email'],
         ]);
 
         $sessionData = [
@@ -133,26 +150,31 @@ class ShopController extends Controller
             'post_code' => $request['post_code'],
             'city' => $request['city'],
             'phone' => $request['phone'],
-            'email' => $request['email']
+            'email' => $request['email'],
         ];
 
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
-            $message->to('your@email.com')->subject('subject');
+            $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
+         return redirect()->route('order-successful')->with(['status' => 'order_successful']);
 
-        session()->forget(['order', 'productName']);
-        return redirect()->route('order-successful')->with('status', 'order_successful');
     }
-
 
     public function orderSuccessful()
     {
         if(session('status'))
         {
-            return view('pages.order-successful');
+            if (session()->get('order')) {
+                $order = session()->get('order');
+                $productName = session()->get('productName');
+                session()->forget(['order', 'productName']);
+                return view('pages.order-successful', compact('order', 'productName'));
+            } else {
+                return redirect('/web-shop/auftrag/auschecken');
+            }
         }
-
         return redirect('/');
-    }
 
+
+    }
 }

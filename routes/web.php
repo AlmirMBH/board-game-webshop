@@ -1,5 +1,7 @@
 <?php
 
+use App\Product;
+use App\ProductGallery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,7 @@ Route::get('/web-shop/auftrag', 'ShopController@order')->name('order');
 Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
 Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
 Route::post('/web-shop/auftrag/auschecken/post', 'ShopController@confirmCheckout');
-Route::get('/bestellvorgang-erfolgreich', 'ShopController@orderSuccessful')->name('order-successful');
+Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');
 
 // FRONTEND PAGES
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
@@ -39,9 +41,6 @@ Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('out
 // PARTICIPATING COMPANIES
 Route::get('/teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
 Route::get('/teilnehmende-betriebe-details/{slug}', 'PagesController@participatingCompaniesDetails')->name('partcompanies-details');
-
-
-
 
 Route::get('/kontakt', 'PagesController@kontakt')->name('contact');
 Route::post('/kontakt', 'PagesController@send_contact')->name('send_contact');
@@ -92,6 +91,18 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/participating-companies/edit/{id}', 'AdminPartCompaniesController@edit')->name('edit-partcompanies');
     Route::patch('/admin/participating-companies/{id}/update', 'AdminPartCompaniesController@update')->name('update-partcompanies');
     Route::delete('/admin/participating-companies/{id}/delete', 'AdminPartCompaniesController@destroy');
+
+
+    // PRODUCT GALLERY
+    Route::get('/product-gallery', 'ProductGalleryController@index');
+    Route::post('/product-gallery/fileupload/', 'ProductGalleryController@upload');
+    Route::delete('/product-gallery/{id}', 'ProductGalleryController@destroy');
+
+//    // TEST
+//    Route::get('/test', function(){
+//        $images = ProductGallery::all();
+//        return view('admin.products.test', compact('images'));
+//    });
 
     // ORDERS
     Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');

@@ -42,9 +42,9 @@
                                     <div class="product-title">
                                         <h3>{{$product->name}}</h3>
                                     </div>
-                                    <div class="product-price">
+                                    <div class="product-price p-2">
                                         <span class="currency">CHF</span>
-                                        <span class="price">{{$product->regular_price}}</span>
+                                        <span class="price">{{$product->price}}</span>
                                     </div>
                                     <div class="product-desc">
                                         <p>{!! $product->description !!}</p>
@@ -54,7 +54,7 @@
                                         </ul>
                                     </div>
                                     <div class="product-btn-box">
-                                        <a href="{{route('order')}}" class="btn product-btn">Kaufe jetzt</a>
+                                        <a href="{{route('order')}}" class="btn product-btn">Jetzt kaufen</a>
                                     </div>
                                 </div>
                             </div>
