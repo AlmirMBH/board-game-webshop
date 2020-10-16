@@ -78,6 +78,10 @@ class ShopController extends Controller
 
     public function confirmCheckout(Request $request)
     {
+        $sessionOrder = $request->session()->get('order');
+
+        if(!$sessionOrder['order_id']) return redirect()->route('order');
+
         $input = $request->all();
 
         $messages = [
@@ -102,8 +106,6 @@ class ShopController extends Controller
             'email' => 'required|max:50'
 
         ], $messages);
-
-        $sessionOrder = $request->session()->get('order');
 
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
@@ -132,8 +134,6 @@ class ShopController extends Controller
             'phone' => $request['phone'],
             'email' => $request['email']
         ];
-
-
 
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('subject');
