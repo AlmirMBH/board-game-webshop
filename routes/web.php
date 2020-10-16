@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // ORDERS
     Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
+    Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
 });
 
 

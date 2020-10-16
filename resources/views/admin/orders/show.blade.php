@@ -148,7 +148,7 @@
                             <div class="row no-print">
                                 <div class="col-12">
                                     <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
-                                        <i class="fas fa-download"></i> Generate PDF
+                                        <i class="fas fa-download"></i> <a style="color: white;" href="{{route('generate-pdf', $order->id)}}">Generate PDF</a>
                                     </button>
                                 </div>
                             </div>
