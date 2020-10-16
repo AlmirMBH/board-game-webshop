@@ -82,6 +82,21 @@
                         </div>
                     </div>
                     <!-- ./col -->
+                    <div class="col-lg-3 col-12">
+                        <!-- small box -->
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                <h3>{{ $partcompanies }}</h3>
+
+                                <p>Participating companies</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-android-happy"></i>
+                            </div>
+                            <a href="{{ route('index-partcompanies') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
                 </div>
                 <!-- /.row -->
             </div>
