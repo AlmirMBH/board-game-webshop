@@ -30,12 +30,12 @@ class ShopController extends Controller
 
         $randomNumLet = $this->generateOrderId();
 
-        $order = Order::create([
+        $order = [
             'order_id' => $randomNumLet,
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal
-        ]);
+        ];
 
         session()->put('order', $order);
         session()->put('productName', $request['name']);
@@ -103,16 +103,24 @@ class ShopController extends Controller
 
         ], $messages);
 
-        OrderCustomer::create($input);
-
         $sessionOrder = $request->session()->get('order');
+
+        $order = Order::create([
+            'order_id' => $sessionOrder['order_id'],
+            'price' => $sessionOrder['price'],
+            'quantity' => $sessionOrder['quantity'],
+            'sub_total' => $sessionOrder['sub_total']
+        ]);
+
+        $input['order_id'] = $sessionOrder['order_id'];
+        OrderCustomer::create($input);
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total'],
-            'created_at' => $sessionOrder['created_at']->format('Y.m.d H:i:s'),
+            'created_at' => $order['created_at']->format('Y.m.d H:i:s'),
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
             'address' => $request['address'],
