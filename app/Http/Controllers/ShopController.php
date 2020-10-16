@@ -107,15 +107,16 @@ class ShopController extends Controller
 
         ], $messages);
 
+        $input['order_id'] = $sessionOrder['order_id'];
+        $customer = OrderCustomer::create($input);
+
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
+            'customer_id' => $customer->id,
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total']
         ]);
-
-        $input['order_id'] = $sessionOrder['order_id'];
-        OrderCustomer::create($input);
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
