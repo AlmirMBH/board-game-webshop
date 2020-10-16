@@ -17,7 +17,7 @@
 
 
                                 {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store', 'class' => 'dropzone',
-                                    'id' =>'my-awesome-dropzone' , 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+                                    'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
@@ -62,20 +62,20 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="form-group">
-                                                    <div class="fallback">
-                                                        <input name="file" type="file" multiple />
-                                                    </div>
-                                                <label>Featured image</label>
-                                                <input type="file" name="featured_image"
-                                                       class="form-control product-featured-image"
-                                                       style="width: 200px; height: 200px">
-                                                @error('featured_image')
-                                                <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
+{{--                                        <div class="col-sm-12 col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                    <div class="fallback">--}}
+{{--                                                        <input name="file" type="file" multiple />--}}
+{{--                                                    </div>--}}
+{{--                                                <label>Featured image</label>--}}
+{{--                                                <input type="file" name="featured_image"--}}
+{{--                                                       class="form-control product-featured-image"--}}
+{{--                                                       style="width: 200px; height: 200px">--}}
+{{--                                                @error('featured_image')--}}
+{{--                                                <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
@@ -187,5 +187,7 @@
                 closeEffect: "none"
             });
         });
+
+
     </script>
 @endsection

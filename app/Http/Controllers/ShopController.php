@@ -49,7 +49,7 @@ class ShopController extends Controller
     {
         $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 5);
         $randomNumber = substr(str_shuffle("0123456789"), 0, 5);
-        $randomNumLet = $randomLetter . '-' . $randomNumber;
+        $randomNumLet = strtoupper($randomLetter . '-' . $randomNumber);
 
         if ($this->orderIdExists($randomNumLet)) {
             return $this->generateOrderId();
@@ -103,9 +103,21 @@ class ShopController extends Controller
 
         ], $messages);
 
-        OrderCustomer::create($input);
-
         $sessionOrder = $request->session()->get('order');
+
+        OrderCustomer::create([
+            'order_id' => $input['order_id'],
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'address' => $input['address'],
+            'company' => $input['company'],
+            'state' => $input['state'],
+            'address2' => $input['address2'],
+            'post_code' => $input['post_code'],
+            'city' => $input['city'],
+            'phone' => $input['phone'],
+            'email' => $input['email'],
+        ]);
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
@@ -122,17 +134,15 @@ class ShopController extends Controller
             'post_code' => $request['post_code'],
             'city' => $request['city'],
             'phone' => $request['phone'],
-            'email' => $request['email']
+            'email' => $request['email'],
         ];
 
 
-
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
-            $message->to('your@email.com')->subject('subject');
+            $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
+         return redirect()->route('order-successful')->with(['status' => 'order_successful']);
 
-        session()->forget(['order', 'productName']);
-        return redirect()->route('order-successful')->with('status', 'order_successful');
     }
 
 
@@ -140,10 +150,21 @@ class ShopController extends Controller
     {
         if(session('status'))
         {
-            return view('pages.order-successful');
+            if (session()->get('order')) {
+                $order = session()->get('order');
+                $productName = session()->get('productName');
+                session()->forget(['order', 'productName']);
+                return view('pages.order-successful', compact('order', 'productName'));
+            } else {
+                return redirect('/web-shop/auftrag/auschecken');
+            }
         }
-
         return redirect('/');
+
+
     }
+
+
+
 
 }

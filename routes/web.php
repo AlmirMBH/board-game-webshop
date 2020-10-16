@@ -27,7 +27,7 @@ Route::get('/web-shop/auftrag', 'ShopController@order')->name('order');
 Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
 Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
 Route::post('/web-shop/auftrag/auschecken/post', 'ShopController@confirmCheckout');
-Route::get('/bestellvorgang-erfolgreich', 'ShopController@orderSuccessful')->name('order-successful');
+Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');
 
 // FRONTEND PAGES
 Route::get('/lizenznehmer', 'PagesController@licensee')->name('licensee');
@@ -94,7 +94,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // PRODUCT GALLERY
     Route::get('/product-gallery', 'ProductGalleryController@index');
-    Route::post('/product-gallery', 'ProductGalleryController@upload');
+    Route::post('/product-gallery/fileupload/', 'ProductGalleryController@upload');
     Route::delete('/product-gallery/{id}', 'ProductGalleryController@destroy');
 
     // TEST
