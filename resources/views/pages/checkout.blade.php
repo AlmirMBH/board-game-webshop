@@ -42,6 +42,9 @@
                                     {!! Form::open(['method'=>'POST', 'action'=>'ShopController@confirmCheckout', 'role'=>'form', 'id'=>'quickForm']) !!}
 
                                     <div class="form-group">
+                                        {{ Form::hidden('order_id', $order->id) }}
+                                    </div>
+                                    <div class="form-group">
                                         {{--{!! Form::label('first_name', 'Vorname') !!}--}}
                                         {!! Form::text('first_name', null, ['class' => 'form-control checkout-form' . ( $errors->has('first_name') ? ' required is-invalid' : '' ),
                                         'placeholder' => 'Vorname*']) !!}
@@ -164,8 +167,7 @@
                                                 </tfoot>
                                             </table>
                                             <div class="product-btn-box">
-                                                <button type="submit" class="btn product-btn d-block w-100">Jetzt
-                                                    kaufen
+                                                <button type="submit" class="btn product-btn d-block w-100">Jetzt kaufen
                                                 </button>
                                             </div>
                                         </div>

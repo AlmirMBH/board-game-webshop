@@ -8,42 +8,76 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="card card-secondary">
                             <div class="card-header">
-                                <h3 class="card-title">Create</h3>
+                                <h3 class="card-title">Add Product</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store']) !!}
+                                {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+                                @csrf
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" name="name" class="form-control">
+                                            @error('name')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea type="text" name="description" class="form-control"></textarea>
+                                            <label>Short description</label>
+                                            <textarea type="text" name="short_description"
+                                                      class="form-control"></textarea>
+                                            @error('short_description')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Regular price</label>
+                                            <label>Long description</label>
+                                            <textarea type="text" name="long_description"
+                                                      class="form-control"></textarea>
+                                            @error('long_description')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Price</label>
                                             <div class="input-group-append">
-                                                <input type="text" name="discount_price" class="form-control">
+                                                <input type="text" name="price" class="form-control">
                                                 <span class="input-group-text">CHF</span>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Discount price</label>
-                                            <div class="input-group-append">
-                                                <input type="text" name="discount_price" class="form-control">
-                                                <span class="input-group-text">CHF</span>
-                                            </div>
+                                            @error('price')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity</label>
                                             <input type="number" name="quantity" class="form-control">
+                                            @error('quantity')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group">
+                                            <label>Featured image</label>
+                                            <input type="file" name="featured_image"
+                                                   class="form-control product-featured-image"
+                                                   style="width: 200px; height: 200px">
+                                            @error('featured_image')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Gallery</label>
+                                            <input type="file" name="gallery"
+                                                   class="form-control product-featured-image">
+                                            @error('gallery')
+                                            <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -72,33 +106,48 @@
                     name: {
                         required: true,
                     },
-                    description: {
+                    short_description: {
                         required: true,
                     },
-                    regular_price: {
+                    long_description: {
                         required: true,
                     },
-                    discount_price: {
+                    price: {
                         required: true,
                     },
                     quantity: {
                         required: true,
                     },
+                    featured_image: {
+                        required: true,
+                    },
+                    gallery: {
+                        required: true,
+                    }
                 },
                 messages: {
                     name: {
-                        required: "Please enter name",
-                        name: "Please enter a valid name"
+                        required: "Feld ist forderlich",
+                        name: "Ungültiger Name"
                     },
-                    description: {
-                        required: "Field is required",
+                    short_description: {
+                        required: "Feld ist forderlich",
                     },
-                    regular_price: {
-                        required: "Field is required",
+                    long_description: {
+                        required: "Feld ist forderlich",
                     },
-                    discount_price: {
-                        required: "Field is required",
+                    price: {
+                        required: "Feld ist forderlich",
                     },
+                    quantity: {
+                        required: "Feld ist forderlich",
+                    },
+                    featured_image: {
+                        required: "Feld ist forderlich",
+                    },
+                    gallery: {
+                        required: "Feld ist forderlich",
+                    }
                 },
                 errorElement: 'span',
                 errorPlacement: function (error, element) {

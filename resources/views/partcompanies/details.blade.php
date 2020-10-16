@@ -10,7 +10,6 @@
                     <div class="card provider-profile-card">
                         <div class="card-header">
                             <h2>{{ $partcompanies->name }}</h2>
-                            {{--<h5 class="text-secondary">{{ $partcompanies->name }}</h5>--}}
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
@@ -20,16 +19,6 @@
                                 <li id="phone" class="list-group-item">
                                     <div class="md-v-line"></div><i class="fas fa-phone mr-5"></i><a href="tel:{{ $partcompanies->phone }}">{{ $partcompanies->phone }}</a>
                                 </li>
-                                {{--@if ($partcompanies->mobile)
-                                    <li id="mobile" class="list-group-item">
-                                        <div class="md-v-line"></div><i class="fas fa-mobile mr-5"></i><a href="tel:{{ $partcompanies->mobile }}">{{ $partcompanies->mobile }}</a>
-                                    </li>
-                                @endif
-                                @if ($partcompanies->web_url)
-                                    <li id="webUrl" class="list-group-item">
-                                        <div class="md-v-line"></div><i class="fas fa-globe mr-5"></i><a href="http://{{ $partcompanies->web_url }}" target="_blank">{{ $partcompanies->web_url }}</a>
-                                    </li>
-                                @endif--}}
                                 <li id="email" class="list-group-item">
                                     <div class="md-v-line"></div><i class="fas fa-envelope mr-5"></i><a href="mailto:{{ $partcompanies->email }}">{{ $partcompanies->email }}</a>
                                 </li>

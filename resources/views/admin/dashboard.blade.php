@@ -88,7 +88,7 @@
                             <div class="inner">
                                 <h3>{{ $partcompanies }}</h3>
 
-                                <p>Participating companies</p>
+                                <p>Participating Companies</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-android-happy"></i>

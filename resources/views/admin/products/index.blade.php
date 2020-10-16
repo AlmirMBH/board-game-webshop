@@ -36,13 +36,11 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
+                                        <th>Featured image</th>
                                         <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Regular price</th>
-                                        <th>Discount price</th>
-                                        <th>Quantity</th>
+                                        <th>Short description</th>
+                                        <th>Price</th>
                                         <th>Created at</th>
-                                        <th>Updated at</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -50,16 +48,15 @@
 
                                     @foreach($products as $item)
                                         <tr>
+                                            <td>{{$item->featured_image}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{Str::limit($item->description, 100)}}</td>
-                                            <td>{{$item->regular_price}}</td>
-                                            <td>{{$item->discount_price}}</td>
-                                            <td>{{$item->quantity}}</td>
+                                            <td>{{Str::limit($item->short_description, 100)}}</td>
+                                            <td>{{$item->price}}</td>
                                             <td>{{$item->created_at}}</td>
-                                            <td>{{$item->updated_at}}</td>
                                             <td class="d-flex justify-content-around"><a href="{{route('edit-products', $item->id)}}">
                                                     <button type="button" class="btn btn-primary">View</button></a>
-                                                <button type="button" data-url="{{url('/admin/products/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
+                                                <button type="button" data-url="{{url('/admin/products/' . $item->id . '/delete')}}"
+                                                        class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
                                                     Delete
                                                 </button></td>
 
@@ -70,13 +67,11 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
+                                        <th>Featured image</th>
                                         <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Regular price</th>
-                                        <th>Discount price</th>
-                                        <th>Quantity</th>
+                                        <th>Short description</th>
+                                        <th>Price</th>
                                         <th>Created at</th>
-                                        <th>Updated at</th>
                                         <th></th>
                                     </tr>
                                     </tfoot>

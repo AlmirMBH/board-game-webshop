@@ -10,6 +10,10 @@
     <script src="https://kit.fontawesome.com/16db9408b8.js" crossorigin="anonymous"></script>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Fancybox css -->
+    <link rel="stylesheet" href="{{asset('css/admin/jquery.fancybox.min.css')}}">
+    <!-- Dropzone css -->
+    <link rel="stylesheet" href="{{asset('css/admin/dropzone.css')}}">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{asset('css/admin/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -210,9 +214,10 @@
 <script src="{{asset('js/admin/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/admin/demo.js')}}"></script>
-<script>
-
-</script>
+<!-- Fancybox JS -->
+<script src="{{asset('js/admin/jquery.fancybox.min.js')}}"></script>
+<!-- Dropzone JS -->
+<script src="{{asset('js/admin/dropzone.js')}}"></script>
 @yield('script')
 </body>
 </html>
