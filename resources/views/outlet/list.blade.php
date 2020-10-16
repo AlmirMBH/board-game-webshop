@@ -122,7 +122,6 @@
             $("#select-option-api-cities").change(function (data) {
                 let value = data.currentTarget.value
                 let valueIs = $("#select-option-api-cities").val();
-                // console.log(valueIs);
 
                 $("#select-option-api-providers").empty().hide();
                 $("#no-entry-for-cities").empty().hide();
