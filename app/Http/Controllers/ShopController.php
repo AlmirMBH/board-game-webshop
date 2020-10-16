@@ -30,12 +30,12 @@ class ShopController extends Controller
 
         $randomNumLet = $this->generateOrderId();
 
-        $order = Order::create([
+        $order = [
             'order_id' => $randomNumLet,
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal
-        ]);
+        ];
 
         session()->put('order', $order);
         session()->put('productName', $request['name']);
@@ -78,6 +78,10 @@ class ShopController extends Controller
 
     public function confirmCheckout(Request $request)
     {
+        $sessionOrder = $request->session()->get('order');
+
+        if(!$sessionOrder['order_id']) return redirect()->route('order');
+
         $input = $request->all();
 
         $messages = [
@@ -103,7 +107,19 @@ class ShopController extends Controller
 
         ], $messages);
 
+
         $sessionOrder = $request->session()->get('order');
+
+        $input['order_id'] = $sessionOrder['order_id'];
+        $customer = OrderCustomer::create($input);
+
+        $order = Order::create([
+            'order_id' => $sessionOrder['order_id'],
+            'customer_id' => $customer->id,
+            'price' => $sessionOrder['price'],
+            'quantity' => $sessionOrder['quantity'],
+            'sub_total' => $sessionOrder['sub_total']
+        ]);
 
         OrderCustomer::create([
             'order_id' => $input['order_id'],
@@ -124,7 +140,7 @@ class ShopController extends Controller
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total'],
-            'created_at' => $sessionOrder['created_at']->format('Y.m.d H:i:s'),
+            'created_at' => $order['created_at']->format('Y.m.d H:i:s'),
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
             'address' => $request['address'],
@@ -137,14 +153,12 @@ class ShopController extends Controller
             'email' => $request['email'],
         ];
 
-
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
          return redirect()->route('order-successful')->with(['status' => 'order_successful']);
 
     }
-
 
     public function orderSuccessful()
     {
@@ -163,8 +177,4 @@ class ShopController extends Controller
 
 
     }
-
-
-
-
 }

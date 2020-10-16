@@ -151,9 +151,9 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order->quantity}}</span>
+                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
-                                                    <td>{{$order->price}} CHF</td>
+                                                    <td>{{$order['price']}} CHF</td>
                                                 </tr>
 
                                                 </tbody>
@@ -161,7 +161,7 @@
                                                 <tr>
                                                     <th>Total</th>
                                                     <td class="product-subtotal"
-                                                        style="font-weight: bold">{{$order->sub_total}} CHF
+                                                        style="font-weight: bold">{{$order['sub_total']}} CHF
                                                     </td>
                                                 </tr>
                                                 </tfoot>

@@ -136,9 +136,19 @@
                     <li class="nav-item">
                         <a href="{{route('index-products')}}"
                            class="nav-link {{Request::segment(2) === 'products' ? 'active' : null}}">
-                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <i class="nav-icon fas fa-box"></i>
                             <p>
                                 Products
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('index-orders')}}"
+                           class="nav-link {{Request::segment(2) === 'orders' ? 'active' : null}}">
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <p>
+                                Orders
                             </p>
                         </a>
                     </li>

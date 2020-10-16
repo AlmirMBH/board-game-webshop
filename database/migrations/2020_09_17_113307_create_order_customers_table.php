@@ -26,6 +26,7 @@ class CreateOrderCustomersTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->string('email');
+            $table->string('order_id');
             $table->timestamps();
         });
     }
