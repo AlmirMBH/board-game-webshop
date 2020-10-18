@@ -10,7 +10,7 @@ class AdminOrdersController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::all()->sortByDesc('id');
         return view('admin.orders.index', compact('orders'));
     }
 

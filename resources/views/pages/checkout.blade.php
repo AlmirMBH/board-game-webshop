@@ -42,7 +42,7 @@
                                     {!! Form::open(['method'=>'POST', 'action'=>'ShopController@confirmCheckout', 'role'=>'form', 'id'=>'quickForm']) !!}
 
                                     <div class="form-group">
-                                        {{ Form::hidden('order_id', $order->id) }}
+                                        {{ Form::hidden('order_id', $order['order_id']) }}
                                     </div>
                                     <div class="form-group">
                                         {{--{!! Form::label('first_name', 'Vorname') !!}--}}
