@@ -17,7 +17,7 @@
 
 
                                 {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store', 'class' => 'dropzone',
-                                    'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+                                    'enctype' => 'multipart/form-data', 'files' => true]) !!}
                                     @csrf
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
@@ -61,6 +61,9 @@
                                                 <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                                 @enderror
                                             </div>
+{{--                                            <div class="form-group">--}}
+{{--                                                <input name="file[]" type="file" multiple />--}}
+{{--                                            </div>--}}
                                         </div>
 {{--                                        <div class="col-sm-12 col-md-6">--}}
 {{--                                            <div class="form-group">--}}
@@ -186,8 +189,8 @@
                 openEffect: "none",
                 closeEffect: "none"
             });
+
+
         });
-
-
     </script>
 @endsection

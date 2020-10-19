@@ -82,7 +82,7 @@ class ShopController extends Controller
 
         if(!$sessionOrder['order_id']) return redirect()->route('order');
 
-        $input = $request->all();
+        $customerInput = $request->all();
 
         $messages = [
             'required' => 'Dieses Feld wird benötigt',
@@ -94,24 +94,23 @@ class ShopController extends Controller
         ];
 
         $request->validate([
-            'first_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'first_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u', // allows (German) letters and spaces
             'last_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'company' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'state' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'address' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'address2' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'company' => 'required|max:50|regex:/^[\pL\0-9\s\-]+$/u',  // allows (German) letters, numbers and spaces
+            'state' => 'required|max:50|alpha',
+            'address' => 'required|max:50|regex:/^[\pL\0-9\s\-]+$/u',
             'post_code' => 'required|numeric',
-            'city' => 'required|max:50|alpha',
+            'city' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
             'phone' => 'required|numeric',
-            'email' => 'required|max:50'
+            'email' => 'required|email|max:50'
 
         ], $messages);
 
+        $customerInput['order_id'] = $sessionOrder['order_id'];
 
-        $sessionOrder = $request->session()->get('order');
+        $customer = OrderCustomer::create($customerInput);
 
-        $input['order_id'] = $sessionOrder['order_id'];
-        $customer = OrderCustomer::create($input);
+        session()->forget('order');
 
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
@@ -121,19 +120,7 @@ class ShopController extends Controller
             'sub_total' => $sessionOrder['sub_total']
         ]);
 
-        OrderCustomer::create([
-            'order_id' => $input['order_id'],
-            'first_name' => $input['first_name'],
-            'last_name' => $input['last_name'],
-            'address' => $input['address'],
-            'company' => $input['company'],
-            'state' => $input['state'],
-            'address2' => $input['address2'],
-            'post_code' => $input['post_code'],
-            'city' => $input['city'],
-            'phone' => $input['phone'],
-            'email' => $input['email'],
-        ]);
+        session()->put('order', $order);
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
@@ -156,8 +143,8 @@ class ShopController extends Controller
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
-         return redirect()->route('order-successful')->with(['status' => 'order_successful']);
 
+        return redirect()->route('order-successful')->with(['status' => 'order_successful']);
     }
 
     public function orderSuccessful()
@@ -166,9 +153,10 @@ class ShopController extends Controller
         {
             if (session()->get('order')) {
                 $order = session()->get('order');
+                $customer = OrderCustomer::findOrFail($order->customer_id);
                 $productName = session()->get('productName');
-                session()->forget(['order', 'productName']);
-                return view('pages.order-successful', compact('order', 'productName'));
+                //session()->forget(['order', 'productName']);
+                return view('pages.order-successful', compact('order', 'productName', 'customer'));
             } else {
                 return redirect('/web-shop/auftrag/auschecken');
             }

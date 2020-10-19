@@ -125,8 +125,7 @@ class AdminProductsController extends Controller
 
     public function store(Request $request)
     {
-        $file = $request->allFiles('file');
-
+        $file = $request->file('file');
 
 
         $messages = [
