@@ -35,6 +35,6 @@ class PDFController extends Controller
 
         $pdf = PDF::loadView('generate_pdf', $data);
 
-        return $pdf->download('fileTest.pdf');
+        return $pdf->download($data['first_name'] . '_' . $data['last_name'] . '.pdf');
     }
 }
