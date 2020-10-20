@@ -11,11 +11,6 @@
                     <div class="col-sm-6">
                         <h1>Orders</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="float-sm-right">
-                            <a href="#"><button type="button" class="btn btn-block btn-primary">Add</button></a>
-                        </div>
-                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>

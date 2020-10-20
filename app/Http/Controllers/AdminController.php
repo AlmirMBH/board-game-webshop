@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Order;
 use App\Outlets;
 use App\ParticipatingCompanies;
 use App\Product;
@@ -18,7 +19,8 @@ class AdminController extends Controller
         $cities = City::all()->count();
         $products = Product::all()->count();
         $partcompanies = ParticipatingCompanies::all()->count();
+        $orders = Order::all()->count();
 
-        return view('admin.dashboard', compact('providers', 'outlets', 'cities', 'products', 'partcompanies'));
+        return view('admin.dashboard', compact('providers', 'outlets', 'cities', 'products', 'partcompanies', 'orders'));
     }
 }
