@@ -15,9 +15,8 @@ class CreateProductGalleriesTable extends Migration
     {
         Schema::create('product_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->integer('product_id');
+            $table->string('image')->nullable();
+            $table->unsignedInteger('product_id');
             $table->timestamps();
         });
     }

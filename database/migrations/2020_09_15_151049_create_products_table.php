@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->decimal('price');
             $table->integer('quantity');
             $table->string('featured_image');
-            $table->string('gallery');
             $table->timestamps();
         });
     }

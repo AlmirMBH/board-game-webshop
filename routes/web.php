@@ -92,22 +92,27 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::patch('/admin/participating-companies/{id}/update', 'AdminPartCompaniesController@update')->name('update-partcompanies');
     Route::delete('/admin/participating-companies/{id}/delete', 'AdminPartCompaniesController@destroy');
 
-
-    // PRODUCT GALLERY
-    Route::get('/product-gallery', 'ProductGalleryController@index');
-    Route::post('/product-gallery/fileupload/', 'ProductGalleryController@upload');
-    Route::delete('/product-gallery/{id}', 'ProductGalleryController@destroy');
-
-//    // TEST
-//    Route::get('/test', function(){
-//        $images = ProductGallery::all();
-//        return view('admin.products.test', compact('images'));
-//    });
-
     // ORDERS
     Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
     Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
+
+    // PRODUCT GALLERY (PACKAGE)
+    /*Route::get('/product-gallery', 'ProductGalleryController@index');
+    Route::post('/product-gallery/fileupload/', 'ProductGalleryController@upload');
+    Route::delete('/product-gallery/{id}', 'ProductGalleryController@destroy');*/
+
+
+
+    // MY GALLERY
+   /* Route::get('/gallery/list', 'ProductGalleryController@viewGalleryList');
+    Route::post('/gallery/save', 'ProductGalleryController@saveGallery');
+    Route::get('/gallery/view/{id}', 'ProductGalleryController@viewGalleryPics')->name('single-gallery');
+    Route::post('/image/do-upload', 'ProductGalleryController@doImageUpload');*/
+
+
+
+
 });
 
 

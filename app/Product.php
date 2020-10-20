@@ -17,10 +17,9 @@ class Product extends Model // Authenticatable
         return $this->directory . $value;
     }
 
-    public function galleries()
+    public function product_galleries()
     {
-        return $this->hasOne('App\ProductGallery');
-
+        return $this->hasMany(ProductGallery::class);
     }
 
 }
