@@ -155,7 +155,7 @@ class ShopController extends Controller
                 $order = session()->get('order');
                 $customer = OrderCustomer::findOrFail($order->customer_id);
                 $productName = session()->get('productName');
-                //session()->forget(['order', 'productName']);
+                session()->forget(['order', 'productName']);
                 return view('pages.order-successful', compact('order', 'productName', 'customer'));
             } else {
                 return redirect('/web-shop/auftrag/auschecken');
