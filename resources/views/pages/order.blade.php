@@ -36,21 +36,13 @@
                         <div class="product-image-box">
                             <img src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="">
                         </div>
-                        <div class="col-12 p-0 product-image-thumbs">
-                            <div class="product-image-thumb active"><img
-                                    src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Product Image">
-                            </div>
-                            <div class="product-image-thumb"><img
-                                    src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Product Image">
-                            </div>
-                            <div class="product-image-thumb"><img
-                                    src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Product Image">
-                            </div>
-                            <div class="product-image-thumb"><img
-                                    src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Product Image">
-                            </div>
-                            <div class="product-image-thumb"><img
-                                    src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Product Image">
+                        <div class="col-12 p-0 product-image-thumbs d-flex justify-content-around">
+                            <div class="form-group">
+
+                                {{--PLACE THE FOREACH LOOP BELOW IN A CAROUSEL--}}
+                                @foreach($product->product_galleries as $item)
+                                    <img src="{{asset('img/product/' . $item->image)}}" style="width: 108px; margin-bottom: 20px; display: inline-block">
+                                @endforeach
                             </div>
                         </div>
                     </div>

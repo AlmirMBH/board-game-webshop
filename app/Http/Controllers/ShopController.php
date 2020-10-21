@@ -16,36 +16,45 @@ class ShopController extends Controller
         return view('pages.web-shop', compact('product'));
     }
 
+
     public function order()
     {
         $product = Product::where('name', 'GEWERBE-SPIEL')->first();
         return view('pages.order', compact('product'));
     }
 
+
     public function confirmOrder(Request $request)
     {
         $subTotal = number_format($request['price'] * $request['quantity'], 2);
+
         $randomNumLet = $this->generateOrderId();
+
         $order = [
             'order_id' => $randomNumLet,
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal
         ];
+
         session()->put('order', $order);
         session()->put('productName', $request['name']);
         session()->save();
+
         return redirect()->route('checkout');
     }
+
 
     public function generateOrderId(): string
     {
         $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 5);
         $randomNumber = substr(str_shuffle("0123456789"), 0, 5);
         $randomNumLet = strtoupper($randomLetter . '-' . $randomNumber);
+
         if ($this->orderIdExists($randomNumLet)) {
             return $this->generateOrderId();
         }
+
         return $randomNumLet;
     }
 
@@ -53,6 +62,7 @@ class ShopController extends Controller
     {
         return Order::where('order_id', $randomNumLet)->exists();
     }
+
 
     public function checkout()
     {
@@ -65,11 +75,15 @@ class ShopController extends Controller
         }
     }
 
+
     public function confirmCheckout(Request $request)
     {
         $sessionOrder = $request->session()->get('order');
-        if (!$sessionOrder['order_id']) return redirect()->route('order');
+
+        if(!$sessionOrder['order_id']) return redirect()->route('order');
+
         $customerInput = $request->all();
+
         $messages = [
             'required' => 'Dieses Feld wird benötigt',
             'max' => 'Zeichenbegrenzung überschritten',
@@ -78,20 +92,22 @@ class ShopController extends Controller
             'alpha' => 'Nur Buchstaben erlaubt',
             'email' => 'Falsches E-Mail-Format',
         ];
+
         $request->validate([
-            'first_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
+            'first_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u', // allows (German) letters and spaces
             'last_name' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-            'company' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'state' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'address' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
-            'address2' => 'required|max:50|regex:/(^[A-Za-z0-9 ]+$)+/',
+            'company' => 'required|max:50|regex:/^[\pL\0-9\s\-]+$/u',  // allows (German) letters, numbers and spaces
+            'state' => 'required|max:50|alpha',
+            'address' => 'required|max:50|regex:/^[\pL\0-9\s\-]+$/u',
             'post_code' => 'required|numeric',
-            'city' => 'required|max:50|alpha',
+            'city' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
             'phone' => 'required|numeric',
-            'email' => 'required|max:50'
+            'email' => 'required|email|max:50'
+
         ], $messages);
 
         $customerInput['order_id'] = $sessionOrder['order_id'];
+
         $customer = OrderCustomer::create($customerInput);
 
         session()->forget('order');
@@ -124,7 +140,7 @@ class ShopController extends Controller
             'email' => $request['email'],
         ];
 
-        Mail::send('order-email', ['sessionData' => $sessionData], function ($message) use ($sessionData) {
+        Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
 
@@ -133,7 +149,8 @@ class ShopController extends Controller
 
     public function orderSuccessful()
     {
-        if (session('status')) {
+        if(session('status'))
+        {
             if (session()->get('order')) {
                 $order = session()->get('order');
                 $customer = OrderCustomer::findOrFail($order->customer_id);
@@ -145,5 +162,7 @@ class ShopController extends Controller
             }
         }
         return redirect('/');
+
+
     }
 }

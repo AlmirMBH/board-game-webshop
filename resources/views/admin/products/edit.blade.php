@@ -87,7 +87,6 @@
                                             @error('featured_image')
                                             <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                             @enderror
-
                                             @if($product->featured_image == null)
                                                 <div class="form-group mt-3">
                                                     <img style="width: 245px; height: 200px"
@@ -105,20 +104,21 @@
                                     <div class="col-sm-12 col-md-3">
                                         <div class="form-group">
                                             <label>Gallery</label>
-                                            <input type="file" name="gallery" class="form-control"
+                                            <input type="file" name="gallery[]" multiple="true" class="form-control"
                                                    style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px"/>
                                             @error('gallery')
                                             <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                             @enderror
-                                            @if($product->gallery == null)
+                                            @if($product->product_galleries == null)
                                                 <div class="form-group mt-3">
                                                     <img style="width: 245px; height: 200px"
                                                          src="{{asset('img/product/imageplaceholder.png')}}"/>
                                                 </div>
                                             @else
                                                 <div class="form-group mt-3">
-                                                    <img style="width: 245px; height: 200px"
-                                                         src="{{asset('img/product/' . $product->gallery)}}"/>
+                                                    @foreach($product->product_galleries as $item)
+                                                        <img src="{{asset('img/product/' . $item->image)}}" style="width: 100px; margin-bottom: 20px; display: inline-block">
+                                                    @endforeach
                                                 </div>
                                             @endif
 

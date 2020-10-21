@@ -190,6 +190,7 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('js/admin/bootstrap.bundle.min.js')}}"></script>
+
 <!-- ChartJS -->
 <script src="{{asset('js/admin/Chart.min.js')}}"></script>
 <!-- Sparkline -->
@@ -216,8 +217,6 @@
 <script src="{{asset('js/admin/demo.js')}}"></script>
 <!-- Fancybox JS -->
 <script src="{{asset('js/admin/jquery.fancybox.min.js')}}"></script>
-<!-- Dropzone JS -->
-<script src="{{asset('js/admin/dropzone.js')}}"></script>
 @yield('script')
 </body>
 </html>

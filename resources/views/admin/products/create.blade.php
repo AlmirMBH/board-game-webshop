@@ -16,7 +16,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+                                {!! Form::open(['method'=>'POST', 'action'=>'AdminProductsController@store', 'enctype' => 'multipart/form-data', 'files' => true, 'class' => 'dropzone', 'id' => 'image-upload']) !!}
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
@@ -65,7 +65,7 @@
                                         <div class="form-group">
                                             <label>Featured image</label>
                                             <input type="file" name="featured_image"
-                                                   class="form-control product-featured-image"
+                                                   class="form-control"
                                                    style="width: 200px; height: 200px">
                                             @error('featured_image')
                                             <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
@@ -73,8 +73,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Gallery</label>
-                                            <input type="file" name="gallery"
-                                                   class="form-control product-featured-image">
+                                            <input type="file" name="gallery[]" multiple="true"
+                                                   class="form-control input-group control-group increment">
                                             @error('gallery')
                                             <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                             @enderror
@@ -97,9 +97,24 @@
 @endsection
 
 @section('script')
+    <!-- Dropzone JS -->
+    {{--<script src="{{asset('js/admin/dropzone.js')}}"></script>--}}
     <script src="{{asset('js/admin/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/admin/additional-methods.min.js')}}"></script>
     <script>
+        /*Dropzone.options.imageUpload = {
+            maxFilesize: 1,
+            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            success: function(file, response)
+            {
+                console.log(response);
+            },
+            error: function(response)
+            {
+                return false;
+            }
+        };*/
+
         $(document).ready(function () {
             $('#quickForm').validate({
                 rules: {

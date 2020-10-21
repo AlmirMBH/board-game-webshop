@@ -91,11 +91,11 @@
 
                                     <div class="form-group">
                                         {{--{!! Form::label('address2', 'Adresse 2') !!}--}}
-                                        {!! Form::text('address2', null, ['class'=>'form-control checkout-form' . ( $errors->has('address2') ? ' required is-invalid' : '' ),
+                                        {!! Form::text('address2', null, ['class'=>'form-control checkout-form' /*. ( $errors->has('address2') ? ' required is-invalid' : '' )*/,
                                         'placeholder' => 'Adresse 2 *']) !!}
-                                        @error('address2')
+                                        {{--@error('address2')
                                         <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
-                                        @enderror
+                                        @enderror--}}
                                     </div>
 
                                     <div class="form-group">

@@ -8,9 +8,9 @@ class ProductGallery extends Model
 {
     protected $table = 'product_galleries';
 
-    protected $fillable = ['title','image', 'product_id'];
+    protected $guarded = [];
 
-    public function products(){
-        return $this->belongsTo('App\Product');
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 }

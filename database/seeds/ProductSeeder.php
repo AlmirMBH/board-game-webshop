@@ -19,8 +19,6 @@ class ProductSeeder extends Seeder
         $product->price = 29.90;
         $product->quantity = 1;
         $product->featured_image = 0;
-        $product->gallery = 0;
-
         $product->save();
     }
 }
