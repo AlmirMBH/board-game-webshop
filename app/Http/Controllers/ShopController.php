@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Mail;
 
 class ShopController extends Controller
 {
+    // SHIPPING COST FOR ALL PRODUCTS
+    const SHIPPING = 7.00;
+
     public function webShop()
     {
         $product = Product::where('name', 'GEWERBE-SPIEL')->first();
@@ -26,7 +29,13 @@ class ShopController extends Controller
 
     public function confirmOrder(Request $request)
     {
-        $subTotal = number_format($request['price'] * $request['quantity'], 2);
+        $quantity = $request['quantity'];
+
+        if($quantity < 3){
+            $subTotal = number_format($request['price'] * $request['quantity'] + self::SHIPPING, 2);
+        }else{
+            $subTotal = number_format($request['price'] * $request['quantity'], 2);
+        }
 
         $randomNumLet = $this->generateOrderId();
 
@@ -34,6 +43,7 @@ class ShopController extends Controller
             'order_id' => $randomNumLet,
             'price' => $request['price'],
             'quantity' => $request['quantity'],
+            'shipping' => self::SHIPPING,
             'sub_total' => $subTotal
         ];
 
@@ -122,10 +132,13 @@ class ShopController extends Controller
 
         session()->put('order', $order);
 
+
+
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
+            'shipping' => self::SHIPPING,
             'sub_total' => $sessionOrder['sub_total'],
             'created_at' => $order['created_at']->format('Y.m.d H:i:s'),
             'first_name' => $request['first_name'],
@@ -155,8 +168,9 @@ class ShopController extends Controller
                 $order = session()->get('order');
                 $customer = OrderCustomer::findOrFail($order->customer_id);
                 $productName = session()->get('productName');
+                $shipping = self::SHIPPING;
                 session()->forget(['order', 'productName']);
-                return view('pages.order-successful', compact('order', 'productName', 'customer'));
+                return view('pages.order-successful', compact('order', 'productName', 'customer', 'shipping'));
             } else {
                 return redirect('/web-shop/auftrag/auschecken');
             }

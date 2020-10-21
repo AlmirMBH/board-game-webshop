@@ -88,9 +88,9 @@
                                         <tr>
                                             <td>{{$order->quantity}}</td>
                                             <td>GEWERBE-SPIEL</td>
-                                            <td>29.90 CHF</td>
+                                            <td>CHF 29.90</td>
                                             <td>Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
-                                            <td>{{$order->sub_total}} CHF</td>
+                                            <td>CHF {{$order->sub_total}}</td>
                                         </tr>
 
                                         </tbody>
@@ -122,19 +122,19 @@
                                         <table class="table">
                                             <tr>
                                                 <th style="width:50%">Subtotal:</th>
-                                                <td>{{$order->sub_total}} CHF</td>
+                                                <td>CHF {{$order->sub_total}}</td>
                                             </tr>
                                             <tr>
                                                 <th>Tax (0.0%)</th>
-                                                <td>00.0 CHF</td>
+                                                <td>CHF 00.0</td>
                                             </tr>
                                             <tr>
                                                 <th>Shipping:</th>
-                                                <td>00.0 CHF</td>
+                                                <td>CHF 00.0 </td>
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
-                                                <td>{{$order->sub_total}} CHF</td>
+                                                <td>CHF {{$order->sub_total}}</td>
                                             </tr>
                                         </table>
                                     </div>

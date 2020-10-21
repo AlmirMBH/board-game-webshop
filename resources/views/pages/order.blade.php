@@ -38,7 +38,6 @@
                             </a>
                         </div>
                         <div class="product-image-thumbs d-flex justify-content-between mt-3">
-                            {{--PLACE THE FOREACH LOOP BELOW IN A CAROUSEL--}}
                             @foreach($product->product_galleries as $item)
                                 <a class="fancybox-thumb" rel="fancybox-thumb" href="{{asset('img/product/' . $item->image)}}" title="{{$product->name}}">
                                     <img src="{{asset('img/product/' . $item->image)}}" alt="{{$product->name}}"  class="img-fluid img-thumbnail border-0 p-0 rounded-0"/>

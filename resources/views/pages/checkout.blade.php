@@ -156,15 +156,25 @@
                                                 <tr>
                                                     <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
-                                                    <td>{{$order['price']}} CHF</td>
+                                                    <td>CHF {{$order['price']}}</td>
                                                 </tr>
-
+                                                @if($order['quantity'] < 3)
+                                                    <tr>
+                                                        <td>Versand</td>
+                                                        <td>CHF {{$order['shipping']}}</td>
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td>Versand</td>
+                                                        <td>Kostenloss</td>
+                                                    </tr>
+                                                @endif
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
                                                     <th>Total</th>
                                                     <td class="product-subtotal"
-                                                        style="font-weight: bold">{{$order['sub_total']}} CHF
+                                                        style="font-weight: bold">CHF {{$order['sub_total']}}
                                                     </td>
                                                 </tr>
                                                 </tfoot>

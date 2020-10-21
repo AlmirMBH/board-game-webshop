@@ -36,16 +36,30 @@
                                 </div>
                                 <div>
                                     <h6>Preis</h6>
-                                    <h6><strong>{{$order->price}}</strong></h6>
+                                    <h6><strong>CHF {{$order->price}}</strong></h6>
                                 </div>
                                 <div>
                                     <h6>stk</h6>
                                     <h6><strong>{{$order->quantity}}</strong></h6>
                                 </div>
-                                <div>
-                                    <h6>Total</h6>
-                                    <h6><strong>{{$order->sub_total}}</strong></h6>
-                                </div>
+
+                                @if($order->quantity < 3)
+                                    <div>
+                                        <h6>Versand</h6>
+                                        <h6><strong>CHF {{$shipping}}</strong></h6>
+
+                                    </div>
+                                @else
+                                    <div>
+                                        <h6>Versand</h6>
+                                        <h6><strong>Kostenloss</strong></h6>
+                                    </div>
+                                @endif
+
+                                    <div>
+                                        <h6>Total</h6>
+                                        <h6><strong>CHF {{$order->sub_total}}</strong></h6>
+                                    </div>
                             </div>
                             <div>
                                 <h4><strong>Kundendetails</strong></h4>

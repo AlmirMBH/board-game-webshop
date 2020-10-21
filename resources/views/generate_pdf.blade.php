@@ -190,6 +190,7 @@
             <th class="desc">BESCHREIBUNG</th>
             <th>PREIS</th>
             <th>STK</th>
+            <th>VERSAND</th>
             <th>TOTAL</th>
         </tr>
         </thead>
@@ -197,21 +198,27 @@
         <tr>
             <td class="service">Board Game</td>
             <td class="desc">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
-            <td class="unit">{{$price}} CHF</td>
+            <td class="unit">CHF {{$price}}</td>
             <td class="qty">{{$quantity}}</td>
-            <td class="total">{{$sub_total}} CHF</td>
+
+            @if($quantity < 3)
+                <td class="shipping">CHF {{$shipping}}</td>
+            @else
+                <td class="shipping">Kostenloss</td>
+            @endif
+            <td class="total">CHF {{$sub_total}}</td>
         </tr>
 {{--        <tr>--}}
 {{--            <td colspan="4">SUBTOTAL</td>--}}
 {{--            <td class="total">$5,200.00</td>--}}
 {{--        </tr>--}}
         <tr>
-            <td class="tax" colspan="4">MWST 00%</td>
-            <td class="total">00.0 CHF</td>
+            <td class="tax" colspan="5">MWST 00%</td>
+            <td class="total">CHF 00.0</td>
         </tr>
         <tr>
-            <td colspan="4" class="grand total">GRAND TOTAL</td>
-            <td class="grand total">{{$sub_total}} CHF</td>
+            <td colspan="5" class="grand total">GRAND TOTAL</td>
+            <td class="grand total">CHF {{$sub_total}}</td>
         </tr>
         </tbody>
     </table>
