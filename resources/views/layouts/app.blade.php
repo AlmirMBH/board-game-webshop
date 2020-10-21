@@ -17,6 +17,8 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Styles -->
     @stack('styles')
+    <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">
+    <link rel="stylesheet" href="{{asset('css/number-input.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/general.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
     <!-- Google Fonts -->
@@ -193,12 +195,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
             crossorigin="anonymous"></script>
-
-    <!--Almir Auftrag-->
+    <script src="{{asset('js/jquery.fancybox.js')}}"></script>
+    <script src="{{asset('js/jquery.fancybox.pack.js')}}"></script>
+{{--    <!--Almir Auftrag-->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../dist/js/adminlte.min.js"></script>
-    <script src="../../dist/js/demo.js"></script>
+    <script src="../../dist/js/demo.js"></script>--}}
 
 
     @yield('script')

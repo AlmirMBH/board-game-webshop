@@ -1,6 +1,5 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{asset('css/number-input.css')}}" type="text/css">
-<link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+
 @section('title', 'Webshop')
 
 @section('content')
@@ -34,16 +33,17 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         <div class="product-image-box">
-                            <img src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="">
+                            <a class="fancybox-thumb" rel="fancybox-thumb" href="{{asset('img/product/' . $product->featured_image)}}" title="{{$product->name}}">
+                                <img src="{{asset('img/product/' . $product->featured_image)}}" alt="{{$product->name}}">
+                            </a>
                         </div>
-                        <div class="col-12 p-0 product-image-thumbs d-flex justify-content-around">
-                            <div class="form-group">
-
-                                {{--PLACE THE FOREACH LOOP BELOW IN A CAROUSEL--}}
-                                @foreach($product->product_galleries as $item)
-                                    <img src="{{asset('img/product/' . $item->image)}}" style="width: 108px; margin-bottom: 20px; display: inline-block">
-                                @endforeach
-                            </div>
+                        <div class="product-image-thumbs d-flex justify-content-between mt-3">
+                            {{--PLACE THE FOREACH LOOP BELOW IN A CAROUSEL--}}
+                            @foreach($product->product_galleries as $item)
+                                <a class="fancybox-thumb" rel="fancybox-thumb" href="{{asset('img/product/' . $item->image)}}" title="{{$product->name}}">
+                                    <img src="{{asset('img/product/' . $item->image)}}" alt="{{$product->name}}"  class="img-fluid img-thumbnail border-0 p-0 rounded-0"/>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6">
@@ -130,4 +130,25 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox-thumb").fancybox({
+                prevEffect	: 'none',
+                nextEffect	: 'none',
+                helpers	: {
+                    title	: {
+                        type: 'outside'
+                    },
+                    thumbs	: {
+                        width	: 50,
+                        height	: 50
+                    }
+                }
+            });
+        });
+    </script>
 @endsection
