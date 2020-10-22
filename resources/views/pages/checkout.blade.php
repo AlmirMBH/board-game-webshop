@@ -154,21 +154,14 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
+                                                    <td>Board Game<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
                                                     <td>CHF {{$order['price']}}</td>
                                                 </tr>
-                                                @if($order['quantity'] < 3)
-                                                    <tr>
-                                                        <td>Versand</td>
-                                                        <td>CHF {{$order['shipping']}}</td>
-                                                    </tr>
-                                                @else
-                                                    <tr>
-                                                        <td>Versand</td>
-                                                        <td>Kostenloss</td>
-                                                    </tr>
-                                                @endif
+                                                <tr>
+                                                    <td>Versand</td>
+                                                    <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order['quantity'])}}</td>
+                                                </tr>
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>

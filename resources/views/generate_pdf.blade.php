@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Boaqrd Game</title>
+    <title>Board Game</title>
     <style>
         .clearfix:after {
             content: "";
@@ -201,17 +201,9 @@
             <td class="unit">CHF {{$price}}</td>
             <td class="qty">{{$quantity}}</td>
 
-            @if($quantity < 3)
-                <td class="shipping">CHF {{$shipping}}</td>
-            @else
-                <td class="shipping">Kostenloss</td>
-            @endif
+            <td class="shipping">{{App\Order::getCurrency($quantity)}} {{App\Order::getShippingCost($quantity)}}</td>
             <td class="total">CHF {{$sub_total}}</td>
         </tr>
-{{--        <tr>--}}
-{{--            <td colspan="4">SUBTOTAL</td>--}}
-{{--            <td class="total">$5,200.00</td>--}}
-{{--        </tr>--}}
         <tr>
             <td class="tax" colspan="5">MWST 00%</td>
             <td class="total">CHF 00.0</td>
@@ -226,10 +218,6 @@
         <div id="signature">Geschäftsführer</div>
         <div id = "signature-line"> _______________________</div>
     </div>
-    {{--<div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-    </div>--}}
 </main>
 <footer>
     {{--Invoice was created on a computer and is valid without the signature and seal.--}}

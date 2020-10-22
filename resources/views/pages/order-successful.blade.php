@@ -30,36 +30,26 @@
                                 <h4><strong>Produktdetails</strong></h4>
                             </div>
                             <div class="d-flex justify-content-around mb-5 border-top border-bottom pt-3">
-                                <div>
+                                <div class="text-center">
                                     <h6>Product</h6>
                                     <h6><strong>{{$productName}}</strong></h6>
                                 </div>
-                                <div>
+                                <div class="text-center">
                                     <h6>Preis</h6>
                                     <h6><strong>CHF {{$order->price}}</strong></h6>
                                 </div>
-                                <div>
+                                <div class="text-center">
                                     <h6>stk</h6>
                                     <h6><strong>{{$order->quantity}}</strong></h6>
                                 </div>
-
-                                @if($order->quantity < 3)
-                                    <div>
-                                        <h6>Versand</h6>
-                                        <h6><strong>CHF {{$shipping}}</strong></h6>
-
-                                    </div>
-                                @else
-                                    <div>
-                                        <h6>Versand</h6>
-                                        <h6><strong>Kostenloss</strong></h6>
-                                    </div>
-                                @endif
-
-                                    <div>
-                                        <h6>Total</h6>
-                                        <h6><strong>CHF {{$order->sub_total}}</strong></h6>
-                                    </div>
+                                <div class="text-center">
+                                    <h6>Versand</h6>
+                                    <h6><strong>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</strong></h6>
+                                </div>
+                                <div class="text-center">
+                                    <h6>Total</h6>
+                                    <h6><strong>CHF {{$order->sub_total}}</strong></h6>
+                                </div>
                             </div>
                             <div>
                                 <h4><strong>Kundendetails</strong></h4>
