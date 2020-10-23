@@ -88,10 +88,10 @@
                                         <tr>
                                             <td>GEWERBE-SPIEL</td>
                                             <td>{{$order->quantity}}</td>
-                                            <td>CHF {{$order->price}}</td>
+                                            <td>{{App\Order::$currency}} {{$order->price}}</td>
                                             <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</td>
                                             <td style="max-width: 300px">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
-                                            <td>CHF {{$order->sub_total}}</td>
+                                            <td>{{App\Order::$currency}} {{$order->sub_total}}</td>
                                         </tr>
 
                                         </tbody>
@@ -117,7 +117,7 @@
                                         <table class="table">
                                             <tr>
                                                 <th style="width:50%">Price:</th>
-                                                <td>CHF {{$order->price}}</td>
+                                                <td>{{App\Order::$currency}} {{$order->price}}</td>
                                             </tr>
                                             <tr>
                                                 <th style="width:50%">Quantity:</th>
@@ -129,7 +129,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
-                                                <td>CHF {{$order->sub_total}}</td>
+                                                <td>{{App\Order::$currency}} {{$order->sub_total}}</td>
                                             </tr>
                                         </table>
                                     </div>

@@ -198,19 +198,19 @@
         <tr>
             <td class="service">Board Game</td>
             <td class="desc">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
-            <td class="unit">CHF {{$price}}</td>
+            <td class="unit">{{App\Order::$currency}} {{$price}}</td>
             <td class="qty">{{$quantity}}</td>
 
             <td class="shipping">{{App\Order::getCurrency($quantity)}} {{App\Order::getShippingCost($quantity)}}</td>
-            <td class="total">CHF {{$sub_total}}</td>
+            <td class="total">{{App\Order::$currency}} {{$sub_total}}</td>
         </tr>
         <tr>
             <td class="tax" colspan="5">MWST 00%</td>
-            <td class="total">CHF 00.0</td>
+            <td class="total">{{App\Order::$currency}} 00.0</td>
         </tr>
         <tr>
             <td colspan="5" class="grand total">GRAND TOTAL</td>
-            <td class="grand total">CHF {{$sub_total}}</td>
+            <td class="grand total">{{App\Order::$currency}} {{$sub_total}}</td>
         </tr>
         </tbody>
     </table>

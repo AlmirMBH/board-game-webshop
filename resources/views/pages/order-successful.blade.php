@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="text-center">
                                     <h6>Preis</h6>
-                                    <h6><strong>CHF {{$order->price}}</strong></h6>
+                                    <h6><strong>{{App\Order::$currency}} {{$order->price}}</strong></h6>
                                 </div>
                                 <div class="text-center">
                                     <h6>stk</h6>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="text-center">
                                     <h6>Total</h6>
-                                    <h6><strong>CHF {{$order->sub_total}}</strong></h6>
+                                    <h6><strong>{{App\Order::$currency}} {{$order->sub_total}}</strong></h6>
                                 </div>
                             </div>
                             <div>

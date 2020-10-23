@@ -70,7 +70,7 @@
                         <hr>
                         <div class="product-price py-2 px-3">
                             <h2 class="mb-0">
-                                <span class="currency">CHF</span>
+                                <span class="currency">{{App\Order::$currency}}</span>
                                 <span class="price">{{$product->price}}</span>
                             </h2>
                             <h4 class="mt-0">

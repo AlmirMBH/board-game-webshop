@@ -43,7 +43,7 @@
                                         <h3>{{$product->name}}</h3>
                                     </div>
                                     <div class="product-price p-2">
-                                        <span class="currency">CHF</span>
+                                        <span class="currency">{{App\Order::$currency}}</span>
                                         <span class="price">{{$product->price}}</span>
                                     </div>
                                     <div class="product-desc">

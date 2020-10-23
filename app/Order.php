@@ -34,7 +34,10 @@ class Order extends Model
         if ($quantity < 3) {
             $currency = ' CHF';
             return $currency;
-        }
+        }return '';
     }
+
+
+    public static $currency = 'CHF';
 
 }

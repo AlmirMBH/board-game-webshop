@@ -156,7 +156,7 @@
                                                 <tr>
                                                     <td>Board Game<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
-                                                    <td>CHF {{$order['price']}}</td>
+                                                    <td>{{App\Order::$currency}} {{$order['price']}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Versand</td>
@@ -167,7 +167,7 @@
                                                 <tr>
                                                     <th>Total</th>
                                                     <td class="product-subtotal"
-                                                        style="font-weight: bold">CHF {{$order['sub_total']}}
+                                                        style="font-weight: bold">{{App\Order::$currency}} {{$order['sub_total']}}
                                                     </td>
                                                 </tr>
                                                 </tfoot>
