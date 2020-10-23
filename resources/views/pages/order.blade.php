@@ -38,7 +38,6 @@
                             </a>
                         </div>
                         <div class="product-image-thumbs d-flex justify-content-between mt-3">
-                            {{--PLACE THE FOREACH LOOP BELOW IN A CAROUSEL--}}
                             @foreach($product->product_galleries as $item)
                                 <a class="fancybox-thumb" rel="fancybox-thumb" href="{{asset('img/product/' . $item->image)}}" title="{{$product->name}}">
                                     <img src="{{asset('img/product/' . $item->image)}}" alt="{{$product->name}}"  class="img-fluid img-thumbnail border-0 p-0 rounded-0"/>
@@ -71,7 +70,7 @@
                         <hr>
                         <div class="product-price py-2 px-3">
                             <h2 class="mb-0">
-                                <span class="currency">CHF</span>
+                                <span class="currency">{{App\Order::$currency}}</span>
                                 <span class="price">{{$product->price}}</span>
                             </h2>
                             <h4 class="mt-0">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Boaqrd Game</title>
+    <title>Board Game</title>
     <style>
         .clearfix:after {
             content: "";
@@ -29,7 +29,8 @@
 
         header {
             padding: 10px 0;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            margin-top: 50px;
         }
 
         #logo {
@@ -128,6 +129,17 @@
             border-top: 1px solid #5D6975;;
         }
 
+        #signature{
+            text-align: right;
+            margin-right: 30px;
+            margin-top: 100px;
+        }
+
+        #signature-line{
+            text-align: right;
+            margin-top: 30px;
+        }
+
         #notices .notice {
             color: #5D6975;
             font-size: 1.2em;
@@ -150,23 +162,35 @@
     <h1>INVOICE #{{$order_id}}</h1>
     <div id="company" class="clearfix">
     </div>
-    <div id="project">
-        <div><span>PROJECT</span> Board Game</div>
-        <div><span>CLIENT</span> {{$first_name}} {{$last_name}}</div>
-        <div><span>ADDRESS</span> {{$address}}</div>
-        <div><span>EMAIL</span> <a href="mailto:{{$email}}">{{$email}}</a></div>
-        <div><span>DATE</span> {{$date}}</div>
-        <div><span>DUE DATE</span> {{$created_at}}</div>
+
+    <div id="project" style="margin-top: 50px; margin-left: 100px;">
+        <div><span>PRODUKT</span>Board Game</div>
+        <div><span>KUNDE / KUNDIN</span>{{$first_name}} {{$last_name}}</div>
+        <div><span>UNTERNEHMEN</span>{{$company}}</div>
+        <div><span>KANTON</span>{{$state}}</div>
+        <div><span>ADRESSE 1</span>{{$address}}</div>
+        @if($address2)
+            <div><span>ADRESSE 2</span>{{$address2}}</div>
+        @endif
+        <div><span>POSTLEITZAHL</span>{{$post_code}}</div>
+    </div>
+    <div id="project" style="margin-top: 50px; margin-left: 100px;">
+        <div><span>STADT</span>{{$city}}</div>
+        <div><span>TELEFON</span>{{$phone}}</div>
+        <div><span>EMAIL</span><a href="mailto:{{$email}}">{{$email}}</a></div>
+        <div><span>DATE</span>{{$date}}</div>
+        <div><span>DUE DATE</span>{{$created_at}}</div>
     </div>
 </header>
 <main>
     <table>
         <thead>
         <tr>
-            <th class="service">PRODUCT</th>
-            <th class="desc">DESCRIPTION</th>
-            <th>PRICE</th>
-            <th>QTY</th>
+            <th class="service">PRODUKT</th>
+            <th class="desc">BESCHREIBUNG</th>
+            <th>PREIS</th>
+            <th>STK</th>
+            <th>VERSAND</th>
             <th>TOTAL</th>
         </tr>
         </thead>
@@ -174,31 +198,29 @@
         <tr>
             <td class="service">Board Game</td>
             <td class="desc">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
-            <td class="unit">{{$price}} CHF</td>
+            <td class="unit">{{App\Order::$currency}} {{$price}}</td>
             <td class="qty">{{$quantity}}</td>
-            <td class="total">{{$sub_total}} CHF</td>
-        </tr>
-{{--        <tr>--}}
-{{--            <td colspan="4">SUBTOTAL</td>--}}
-{{--            <td class="total">$5,200.00</td>--}}
-{{--        </tr>--}}
-        <tr>
-            <td class="tax" colspan="4">TAX 00%</td>
-            <td class="total">00.0 CHF</td>
+
+            <td class="shipping">{{App\Order::getCurrency($quantity)}} {{App\Order::getShippingCost($quantity)}}</td>
+            <td class="total">{{App\Order::$currency}} {{$sub_total}}</td>
         </tr>
         <tr>
-            <td colspan="4" class="grand total">GRAND TOTAL</td>
-            <td class="grand total">{{$sub_total}} CHF</td>
+            <td class="tax" colspan="5">MWST 00%</td>
+            <td class="total">{{App\Order::$currency}} 00.0</td>
+        </tr>
+        <tr>
+            <td colspan="5" class="grand total">GRAND TOTAL</td>
+            <td class="grand total">{{App\Order::$currency}} {{$sub_total}}</td>
         </tr>
         </tbody>
     </table>
-    <div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    <div>
+        <div id="signature">Geschäftsführer</div>
+        <div id = "signature-line"> _______________________</div>
     </div>
 </main>
 <footer>
-    Invoice was created on a computer and is valid without the signature and seal.
+    {{--Invoice was created on a computer and is valid without the signature and seal.--}}
 </footer>
 </body>
 </html>

@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         {{--{!! Form::label('address2', 'Adresse 2') !!}--}}
                                         {!! Form::text('address2', null, ['class'=>'form-control checkout-form' /*. ( $errors->has('address2') ? ' required is-invalid' : '' )*/,
-                                        'placeholder' => 'Adresse 2 *']) !!}
+                                        'placeholder' => 'Adresse 2']) !!}
                                         {{--@error('address2')
                                         <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                         @enderror--}}
@@ -133,6 +133,9 @@
                                         <div class="alert alert-danger checkout-form-errors">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="form-group pl-1">
+                                        <p>* Alle mit Sternchen gekennzeichneten Felder sind erforderlich.</p>
+                                    </div>
 
 
                                 </div>
@@ -151,17 +154,20 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game F<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
+                                                    <td>Board Game<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
-                                                    <td>{{$order['price']}} CHF</td>
+                                                    <td>{{App\Order::$currency}} {{$order['price']}}</td>
                                                 </tr>
-
+                                                <tr>
+                                                    <td>Versand</td>
+                                                    <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order['quantity'])}}</td>
+                                                </tr>
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
                                                     <th>Total</th>
                                                     <td class="product-subtotal"
-                                                        style="font-weight: bold">{{$order['sub_total']}} CHF
+                                                        style="font-weight: bold">{{App\Order::$currency}} {{$order['sub_total']}}
                                                     </td>
                                                 </tr>
                                                 </tfoot>

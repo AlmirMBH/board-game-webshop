@@ -48,7 +48,7 @@
 
                                     @foreach($products as $item)
                                         <tr>
-                                            <td>{{$item->featured_image}}</td>
+                                            <td><img src="{{asset('/img/product/' . $item->featured_image)}}" style="width: 100px"></td>
                                             <td>{{$item->name}}</td>
                                             <td>{{Str::limit($item->short_description, 100)}}</td>
                                             <td>{{$item->price}}</td>
@@ -121,23 +121,21 @@
 @section('script')
     <script src="{{asset('js/admin/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/admin/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('js/admin/dataTables.responsive.min.js')}}"></script>
-    <script src="{{asset('js/admin/responsive.bootstrap4.min.js')}}"></script>
     <script>
         $(function () {
-            $("#example1").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-            });
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+            // $("#example1").DataTable({
+            //     "responsive": true,
+            //     "autoWidth": false,
+            // });
+            // $('#example2').DataTable({
+            //     "paging": true,
+            //     "lengthChange": false,
+            //     "searching": false,
+            //     "ordering": true,
+            //     "info": true,
+            //     "autoWidth": false,
+            //     "responsive": true,
+            // });
 
             $('.delete-company').click(function () {
                 let url = $(this).attr('data-url');

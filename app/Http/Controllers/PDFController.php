@@ -10,6 +10,9 @@ use Illuminate\Support\Carbon;
 
 class PDFController extends Controller
 {
+
+    protected $shipping = 7.00;
+
     public function generatePdf($id)
     {
         $order = Order::where('id', $id)->firstOrFail();
@@ -18,6 +21,7 @@ class PDFController extends Controller
             'order_id' => $order['order_id'],
             'price' => $order['price'],
             'quantity' => $order['quantity'],
+            'shipping' => $this->shipping,
             'sub_total' => $order['sub_total'],
             'created_at' => $order['created_at']->format('d-m-Y'),
             'first_name' => $order->customer->first_name,
