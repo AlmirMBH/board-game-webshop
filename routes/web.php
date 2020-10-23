@@ -96,23 +96,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
     Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
-
-    // PRODUCT GALLERY (PACKAGE)
-    /*Route::get('/product-gallery', 'ProductGalleryController@index');
-    Route::post('/product-gallery/fileupload/', 'ProductGalleryController@upload');
-    Route::delete('/product-gallery/{id}', 'ProductGalleryController@destroy');*/
-
-
-
-    // MY GALLERY
-   /* Route::get('/gallery/list', 'ProductGalleryController@viewGalleryList');
-    Route::post('/gallery/save', 'ProductGalleryController@saveGallery');
-    Route::get('/gallery/view/{id}', 'ProductGalleryController@viewGalleryPics')->name('single-gallery');
-    Route::post('/image/do-upload', 'ProductGalleryController@doImageUpload');*/
-
-
-
-
 });
 
 

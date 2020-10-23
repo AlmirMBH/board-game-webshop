@@ -30,21 +30,25 @@
                                 <h4><strong>Produktdetails</strong></h4>
                             </div>
                             <div class="d-flex justify-content-around mb-5 border-top border-bottom pt-3">
-                                <div>
+                                <div class="text-center">
                                     <h6>Product</h6>
                                     <h6><strong>{{$productName}}</strong></h6>
                                 </div>
-                                <div>
+                                <div class="text-center">
                                     <h6>Preis</h6>
-                                    <h6><strong>{{$order->price}}</strong></h6>
+                                    <h6><strong>{{App\Order::$currency}} {{$order->price}}</strong></h6>
                                 </div>
-                                <div>
+                                <div class="text-center">
                                     <h6>stk</h6>
                                     <h6><strong>{{$order->quantity}}</strong></h6>
                                 </div>
-                                <div>
+                                <div class="text-center">
+                                    <h6>Versand</h6>
+                                    <h6><strong>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</strong></h6>
+                                </div>
+                                <div class="text-center">
                                     <h6>Total</h6>
-                                    <h6><strong>{{$order->sub_total}}</strong></h6>
+                                    <h6><strong>{{App\Order::$currency}} {{$order->sub_total}}</strong></h6>
                                 </div>
                             </div>
                             <div>

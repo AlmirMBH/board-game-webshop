@@ -26,7 +26,13 @@ class ShopController extends Controller
 
     public function confirmOrder(Request $request)
     {
-        $subTotal = number_format($request['price'] * $request['quantity'], 2);
+        $quantity = $request['quantity'];
+
+        if($quantity < 3){
+            $subTotal =  number_format($request['price'] * $request['quantity'] + Order::getShippingCost($quantity), 2);
+        }else{
+            $subTotal = number_format($request['price'] * $request['quantity'], 2);
+        }
 
         $randomNumLet = $this->generateOrderId();
 
@@ -121,6 +127,8 @@ class ShopController extends Controller
         ]);
 
         session()->put('order', $order);
+
+
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
