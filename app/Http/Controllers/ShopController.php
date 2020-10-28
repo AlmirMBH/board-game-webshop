@@ -116,9 +116,12 @@ class ShopController extends Controller
         ]);
         session()->put('order', $order);
 
+        $name = $order->products->name;
+
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
             'product_id' => $order['product_id'],
+            'product_name' => $name,
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total'],

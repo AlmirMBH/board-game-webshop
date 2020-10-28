@@ -164,7 +164,7 @@
     </div>
 
     <div id="project" style="margin-top: 50px; margin-left: 100px;">
-        <div><span>PRODUKT</span>Board Game</div>
+        <div><span>PRODUKT</span>{{$name}}</div>
         <div><span>KUNDE / KUNDIN</span>{{$first_name}} {{$last_name}}</div>
         <div><span>UNTERNEHMEN</span>{{$company}}</div>
         <div><span>KANTON</span>{{$state}}</div>
@@ -196,8 +196,8 @@
         </thead>
         <tbody>
         <tr>
-            <td class="service">Board Game</td>
-            <td class="desc">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
+            <td class="service">{{$name}}</td>
+            <td class="desc">{{$short_description}}</td>
             <td class="unit">{{App\Order::$currency}} {{$price}}</td>
             <td class="qty">{{$quantity}}</td>
 
