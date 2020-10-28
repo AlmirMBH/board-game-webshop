@@ -32,7 +32,7 @@
                             <div class="d-flex justify-content-around mb-5 border-top border-bottom pt-3">
                                 <div class="text-center">
                                     <h6>Product</h6>
-                                    <h6><strong>{{$productName}}</strong></h6>
+                                    <h6><strong>{{$order->products->name}}</strong></h6>
                                 </div>
                                 <div class="text-center">
                                     <h6>Preis</h6>

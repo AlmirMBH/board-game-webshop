@@ -212,7 +212,7 @@
                                             <tr>
                                                 <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
                                                     <p style="font-weight: 800;">Lieferadresse</p>
-                                                    <p>{{$sessionData['address']}}</p>
+                                                    <p>{{$sessionData['address']}}, {{$sessionData['post_code']}} {{$sessionData['city']}}</p>
                                                 </td>
                                             </tr>
                                         </table>
