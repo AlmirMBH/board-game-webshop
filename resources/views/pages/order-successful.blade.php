@@ -39,7 +39,7 @@
                                     <h6><strong>{{App\Order::$currency}} {{$order->price}}</strong></h6>
                                 </div>
                                 <div class="text-center">
-                                    <h6>stk</h6>
+                                    <h6>Stk</h6>
                                     <h6><strong>{{$order->quantity}}</strong></h6>
                                 </div>
                                 <div class="text-center">
