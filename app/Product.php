@@ -27,4 +27,8 @@ class Product extends Model // Authenticatable
         return $this->belongsTo(Order::class);
     }
 
+
+    public function getProductName($id){
+        return Product::findOrFail($id);
+    }
 }
