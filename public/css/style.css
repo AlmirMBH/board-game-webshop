@@ -339,8 +339,7 @@
 .product-card {
     border-radius: 0;
     border-width: 4px;
-    border-color: #E3E5EA;
-    padding-bottom: 50px;
+    border-color: #E3E5EA;;
 }
 .product-title {
     margin: 25px 0 10px 0;
@@ -349,14 +348,7 @@
     color: #e72250;
 }
 .product-price {
-    margin-bottom: 25px;
     font-size: 22px;
-    margin-top: 40px;
-    background-color: #aaaaaa;
-    color: #ffffff;
-}
-.product-btn-box {
-    margin-top: 25px;
 }
 .product-btn {
     padding: 10px 30px;

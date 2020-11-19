@@ -86,11 +86,11 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>GEWERBE-SPIEL</td>
+                                            <td>{{$order->products->name}}</td>
                                             <td>{{$order->quantity}}</td>
                                             <td>{{App\Order::$currency}} {{$order->price}}</td>
                                             <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</td>
-                                            <td style="max-width: 300px">Das Gewerbe-Spiel.ch ist zur Zeit für nachfolgende Gemeinde/ Dörfer der Schweiz erhältlich...</td>
+                                            <td style="max-width: 300px">{{Str::limit($order->products->short_description, 100)}}</td>
                                             <td>{{App\Order::$currency}} {{$order->sub_total}}</td>
                                         </tr>
 

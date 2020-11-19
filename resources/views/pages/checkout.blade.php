@@ -44,6 +44,7 @@
                                     <div class="form-group">
                                         {{ Form::hidden('order_id', $order['order_id']) }}
                                     </div>
+
                                     <div class="form-group">
                                         {{--{!! Form::label('first_name', 'Vorname') !!}--}}
                                         {!! Form::text('first_name', null, ['class' => 'form-control checkout-form' . ( $errors->has('first_name') ? ' required is-invalid' : '' ),
