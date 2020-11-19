@@ -12,14 +12,14 @@ class ShopController extends Controller
 {
     public function webShop()
     {
-        $product = Product::where('name', 'GEWERBE-SPIEL')->first();
-        return view('pages.web-shop', compact('product'));
+        $products = Product::all();
+        return view('pages.web-shop', compact('products'));
     }
 
 
-    public function order()
+    public function order($id)
     {
-        $product = Product::where('name', 'GEWERBE-SPIEL')->first();
+        $product = Product::findOrFail($id);
         return view('pages.order', compact('product'));
     }
 
@@ -38,16 +38,15 @@ class ShopController extends Controller
 
         $order = [
             'order_id' => $randomNumLet,
+            'product_id' => $request['id'],
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal
         ];
 
         session()->put('order', $order);
-        session()->put('productName', $request['name']);
         session()->save();
-
-        return redirect()->route('checkout');
+        return view('pages.checkout', compact('order'));
     }
 
 
@@ -64,21 +63,10 @@ class ShopController extends Controller
         return $randomNumLet;
     }
 
+
     public function orderIdExists($randomNumLet)
     {
         return Order::where('order_id', $randomNumLet)->exists();
-    }
-
-
-    public function checkout()
-    {
-        if (session()->get('order')) {
-            $order = session()->get('order');
-            $productName = session()->get('productName');
-            return view('pages.checkout', compact('order', 'productName'));
-        } else {
-            return redirect('/web-shop/auftrag');
-        }
     }
 
 
@@ -121,17 +109,19 @@ class ShopController extends Controller
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
             'customer_id' => $customer->id,
+            'product_id' => $sessionOrder['product_id'],
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total']
         ]);
-
         session()->put('order', $order);
 
-
+        $name = $order->products->name;
 
         $sessionData = [
             'order_id' => $sessionOrder['order_id'],
+            'product_id' => $order['product_id'],
+            'product_name' => $name,
             'price' => $sessionOrder['price'],
             'quantity' => $sessionOrder['quantity'],
             'sub_total' => $sessionOrder['sub_total'],
@@ -148,12 +138,14 @@ class ShopController extends Controller
             'email' => $request['email'],
         ];
 
+
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
 
         return redirect()->route('order-successful')->with(['status' => 'order_successful']);
     }
+
 
     public function orderSuccessful()
     {
@@ -162,15 +154,28 @@ class ShopController extends Controller
             if (session()->get('order')) {
                 $order = session()->get('order');
                 $customer = OrderCustomer::findOrFail($order->customer_id);
-                $productName = session()->get('productName');
-                session()->forget(['order', 'productName']);
-                return view('pages.order-successful', compact('order', 'productName', 'customer'));
+                session()->forget(['order']);
+                return view('pages.order-successful', compact('order','customer'));
             } else {
                 return redirect('/web-shop/auftrag/auschecken');
             }
         }
         return redirect('/');
-
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

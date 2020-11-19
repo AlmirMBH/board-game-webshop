@@ -22,4 +22,9 @@ class Product extends Model // Authenticatable
         return $this->hasMany(ProductGallery::class);
     }
 
+
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+
 }

@@ -23,11 +23,13 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CitySeeder::class,
             ProviderSeeder::class,
-            ProductSeeder::class
+            ProductSeeder::class,
+            OutletSeeder::class,
+            CantonProviderGroupSeed::class
         ]);
-        factory(Outlets::class, 10)->create();
-        factory(City::class,10)->create();
-        factory(Product::class, 10)->create();
-        factory(ParticipatingCompanies::class, 10)->create();
+//        factory(Outlets::class, 10)->create();
+//        factory(City::class,10)->create();
+//        factory(Product::class, 10)->create();
+//        factory(ParticipatingCompanies::class, 10)->create();
     }
 }

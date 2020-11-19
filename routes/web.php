@@ -23,10 +23,10 @@ Route::get('/uber-uns', 'PagesController@about')->name('about');
 
 // WEB-SHOP
 Route::get('/web-shop', 'ShopController@webShop')->name('web-shop');
-Route::get('/web-shop/auftrag', 'ShopController@order')->name('order');
+Route::get('/web-shop/auftrag/{id}', 'ShopController@order')->name('order');
 Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
 Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
-Route::post('/web-shop/auftrag/auschecken/post', 'ShopController@confirmCheckout');
+Route::post('/web-shop/auftrag/auschecken', 'ShopController@confirmCheckout');
 Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');
 
 // FRONTEND PAGES

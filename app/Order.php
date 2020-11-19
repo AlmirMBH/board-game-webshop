@@ -17,6 +17,11 @@ class Order extends Model
     }
 
 
+    public function products(){
+        return $this->hasOne(Product::class, 'id', 'product_id');
+    }
+
+
     public static function getShippingCost($quantity)
     {
         $shipping = null;
@@ -26,6 +31,9 @@ class Order extends Model
             return $shipping = "Kostenlos";
         }
     }
+
+
+    public static $currency = 'CHF';
 
 
     public static function getCurrency($quantity)
@@ -38,6 +46,16 @@ class Order extends Model
     }
 
 
-    public static $currency = 'CHF';
+    public static function shippingCost(){
+        return "CHF 7.- für 1- 2 Spiele";
+    }
+
+
+    public static function freeShipping(){
+        return "Ab 3 Spiele ist der Versand kostenlos!";
+        }
+
+
+
 
 }
