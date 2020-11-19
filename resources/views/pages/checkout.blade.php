@@ -155,7 +155,8 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>Board Game<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
+
+                                                    <td>{{$order['product_name']}}<span class="product-qty" style="font-weight: bold"> &nbsp; x {{$order['quantity']}}</span>
                                                     </td>
                                                     <td>{{App\Order::$currency}} {{$order['price']}}</td>
                                                 </tr>
