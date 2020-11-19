@@ -29,6 +29,7 @@ class Product extends Model // Authenticatable
 
 
     public function getProductName($id){
-        return Product::findOrFail($id);
+        $product = Product::findOrFail($id);
+        return $product->name;
     }
 }

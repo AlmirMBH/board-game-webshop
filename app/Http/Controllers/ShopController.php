@@ -38,7 +38,7 @@ class ShopController extends Controller
 
         $id = $request['id'];
 
-        $product = (new Product())->getProductName($id);
+        $product_name = (new Product())->getProductName($id);
 
         $order = [
             'order_id' => $randomNumLet,
@@ -46,7 +46,7 @@ class ShopController extends Controller
             'price' => $request['price'],
             'quantity' => $request['quantity'],
             'sub_total' => $subTotal,
-            'product_name' => $product->name,
+            'product_name' => $product_name,
         ];
 
         session()->put('order', $order);
