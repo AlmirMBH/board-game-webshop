@@ -36,12 +36,17 @@ class ShopController extends Controller
 
         $randomNumLet = $this->generateOrderId();
 
+        $id = $request['id'];
+
+        $product_name = (new Product())->getProductName($id);
+
         $order = [
             'order_id' => $randomNumLet,
             'product_id' => $request['id'],
             'price' => $request['price'],
             'quantity' => $request['quantity'],
-            'sub_total' => $subTotal
+            'sub_total' => $subTotal,
+            'product_name' => $product_name,
         ];
 
         session()->put('order', $order);
@@ -104,7 +109,10 @@ class ShopController extends Controller
 
         $customer = OrderCustomer::create($customerInput);
 
+
         session()->forget('order');
+
+
 
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
