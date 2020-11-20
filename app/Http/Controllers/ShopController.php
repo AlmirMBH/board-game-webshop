@@ -10,20 +10,6 @@ use Illuminate\Support\Facades\Mail;
 
 class ShopController extends Controller
 {
-    public function webShop()
-    {
-        $products = Product::all();
-        return view('pages.web-shop', compact('products'));
-    }
-
-
-    public function order($id)
-    {
-        $product = Product::findOrFail($id);
-        return view('pages.order', compact('product'));
-    }
-
-
     public function confirmOrder(Request $request)
     {
         $quantity = $request['quantity'];

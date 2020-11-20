@@ -17,14 +17,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'PagesController@home')->name('home');
-
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
 
-// WEB-SHOP
-Route::get('/web-shop', 'ShopController@webShop')->name('web-shop');
-Route::get('/web-shop/auftrag/{id}', 'ShopController@order')->name('order');
-Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
+// PRODUCTS
+Route::get('/shop', 'ProductController@index')->name('web-shop');
+Route::get('/shop/auftrag/{product}', 'ProductController@show')->name('order');
+Route::post('/shop/auftrag/{product}', 'CartController@addToCart');
 Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
 Route::post('/web-shop/auftrag/auschecken', 'ShopController@confirmCheckout');
 Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');

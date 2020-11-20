@@ -8,7 +8,9 @@ class Product extends Model // Authenticatable
 {
     protected $table = 'products';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'id', 'name', 'price', 'quantity'
+    ];
 
     public $directory = '/img/product/';
 
@@ -23,13 +25,20 @@ class Product extends Model // Authenticatable
     }
 
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
 
-    public function getProductName($id){
+    public function getProductName($id)
+    {
         $product = Product::findOrFail($id);
         return $product->name;
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
     }
 }
