@@ -33,7 +33,7 @@
                 @if (session('status'))
                     <div class="alert alert-success mb-4 d-flex justify-content-between align-items-center" role="alert">
                         <p class="mb-0">{{ session('status') }}</p>
-                        <a href="" class="btn btn-info">Warenkorb anzeigen</a>
+                        <a href="{{ route('cart') }}" class="btn btn-info">Warenkorb anzeigen</a>
                     </div>
                 @endif
                 <div class="row">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6">
-                        {!! Form::open(['method'=>'POST', 'action'=> ['CartController@addToCart', $product->id], 'role'=>'form', 'id'=>'quickForm']) !!}
+                        {!! Form::open(['method'=>'POST', 'action'=> ['CartController@store', $product->id], 'role'=>'form', 'id'=>'quickForm']) !!}
                         @csrf
                         <div class="product-title mt-0">
                             <h3>{{$product->name}}</h3>
@@ -96,6 +96,7 @@
                                 </button>
                             </div>
                         </div>
+
                         {!! Form::close() !!}
                     </div>
                 </div>

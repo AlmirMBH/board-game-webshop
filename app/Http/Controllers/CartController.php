@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function addToCart(Product $product, Request $request)
+    public function index(Request $request)
+    {
+        $items = Cart::where('session_id', $request->session()->getId())->get();
+        return view('cart.index', compact('items'));
+    }
+
+    public function store(Product $product, Request $request)
     {
         Cart::create([
             'session_id'    => $request->session()->getId(),
