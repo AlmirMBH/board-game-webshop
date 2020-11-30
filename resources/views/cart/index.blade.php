@@ -26,34 +26,61 @@
         </div>
     </section>
 
-    <section class="cart-items-wrapper">
+    <section class="cart-items-wrapper py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-responsive">
-                        <thead>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover mx-auto w-100 cart-table">
+                            <thead>
                             <tr>
-                                <th></th>
-                                <th>Product Image</th>
-                                <th>Product Name</th>
-                                <th>Product Quantity</th>
-                                <th>Product Price</th>
-                                <th>Product Subtotal</th>
+                                <th class="remove"></th>
+                                <th class="product-image">Product Image</th>
+                                <th class="product-name">Product Name</th>
+                                <th class="product-quantity">Product Quantity</th>
+                                <th class="product-price">Product Price</th>
+                                <th class="product-subtotal">Product Subtotal</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             @foreach($items as $item)
                                 <tr>
-                                    <td>x</td>
-                                    <td>{{ $item->item_image }}</td>
-                                    <td>{{ $item->item_name }}</td>
-                                    <td>{{ $item->item_quantity }}</td>
-                                    <td>{{ $item->item_price }}</td>
-                                    <td>{{ $item->item_sub_total }}</td>
+                                    <td class="remove">x</td>
+                                    <td class="product-image" width="200px"><img src="{{ asset("img/product/$item->item_image") }}" alt="{{ $item->item_name }}" class="img-thumbnail"></td>
+                                    <td class="product-name">{{ $item->item_name }}</td>
+                                    <td class="product-quantity">{{ $item->item_quantity }}</td>
+                                    <td class="product-price">{{ $currency }}{{ $item->item_price }}</td>
+                                    <td class="product-subtotal">{{ $currency }}{{ $item->item_sub_total }}</td>
                                 </tr>
                             @endforeach
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cart-collaterals py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="cart-totals p-3 border">
+                        <div class="heading">
+                            <h5>Wagen insgesamt</h5>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Total:</td>
+                                        <td>{{ $currency }}{{ $grandTotal }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="{{ route('checkout') }}" class="checkout-btn btn btn-primary">Weiter zur Kasse</a>
+                    </div>
                 </div>
             </div>
         </div>

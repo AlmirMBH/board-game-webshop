@@ -12,17 +12,20 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-        return view('cart.index', compact('items'));
+        $grandTotal = $this->grandTotal($items);
+        $currency = Order::$currency;
+
+        return view('cart.index', compact('items', 'grandTotal', 'currency'));
     }
 
     public function store(Product $product, Request $request)
     {
         Cart::create([
-            'session_id'    => $request->session()->getId(),
-            'product_id'    => $product->id,
-            'item_image'    => $product->featured_image,
-            'item_name'     => $product->name,
-            'item_price'    => $product->price,
+            'session_id' => $request->session()->getId(),
+            'product_id' => $product->id,
+            'item_image' => $product->featured_image,
+            'item_name' => $product->name,
+            'item_price' => $product->price,
             'item_quantity' => $request->get('quantity'),
             'item_sub_total' => $this->subtotal($product->price, $request->get('quantity')),
         ]);
@@ -33,5 +36,16 @@ class CartController extends Controller
     private function subtotal($price, $quantity)
     {
         return $price * $quantity;
+    }
+
+    private function grandTotal($items)
+    {
+        $grandTotal = null;
+
+        foreach ($items as $item) {
+            $grandTotal += $item->item_sub_total;
+        }
+
+        return $grandTotal;
     }
 }
