@@ -725,6 +725,10 @@
     vertical-align: middle;
 }
 
+/* Notice Section */
+.notice {
+    min-height: 400px;
+}
 
 /* Checkout blade*/
 

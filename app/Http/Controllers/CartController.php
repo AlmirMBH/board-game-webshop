@@ -14,8 +14,9 @@ class CartController extends Controller
         $items = Cart::where('session_id', $request->session()->getId())->get();
         $grandTotal = $this->grandTotal($items);
         $currency = Order::$currency;
+        $isCartEmpty = $this->isCartEmpty($items);
 
-        return view('cart.index', compact('items', 'grandTotal', 'currency'));
+        return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty'));
     }
 
     public function store(Product $product, Request $request)
@@ -33,12 +34,7 @@ class CartController extends Controller
         return back()->with('status', $request->get('quantity') . 'x ' . $product->name . ' wurden Ihrem Warenkorb hinzugefügt.');
     }
 
-    private function subtotal($price, $quantity)
-    {
-        return $price * $quantity;
-    }
-
-    private function grandTotal($items)
+    public function grandTotal($items)
     {
         $grandTotal = null;
 
@@ -47,5 +43,14 @@ class CartController extends Controller
         }
 
         return $grandTotal;
+    }
+
+    private function subtotal($price, $quantity)
+    {
+        return $price * $quantity;
+    }
+
+    private function isCartEmpty($items) {
+        return $items ? true : false;
     }
 }
