@@ -164,6 +164,9 @@
                                                 <div class="product-btn-box">
                                                     <button type="submit" class="btn product-btn d-block w-100">Jetzt kaufen</button>
                                                 </div>
+                                                @foreach($items as $item)
+                                                    <input type="hidden" name="items[]" value="{{ $item->product_id }}">
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

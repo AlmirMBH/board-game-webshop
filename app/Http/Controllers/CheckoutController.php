@@ -46,7 +46,7 @@ class CheckoutController extends Controller
         }
     }
 
-    public function grandTotal($items): bool
+    public function grandTotal($items)
     {
         $grandTotal = null;
 

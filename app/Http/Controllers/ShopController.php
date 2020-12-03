@@ -92,8 +92,8 @@ class ShopController extends Controller
         ], $messages);
 
         $customerInput['order_id'] = $sessionOrder['order_id'];
-
         $customer = OrderCustomer::create($customerInput);
+
 
 
         session()->forget('order');
