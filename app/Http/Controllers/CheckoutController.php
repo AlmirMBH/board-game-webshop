@@ -6,6 +6,7 @@ use App\Cart;
 use App\Http\Requests\CheckoutFormRequest;
 use App\Order;
 use App\OrderCustomer;
+use App\OrderProducts;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -21,30 +22,33 @@ class CheckoutController extends Controller
 
     public function store(CheckoutFormRequest $request)
     {
+        $input = $request->except('items', 'sub_total');
         $orderId = $this->generateOrderId();
-
-        $orderCustomer = OrderCustomer::create([
-            'order_id'      => $orderId,
-            'first_name'    => $request->input('first_name'),
-            'last_name'     => $request->input('last_name'),
-            'company'       => $request->input('company'),
-            'state'         => $request->input('state'),
-            'address'       => $request->input('address'),
-            'address2'      => $request->input('address2'),
-            'post_code'     => $request->input('post_code'),
-            'city'          => $request->input('city'),
-            'phone'         => $request->input('phone'),
-            'email'         => $request->input('email'),
-        ]);
+        $input['order_id'] = $orderId;
+        $orderCustomer = OrderCustomer::create($input);
 
         if ($orderCustomer) {
             Order::create([
                 'order_id'      => $orderId,
                 'customer_id'   => $orderCustomer->id,
-                ''
+                'sub_total'     => $request['sub_total']
             ]);
         }
+
+        foreach(($request['items']) as $jsonObjectItem) {
+            $item = json_decode($jsonObjectItem, true);
+
+            OrderProducts::create([
+                'order_id'      => $orderId,
+                'product_id'    => $item['product_id'],
+                'price'         => $item['item_price'],
+                'quantity'      => $item['item_quantity']
+            ]);
+        }
+        dd("done!");
+
     }
+
 
     public function grandTotal($items)
     {

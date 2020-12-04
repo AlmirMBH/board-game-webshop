@@ -35,6 +35,7 @@
                     <div class="card product-card">
                         <div class="card-body product-card-body p-5">
                             {!! Form::open(['method'=>'POST', 'action'=>'CheckoutController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
+                            <input type="hidden" name="sub_total" value="{{$grandTotal}}">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6">
                                         <div class="product-title mb-5">
@@ -165,7 +166,7 @@
                                                     <button type="submit" class="btn product-btn d-block w-100">Jetzt kaufen</button>
                                                 </div>
                                                 @foreach($items as $item)
-                                                    <input type="hidden" name="items[]" value="{{ $item->product_id }}">
+                                                    <input type="hidden" name="items[]" value="{{ $item }}">
                                                 @endforeach
                                             </div>
                                         </div>
