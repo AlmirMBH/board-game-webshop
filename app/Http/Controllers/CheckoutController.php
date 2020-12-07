@@ -8,6 +8,7 @@ use App\Order;
 use App\OrderCustomer;
 use App\OrderProducts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -38,14 +39,44 @@ class CheckoutController extends Controller
         foreach(($request['items']) as $jsonObjectItem) {
             $item = json_decode($jsonObjectItem, true);
 
-            OrderProducts::create([
+            $orderProduct[] = OrderProducts::create([
                 'order_id'      => $orderId,
                 'product_id'    => $item['product_id'],
                 'price'         => $item['item_price'],
-                'quantity'      => $item['item_quantity']
+                'quantity'      => $item['item_quantity'],
+                'product_name'  => $item['item_name']
             ]);
         }
-        dd("done!");
+
+
+        $orderProducts[] = $orderProduct;
+
+        $userInput = [
+            'order_id' => $orderId,
+            'orderProducts' => $orderProducts,
+            'sub_total' => $request['sub_total'],
+            'created_at' => $orderCustomer['created_at']->format('Y.m.d H:i:s'),
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'address' => $request['address'],
+            'company' => $request['company'],
+            'state' => $request['state'],
+            'address2' => $request['address2'],
+            'post_code' => $request['post_code'],
+            'city' => $request['city'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+        ];
+
+        $emails = ['admin@gewerbe-spiel.ch', $request['email']];
+
+        Mail::send('order-email', ['userInput' => $userInput], function($message) use ($emails, $userInput) {
+            $message->to('admin@gewerbe-spiel.ch')->subject('Ihre Bestellung wurde erfolgreich versendet');
+        });
+
+        Cart::where('session_id', $request->session()->getId())->delete();
+
+        return view('pages.order-successful', compact('userInput'));
 
     }
 
