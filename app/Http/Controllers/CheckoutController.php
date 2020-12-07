@@ -71,7 +71,7 @@ class CheckoutController extends Controller
         $emails = ['admin@gewerbe-spiel.ch', $request['email']];
 
         Mail::send('order-email', ['userInput' => $userInput], function($message) use ($emails, $userInput) {
-            $message->to('admin@gewerbe-spiel.ch')->subject('Ihre Bestellung wurde erfolgreich versendet');
+            $message->to($emails)->subject('Ihre Bestellung wurde erfolgreich versendet');
         });
 
         Cart::where('session_id', $request->session()->getId())->delete();
