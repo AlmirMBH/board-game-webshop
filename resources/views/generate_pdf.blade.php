@@ -164,7 +164,7 @@
     </div>
 
     <div id="project" style="margin-top: 50px; margin-left: 100px;">
-        <div><span>PRODUKT</span>{{$name}}</div>
+{{--        <div><span>PRODUKT</span>{{$name}}</div>--}}
         <div><span>KUNDE / KUNDIN</span>{{$first_name}} {{$last_name}}</div>
         <div><span>UNTERNEHMEN</span>{{$company}}</div>
         <div><span>KANTON</span>{{$state}}</div>
@@ -191,29 +191,34 @@
             <th>PREIS</th>
             <th>STK</th>
             <th>VERSAND</th>
-            <th>TOTAL</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($orderProducts as $orderProduct)
         <tr>
-            <td class="service">{{$name}}</td>
-            <td class="desc">{{$short_description}}</td>
-            <td class="unit">{{App\Order::$currency}} {{$price}}</td>
-            <td class="qty">{{$quantity}}</td>
-
-            <td class="shipping">{{App\Order::getCurrency($quantity)}} {{App\Order::getShippingCost($quantity)}}</td>
-            <td class="total">{{App\Order::$currency}} {{$sub_total}}</td>
+            <td class="service">{{$orderProduct['product_name']}}</td>
+            <td class="desc">{{$orderProduct->product->short_description}}</td>
+            <td class="unit">{{App\Order::$currency}} {{$orderProduct['price']}}</td>
+            <td class="qty">{{$orderProduct['quantity']}}</td>
+            <td class="shipping">{{App\Order::getCurrency($orderProduct['quantity'])}} {{App\Order::getShippingCost($orderProduct['quantity'])}}</td>
+{{--            <td class="total">{{App\Order::$currency}} {{$sub_total}}</td>--}}
         </tr>
-        <tr>
-            <td class="tax" colspan="5">MWST 00%</td>
-            <td class="total">{{App\Order::$currency}} 00.0</td>
-        </tr>
-        <tr>
-            <td colspan="5" class="grand total">GRAND TOTAL</td>
-            <td class="grand total">{{App\Order::$currency}} {{$sub_total}}</td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
+    <table style="margin-top: -20px; border-top: 1px solid #C1CED9">
+        <tbody>
+            <tr>
+                <td style="text-align: right;" colspan="5"></td>
+                <td style="text-align: right;" class="total"><span style="margin-right: 40px;"><span style="margin-right: 20px">MWST 00%</span> {{App\Order::$currency}} 00.0</span></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="grand total">GRAND TOTAL</td>
+                <td style="text-align: right;" class="grand total"><span style="margin-right: 40px;">{{App\Order::$currency}} {{$sub_total}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+
     <div>
         <div id="signature">Geschäftsführer</div>
         <div id = "signature-line"> _______________________</div>

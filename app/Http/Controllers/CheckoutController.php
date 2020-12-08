@@ -23,6 +23,8 @@ class CheckoutController extends Controller
 
     public function store(CheckoutFormRequest $request)
     {
+        if(!$request['sub_total']) return redirect()->back();
+
         $input = $request->except('items', 'sub_total');
         $orderId = $this->generateOrderId();
         $input['order_id'] = $orderId;
@@ -47,7 +49,6 @@ class CheckoutController extends Controller
                 'product_name'  => $item['item_name']
             ]);
         }
-
 
         $orderProducts[] = $orderProduct;
 

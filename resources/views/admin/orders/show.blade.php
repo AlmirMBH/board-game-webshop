@@ -81,21 +81,30 @@
                                             <th>Regular Price</th>
                                             <th>Shipping</th>
                                             <th>Description</th>
-                                            <th>Subtotal</th>
+{{--                                            <th>Subtotal</th>--}}
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>{{$order->products->name}}</td>
-                                            <td>{{$order->quantity}}</td>
-                                            <td>{{App\Order::$currency}} {{$order->price}}</td>
-                                            <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</td>
-                                            <td style="max-width: 300px">{{Str::limit($order->products->short_description, 100)}}</td>
-                                            <td>{{App\Order::$currency}} {{$order->sub_total}}</td>
-                                        </tr>
-
+                                        @foreach($order->orderProducts as $orderProduct)
+                                            <tr>
+                                                <td>{{$orderProduct['product_name']}}</td>
+                                                <td>{{$orderProduct['quantity']}}</td>
+                                                <td>{{App\Order::$currency}} {{$orderProduct['price']}}</td>
+                                                <td>{{App\Order::getCurrency($orderProduct['quantity'])}} {{App\Order::getShippingCost($orderProduct['quantity'])}}</td>
+                                                <td style="max-width: 300px">{{Str::limit($orderProduct->product->short_description, 100)}}</td>
+{{--                                                <td rowspan="2">{{App\Order::$currency}} {{$order->sub_total}}</td>--}}
+                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="my-5 mr-5">
+                                        <div class="row justify-content-end">
+                                            <h3>Total:</h3>
+                                        </div>
+                                        <div class="row justify-content-end">
+                                            <p>{{App\Order::$currency}} {{$order->sub_total}}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -116,16 +125,17 @@
                                     <div class="table-responsive">
                                         <table class="table">
                                             <tr>
-                                                <th style="width:50%">Price:</th>
-                                                <td>{{App\Order::$currency}} {{$order->price}}</td>
-                                            </tr>
-                                            <tr>
                                                 <th style="width:50%">Quantity:</th>
-                                                <td>{{$order->quantity}}</td>
+                                                <td>
+                                                    @foreach($order->orderProducts as $orderProduct)
+                                                        <span style="display:none">{{$total[] = $orderProduct->quantity}}</span>
+                                                    @endforeach
+                                                    {{array_sum($total)}}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th>Shipping:</th>
-                                                <td>{{App\Order::getCurrency($order['quantity'])}} {{App\Order::getShippingCost($order->quantity)}}</td>
+                                                <td>{{App\Order::getCurrency(array_sum($total))}} {{App\Order::getShippingCost(array_sum($total))}}</td>
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
