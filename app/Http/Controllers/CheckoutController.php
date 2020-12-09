@@ -7,6 +7,7 @@ use App\Http\Requests\CheckoutFormRequest;
 use App\Order;
 use App\OrderCustomer;
 use App\OrderProducts;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

@@ -29,6 +29,10 @@ Route::post('/shop/auftrag/{product}', 'CartController@store');
 
 Route::get('/web-shop/auftrag/auschecken', 'CheckoutController@index')->name('checkout');
 Route::post('/web-shop/auftrag/auschecken', 'CheckoutController@store');
+Route::get('/web-shop/auftrag/auschecken/zahlung', 'StripeController@handleGet');
+
+Route::get('/stripe-payment', 'StripeController@handleGet');
+Route::post('/stripe-payment', 'StripeController@handlePost')->name('stripe.payment');
 
 Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');
 
@@ -100,8 +104,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
     Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
 });
-
-
 
 
 
