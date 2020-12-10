@@ -8,6 +8,9 @@
         border: 1px solid red!important;
     }
 </style>
+<?php
+app()->setLocale('de');
+?>
 @section('title', 'Zahlung')
 
 @section('content')
@@ -50,6 +53,12 @@
                                     <p>{{ Session::get('success') }}</p>
                                 </div>
                             @endif
+                            @if (Session::has('error'))
+                                <div class="alert alert-danger text-center">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                    <p>{{__('payment.' . Session::get('error'))}}</p>
+                                </div>
+                            @endif
 
                             <form role="form" action="{{ route('stripe.payment') }}" method="post" class="validation"
                                   data-cc-on-file="false"
@@ -58,12 +67,12 @@
                                 @csrf
 
                                 <div class='form-group required'>
-                                    <label for="card_name">Name on Card</label>
+                                    <label for="card_name">Name auf der Karte</label>
                                     <input class='form-control required' id="card_name" name="name_card" type='text'>
                                 </div>
 
                                 <div class='form-group required'>
-                                    <label for="card_number">Card Number</label>
+                                    <label for="card_number">Kartennummer</label>
                                     <input autocomplete='off' class='form-control card-num' name="card_number" id="card_number" type='text'>
                                 </div>
 
@@ -74,23 +83,25 @@
                                         <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 415' size='4' type='text'>
                                     </div>
                                     <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                        <label class='control-label'>Expiration Month</label>
+                                        <label class='control-label'>Monat des Ablaufens</label>
                                         <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
                                     </div>
                                     <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                        <label class='control-label'>Expiration Year</label>
+                                        <label class='control-label'>Ablaufjahr</label>
                                         <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
                                     </div>
                                 </div>
 
+{{--                                <?php $next = __('home.Next');?>--}}
+{{--                                <p>{{__('payment.Could not find payment information')}}</p>--}}
+
                                 <div class='form-row row'>
                                     <div class='col-md-12 hide error form-group'>
-                                        <div class='alert-danger alert'>Fix the errors before you begin.</div>
+                                        <div class='alert-danger alert'>{{__('payment.Fix the errors before you begin.')}}</div>
                                     </div>
                                 </div>
 
-
-                                <button class="btn btn-danger btn-lg btn-block" type="submit">Pay Now (USD 10.00)</button>
+                                <button class="btn btn-danger btn-lg btn-block" type="submit">Jetzt Kaufen (€ {{$subTotal}})</button>
 
                             </form>
 
@@ -106,9 +117,9 @@
 
 <script type="text/javascript">
     $(function() {
-        var $form         = $(".validation");
+        let $form         = $(".validation");
         $('form.validation').bind('submit', function(e) {
-            var $form         = $(".validation"),
+            let $form         = $(".validation"),
                 inputVal = ['input[type=email]', 'input[type=password]',
                     'input[type=text]', 'input[type=file]',
                     'textarea'].join(', '),
@@ -119,7 +130,7 @@
 
             $('.has-error').removeClass('has-error');
             $inputs.each(function(i, el) {
-                var $input = $(el);
+                let $input = $(el);
                 if ($input.val() === '') {
                     $input.addClass('has-error');
                     $errorStatus.removeClass('hide');
@@ -140,14 +151,22 @@
 
         });
 
+        let errorMessages = {
+            missing_payment_information: "Beheben Sie die Fehler, bevor Sie beginnen.",
+            incorrect_number: "Ihre Kartennummer ist falsch.",
+            invalid_expiry_year: "Das Ablaufjahr Ihrer Karte ist ungültig.",
+            invalid_expiry_month: "Der Ablaufmonat Ihrer Karte ist ungültig.",
+            invalid_number: "Die Kartennummer ist keine gültige Kreditkartennummer."
+        };
+
         function stripeHandleResponse(status, response) {
             if (response.error) {
                 $('.error')
                     .removeClass('hide')
                     .find('.alert')
-                    .text(response.error.message);
+                    .text(errorMessages[response.error.code]);
             } else {
-                var token = response['id'];
+                let token = response['id'];
                 $form.find('input[type=text]').empty();
                 $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
                 $form.get(0).submit();

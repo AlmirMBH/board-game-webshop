@@ -69,8 +69,7 @@
                         <div class='form-row row'>
                             <div class='col-xs-12 col-md-4 form-group cvc required'>
                                 <label class='control-label'>CVC</label>
-                                <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 415' size='4'
-                                       type='text'>
+                                <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 415' size='4' type='text'>
                             </div>
                             <div class='col-xs-12 col-md-4 form-group expiration required'>
                                 <label class='control-label'>Expiration Month</label> <input
@@ -144,6 +143,7 @@
         });
 
         function stripeHandleResponse(status, response) {
+            console.log(response.error)
             if (response.error) {
                 $('.error')
                     .removeClass('hide')

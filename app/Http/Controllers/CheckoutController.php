@@ -24,62 +24,34 @@ class CheckoutController extends Controller
 
     public function store(CheckoutFormRequest $request)
     {
-        if(!$request['sub_total']) return redirect()->back();
+        $subTotal = $request['sub_total'];
+        if(!$subTotal) return redirect()->back();
 
         $input = $request->except('items', 'sub_total');
         $orderId = $this->generateOrderId();
         $input['order_id'] = $orderId;
-        $orderCustomer = OrderCustomer::create($input);
 
-        if ($orderCustomer) {
-            Order::create([
-                'order_id'      => $orderId,
-                'customer_id'   => $orderCustomer->id,
-                'sub_total'     => $request['sub_total']
-            ]);
-        }
-
-        foreach(($request['items']) as $jsonObjectItem) {
-            $item = json_decode($jsonObjectItem, true);
-
-            $orderProduct[] = OrderProducts::create([
-                'order_id'      => $orderId,
-                'product_id'    => $item['product_id'],
-                'price'         => $item['item_price'],
-                'quantity'      => $item['item_quantity'],
-                'product_name'  => $item['item_name']
-            ]);
-        }
-
-        $orderProducts[] = $orderProduct;
-
-        $userInput = [
-            'order_id' => $orderId,
-            'orderProducts' => $orderProducts,
-            'sub_total' => $request['sub_total'],
-            'created_at' => $orderCustomer['created_at']->format('Y.m.d H:i:s'),
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'address' => $request['address'],
-            'company' => $request['company'],
-            'state' => $request['state'],
-            'address2' => $request['address2'],
-            'post_code' => $request['post_code'],
-            'city' => $request['city'],
-            'phone' => $request['phone'],
-            'email' => $request['email'],
+        $orderCustomerData = [
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'company' => $input['company'],
+            'state' => $input['state'],
+            'address' => $input['address'],
+            'address2' => $input['address2'],
+            'post_code' => $input['post_code'],
+            'city' => $input['city'],
+            'phone' => $input['phone'],
+            'email' => $input['email'],
+            'order_id' => $input['order_id']
         ];
 
-        $emails = ['admin@gewerbe-spiel.ch', $request['email']];
+        $requestItems = $request['items'];
 
-        Mail::send('order-email', ['userInput' => $userInput], function($message) use ($emails, $userInput) {
-            $message->to($emails)->subject('Ihre Bestellung wurde erfolgreich versendet');
-        });
+        $request->session()->put('orderCustomerData', $orderCustomerData);
+        $request->session()->put('subTotal', $subTotal);
+        $request->session()->put('requestItems', $requestItems);
 
-        Cart::where('session_id', $request->session()->getId())->delete();
-
-        return view('pages.order-successful', compact('userInput'));
-
+        return redirect(route('stripe.get'));
     }
 
 
