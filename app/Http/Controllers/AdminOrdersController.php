@@ -19,13 +19,6 @@ class AdminOrdersController extends Controller
         $currentDate = Carbon::now()->format('d-m-Y');
         $order = Order::where('id', $id)->first();
 
-//        foreach ($order->orderProducts as $orderProduct)
-//        {
-//            echo $orderProduct;
-//        }
-//
-//        dd($order->customer->email);
-
         return view('admin.orders.show', compact('order', 'currentDate'));
     }
 }

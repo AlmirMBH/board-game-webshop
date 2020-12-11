@@ -116,7 +116,6 @@
                                     <p class="lead">Payment Methods:</p>
                                     <img src="{{ asset('img/admin/visa.png') }}" alt="Visa">
                                     <img src="{{ asset('img/admin/mastercard.png') }}" alt="Mastercard">
-                                    <img src="{{ asset('img/admin/paypal2.png') }}" alt="Paypal">
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-6">

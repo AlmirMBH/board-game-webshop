@@ -67,28 +67,28 @@ app()->setLocale('de');
                                 @csrf
 
                                 <div class='form-group required'>
-                                    <label for="card_name">Name auf der Karte</label>
-                                    <input class='form-control required' id="card_name" name="name_card" type='text'>
+                                    <label for="frmNameCC">Name auf der Karte</label>
+                                    <input class='form-control required' required id="frmNameCC" name="ccname" type='text' autocomplete="cc-name">
                                 </div>
 
                                 <div class='form-group required'>
-                                    <label for="card_number">Kartennummer</label>
-                                    <input autocomplete='off' class='form-control card-num' name="card_number" id="card_number" type='text'>
+                                    <label for="frmCCNum">Kartennummer</label>
+                                    <input autocomplete='cc-number' class='form-control card-num' required name="cardnumber" id="frmCCNum" type='text'>
                                 </div>
 
 
                                 <div class='form-row row'>
                                     <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                        <label class='control-label'>CVC</label>
-                                        <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 415' size='4' type='text'>
+                                        <label class='frmCCCVC'>CVC</label>
+                                        <input autocomplete='cc-csc' name="cvc" id="frmCCCVC" class='form-control card-cvc' placeholder='e.g 415' size='4' type='text'>
                                     </div>
                                     <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                        <label class='control-label'>Monat des Ablaufens</label>
-                                        <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+                                        <label class='frmCEM'>Monat des Ablaufens</label>
+                                        <input autocomplete="cc-exp-month" id="frmCEM" name="ccmonth" class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
                                     </div>
                                     <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                        <label class='control-label'>Ablaufjahr</label>
-                                        <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+                                        <label class='frmCEY'>Ablaufjahr</label>
+                                        <input autocomplete="cc-exp-year" name="ccyear" class='form-control card-expiry-year' id="frmCEY" placeholder='YYYY' size='4' type='text'>
                                     </div>
                                 </div>
 
