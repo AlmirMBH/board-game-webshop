@@ -20,10 +20,10 @@
                             Spiel lang.</p>
                         <p>Dank diesen teilnehmenden Betrieben/ Geschäften ist es möglich geworden die ausgeführten
                             GEWERBE-SPIELE verschiedener Gemeinden zu realisieren!
-                            Ein ganz herzliches DANKESCHÖN an dieser Stelle an alle <a href="#">Teilnehmer</a>
+                            Ein ganz herzliches DANKESCHÖN an dieser Stelle an alle <a href="{{route('participating-companies')}}">Teilnehmer</a>
                         </p>
                         <p>Von jeder Ausgabe (alle Gemeinde) können Sie bei uns bequem die GEWERBE-SPIELE <a
-                                href="#">online kaufen</a> und geliefert bekommen! </p>
+                                href="{{route('web-shop')}}">online kaufen</a> und geliefert bekommen! </p>
                         <p>Gerne können Sie die GEWERBE-SPIELE aber bei den Verkaufsstellen (Points of Sale POS.) direkt
                             kaufen. (LINK auf «POS.»)</p>
                         <p>Nun können Sie in Ihrer Familie oder im Freundeskreis bequem das Handy für 1- 2 Stunden

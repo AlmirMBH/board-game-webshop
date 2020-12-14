@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-                <img src="{{asset('img/uberUnsPhoto1.jpeg')}}" alt="">
+                <img src="{{asset('img/uber-uns.jpg')}}" alt="">
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-7">
