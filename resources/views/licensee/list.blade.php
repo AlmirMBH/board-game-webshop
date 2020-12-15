@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row overflow-auto">
             <div class="col-12">
                 <table class="table mb-5" id="table">
                     <thead>

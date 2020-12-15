@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="product-image-box text-center">
-                                            <img src="{{asset('img/product/product-image.png')}}" alt="" style="max-width: 250px;">
+                                            <img src="{{asset('img/product/' . $product->featured_image)}}" alt="" style="max-width: 250px;">
                                         </div>
                                     </div>
                                 </div>

@@ -33,7 +33,7 @@
             </div>
 
             <div class="col-sm-12 col-md-12 col-lg-7">
-                <div class="p-5">
+                <div class="p-5 text-full-with">
                     <div class="who-we-are-titles mt-5">
                         <h5 class="section-strapline">Willkommen bei Gewerbe-Spiel</h5>
                         <h2 class="section-title">Wer wir sind?</h2>

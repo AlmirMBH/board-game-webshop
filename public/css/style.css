@@ -853,8 +853,16 @@ ul.list-group li a {
 ul.list-group li:hover a {
     color: #502281;
 }
+.pdf-viewer {
+    height: 1467px;
+}
 
 /* Media Query */
+@media only screen and (max-width: 1300px) {
+    .pdf-viewer {
+        height: 1300px;
+    }
+}
 @media only screen and (max-width: 1200px) {
     .top-header {
         display: none;
@@ -864,6 +872,11 @@ ul.list-group li:hover a {
     }
     .welcome-box-title h3 a {
         font-size: 30px;
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .pdf-viewer {
+        height: 952px;
     }
 }
 @media only screen and (max-width: 991px) {
@@ -879,17 +892,75 @@ ul.list-group li:hover a {
     .carousel-caption {
         top: 0;
     }
+    .pdf-viewer {
+        height: 706px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .display-1 {
         font-size: 2rem;
     }
 }
+@media only screen and (max-width: 767px) {
+    .pdf-viewer {
+        height: 530px;
+    }
+
+    .licensee-image {
+        padding-right: 0px !important;
+    }
+
+    .btn.slider-btn.licensee-list {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .participating-companies-btn {
+        margin-bottom: 20px;
+    }
+    .participating-companies-btn a {
+        width: 100%;
+    }
+}
 @media only screen and (max-width: 575px) {
   .licensee-image {
         padding-right: 15px;
     }
+    .welcome-title {
+        font-size: 50px;
+        line-height: 59px;
+    }
+    .address {
+        padding: 50px 15px 50px 15px!important;
+    }
+}
+@media only screen and (max-width: 535px) {
+    .pdf-viewer {
+        height: 98vw;
+    }
+    .page-title h1 {
+        font-size: 14vw;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .welcome-title {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .text-full-with {
+        padding: 0rem!important;
+    }
+    .section-title {
+        font-size: 15vw;
+    }
+}
+@media only screen and (max-width: 361px) {
 
+}
+@media only screen and (max-width: 336px) {
+    .welcome-title {
+        font-size: 30px;
+        line-height: 40px;
+    }
 }
 
 
