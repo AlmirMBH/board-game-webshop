@@ -64,7 +64,7 @@
                             <div class="px-4">
                                 <h4><strong>Kundendetails</strong></h4>
                             </div>
-                            <div class="d-flex bd-highlight border-top mt-3 mb-3 pt-2 px-4">
+                            <div id="picture-block" class="d-flex bd-highlight border-top mt-3 mb-3 pt-2 px-4">
                                 <div class="mr-auto p-2 bd-highlight">
                                     <div>
                                         <h6>Vorname: <strong>{{ $userInput['first_name'] }}</strong></h6>
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="p-2 bd-highlight">
-                                    <div class="product-image-box" style="width: 350px;">
+                                    <div id="product-image-box" class="product-image-box" style="width: 350px;">
                                         <img src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="">
                                     </div>
                                 </div>

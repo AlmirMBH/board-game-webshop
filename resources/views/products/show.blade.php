@@ -31,7 +31,7 @@
         <div class="container">
             <div class="card-body">
                 @if (session('status'))
-                    <div class="alert alert-success mb-4 d-flex justify-content-between align-items-center" role="alert">
+                    <div id="items-block-message" class="alert alert-success mb-4 d-flex justify-content-between align-items-center" role="alert">
                         <p class="mb-0">{{ session('status') }}</p>
                         <a href="{{ route('cart') }}" class="btn btn-info">Warenkorb anzeigen</a>
                     </div>
@@ -79,7 +79,7 @@
                         </div>
 
 
-                        <div class="d-flex align-items-center">
+                        <div id="items-block" class="d-flex align-items-center">
                             <div class="product-quantity mt-3 mr-3">
                                 <div class="number-input">
                                     <button type="button"

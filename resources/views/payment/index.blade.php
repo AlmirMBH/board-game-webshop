@@ -45,7 +45,7 @@ app()->setLocale('de');
             <div class="row d-flex justify-content-center my-5">
                 <div class="col-md-8">
                     <div class="card product-card">
-                        <div class="card-body product-card-body p-5">
+                        <div id="payment-padding" class="card-body product-card-body p-5">
 
                             @if (Session::has('success'))
                                 <div class="alert alert-success text-center">

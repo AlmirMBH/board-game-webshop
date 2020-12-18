@@ -33,7 +33,7 @@
             <div class="row d-flex justify-content-center my-5">
                 <div class="col-md-8">
                     <div class="card product-card">
-                        <div class="card-body product-card-body p-5">
+                        <div id="checkout-padding-form" class="card-body product-card-body p-5">
                             {!! Form::open(['method'=>'POST', 'action'=>'CheckoutController@store', 'role'=>'form', 'id'=>'quickForm']) !!}
                             <input type="hidden" name="sub_total" value="{{$grandTotal}}">
                                 <div class="row">

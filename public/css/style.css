@@ -825,6 +825,9 @@ select {
     color: #ffffff;
     font-size: 22px;
 }
+#product-image-box {
+    width: 350px;
+}
 
 .address p a {
     color: #ffffff;
@@ -895,6 +898,56 @@ ul.list-group li:hover a {
     .pdf-viewer {
         height: 706px;
     }
+    table {
+        border: 0;
+    }
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+    .btn.slider-btn.p-2.mt-0 {
+        padding: .1rem!important;
+        text-transform: initial!important;
+    }
+    #select-option-api-providers tr {
+        margin-bottom: 40px;
+    }
+    #picture-block {
+        display: block!important;
+    }
+    #product-image-box {
+        width: 100% !important;
+    }
 }
 @media only screen and (max-width: 768px) {
     .display-1 {
@@ -939,6 +992,20 @@ ul.list-group li:hover a {
     }
     .page-title h1 {
         font-size: 14vw;
+    }
+}
+@media only screen and (max-width: 446px) {
+    #items-block {
+        display: block!important;
+    }
+    #items-block-message {
+        display: block!important;
+    }
+    #checkout-padding-form {
+        padding: 1rem!important;
+    }
+    #payment-padding {
+        padding: 1rem!important;
     }
 }
 @media only screen and (max-width: 420px) {

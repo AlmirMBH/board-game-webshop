@@ -145,11 +145,11 @@
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             text += "<tr>" +
-                                "<td class='licensee-td'>" + data[i].name + '</td>' +
-                                "<td class='licensee-td'>" + data[i].address + '</td>' +
-                                '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
-                                '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
-                                '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/outlet-details/' +
+                                "<td data-label='Name' class='licensee-td'>" + data[i].name + '</td>' +
+                                "<td data-label='Adresse' class='licensee-td'>" + data[i].address + '</td>' +
+                                '<td data-label="Phone" class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
+                                '<td data-label="E-Mail" class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
+                                '<td data-label="Aktionen" class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/outlet-details/' +
                                 data[i].slug + '">Details anzeigen</a></td>' +
                                 "</tr>";
                         }
