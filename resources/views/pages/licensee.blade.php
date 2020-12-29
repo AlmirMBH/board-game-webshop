@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="page-banner">
-    <div class="container">
+    <div class="container text-medium-center">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
@@ -31,7 +31,7 @@
             <div class="col-sm-12 col-md-8">
                 <div class="licensee-text">
 
-                    <div class="section-title">
+                    <div class="section-title text-medium-center">
                         <h2>Hier finden Sie alle <span class="section-title-prominent">
                             zertifizierten Lizenznehmer</span>, gegliederten nach Kantone und Gemeinde
                         </h2>

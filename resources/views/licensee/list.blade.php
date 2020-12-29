@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="page-banner">
-        <div class="container">
+        <div class="container text-medium-center">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">

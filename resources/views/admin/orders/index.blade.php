@@ -60,7 +60,7 @@
                                             </td>
                                             <td>{{$order->sub_total}}</td>
 
-                                            <td class="d-flex justify-content-center"><a href="{{route('show-orders', $order->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                            <td><a href="{{route('show-orders', $order->id)}}">View</a></td>
 
                                         </tr>
                                     @endforeach

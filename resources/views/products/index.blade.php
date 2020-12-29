@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="page-banner">
-        <div class="container">
+        <div class="container text-medium-center">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="product-image-box text-center">
-                                            <img src="{{asset('img/product/' . $product->featured_image)}}" alt="" style="max-width: 250px;">
+                                            <img src="{{asset('img/product/' . $product->featured_image)}}" alt="" style="max-width: 250px; max-height: 166px;">
                                         </div>
                                     </div>
                                 </div>

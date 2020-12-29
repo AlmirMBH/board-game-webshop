@@ -18,7 +18,7 @@ class StripeController extends Controller
      */
     public function handleGet()
     {
-        $subTotal = session()->get('subTotal');
+        $subTotal = number_format(session()->get('subTotal'),2);
         return view('payment.index', compact('subTotal'));
     }
 
@@ -32,9 +32,9 @@ class StripeController extends Controller
             $subTotalData = session()->get('subTotal');
             $charge = Stripe\Charge::create([
                 "amount" => 100 * $subTotalData,
-                "currency" => "EUR",
+                "currency" => "CHF",
                 "source" => $request->stripeToken,
-                "description" => "Making test payment."
+                "description" => "Purchase"
             ]);
 
             if ($charge['status'] == 'succeeded') {

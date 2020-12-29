@@ -985,13 +985,22 @@ ul.list-group li:hover a {
     .address {
         padding: 50px 15px 50px 15px!important;
     }
+    .justify-medium-text {
+        text-align: justify!important;
+    }
+    .text-medium-center {
+        text-align: center!important;
+    }
+    .reviews-title {
+        margin-right: 0!important;
+    }
 }
 @media only screen and (max-width: 535px) {
     .pdf-viewer {
         height: 98vw;
     }
     .page-title h1 {
-        font-size: 14vw;
+        font-size: 12vw;
     }
 }
 @media only screen and (max-width: 446px) {
@@ -1017,7 +1026,7 @@ ul.list-group li:hover a {
         padding: 0rem!important;
     }
     .section-title {
-        font-size: 15vw;
+        font-size: 11vw!important;
     }
 }
 @media only screen and (max-width: 361px) {

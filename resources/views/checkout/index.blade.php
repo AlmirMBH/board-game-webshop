@@ -158,7 +158,7 @@
                                                     <tfoot>
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="product-subtotal"><strong>{{ $currency }}{{ $grandTotal }}</strong></td>
+                                                            <td class="product-subtotal"><strong>{{ $currency }}{{ number_format($grandTotal, 2) }}</strong></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>

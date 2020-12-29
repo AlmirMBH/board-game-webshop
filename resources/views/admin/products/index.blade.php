@@ -53,12 +53,9 @@
                                             <td>{{Str::limit($item->short_description, 100)}}</td>
                                             <td>{{$item->price}}</td>
                                             <td>{{$item->created_at}}</td>
-                                            <td class="d-flex justify-content-around"><a href="{{route('edit-products', $item->id)}}">
-                                                    <button type="button" class="btn btn-primary">View</button></a>
-                                                <button type="button" data-url="{{url('/admin/products/' . $item->id . '/delete')}}"
-                                                        class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
-                                                    Delete
-                                                </button></td>
+                                            <td><a href="{{route('edit-products', $item->id)}}">
+                                                    View</a>
+                                                </td>
 
                                         </tr>
 
@@ -121,12 +118,14 @@
 @section('script')
     <script src="{{asset('js/admin/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('js/admin/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('js/admin/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('js/admin/responsive.bootstrap4.min.js')}}"></script>
     <script>
         $(function () {
-            // $("#example1").DataTable({
-            //     "responsive": true,
-            //     "autoWidth": false,
-            // });
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
             // $('#example2').DataTable({
             //     "paging": true,
             //     "lengthChange": false,

@@ -54,7 +54,7 @@
                                             @else
                                                 <td style="color: red">{{$item->is_available == 1 ? 'available' : 'not available'}}</td>
                                             @endif
-                                            <td class="d-flex justify-content-center"><a href="{{route('edit-cities', $item->id)}}"><button type="button" class="btn btn-primary">View</button></a></td>
+                                            <td><a href="{{route('edit-cities', $item->id)}}">View</a></td>
 
                                         </tr>
                                     @endforeach

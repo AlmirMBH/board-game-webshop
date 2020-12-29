@@ -57,11 +57,9 @@
                                             <td>{{$item->mobile}}</td>
                                             <td>{{$item->web_url}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td class="d-flex justify-content-around"><a href="{{route('edit-providers', $item->id)}}">
-                                                <button type="button" class="btn btn-primary">View</button></a>
-                                                <button type="button" data-url="{{url('/admin/providers/' . $item->id . '/delete')}}" class="btn btn-danger delete-company" data-toggle="modal" data-target="#modal-default">
-                                                    Delete
-                                                </button></td>
+                                            <td><a href="{{route('edit-providers', $item->id)}}">
+                                                View</a>
+
 
                                         </tr>
 

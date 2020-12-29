@@ -88,7 +88,7 @@
                                     <tbody>
                                     <tr>
                                         <td>Total:</td>
-                                        <td>{{ $currency }}{{ $grandTotal }}</td>
+                                        <td>{{ $currency }}{{ number_format($grandTotal, 2) }}</td>
                                     </tr>
                                     </tbody>
                                 </table>

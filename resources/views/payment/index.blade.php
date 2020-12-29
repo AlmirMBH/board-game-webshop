@@ -80,7 +80,7 @@ app()->setLocale('de');
                                 <div class='form-row row'>
                                     <div class='col-xs-12 col-md-4 form-group cvc required'>
                                         <label class='frmCCCVC'>CVC</label>
-                                        <input autocomplete='cc-csc' name="cvc" id="frmCCCVC" class='form-control card-cvc' placeholder='e.g 415' size='4' type='text'>
+                                        <input autocomplete='cc-csc' name="cvc" id="frmCCCVC" class='form-control card-cvc' placeholder='415' size='4' type='text'>
                                     </div>
                                     <div class='col-xs-12 col-md-4 form-group expiration required'>
                                         <label class='frmCEM'>Monat des Ablaufens</label>
@@ -101,7 +101,7 @@ app()->setLocale('de');
                                     </div>
                                 </div>
 
-                                <button class="btn btn-danger btn-lg btn-block" type="submit">Jetzt Kaufen (€ {{$subTotal}})</button>
+                                <button class="btn btn-danger btn-lg btn-block" type="submit">Jetzt Kaufen (CHF {{$subTotal}})</button>
 
                             </form>
 

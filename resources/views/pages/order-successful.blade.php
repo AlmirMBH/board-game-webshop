@@ -58,7 +58,7 @@
                                     @endforeach
                                 <div class="text-right" style="margin-right: 73px;">
                                     <h6>Total</h6>
-                                    <h6><strong>{{App\Order::$currency}} {{$userInput['sub_total']}}</strong></h6>
+                                    <h6><strong>{{App\Order::$currency}} {{number_format($userInput['sub_total'], 2)}}</strong></h6>
                                 </div>
                             </div>
                             <div class="px-4">

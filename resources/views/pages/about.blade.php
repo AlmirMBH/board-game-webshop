@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="page-banner">
-    <div class="container">
+    <div class="container text-medium-center">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
@@ -34,11 +34,11 @@
 
             <div class="col-sm-12 col-md-12 col-lg-7">
                 <div class="p-5 text-full-with">
-                    <div class="who-we-are-titles mt-5">
+                    <div class="who-we-are-titles mt-5 text-medium-center">
                         <h5 class="section-strapline">Willkommen bei Gewerbe-Spiel</h5>
                         <h2 class="section-title">Wer wir sind?</h2>
                     </div>
-                    <div class="who-we-are-text">
+                    <div class="who-we-are-text justify-medium-text">
                         <p>Die Rüegg Management GmbH. wurde im 2003 von mir (Thomas Rüegg) gegründet.</p>
                         <p>Im Jahr 2020 kam mir dann die Idee des GEWERBE-SPIEL und zusammen mit meinen 2 Kindern und meiner Partnerin begann die intensive Entwicklung dieses interessanten und spannenden Gesellschaftsspiels.</p>
                         <p>An dieser Stelle möchte ich mich gerne für die Hilfe und Unterstützung bedanken. Ich bin überzeugt, dass vor allem bei Familien, das GEWERBE-SPIEL gut ankommen wird und wünsche ein spannendes, handyfreies Spiel.</p>
@@ -58,7 +58,7 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="reviews-title">
+                <div class="reviews-title text-medium-center">
                     <h1 class="section-title">VIDEO</h1>
                 </div>
             </div>

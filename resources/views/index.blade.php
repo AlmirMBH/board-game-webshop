@@ -7,13 +7,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="welcome-section-title">
+                    <div class="welcome-section-title text-medium-center">
                         <h1 class="welcome-title section-title text-uppercase">Herzlich Willkommen auf
                             der Hompage von <br><span class="section-title-prominent">WWW.GEWERBE-SPIEL.CH</span></h1>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="welcome-section-desc">
+                    <div class="welcome-section-desc justify-medium-text">
                         <p>Die Rüegg Management GmbH ist die Entwicklerin dieses neuen und spannenden
                             Gesellschaftsspiels, welches ein Mix aus «Monopoly» und «Leiterspiel» ist. An Stelle von
                             Strassen kann man beim GEWERBE-SPIEL aber einheimische Betriebe kaufen/ besitzen für ein
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="blog-title">
+                    <div class="blog-title text-medium-center">
                         <h2 class="section-title text-white">GEWERBE-SPIEL</h2>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="reviews-title text-left">
+                    <div class="reviews-title text-left text-medium-center">
                         <h1 class="section-title">VIDEO</h1>
                     </div>
                 </div>
