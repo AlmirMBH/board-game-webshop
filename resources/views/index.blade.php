@@ -7,23 +7,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="welcome-section-title">
+                    <div class="welcome-section-title text-medium-center">
                         <h1 class="welcome-title section-title text-uppercase">Herzlich Willkommen auf
                             der Hompage von <br><span class="section-title-prominent">WWW.GEWERBE-SPIEL.CH</span></h1>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="welcome-section-desc">
+                    <div class="welcome-section-desc justify-medium-text">
                         <p>Die Rüegg Management GmbH ist die Entwicklerin dieses neuen und spannenden
                             Gesellschaftsspiels, welches ein Mix aus «Monopoly» und «Leiterspiel» ist. An Stelle von
                             Strassen kann man beim GEWERBE-SPIEL aber einheimische Betriebe kaufen/ besitzen für ein
                             Spiel lang.</p>
                         <p>Dank diesen teilnehmenden Betrieben/ Geschäften ist es möglich geworden die ausgeführten
                             GEWERBE-SPIELE verschiedener Gemeinden zu realisieren!
-                            Ein ganz herzliches DANKESCHÖN an dieser Stelle an alle <a href="#">Teilnehmer</a>
+                            Ein ganz herzliches DANKESCHÖN an dieser Stelle an alle <a href="{{route('participating-companies')}}">Teilnehmer</a>
                         </p>
                         <p>Von jeder Ausgabe (alle Gemeinde) können Sie bei uns bequem die GEWERBE-SPIELE <a
-                                href="#">online kaufen</a> und geliefert bekommen! </p>
+                                href="{{route('web-shop')}}">online kaufen</a> und geliefert bekommen! </p>
                         <p>Gerne können Sie die GEWERBE-SPIELE aber bei den Verkaufsstellen (Points of Sale POS.) direkt
                             kaufen. (LINK auf «POS.»)</p>
                         <p>Nun können Sie in Ihrer Familie oder im Freundeskreis bequem das Handy für 1- 2 Stunden
@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="blog-title">
+                    <div class="blog-title text-medium-center">
                         <h2 class="section-title text-white">GEWERBE-SPIEL</h2>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="reviews-title text-left">
+                    <div class="reviews-title text-left text-medium-center">
                         <h1 class="section-title">VIDEO</h1>
                     </div>
                 </div>

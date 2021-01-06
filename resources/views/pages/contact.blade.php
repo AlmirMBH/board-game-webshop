@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="page-banner">
-    <div class="container">
+    <div class="container text-medium-center">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-7">
                 <div class="contact-form-content">
-                    <div class="contact-title">
+                    <div class="contact-title text-medium-center">
                         <h2 class="section-title">Irgendwelche Fragen?</h2>
                     </div>
                     <div class="contact-form">

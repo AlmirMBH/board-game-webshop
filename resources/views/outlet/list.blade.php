@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="page-banner">
-        <div class="container">
+        <div class="container text-medium-center">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title">
@@ -57,23 +57,27 @@
                     <div id="no-entry-for-cities"></div>
                 </div>
 
-                <table class="table mb-5" id="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">E-Mail</th>
-                        <th scope="col">Aktionen</th>
-                    </tr>
-                    </thead>
-                    <tbody id="select-option-api-providers"></tbody>
+                <div class="row overflow-auto">
+                    <div class="col-12">
+                        <table class="table mb-5" id="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Adresse</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">E-Mail</th>
+                                <th scope="col">Aktionen</th>
+                            </tr>
+                            </thead>
+                            <tbody id="select-option-api-providers"></tbody>
 
-                    <div class="text-center">
-                        <i class="fas fa-spinner second-spinner fa-spin fa-2x"></i>
+                            <div class="text-center">
+                                <i class="fas fa-spinner second-spinner fa-spin fa-2x"></i>
+                            </div>
+
+                        </table>
                     </div>
-
-                </table>
+                </div>
             </div>
         </div>
     </div>
@@ -141,11 +145,11 @@
                         let text = "";
                         for (let i = 0; i < data.length; i++) {
                             text += "<tr>" +
-                                "<td class='licensee-td'>" + data[i].name + '</td>' +
-                                "<td class='licensee-td'>" + data[i].address + '</td>' +
-                                '<td class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
-                                '<td class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
-                                '<td class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/outlet-details/' +
+                                "<td data-label='Name' class='licensee-td'>" + data[i].name + '</td>' +
+                                "<td data-label='Adresse' class='licensee-td'>" + data[i].address + '</td>' +
+                                '<td data-label="Phone" class="licensee-td"><a href="tel:' + data[i].phone + '">' + data[i].phone + '</a></td>' +
+                                '<td data-label="E-Mail" class="licensee-td"><a href="mailto:' + data[i].email + '">' + data[i].email + '</a></td>' +
+                                '<td data-label="Aktionen" class="licensee-td"><a class="btn slider-btn p-2 mt-0" href=" ' + base_url + '/outlet-details/' +
                                 data[i].slug + '">Details anzeigen</a></td>' +
                                 "</tr>";
                         }

@@ -17,16 +17,26 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'PagesController@home')->name('home');
-
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
 
-// WEB-SHOP
-Route::get('/web-shop', 'ShopController@webShop')->name('web-shop');
-Route::get('/web-shop/auftrag/{id}', 'ShopController@order')->name('order');
-Route::post('/web-shop/auftrag/post', 'ShopController@confirmOrder');
-Route::get('/web-shop/auftrag/auschecken', 'ShopController@checkout')->name('checkout');
-Route::post('/web-shop/auftrag/auschecken', 'ShopController@confirmCheckout');
+// PRODUCTS
+Route::get('/shop', 'ProductController@index')->name('web-shop');
+Route::get('/shop/auftrag/{product}', 'ProductController@show')->name('order');
+
+Route::get('/warenkorb', 'CartController@index')->name('cart');
+Route::post('/shop/auftrag/{product}', 'CartController@store');
+
+Route::get('/web-shop/auftrag/auschecken', 'CheckoutController@index')->name('checkout');
+Route::post('/web-shop/auftrag/auschecken', 'CheckoutController@store');
+
+// PAYMENT
+Route::get('/web-shop/auftrag/auschecken/zahlung', 'StripeController@handleGet')->name('stripe.get');
+Route::post('/web-shop/auftrag/auschecken/zahlung', 'StripeController@handlePost')->name('stripe.payment');
+
+//Route::get('/stripe-payment', 'StripeController@handleGet');
+//Route::post('/stripe-payment', 'StripeController@handlePost')->name('stripe.payment');
+
 Route::get('/bestellvorgang-erfolgreich/', 'ShopController@orderSuccessful')->name('order-successful');
 
 // FRONTEND PAGES
@@ -97,8 +107,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
     Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
 });
-
-
 
 
 

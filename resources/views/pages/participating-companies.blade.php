@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="page-banner">
-    <div class="container">
+    <div class="container text-medium-center">
         <div class="row">
             <div class="col-12">
                 <div class="page-title">
@@ -32,13 +32,13 @@
             <div class="col-sm-12 col-md-8">
                 <div class="participating-companies-text">
 
-                    <div class="section-title">
+                    <div class="section-title text-medium-center">
                         <h1>Teilnehmende Betriebe /<br/>
                             <span class="section-title-prominent">Verkaufsstellen (POS)</span>
                         </h1>
                     </div>
 
-                    <div class="participating-companies-desc mt-5">
+                    <div class="participating-companies-desc mt-5 justify-medium-text">
                         <p>Hier finden Sie alle teilnehmenden Betriebe, Geschäfte, Büros,
                             Praxen usw.., sowie auch alle öffentliche Verkaufstellen (wo Sie die GEWERBE-SPIELE kaufen
                             können) gegliedert nach Kantone und Gemeinde.

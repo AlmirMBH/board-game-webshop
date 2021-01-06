@@ -17,10 +17,11 @@ class PDFController extends Controller
 
         $data = [
             'order_id' => $order['order_id'],
-            'name' => $order->products->name,
-            'short_description' => $order->products->short_description,
-            'price' => $order['price'],
-            'quantity' => $order['quantity'],
+            'orderProducts' => $order->orderProducts,
+//            'name' => $order->products->name,
+//            'short_description' => $order->products->short_description,
+//            'price' => $order['price'],
+//            'quantity' => $order['quantity'],
             'sub_total' => $order['sub_total'],
             'created_at' => $order['created_at']->format('d-m-Y'),
             'first_name' => $order->customer->first_name,

@@ -10,8 +10,7 @@ class AdminOrdersController extends Controller
 {
     public function index()
     {
-         $orders = Order::orderBy('id', 'desc')->get();
-
+        $orders = Order::orderBy('id', 'desc')->get();
         return view('admin.orders.index', compact('orders'));
     }
 
@@ -19,6 +18,7 @@ class AdminOrdersController extends Controller
     {
         $currentDate = Carbon::now()->format('d-m-Y');
         $order = Order::where('id', $id)->first();
+
         return view('admin.orders.show', compact('order', 'currentDate'));
     }
 }
