@@ -28,7 +28,7 @@ class StripeController extends Controller
     public function handlePost(Request $request)
     {
         try {
-            Stripe\Stripe::setApiKey('sk_test_IzEl2v1duO0rkxXiXHoF8hl600X7tJ2OkF');
+            Stripe\Stripe::setApiKey('sk_live_PPdpb8HHAyBvpXyTOY7C9HbS');
             $subTotalData = session()->get('subTotal');
             $charge = Stripe\Charge::create([
                 "amount" => 100 * $subTotalData,

@@ -56,28 +56,27 @@
                 <div class="text-center mt-5">
                     <div id="no-entry-for-cities"></div>
                 </div>
+            </div>
+        </div>
+        <div class="row overflow-auto">
+            <div class="col-12">
+                <table class="table mb-5" id="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">E-Mail</th>
+                        <th scope="col">Aktionen</th>
+                    </tr>
+                    </thead>
+                    <tbody id="select-option-api-providers"></tbody>
 
-                <div class="row overflow-auto">
-                    <div class="col-12">
-                        <table class="table mb-5" id="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Adresse</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">E-Mail</th>
-                                <th scope="col">Aktionen</th>
-                            </tr>
-                            </thead>
-                            <tbody id="select-option-api-providers"></tbody>
-
-                            <div class="text-center">
-                                <i class="fas fa-spinner second-spinner fa-spin fa-2x"></i>
-                            </div>
-
-                        </table>
+                    <div class="text-center">
+                        <i class="fas fa-spinner second-spinner fa-spin fa-2x"></i>
                     </div>
-                </div>
+
+                </table>
             </div>
         </div>
     </div>
