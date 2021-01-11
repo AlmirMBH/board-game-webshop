@@ -859,6 +859,9 @@ ul.list-group li:hover a {
 .pdf-viewer {
     height: 1467px;
 }
+.product-title.text-center {
+    height: 70px;
+}
 
 /* Media Query */
 @media only screen and (max-width: 1300px) {
