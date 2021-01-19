@@ -48,7 +48,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="Tobler-Perspektive-Total-3"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.jpg')}}" alt="Tobler-Perspektive-Total-3"/>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.JPG')}}" alt="Tobler-Inhalt"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.jpg')}}" alt="Tobler-Inhalt"/>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.JPG')}}" alt="Tobler-Spiel"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.jpg')}}" alt="Tobler-Spiel"/>
                         </div>
                     </div>
                 </div>
