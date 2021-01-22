@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-cities')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-cities')}}"><button type="button" class="btn btn-block btn-primary">Add New City</button></a>
                         </div>
                     </div>
                 </div>

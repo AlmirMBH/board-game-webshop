@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-partcompanies')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-partcompanies')}}"><button type="button" class="btn btn-block btn-primary">Add New Company</button></a>
                         </div>
                     </div>
                 </div>

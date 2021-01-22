@@ -60,76 +60,70 @@
         <!-- End Header Color bar -->
 
         <!-- Top header -->
-    {{--    <div class="top-header">--}}
-    {{--        <div class="container">--}}
-    {{--            <div class="row">--}}
-    {{--                <div class="col-sm-6 col-md-6 col-lg-12">--}}
-    {{--                    <div class="logo-box py-3">--}}
+        <div class="top-header">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col">
+                        <div class="header-social-media-box">
+                            <ul class="header-social-media-list">
+                                <li>
+                                    <a href="https://www.facebook.com/" target="blank" class="facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" target="blank" class="instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" target="blank" class="twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-    {{--                    </div>--}}
-    {{--                </div>--}}
+                    <div class="col">
+                        <div class="header-search-form-box">
+                            <form class="header-search-form">
+                                <div class="form-group header-search-form-input-box d-inline-block float-right">
+                                    <input class="form-control header-search-form-input" type="search"
+                                           placeholder="Suche..."/>
+                                    <button class="header-search-btn"><i class="fas fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-    {{--                <div class="col-sm-6 col-md-6 col-lg-4">--}}
-    {{--                    <div class="header-social-media-box">--}}
-    {{--                        <ul class="header-social-media-list">--}}
-    {{--                            <li>--}}
-    {{--                                <a href="https://www.facebook.com/" target="blank" class="facebook">--}}
-    {{--                                    <i class="fab fa-facebook-f"></i>--}}
-    {{--                                </a>--}}
-    {{--                            </li>--}}
-    {{--                            <li>--}}
-    {{--                                <a href="https://www.instagram.com/" target="blank" class="instagram">--}}
-    {{--                                    <i class="fab fa-instagram"></i>--}}
-    {{--                                </a>--}}
-    {{--                            </li>--}}
-    {{--                            <li>--}}
-    {{--                                <a href="https://twitter.com/" target="blank" class="twitter">--}}
-    {{--                                    <i class="fab fa-twitter"></i>--}}
-    {{--                                </a>--}}
-    {{--                            </li>--}}
-    {{--                        </ul>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-
-    {{--                <div class="col-sm-12 col-md-12 col-lg-6">--}}
-    {{--                    <div class="header-search-form-box">--}}
-    {{--                        <form class="header-search-form">--}}
-    {{--                            <div class="form-group header-search-form-input-box d-inline-block float-right">--}}
-    {{--                                <input class="form-control header-search-form-input" type="search"--}}
-    {{--                                       placeholder="Suche..."/>--}}
-    {{--                                <button class="header-search-btn"><i class="fas fa-search"></i></button>--}}
-    {{--                            </div>--}}
-    {{--                        </form>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-
-    {{--                <div class="col-sm-6 col-md-6 col-lg-3">--}}
-    {{--                    <div class="header-shop-widgets-box">--}}
-    {{--                        <ul class="header-shop-widget-list">--}}
-    {{--                            <li class="header-item-list item-shop">--}}
-    {{--                                <a href="#" target="blank">--}}
-    {{--                                    <i class="icon-shop"></i>--}}
-    {{--                                </a>--}}
-    {{--                                <span>Geschäft</span>--}}
-    {{--                            </li>--}}
-    {{--                            <li class="header-item-list item-login">--}}
-    {{--                                <a href="#" target="blank">--}}
-    {{--                                    <i class="icon-man"></i>--}}
-    {{--                                </a>--}}
-    {{--                                <span>Anmeldung</span>--}}
-    {{--                            </li>--}}
-    {{--                            <li class="header-item-list item-basket">--}}
-    {{--                                <a href="#" target="blank">--}}
-    {{--                                    <i class="icon-shopping-basket-go"></i>--}}
-    {{--                                </a>--}}
-    {{--                                <span>Mein Einkaufswagen</span>--}}
-    {{--                            </li>--}}
-    {{--                        </ul>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
+                    <div class="col">
+                        <div class="header-shop-widgets-box">
+                            <ul class="header-shop-widget-list">
+                                <li class="header-item-list item-shop">
+                                    <a href="{{route('web-shop')}}">
+                                        <i class="icon-shop"></i>
+                                    </a>
+                                    <span>Web Shop</span>
+                                </li>
+{{--                                <li class="header-item-list item-login">--}}
+{{--                                    <a href="#" target="blank">--}}
+{{--                                        <i class="icon-man"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <span>Anmeldung</span>--}}
+{{--                                </li>--}}
+                                <li class="header-item-list item-basket">
+                                    <a href="{{ route('cart') }}">
+                                        <i class="icon-shopping-basket-go"></i>
+                                    </a>
+                                    <span>Warenkorb</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- End Top header -->
 
         <!-- Bottom Header, Navigation -->
@@ -197,12 +191,6 @@
             crossorigin="anonymous"></script>
     <script src="{{asset('js/jquery.fancybox.js')}}"></script>
     <script src="{{asset('js/jquery.fancybox.pack.js')}}"></script>
-{{--    <!--Almir Auftrag-->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <script src="../../dist/js/demo.js"></script>--}}
-
 
     @yield('script')
 </body>
