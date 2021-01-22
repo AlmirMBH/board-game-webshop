@@ -1,7 +1,6 @@
 <?php
 
 use App\Product;
-use App\ProductGallery;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'PagesController@home')->name('home');
+Route::get('/new-homepage', function () {
+    $products = Product::all();
+    $sliders = \App\Slider::all();
+    return view('new-homepage', compact('sliders', 'products'));
+});
 Route::get('/uber-uns', 'PagesController@about')->name('about');
 
 
@@ -45,9 +49,11 @@ Route::get('/lizenznehmer/auffuhren', 'PagesController@licenseeList')->name('lic
 
 // PARTICIPATING COMPANIES AND OUTLETS
 Route::get('/teilnehmende-betriebe', 'PagesController@participatingCompanies')->name('participating-companies');
+
 // OUTLETS
 Route::get('/verkaufsstellen-list', 'PagesController@outletsList')->name('outlets-list');
 Route::get('/outlet-details/{slug}', 'PagesController@outletDetails')->name('outlet-details');
+
 // PARTICIPATING COMPANIES
 Route::get('/teilnehmende-betriebe-list', 'PagesController@participatingCompaniesList')->name('partcompanies-list');
 Route::get('/teilnehmende-betriebe-details/{slug}', 'PagesController@participatingCompaniesDetails')->name('partcompanies-details');
@@ -106,6 +112,12 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/orders', 'AdminOrdersController@index')->name('index-orders');
     Route::get('/admin/orders/{id}', 'AdminOrdersController@show')->name('show-orders');
     Route::get('/generate-pdf/{id}', 'PDFController@generatePdf')->name('generate-pdf');
+
+    // SLIDER
+    Route::get('/admin/slider', 'AdminSliderController@index')->name('slider-all');
+    Route::get('/admin/slider/create', 'AdminSliderController@create')->name('slider-create');
+    Route::post('/admin/slider/create', 'AdminSliderController@store')->name('slider-store');
+    Route::delete('/admin/slider/{id}/delete', 'AdminSliderController@destroy')->name('slider-delete');
 });
 
 
