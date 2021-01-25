@@ -8,9 +8,7 @@ class Product extends Model // Authenticatable
 {
     protected $table = 'products';
 
-    protected $fillable = [
-        'id', 'name', 'price', 'quantity'
-    ];
+    protected $guarded = [];
 
     public $directory = '/img/product/';
 
