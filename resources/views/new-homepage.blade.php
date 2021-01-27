@@ -5,32 +5,22 @@
 @section('content')
     @if ($sliders)
         <section class="slider-section section-padding-bottom">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
                     @foreach($sliders as $slider)
-                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $slider->id }}" class="{{ ($loop->first) ? 'active' : '' }}"></li>
-                    @endforeach
-                </ol>
-                <div class="carousel-inner">
-                    @foreach($sliders as $slider)
-                        <div class="carousel-item {{ ($loop->first) ? 'active' : '' }}">
-                            <img class="d-block w-100" src="{{ asset('/img/slider/' . $slider->image) }}" alt="Slider {{ $slider->id }}">
+                        <div class="swiper-slide">
+                            <img src="{{ asset('/img/slider/' . $slider->image) }}" alt="{{ $slider->description }}">
                             @if ($slider->description)
-                                <div class="carousel-caption d-none d-md-block">
-                                    <p class="text-white">{{ $slider->description }}</p>
+                                <div class="swiper-desc">
+                                    {{ $slider->description }}
                                 </div>
                             @endif
                         </div>
                     @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Bisherige</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Nächster</span>
-                </a>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </section>
     @endif
@@ -40,7 +30,7 @@
                 <div class="col-sm-12">
                     <div class="welcome-section-title text-medium-center">
                         <h1 class="welcome-title main-section-title text-uppercase text-center">Herzlich Willkommen auf
-                            der Hompage von <br><span class="section-title-prominent">GEWERBE-SPIEL</span></h1>
+                            der Homepage von <br><span class="section-title-prominent">GEWERBE-SPIEL</span></h1>
                     </div>
                 </div>
             </div>
@@ -215,10 +205,9 @@
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center">
-
+            <div class="owl-carousel owl-theme">
                 @foreach($products as $product)
-                    <div class="col-md-4">
+                    <div class="item {{ ($loop->first) ? 'active' : '' }}">
                         <div class="card product-card mb-5">
                             <div class="card-body product-card-body">
                                 <div class="row">
@@ -266,4 +255,39 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+
+        jQuery(document).ready(function() {
+            jQuery('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                autoplay: true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
+        });
+    </script>
 @endsection
