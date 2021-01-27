@@ -16,11 +16,13 @@ class AdminPartCompaniesController extends Controller
     public function index()
     {
         $partcompanies = ParticipatingCompanies::all();
+
         return view('admin.partcompanies.index', compact('partcompanies'));
     }
 
     public function create(){
         $cities = City::orderBy('name')->pluck('name', 'id');
+
         return view('admin.partcompanies.create', compact('cities'));
     }
 
@@ -28,14 +30,7 @@ class AdminPartCompaniesController extends Controller
     {
         $input = $request->all();
 
-        ParticipatingCompanies::create([
-            'name' => $input['name'],
-            'address' => $input['address'],
-            'phone' => $input['phone'],
-            'email' => $input['email'],
-            'city_id' => $input['city_id'],
-            'slug' => Str::slug($input['name']),
-        ]);
+        $this->createPartCompanies($input);
 
         return redirect()->route('index-partcompanies');
     }
@@ -44,6 +39,7 @@ class AdminPartCompaniesController extends Controller
     {
         $partcompanies = ParticipatingCompanies::findOrFail($id);
         $partcompanies->delete();
+
         return redirect()->route('index-partcompanies');
     }
 
@@ -52,6 +48,7 @@ class AdminPartCompaniesController extends Controller
     {
         $partcompanies = ParticipatingCompanies::findOrFail($id);
         $cities = City::orderBy('name')->pluck('name', 'id');
+
         return view('admin.partcompanies.edit', compact('partcompanies', 'cities'));
     }
 
@@ -60,8 +57,24 @@ class AdminPartCompaniesController extends Controller
         $input = $request->all();
         $partcompanies = ParticipatingCompanies::findOrFail($id);
         $partcompanies->update($input);
+
         Session::flash('update_partcompanies', 'Update was successful');
         return redirect()->route('index-partcompanies');
+    }
+
+    /**
+     * @param array $input
+     */
+    private function createPartCompanies(array $input): void
+    {
+        ParticipatingCompanies::create([
+            'name' => $input['name'],
+            'address' => $input['address'],
+            'phone' => $input['phone'],
+            'email' => $input['email'],
+            'city_id' => $input['city_id'],
+            'slug' => Str::slug($input['name']),
+        ]);
     }
 
 

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -13,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-products')}}"><button type="button" class="btn btn-block btn-primary">Add</button></a>
+                            <a href="{{route('create-products')}}"><button type="button" class="btn btn-block btn-primary">Add New Product</button></a>
                         </div>
                     </div>
                 </div>
@@ -53,12 +52,8 @@
                                             <td>{{Str::limit($item->short_description, 100)}}</td>
                                             <td>{{$item->price}}</td>
                                             <td>{{$item->created_at}}</td>
-                                            <td><a href="{{route('edit-products', $item->id)}}">
-                                                    View</a>
-                                                </td>
-
+                                            <td><a href="{{route('edit-products', $item->id)}}">View</a></td>
                                         </tr>
-
                                     @endforeach
 
                                     </tbody>
@@ -126,16 +121,6 @@
                 "responsive": true,
                 "autoWidth": false,
             });
-            // $('#example2').DataTable({
-            //     "paging": true,
-            //     "lengthChange": false,
-            //     "searching": false,
-            //     "ordering": true,
-            //     "info": true,
-            //     "autoWidth": false,
-            //     "responsive": true,
-            // });
-
             $('.delete-company').click(function () {
                 let url = $(this).attr('data-url');
                 $("#deleteForm").attr("action", url);

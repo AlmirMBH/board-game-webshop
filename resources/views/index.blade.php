@@ -24,8 +24,8 @@
                         </p>
                         <p>Von jeder Ausgabe (alle Gemeinde) können Sie bei uns bequem die GEWERBE-SPIELE <a
                                 href="{{route('web-shop')}}">online kaufen</a> und geliefert bekommen! </p>
-                        <p>Gerne können Sie die GEWERBE-SPIELE aber bei den Verkaufsstellen (Points of Sale POS.) direkt
-                            kaufen. (LINK auf «POS.»)</p>
+                        <p>Gerne können Sie die GEWERBE-SPIELE auch bei den <a href="{{route('outlets-list')}}">Verkaufsstellen</a> direkt
+                            kaufen.</p>
                         <p>Nun können Sie in Ihrer Familie oder im Freundeskreis bequem das Handy für 1- 2 Stunden
                             beiseite legen und zu spielen beginnen.. wir wünschen VIEL GLÜCK!</p>
                     </div>
@@ -48,7 +48,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="Tobler-Perspektive-Total-3"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.jpg')}}" alt="Tobler-Perspektive-Total-3"/>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.JPG')}}" alt="Tobler-Inhalt"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.jpg')}}" alt="Tobler-Inhalt"/>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.JPG')}}" alt="Tobler-Spiel"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.jpg')}}" alt="Tobler-Spiel"/>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,6 @@ class CartController extends Controller
         $grandTotal = $this->grandTotal($items);
         $currency = Order::$currency;
         $isCartEmpty = $this->isCartEmpty($items);
-
         return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty'));
     }
 
@@ -50,7 +49,8 @@ class CartController extends Controller
         return $price * $quantity;
     }
 
-    private function isCartEmpty($items) {
+    private function isCartEmpty($items): bool
+    {
         return $items ? true : false;
     }
 }

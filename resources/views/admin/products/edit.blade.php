@@ -89,12 +89,12 @@
                                             @enderror
                                             @if($product->featured_image == null)
                                                 <div class="form-group mt-3">
-                                                    <img style="width: 245px; height: 200px"
+                                                    <img style="width: 100%;"
                                                          src="{{asset('img/product/imageplaceholder.png')}}"/>
                                                 </div>
                                             @else
                                                 <div class="form-group mt-3">
-                                                    <img style="width: 245px; height: 200px"
+                                                    <img style="width: 100%;"
                                                          src="{{asset('img/product/' . $product->featured_image)}}"/>
                                                 </div>
                                             @endif

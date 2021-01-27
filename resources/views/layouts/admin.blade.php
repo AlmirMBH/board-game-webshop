@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title')</title>
+    <title> Gewerbe-Spiel - Admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -73,7 +73,7 @@
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
                     <p class="d-block"
-                       style="color: rgba(255,255,255,.8); margin-bottom: 0;">{{auth()->user()->name}}</p>
+                       style="color: rgba(255,255,255,.8); margin-bottom: 0;">{{ auth()->user()->name }}</p>
                 </div>
             </div>
 
@@ -84,8 +84,8 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="{{route('dashboard')}}"
-                           class="nav-link {{Request::segment(1) === 'dashboard' ? 'active' : null}}">
+                        <a href="{{ route('dashboard') }}"
+                           class="nav-link {{ Request::segment(1) === 'dashboard' ? 'active' : null }}">
                             <i class="nav-icon fas fa-home"></i>
                             <p>
                                 Dashboard
@@ -94,8 +94,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-outlets')}}"
-                           class="nav-link {{Request::segment(2) === 'outlets' ? 'active' : null}}">
+                        <a href="{{ route('index-outlets') }}"
+                           class="nav-link {{ Request::segment(2) === 'outlets' ? 'active' : null }}">
                             <i class="nav-icon fas fa-store"></i>
                             <p>
                                 Outlets
@@ -104,8 +104,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-cities')}}"
-                           class="nav-link {{Request::segment(2) === 'cities' ? 'active' : null}}">
+                        <a href="{{ route('index-cities') }}"
+                           class="nav-link {{ Request::segment(2) === 'cities' ? 'active' : null }}">
                             <i class="nav-icon fas fa-building"></i>
                             <p>
                                 Cities
@@ -114,8 +114,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-providers')}}"
-                           class="nav-link {{Request::segment(2) === 'providers' ? 'active' : null}}">
+                        <a href="{{ route('index-providers') }}"
+                           class="nav-link {{ Request::segment(2) === 'providers' ? 'active' : null }}">
                             <i class="nav-icon fas fa-address-card"></i>
                             <p>
                                 Providers
@@ -124,8 +124,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-partcompanies')}}"
-                           class="nav-link {{Request::segment(2) === 'participating-companies' ? 'active' : null}}">
+                        <a href="{{ route('index-partcompanies') }}"
+                           class="nav-link {{ Request::segment(2) === 'participating-companies' ? 'active' : null }}">
                             <i class="nav-icon fas fa-industry"></i>
                             <p>
                                 Participatingcompanies
@@ -134,8 +134,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-products')}}"
-                           class="nav-link {{Request::segment(2) === 'products' ? 'active' : null}}">
+                        <a href="{{ route('index-products') }}"
+                           class="nav-link {{ Request::segment(2) === 'products' ? 'active' : null }}">
                             <i class="nav-icon fas fa-box"></i>
                             <p>
                                 Products
@@ -144,11 +144,21 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('index-orders')}}"
-                           class="nav-link {{Request::segment(2) === 'orders' ? 'active' : null}}">
+                        <a href="{{ route('index-orders') }}"
+                           class="nav-link {{ Request::segment(2) === 'orders' ? 'active' : null }}">
                             <i class="nav-icon fas fa-shopping-cart"></i>
                             <p>
                                 Orders
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('slider-all') }}"
+                           class="nav-link {{ Request::segment(2) === 'slider' ? 'active' : null }}">
+                            <i class="nav-icon fab fa-slideshare"></i>
+                            <p>
+                                Slider Images
                             </p>
                         </a>
                     </li>

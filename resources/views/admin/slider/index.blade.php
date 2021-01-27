@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Outlets Store</h1>
+                        <h1>Slider Images</h1>
                     </div>
                     <div class="col-sm-6">
                         <div class="float-sm-right">
-                            <a href="{{route('create-outlets')}}"><button type="button" class="btn btn-block btn-primary">Add New Outlet Store</button></a>
+                            <a href="{{ route('slider-create') }}"><button type="button" class="btn btn-block btn-primary">Add New Slider Image</button></a>
                         </div>
                     </div>
                 </div>
@@ -23,55 +23,48 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
                 <div class="row">
                     <div class="col-12">
 
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Outlets with pagination</h3>
+                                <h3 class="card-title">Slider images with pagination</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Is Game Available</th>
-                                        <th></th>
-                                    </tr>
+                                        <tr>
+                                            <th>Slider Image</th>
+                                            <th>Short Description</th>
+                                            <th></th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-
-                                    @foreach($outlets as $item)
-                                    <tr>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->address}}</td>
-                                        <td>{{$item->phone}}</td>
-                                        <td>{{$item->email}}</td>
-                                        @if($item->is_availability == 1)
-                                            <td style="color: green">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
-                                        @else
-                                            <td style="color: red">{{$item->is_availability == 1 ? 'available' : 'not available'}}</td>
-                                        @endif
-                                        <td><a href="{{route('edit-outlets', $item->id)}}">View</a></td>
-
-                                    </tr>
-                                    @endforeach
-
+                                        @foreach($sliderImages as $image)
+                                            <tr>
+                                                <td><img src="{{ asset('/img/slider/' . $image->image) }}" alt="" style="max-width: 150px;"></td>
+                                                <td>{{ $image->description }}</td>
+                                                <td>
+                                                    <form action="{{ route('slider-delete', $image->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Is Available</th>
-                                        <th></th>
-                                    </tr>
+                                        <tr>
+                                            <th>Slider Image</th>
+                                            <th>Short Description</th>
+                                            <th></th>
+                                        </tr>
                                     </tfoot>
                                 </table>
                             </div>
@@ -101,15 +94,10 @@
             $("#example1").DataTable({
                 "responsive": true,
                 "autoWidth": false,
-            });
-            $('#example2').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
+                "ordering": false,
                 "info": true,
-                "autoWidth": false,
-                "responsive": true,
+                "searching": true,
             });
         });
     </script>
