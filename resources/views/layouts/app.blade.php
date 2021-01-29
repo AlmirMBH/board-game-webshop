@@ -15,6 +15,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/owl-carousel/owl.carousel.min.css') }}">
     <!-- Styles -->
     @stack('styles')
     <link rel="stylesheet" href="{{asset('css/jquery.fancybox.css')}}">
@@ -191,7 +194,8 @@
             crossorigin="anonymous"></script>
     <script src="{{asset('js/jquery.fancybox.js')}}"></script>
     <script src="{{asset('js/jquery.fancybox.pack.js')}}"></script>
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
     @yield('script')
 </body>
 </html>
