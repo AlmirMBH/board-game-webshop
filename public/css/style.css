@@ -1061,9 +1061,17 @@ ul.list-group li:hover a {
     }
     .product-image-box {
         height: auto;
+        min-height: auto;
     }
     .product-card {
         height: auto;
+        min-height: auto;
+    }
+    .product-title {
+        margin-top: 25px!important;
+    }
+    .who-we-are-titles {
+        margin-top: 25px;
     }
 }
 
