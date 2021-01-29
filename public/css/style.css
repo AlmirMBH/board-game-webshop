@@ -936,6 +936,9 @@ ul.list-group li:hover a {
     text-align: center;
     color: #ffff;
 }
+.owl-nav {
+    display: none!important;
+}
 
 /* Media Query */
 @media only screen and (max-width: 1300px) {
@@ -1055,6 +1058,12 @@ ul.list-group li:hover a {
 @media only screen and (max-width: 768px) {
     .display-1 {
         font-size: 2rem;
+    }
+    .product-image-box {
+        height: auto;
+    }
+    .product-card {
+        height: auto;
     }
 }
 

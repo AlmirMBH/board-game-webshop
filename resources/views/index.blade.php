@@ -226,7 +226,7 @@
                                     <div class="product-desc mt-3">
                                         <p>{!! $product->description !!}</p>
                                         <ul>
-                                            <li>{{App\Order::shippingCost()}}</li>
+                                            <li>Versandkosten: {{App\Order::shippingCost()}}</li>
                                             <li>{{App\Order::freeShipping()}}</li>
                                         </ul>
                                     </div>

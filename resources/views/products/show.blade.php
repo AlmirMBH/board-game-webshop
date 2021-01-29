@@ -63,7 +63,7 @@
                             <p>Der Preis pro Spiel beträgt Fr. 29.90 zusätzlich kommen folgende Portokosten (Paket
                                 Inland Post Economy) dazu:</p>
                             <ul>
-                                <li>{{App\Order::shippingCost()}}</li>
+                                <li>Versandkosten: {{App\Order::shippingCost()}}</li>
                                 <li>{{App\Order::freeShipping()}}</li>
                             </ul>
                         </div>
