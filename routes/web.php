@@ -1,6 +1,4 @@
 <?php
-
-use App\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'PagesController@home')->name('home');
-Route::get('/new-homepage', function () {
-    $products = Product::all();
-    $sliders = \App\Slider::all();
-    return view('new-homepage', compact('sliders', 'products'));
-});
 Route::get('/uber-uns', 'PagesController@about')->name('about');
-
+Route::get('/search', 'ProductSearchController@search')->name('search');
 
 // PRODUCTS
 Route::get('/shop', 'ProductController@index')->name('web-shop');

@@ -62,73 +62,6 @@
         </div>
         <!-- End Header Color bar -->
 
-        <!-- Top header -->
-        <div class="top-header">
-            <div class="container">
-                <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col">
-                        <div class="header-social-media-box">
-                            <ul class="header-social-media-list">
-                                <li>
-                                    <a href="https://www.facebook.com/" target="blank" class="facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/" target="blank" class="instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/" target="blank" class="twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="header-search-form-box">
-                            <form class="header-search-form">
-                                <div class="form-group header-search-form-input-box d-inline-block float-right">
-                                    <input class="form-control header-search-form-input" type="search"
-                                           placeholder="Suche..."/>
-                                    <button class="header-search-btn"><i class="fas fa-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="header-shop-widgets-box">
-                            <ul class="header-shop-widget-list">
-                                <li class="header-item-list item-shop">
-                                    <a href="{{route('web-shop')}}">
-                                        <i class="icon-shop"></i>
-                                    </a>
-                                    <span>Web Shop</span>
-                                </li>
-{{--                                <li class="header-item-list item-login">--}}
-{{--                                    <a href="#" target="blank">--}}
-{{--                                        <i class="icon-man"></i>--}}
-{{--                                    </a>--}}
-{{--                                    <span>Anmeldung</span>--}}
-{{--                                </li>--}}
-                                <li class="header-item-list item-basket">
-                                    <a href="{{ route('cart') }}">
-                                        <i class="icon-shopping-basket-go"></i>
-                                    </a>
-                                    <span>Warenkorb</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Top header -->
-
         <!-- Bottom Header, Navigation -->
         <div class="header-bottom">
             <div class="container">
@@ -140,7 +73,7 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto header-shop-widget-list">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('home')}}">Home</a>
                             </li>
@@ -158,6 +91,16 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('contact')}}">Kontakt</a>
+                            </li>
+                            <li class="nav-item header-item-list item-login">
+                                <a class="nav-link" href="{{route('web-shop')}}" title="Web Shop">
+                                    <i class="icon-shop"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item header-item-list item-basket">
+                                <a class="nav-link" href="{{ route('cart') }}" title="Warenkorb">
+                                    <i class="icon-shopping-basket-go"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
