@@ -10,6 +10,7 @@ use App\Outlets;
 use App\ParticipatingCompanies;
 use App\Product;
 use App\Provider;
+use App\Slider;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -21,7 +22,9 @@ class PagesController extends Controller
 
     public function home()
     {
-        return view('index');
+        $products = Product::all();
+        $sliders = Slider::all();
+        return view('index', compact('products', 'sliders'));
     }
 
     public function about()
