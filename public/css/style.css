@@ -118,7 +118,6 @@
 
 .header-shop-widget-list li {
     text-align: center;
-    display: inline-block;
 }
 
 .header-shop-widget-list li.header-item-list {
@@ -1044,6 +1043,12 @@ ul.list-group li:hover a {
 
     #product-image-box {
         width: 100% !important;
+    }
+    #navbarSupportedContent {
+        background: rgb(51, 51, 51);
+        margin-top: 26px;
+        border-radius: 20px;
+        padding: 20px 0px;
     }
 }
 
