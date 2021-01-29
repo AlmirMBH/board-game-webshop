@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="benefits-wrapper">
-                        <div class="row pb-5">
+                        <div class="row pb-3">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="benefits-box d-flex align-items-center">
                                     <span class="benefits-icon-box">
@@ -163,7 +163,7 @@
                             </div>
                         </div>
 
-                        <div class="row pt-5">
+                        <div class="row pt-3">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="benefits-box d-flex align-items-center">
                                     <span class="benefits-icon-box">

@@ -1073,6 +1073,12 @@ ul.list-group li:hover a {
     .who-we-are-titles {
         margin-top: 25px;
     }
+    .benefits-wrapper {
+        padding: 20px;
+    }
+    .benefits-wrapper .row {
+        padding: 0px!important;
+    }
 }
 
 @media only screen and (max-width: 767px) {
