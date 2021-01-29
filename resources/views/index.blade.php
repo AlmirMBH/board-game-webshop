@@ -50,7 +50,7 @@
                         <p>Gerne können Sie die GEWERBE-SPIELE auch bei den <a href="{{route('outlets-list')}}">Verkaufsstellen</a> direkt
                             kaufen.</p>
                         <p>Nun können Sie in Ihrer Familie oder im Freundeskreis bequem das Handy für 1- 2 Stunden
-                            beiseite legen und zu spielen beginnen.. wir wünschen VIEL GLÜCK!</p>
+                            beiseite legen und zu spielen beginnen.. wir wünschen <strong>VIEL GLÜCK!</strong></p>
                     </div>
                 </div>
                 <div class="col-sm-6">
