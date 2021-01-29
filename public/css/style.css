@@ -572,6 +572,10 @@
     margin-top: 40px;
 }
 
+.swiper-slide {
+    text-align: center;
+}
+
 .favorite-game-paragraph {
     margin-top: 50px;
     margin-bottom: 50px;
