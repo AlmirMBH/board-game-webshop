@@ -58,6 +58,7 @@ class AdminOutletsController extends Controller
 
         $this->createOutlets($input);
 
+        Session::flash('create_outlets', $input['name'] . ' Created Successfully');
         return redirect('/admin/outlets');
     }
 

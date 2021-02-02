@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+<link rel="stylesheet" href="{{asset('css/admin/toastr.min.css')}}">
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
@@ -9,6 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
+
+                        @if(Session::has('create_outlets'))
+                            <span id="create_outlets"></span>
+                        @endif
+
                         <h1>Outlets Store</h1>
                     </div>
                     <div class="col-sm-6">
@@ -96,6 +101,7 @@
     <script src="{{asset('js/admin/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{asset('js/admin/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('js/admin/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('js/admin/toastr.min.js')}}"></script>
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -111,6 +117,10 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+
+            if ( $( "#create_outlets" ).length ) {
+                toastr.success('{{session('create_outlets')}}')
+            }
         });
     </script>
 @endsection

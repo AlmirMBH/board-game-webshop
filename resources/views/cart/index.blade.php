@@ -59,6 +59,7 @@
                                 <tbody>
                                 @foreach($items as $item)
                                     <tr>
+                                        <input type="hidden" value="{{$item->id}}">
                                         <td class="remove">x</td>
                                         <td class="product-image" width="200px"><img src="{{ asset("img/product/$item->item_image") }}" alt="{{ $item->item_name }}" class="img-thumbnail"></td>
                                         <td class="product-name">{{ $item->item_name }}</td>

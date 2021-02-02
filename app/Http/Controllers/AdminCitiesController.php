@@ -37,6 +37,7 @@ class AdminCitiesController extends Controller
 
         $this->createCity($input);
 
+        Session::flash('create_city', $input['name'] . ' Created Successfully');
         return redirect('/admin/cities');
     }
 
