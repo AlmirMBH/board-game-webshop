@@ -12,11 +12,41 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-        $grandTotal = $this->grandTotal($items);
+
+        $grandTotal = null;
+        $quantity = null;
+        $subtotal = null;
+
+        foreach ($items as $item) {
+            $quantity += $item->item_quantity;
+            $subtotal += $item->item_sub_total;
+        }
+
+        if ($quantity < 3) {
+            $grandTotal = $subtotal + 7;
+        } else {
+            $grandTotal = $subtotal;
+        }
+
+        $cartQuantity = $this->getCartQuantity($items);
+        //$grandTotal = $this->grandTotal($items);
         $currency = Order::$currency;
         $isCartEmpty = $this->isCartEmpty($items);
-        return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty'));
+        return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty', 'cartQuantity', 'subtotal'));
     }
+
+
+    public function getCartQuantity($items) {
+        $quantity = null;
+
+        foreach ($items as $item) {
+            $quantity += $item->item_quantity;
+        }
+
+        return $quantity;
+    }
+
+
 
     public function store(Product $product, Request $request)
     {
