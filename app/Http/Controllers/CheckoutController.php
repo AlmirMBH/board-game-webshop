@@ -15,11 +15,12 @@ class CheckoutController extends Controller
 {
     public function index(Request $request)
     {
-        $items = $items = Cart::where('session_id', $request->session()->getId())->get();
+        $items = Cart::where('session_id', $request->session()->getId())->get();
+        $cartQuantity = $this->getCartQuantity($items);
         $grandTotal = $this->grandTotal($items);
         $currency = Order::$currency;
 
-        return view('checkout.index', compact('items', 'grandTotal', 'currency'));
+        return view('checkout.index', compact('items', 'grandTotal', 'currency', 'cartQuantity'));
     }
 
     public function store(CheckoutFormRequest $request)
@@ -58,12 +59,31 @@ class CheckoutController extends Controller
     public function grandTotal($items)
     {
         $grandTotal = null;
+        $quantity = null;
+        $subtotal = null;
 
         foreach ($items as $item) {
-            $grandTotal += $item->item_sub_total;
+            $quantity += $item->item_quantity;
+            $subtotal += $item->item_sub_total;
+        }
+
+        if ($quantity < 3) {
+            $grandTotal = $subtotal + 7;
+        } else {
+            $grandTotal = $subtotal;
         }
 
         return $grandTotal;
+    }
+
+    public function getCartQuantity($items) {
+        $quantity = null;
+
+        foreach ($items as $item) {
+            $quantity += $item->item_quantity;
+        }
+
+        return $quantity;
     }
 
     public function generateOrderId(): string
