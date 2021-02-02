@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Helpers\OrderHelper;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
@@ -12,31 +13,16 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-
-        $grandTotal = null;
-        $quantity = null;
-        $subtotal = null;
-
-        foreach ($items as $item) {
-            $quantity += $item->item_quantity;
-            $subtotal += $item->item_sub_total;
-        }
-
-        if ($quantity < 3) {
-            $grandTotal = $subtotal + 7;
-        } else {
-            $grandTotal = $subtotal;
-        }
-
-        $cartQuantity = $this->getCartQuantity($items);
-        //$grandTotal = $this->grandTotal($items);
+        $grandTotal = OrderHelper::grandTotal($items);
+        $subtotal = OrderHelper::subtotal($items);
+        $cartQuantity = OrderHelper::getCartQuantity($items);
         $currency = Order::$currency;
         $isCartEmpty = $this->isCartEmpty($items);
         return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty', 'cartQuantity', 'subtotal'));
     }
 
 
-    public function getCartQuantity($items) {
+   /* public function getCartQuantity($items) {
         $quantity = null;
 
         foreach ($items as $item) {
@@ -44,7 +30,7 @@ class CartController extends Controller
         }
 
         return $quantity;
-    }
+    }*/
 
 
 
@@ -63,7 +49,7 @@ class CartController extends Controller
         return back()->with('status', $request->get('quantity') . 'x ' . $product->name . ' wurden Ihrem Warenkorb hinzugefügt.');
     }
 
-    public function grandTotal($items)
+   /* public function grandTotal($items)
     {
         $grandTotal = null;
 
@@ -72,7 +58,7 @@ class CartController extends Controller
         }
 
         return $grandTotal;
-    }
+    }*/
 
     private function subtotal($price, $quantity)
     {

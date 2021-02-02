@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Helpers\OrderHelper;
 use App\Http\Requests\CheckoutFormRequest;
 use App\Order;
 use App\OrderCustomer;
@@ -16,8 +17,8 @@ class CheckoutController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-        $cartQuantity = $this->getCartQuantity($items);
-        $grandTotal = $this->grandTotal($items);
+        $grandTotal = OrderHelper::grandTotal($items);
+        $cartQuantity = OrderHelper::getCartQuantity($items);
         $currency = Order::$currency;
 
         return view('checkout.index', compact('items', 'grandTotal', 'currency', 'cartQuantity'));
@@ -55,36 +56,6 @@ class CheckoutController extends Controller
         return redirect(route('stripe.get'));
     }
 
-
-    public function grandTotal($items)
-    {
-        $grandTotal = null;
-        $quantity = null;
-        $subtotal = null;
-
-        foreach ($items as $item) {
-            $quantity += $item->item_quantity;
-            $subtotal += $item->item_sub_total;
-        }
-
-        if ($quantity < 3) {
-            $grandTotal = $subtotal + 7;
-        } else {
-            $grandTotal = $subtotal;
-        }
-
-        return $grandTotal;
-    }
-
-    public function getCartQuantity($items) {
-        $quantity = null;
-
-        foreach ($items as $item) {
-            $quantity += $item->item_quantity;
-        }
-
-        return $quantity;
-    }
 
     public function generateOrderId(): string
     {
