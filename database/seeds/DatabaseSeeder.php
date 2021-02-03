@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
             OutletSeeder::class,
             CantonProviderGroupSeed::class
         ]);
-//        factory(Outlets::class, 10)->create();
-//        factory(City::class,10)->create();
-//        factory(Product::class, 10)->create();
-//        factory(ParticipatingCompanies::class, 10)->create();
+        factory(Outlets::class, 10)->create();
+        factory(City::class,10)->create();
+        factory(Product::class, 10)->create();
+        factory(ParticipatingCompanies::class, 10)->create();
     }
 }

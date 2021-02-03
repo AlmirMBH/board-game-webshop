@@ -27,12 +27,7 @@ class Order extends Model
 
     public static function getShippingCost($quantity)
     {
-        $shipping = null;
-        if ($quantity < 3) {
-            return $shipping = '7.00';
-        } else {
-            return $shipping = "Kostenlos";
-        }
+        return ($quantity < 3) ? 7 : 0;
     }
 
     public static function getCurrency($quantity)
