@@ -150,7 +150,7 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-problem"></i>
                                     </span>
-                                    <p>Shult das Zählen</p>
+                                    <p>Schult das Zählen</p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -158,7 +158,7 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-union"></i>
                                     </span>
-                                    <p>Spiele können Stress reduzieren</p>
+                                    <p>Spielen entspannt & reduziert Stress</p>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-goal"></i>
                                     </span>
-                                    <p>Fördest Umgang mit Mitmenschen</p>
+                                    <p>Fördert den sozialen Umgang</p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -177,7 +177,7 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-target"></i>
                                     </span>
-                                    <p>Stärkt das Gedächnis</p>
+                                    <p>Stärkt das Gedächtnis</p>
                                 </div>
                             </div>
                         </div>
