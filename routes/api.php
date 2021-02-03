@@ -23,4 +23,4 @@ Route::get('/partcompanies/list/{id}', 'PagesControllerApi@listPartCompanies');
 // Cart Functionality
 Route::get('/order/number/{id}', 'CartControllerApi@orderNumber');
 Route::post('/delete/order/{id}', 'CartControllerApi@deleteOrder');
-Route::get('/listing/cart', 'CartControllerApi@listingCart');
+Route::get('/listing/cart/{id}', 'CartControllerApi@listingCart');
