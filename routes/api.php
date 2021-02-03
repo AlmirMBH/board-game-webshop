@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Listing Outlets, Providers, Cities and PartCompany
 Route::get('/cities/list/{id}', 'PagesControllerApi@listCities');
 Route::get('/providers/list/{id}', 'PagesControllerApi@listProviders');
 Route::get('/outlets/list/{id}', 'PagesControllerApi@listOutlets');
 Route::get('/partcompanies/list/{id}', 'PagesControllerApi@listPartCompanies');
-Route::post('/chart/remove/product', 'ChartControllerApi@removeProduct');
+
+// Cart Functionality
+Route::get('/order/number/{id}', 'CartControllerApi@orderNumber');
+Route::post('/delete/order/{id}', 'CartControllerApi@deleteOrder');
+Route::get('/listing/cart', 'CartControllerApi@listingCart');

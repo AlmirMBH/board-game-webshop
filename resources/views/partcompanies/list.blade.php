@@ -175,8 +175,6 @@
                     }
                 })
             });
-
-
         })
     </script>
 @endsection

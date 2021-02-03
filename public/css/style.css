@@ -559,6 +559,16 @@
     text-align: center;
 }
 
+#order-number {
+    position: absolute;
+    margin-top: 31px;
+    margin-left: 30px;
+    background: #502281;
+    border-radius: 10px;
+    width: 19px;
+    color: white;
+}
+
 .reviews-cardText3 {
     background-color: #ffd46e;
     color: #262626;
