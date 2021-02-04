@@ -26,6 +26,7 @@
         </div>
     </section>
 
+    <div id="isCartEmpty">
     @if(!$isCartEmpty)
         <section class="notice">
             <div class="container">
@@ -40,6 +41,7 @@
             </div>
         </section>
     @else
+    </div>
         <section class="cart-items-wrapper py-5">
             <div class="container">
                 <div class="row">
@@ -48,12 +50,12 @@
                             <table class="table table-striped table-hover mx-auto w-100 cart-table">
                                 <thead>
                                 <tr>
-                                    <th class="remove"></th>
                                     <th class="product-image">Product Image</th>
                                     <th class="product-name">Product Name</th>
                                     <th class="product-quantity">Product Quantity</th>
                                     <th class="product-price">Product Price</th>
                                     <th class="product-subtotal">Product Subtotal</th>
+                                    <th class="remove"></th>
                                 </tr>
                                 </thead>
                                 <tbody id="list-cart-orders">
@@ -92,63 +94,13 @@
         </section>
     @endif
 @endsection
-
+{{--{{ route('web-shop') }}--}}
 @section('script')
     <script>
-        let orders, currency, grandTotal, cartOrders;
         let base_url = '{!! url('/') !!}';
-        let session_id = '{!! session()->getId() !!}'
-        let asset = '{!! asset('img/product/') !!}'
-
-        $(document).ready(function () {
-            fetchOrders();
-        });
-
-        function listOrders(row) {
-            orders += "<tr>" +
-                "<td onclick='deleteSingleOrder(" + row.id + ")' class='remove'>x</td>" +
-                "<td class='product-image' width='200px'><img src='" + asset + "/" + row.item_image + "' alt='' class='img-thumbnail'></td>" +
-                "<td class='product-name'>" + row.item_name + "</td>" +
-                "<td class='product-quantity'>" + row.item_quantity + "</td>" +
-                "<td class='product-price'>" + row.item_price + "</td>" +
-                "<td class='product-subtotal'> "+ row.item_sub_total + "</td>" +
-                "</tr>"
-        }
-
-        function deleteSingleOrder(id) {
-            $.ajax({
-                url: base_url + '/api/delete/order/' + id,
-                data: {
-                    format: 'json',
-                },
-                type: 'POST',
-                success: function (data) {
-                    document.location.reload();
-                }
-            })
-        }
-
-        function fetchOrders() {
-            $.ajax({
-                url: base_url + '/api/listing/cart/' + session_id,
-                data: {
-                    format: 'json',
-                },
-                type: 'GET',
-                success: function (data) {
-
-                    cartOrders = data[0];
-                    currency = data[2];
-                    grandTotal = data[1];
-
-                    cartOrders.forEach(listOrders)
-
-                    $("#list-cart-orders").append(orders);
-                    $("#currency").append(currency);
-                    $("#grandTotal").append(grandTotal.toFixed(2));
-                }
-            })
-        }
-
+        let session_id = '{!! session()->getId() !!}';
+        let asset = '{!! asset('img/product/') !!}';
+        let route_web_shop = '{!! route('web-shop') !!}';
     </script>
+    <script src="{{asset('js/cart-management.js')}}"></script>
 @endsection

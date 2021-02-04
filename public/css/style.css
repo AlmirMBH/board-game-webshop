@@ -911,6 +911,11 @@ select {
     color: #e72150;
 }
 
+.remove-order-btn {
+    background-color: #502281!important;
+    border-color: #502281!important;
+}
+
 #video {
     border: 4px solid #502281;
 }
