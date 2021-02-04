@@ -80,6 +80,14 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
+                                        <td>Subtotal:</td>
+                                        <td>{{$currency}}{{$subtotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Versand:</td>
+                                        <td>{{ ($cartQuantity < 3) ? 'CHF7.00' : 'Kostenlos' }}</strong></td>
+                                    </tr>
+                                    <tr>
                                         <td>Total:</td>
                                         <td><span id="currency"></span> <span id="grandTotal"></span></td>
                                     </tr>

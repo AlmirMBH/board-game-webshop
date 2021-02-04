@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Helpers\OrderHelper;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
@@ -16,6 +17,19 @@ class CartController extends Controller
 
         return view('cart.index', compact('items', 'isCartEmpty'));
     }
+
+
+   /* public function getCartQuantity($items) {
+        $quantity = null;
+
+        foreach ($items as $item) {
+            $quantity += $item->item_quantity;
+        }
+
+        return $quantity;
+    }*/
+
+
 
     public function store(Product $product, Request $request)
     {
@@ -32,7 +46,7 @@ class CartController extends Controller
         return back()->with('status', $request->get('quantity') . 'x ' . $product->name . ' wurden Ihrem Warenkorb hinzugefügt.');
     }
 
-    public function grandTotal($items)
+   /* public function grandTotal($items)
     {
         $grandTotal = null;
 
@@ -41,7 +55,7 @@ class CartController extends Controller
         }
 
         return $grandTotal;
-    }
+    }*/
 
     private function subtotal($price, $quantity)
     {

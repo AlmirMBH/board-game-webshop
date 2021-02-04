@@ -157,6 +157,10 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
+                                                            <th>Versand:</th>
+                                                            <td class="product-shipping"><strong>{{ ($cartQuantity < 3) ? 'CHF7.00' : 'Kostenlos' }}</strong></td>
+                                                        </tr>
+                                                        <tr>
                                                             <th>Total:</th>
                                                             <td class="product-subtotal"><strong>{{ $currency }}{{ number_format($grandTotal, 2) }}</strong></td>
                                                         </tr>
