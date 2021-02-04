@@ -13,12 +13,9 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-        $grandTotal = OrderHelper::grandTotal($items);
-        $subtotal = OrderHelper::subtotal($items);
-        $cartQuantity = OrderHelper::getCartQuantity($items);
-        $currency = Order::$currency;
         $isCartEmpty = $this->isCartEmpty($items);
-        return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty', 'cartQuantity', 'subtotal'));
+
+        return view('cart.index', compact('items', 'isCartEmpty'));
     }
 
 
@@ -65,8 +62,16 @@ class CartController extends Controller
         return $price * $quantity;
     }
 
+    /**
+     * @param $items
+     * @return bool
+     */
     private function isCartEmpty($items): bool
     {
-        return $items ? true : false;
+        if (count($items) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -26,6 +26,7 @@
         </div>
     </section>
 
+    <div id="isCartEmpty">
     @if(!$isCartEmpty)
         <section class="notice">
             <div class="container">
@@ -40,6 +41,7 @@
             </div>
         </section>
     @else
+    </div>
         <section class="cart-items-wrapper py-5">
             <div class="container">
                 <div class="row">
@@ -48,26 +50,16 @@
                             <table class="table table-striped table-hover mx-auto w-100 cart-table">
                                 <thead>
                                 <tr>
-                                    <th class="remove"></th>
                                     <th class="product-image">Product Image</th>
                                     <th class="product-name">Product Name</th>
                                     <th class="product-quantity">Product Quantity</th>
                                     <th class="product-price">Product Price</th>
                                     <th class="product-subtotal">Product Subtotal</th>
+                                    <th class="remove"></th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                @foreach($items as $item)
-                                    <tr>
-                                        <input type="hidden" value="{{$item->id}}">
-                                        <td class="remove">x</td>
-                                        <td class="product-image" width="200px"><img src="{{ asset("img/product/$item->item_image") }}" alt="{{ $item->item_name }}" class="img-thumbnail"></td>
-                                        <td class="product-name">{{ $item->item_name }}</td>
-                                        <td class="product-quantity">{{ $item->item_quantity }}</td>
-                                        <td class="product-price">{{ $currency }}{{ $item->item_price }}</td>
-                                        <td class="product-subtotal">{{ $currency }}{{ $item->item_sub_total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tbody id="list-cart-orders">
+
                                 </tbody>
                             </table>
                         </div>
@@ -97,7 +89,7 @@
                                     </tr>
                                     <tr>
                                         <td>Total:</td>
-                                        <td>{{ $currency }}{{ number_format($grandTotal, 2) }}</td>
+                                        <td><span id="currency"></span> <span id="grandTotal"></span></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -109,4 +101,14 @@
             </div>
         </section>
     @endif
+@endsection
+{{--{{ route('web-shop') }}--}}
+@section('script')
+    <script>
+        let base_url = '{!! url('/') !!}';
+        let session_id = '{!! session()->getId() !!}';
+        let asset = '{!! asset('img/product/') !!}';
+        let route_web_shop = '{!! route('web-shop') !!}';
+    </script>
+    <script src="{{asset('js/cart-management.js')}}"></script>
 @endsection
