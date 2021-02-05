@@ -920,6 +920,41 @@ select {
     border: 4px solid #502281;
 }
 
+.theme-btn-delete-order {
+    padding: 7px 15px!important;
+    border-radius: 0!important;
+    text-transform: uppercase!important;
+    border-width: 2px!important;
+    border-color: #e72250!important;
+    background-color: #e72250!important;
+    color: #ffffff!important;
+    transition: all 0.3s ease-in-out!important;
+    -moz-transition: all 0.3s ease-in-out!important;
+    -webkit-transition: all 0.3s ease-in-out!important;
+}
+
+.theme-btn-delete-order:hover {
+    background-color: #ab193b !important;
+    border-color: #ab193b !important;
+}
+
+.theme-btn {
+    padding: 10px 30px!important;
+    border-radius: 0!important;
+    text-transform: uppercase!important;
+    border-width: 2px!important;
+    border-color: #e72250!important;
+    background-color: #e72250!important;
+    color: #ffffff!important;
+    transition: all 0.3s ease-in-out!important;
+    -moz-transition: all 0.3s ease-in-out!important;
+    -webkit-transition: all 0.3s ease-in-out!important;
+}
+.theme-btn:hover {
+    background-color: #ab193b !important;
+    border-color: #ab193b !important;
+}
+
 .provider-profile-card {
     min-height: 450px;
 }

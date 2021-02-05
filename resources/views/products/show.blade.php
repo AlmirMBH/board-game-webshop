@@ -33,7 +33,7 @@
                 @if (session('status'))
                     <div id="items-block-message" class="alert alert-success mb-4 d-flex justify-content-between align-items-center" role="alert">
                         <p class="mb-0">{{ session('status') }}</p>
-                        <a href="{{ route('cart') }}" class="btn btn-info">Warenkorb anzeigen</a>
+                        <a href="{{ route('cart') }}" class="btn btn-info theme-btn">Warenkorb anzeigen</a>
                     </div>
                 @endif
                 <div class="row">

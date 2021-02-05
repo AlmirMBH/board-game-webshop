@@ -34,7 +34,7 @@
                     <div class="col-md-8">
                         <div class="alert alert-warning mb-4 d-flex justify-content-between align-items-center" role="alert">
                             <p class="mb-0">Ihr Warenkorb ist gegenwärtig leer.</p>
-                            <a href="{{ route('web-shop') }}" class="btn btn-warning">Zurück zum WebShop</a>
+                            <a href="{{ route('web-shop') }}" class="btn btn-warning theme-btn">Zurück zum WebShop</a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="{{ route('checkout') }}" class="checkout-btn btn btn-primary">Weiter zur Kasse</a>
+                            <a href="{{ route('checkout') }}" class="checkout-btn theme-btn btn btn-primary">Weiter zur Kasse</a>
                         </div>
                     </div>
                 </div>
