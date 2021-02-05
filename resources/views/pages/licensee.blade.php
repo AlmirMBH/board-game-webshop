@@ -33,7 +33,7 @@
 
                     <div class="section-title text-medium-center">
                         <h2>Hier finden Sie alle <span class="section-title-prominent">
-                            zertifizierten Lizenznehmer</span>, gegliederten nach Kantone und Gemeinde
+                            zertifizierten Lizenznehmer</span>, gegliedert nach Kantonen und Gemeinden
                         </h2>
                         <h3>Bei unseren Lizenznehmer können Sie gerne nachfragen bzgl. zukünftigen Erscheinungen.</h3>
                         <a class="btn slider-btn licensee-list" href="{{route('licensee-list')}}">Zertifzierte Lizenznehmer</a>
