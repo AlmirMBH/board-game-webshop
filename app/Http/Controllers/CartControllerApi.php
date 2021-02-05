@@ -24,6 +24,12 @@ class CartControllerApi extends Controller
         return response()->json([$allOrders, $grandTotal], Response::HTTP_OK);
     }
 
+    public function deleteAllOrders($session_id)
+    {
+        $orders = Cart::where('session_id', $session_id)->delete();
+        return response()->json($orders, Response::HTTP_NO_CONTENT);
+    }
+
     public function listingCart($session_id)
     {
         $orders = Cart::where('session_id', $session_id)->get();
