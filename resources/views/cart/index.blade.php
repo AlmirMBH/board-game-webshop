@@ -62,6 +62,9 @@
 
                                 </tbody>
                             </table>
+                            <div id="remove-all-btn" class="d-flex justify-content-end">
+
+                            </div>
                         </div>
                     </div>
                 </div>

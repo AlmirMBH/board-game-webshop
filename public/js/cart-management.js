@@ -1,4 +1,8 @@
 let orders, currency, grandTotal, cartOrders;
+
+const removeAllButton =
+    "<button onclick='deleteAllOrders()' class=\"remove-order-btn btn btn-primary\">Alles Entfernen</button>"
+
 const isCartEmptyMessage =
     "<section class='notice'>" +
     "<div class='container'>" +
@@ -49,14 +53,25 @@ function deleteSingleOrder(id) {
                 $("#grandTotal").empty().append(grandTotal.toFixed(2));
                 $("#order-number").empty().append(cartOrders.length)
             } else {
-                $("#grandTotal").empty().append(grandTotal);
-                $("#order-number").empty();
-                $(".cart-items-wrapper").remove();
-                $(".cart-collaterals").remove();
-                $("#isCartEmpty").append(isCartEmptyMessage);
+                ifNoExistsOrdersDisplayMessage();
             }
         }
     })
+}
+
+function deleteAllOrders() {
+    $.ajax({
+        url: base_url + '/api/delete/all/orders/' + session_id,
+        data: {
+            format: 'json',
+        },
+        type: 'POST',
+        success: function (data) {
+            if (data === undefined) {
+                ifNoExistsOrdersDisplayMessage();
+            }
+        }
+    });
 }
 
 function fetchOrders() {
@@ -74,9 +89,18 @@ function fetchOrders() {
             cartOrders.forEach(listOrders)
 
             $("#list-cart-orders").append(orders);
+            $("#remove-all-btn").append(removeAllButton);
             $("#currency").append(currency);
 
             if (grandTotal != null) $("#grandTotal").append(grandTotal.toFixed(2));
         }
     })
+}
+
+function ifNoExistsOrdersDisplayMessage() {
+    $("#grandTotal").empty().append(grandTotal);
+    $("#order-number").empty();
+    $(".cart-items-wrapper").remove();
+    $(".cart-collaterals").remove();
+    $("#isCartEmpty").append(isCartEmptyMessage);
 }
