@@ -1,7 +1,7 @@
 let orders, currency, grandTotal, cartOrders;
 
 const removeAllButton =
-    "<button onclick='deleteAllOrders()' class=\"remove-order-btn btn btn-primary\">Alles Entfernen</button>"
+    "<button onclick='deleteAllOrders()' class=\"theme-btn btn btn-primary\">Alles Entfernen</button>"
 
 const isCartEmptyMessage =
     "<section class='notice'>" +
@@ -10,7 +10,7 @@ const isCartEmptyMessage =
     "<div class='col-md-8'>" +
     "<div class='alert alert-warning mb-4 d-flex justify-content-between align-items-center' role='alert'>" +
     "<p class='mb-0'>Ihr Warenkorb ist gegenwärtig leer.</p>" +
-    "<a href='" + route_web_shop + "' class='btn btn-warning'>Zurück zum WebShop</a>" +
+    "<a href='" + route_web_shop + "' class='btn btn-warning theme-btn'>Zurück zum WebShop</a>" +
     "</div>" +
     "</div>" +
     "</div>" +
@@ -29,7 +29,7 @@ function listOrders(row) {
         "<td class='product-price'>" + row.item_price + "</td>" +
         "<td class='product-subtotal'> "+ row.item_sub_total + "</td>" +
         "<td onclick='deleteSingleOrder(" + row.id + ")' class='remove'>" +
-        "<span id='remove-order-x'><button class=\"btn btn-primary remove-order-btn\"><i class=\"far fa-trash-alt\"></i></button></span>" +
+        "<span id='remove-order-x'><button class=\"btn btn-primary theme-btn-delete-order\"><i class=\"far fa-trash-alt\"></i></button></span>" +
         "</td>" +
         "</tr>"
 }
