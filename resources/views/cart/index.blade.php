@@ -83,8 +83,16 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
+                                        <td>Subtotal:</td>
+                                        <td><span class="currency"></span> <span id="subTotal"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Versand:</td>
+                                        <td><span id="cartQuantity"></span></td>
+                                    </tr>
+                                    <tr>
                                         <td>Total:</td>
-                                        <td><span id="currency"></span> <span id="grandTotal"></span></td>
+                                        <td><span class="currency"></span> <span id="total"></span></td>
                                     </tr>
                                     </tbody>
                                 </table>

@@ -6,7 +6,6 @@ namespace App\Helpers;
 
 class OrderHelper
 {
-
     public static function grandTotal($items){
         $grandTotal = null;
         $quantity = null;
@@ -26,7 +25,6 @@ class OrderHelper
         return $grandTotal;
     }
 
-
     public static function subtotal($items){
         $subtotal = null;
             foreach ($items as $item) {
@@ -36,7 +34,6 @@ class OrderHelper
         return $subtotal;
     }
 
-
     public static function getCartQuantity($items){
         $quantity = null;
             foreach ($items as $item) {
@@ -45,8 +42,4 @@ class OrderHelper
 
         return $quantity;
     }
-
-
-
-
 }
