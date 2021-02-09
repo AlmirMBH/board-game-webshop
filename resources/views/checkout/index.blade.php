@@ -151,18 +151,18 @@
                                                         @foreach($items as $item)
                                                             <tr>
                                                                 <td>{{ $item->item_name }} <strong>x{{ $item->item_quantity }}</strong></td>
-                                                                <td>{{ $currency }}{{ $item->item_price }}</td>
+                                                                <td>{{ $currency }} {{ $item->item_price }}</td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
                                                             <th>Versand:</th>
-                                                            <td class="product-shipping"><strong>{{ ($cartQuantity < 3) ? 'CHF7.00' : 'Kostenlos' }}</strong></td>
+                                                            <td class="product-shipping"><strong>{{ ($cartQuantity < 3) ? 'CHF 7.00' : 'Kostenlos' }}</strong></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Total:</th>
-                                                            <td class="product-subtotal"><strong>{{ $currency }}{{ number_format($grandTotal, 2) }}</strong></td>
+                                                            <td class="product-subtotal"><strong>{{ $currency . ' ' }}{{ number_format($grandTotal, 2) }}</strong></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>

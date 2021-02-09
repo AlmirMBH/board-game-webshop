@@ -1,4 +1,4 @@
-let orders, currency, grandTotal, cartOrders;
+let orders, currency, subTotal, cartOrders, cartQuantity, total, itemQuantity;
 
 const removeAllButton =
     "<button onclick='deleteAllOrders()' class=\"theme-btn btn btn-primary\">Alles Entfernen</button>"
@@ -21,19 +21,6 @@ $(document).ready(function () {
     fetchOrders();
 });
 
-function listOrders(row) {
-    orders += "<tr>" +
-        "<td class='product-image'><img width='200px' src='" + asset + "/" + row.item_image + "' alt='' class='img-thumbnail'></td>" +
-        "<td class='product-name'>" + row.item_name + "</td>" +
-        "<td class='product-quantity'>" + row.item_quantity + "</td>" +
-        "<td class='product-price'>" + row.item_price + "</td>" +
-        "<td class='product-subtotal'> "+ row.item_sub_total + "</td>" +
-        "<td onclick='deleteSingleOrder(" + row.id + ")' class='remove'>" +
-        "<span id='remove-order-x'><button class=\"btn btn-primary theme-btn-delete-order\"><i class=\"far fa-trash-alt\"></i></button></span>" +
-        "</td>" +
-        "</tr>"
-}
-
 function deleteSingleOrder(id) {
     $.ajax({
         url: base_url + '/api/delete/order/' + id + '/' + session_id,
@@ -43,15 +30,21 @@ function deleteSingleOrder(id) {
         type: 'POST',
         success: function (data) {
             orders = "";
-            grandTotal = data[1]
+            subTotal = data[1]
             cartOrders = data[0];
             cartOrders.forEach(listOrders);
 
             $("#list-cart-orders").empty().append(orders);
 
-            if (grandTotal != null) {
-                $("#grandTotal").empty().append(grandTotal.toFixed(2));
-                $("#order-number").empty().append(cartOrders.length)
+            if (subTotal != null) {
+
+                orderCalculationAndShipping();
+
+                $("#cartQuantity").empty().append(cartQuantity);
+                $("#subTotal").empty().append(subTotal.toFixed(2));
+                $("#order-number").empty().append(cartOrders.length);
+
+                if (total !== undefined) $("#total").empty().append(total.toFixed(2));
             } else {
                 ifNoExistsOrdersDisplayMessage();
             }
@@ -82,25 +75,71 @@ function fetchOrders() {
         },
         type: 'GET',
         success: function (data) {
-
             cartOrders = data[0];
             currency = data[2];
-            grandTotal = data[1];
+            subTotal = data[1];
             cartOrders.forEach(listOrders)
+
+            orderCalculationAndShipping();
 
             $("#list-cart-orders").append(orders);
             $("#remove-all-btn").append(removeAllButton);
-            $("#currency").append(currency);
+            $(".currency").append(currency);
+            $("#cartQuantity").append(cartQuantity);
 
-            if (grandTotal != null) $("#grandTotal").append(grandTotal.toFixed(2));
+            if (total !== undefined) $("#total").append(total.toFixed(2));
+            if (subTotal != null) $("#subTotal").append(subTotal.toFixed(2));
         }
     })
 }
 
+function listOrders(row) {
+    orders += "<tr>" +
+        "<td class='product-image'><img width='200px' src='" + asset + "/" + row.item_image + "' alt='' class='img-thumbnail'></td>" +
+        "<td class='product-name'>" + row.item_name + "</td>" +
+        "<td class='product-quantity'>" + row.item_quantity + "</td>" +
+        "<td class='product-price'>" + row.item_price + "</td>" +
+        "<td class='product-subtotal'> "+ row.item_sub_total + "</td>" +
+        "<td onclick='deleteSingleOrder(" + row.id + ")' class='remove'>" +
+        "<span id='remove-order-x'><button class=\"btn btn-primary theme-btn-delete-order\"><i class=\"far fa-trash-alt\"></i></button></span>" +
+        "</td>" +
+        "</tr>"
+}
+
 function ifNoExistsOrdersDisplayMessage() {
-    $("#grandTotal").empty().append(grandTotal);
+    $("#subTotal").empty().append(subTotal);
     $("#order-number").empty();
     $(".cart-items-wrapper").remove();
     $(".cart-collaterals").remove();
     $("#isCartEmpty").append(isCartEmptyMessage);
+}
+
+function orderCalculationAndShipping() {
+    if (cartOrders.length >= 3) {
+        freeShipping();
+    } else {
+        additionItemsQuantity();
+        if (itemQuantity < 3) {
+            willBeCharged();
+        } else {
+            freeShipping();
+        }
+    }
+}
+
+function freeShipping() {
+    cartQuantity = 'Kostenlos';
+    total = subTotal;
+}
+
+function willBeCharged() {
+    cartQuantity = 'CHF 7.00';
+    total = subTotal + 7;
+}
+
+function additionItemsQuantity() {
+    itemQuantity = 0;
+    cartOrders.forEach(function (objectItem) {
+        itemQuantity += objectItem.item_quantity;
+    })
 }
