@@ -50,11 +50,11 @@
                             <table class="table table-striped table-hover mx-auto w-100 cart-table">
                                 <thead>
                                 <tr>
-                                    <th class="product-image">Product Image</th>
-                                    <th class="product-name">Product Name</th>
-                                    <th class="product-quantity">Product Quantity</th>
-                                    <th class="product-price">Product Price</th>
-                                    <th class="product-subtotal">Product Subtotal</th>
+                                    <th class="product-image">Bild</th>
+                                    <th class="product-name">Name</th>
+                                    <th class="product-quantity">Menge</th>
+                                    <th class="product-price">Preis</th>
+                                    <th class="product-subtotal">Zwischensumme</th>
                                     <th class="remove"></th>
                                 </tr>
                                 </thead>
