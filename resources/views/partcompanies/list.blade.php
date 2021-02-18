@@ -29,8 +29,7 @@
         <div class="d-flex justify-content-center">
             <div class="col-lg-8">
                 <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
-                    <h4 class="alert-heading">Vor dem Start lesen!</h4>
-                    <p>Um zuerst Ihre Filialen zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen.</p>
+                    <p>Um eine Verkaufsstelle zu finden, wählen Sie den gewünschten Kanton und die Stadt auswählen.</p>
                 </div>
                 <div class="form-group text-center pt-1">
                     <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">
