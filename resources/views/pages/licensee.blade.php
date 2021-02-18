@@ -33,7 +33,7 @@
 
                     <div class="section-title text-medium-center">
                         <h2>Hier finden Sie alle <span class="section-title-prominent">
-                            zertifizierten Lizenznehmer</span>, gegliedert nach Kantonen und Gemeinden
+                            zertifizierten Lizenznehmer</span>, gegliedert nach Kantonen und Gemeinden.
                         </h2>
                         <h3>Bei unseren Lizenznehmer können Sie gerne nachfragen bzgl. zukünftigen Erscheinungen.</h3>
                         <a class="btn slider-btn licensee-list" href="{{route('licensee-list')}}">Zertifzierte Lizenznehmer</a>
@@ -50,9 +50,7 @@
         </div>
         <div class="row mt-5 pdf-viewer">
             <div class="col-12">
-                <object data="{{ asset('/img/pdf/Spielfeld-mit-Angaben-Feldergrössen.pdf') }}" type="application/pdf" width="100%" height="100%">
-                    This browser does not support PDFs. Please download the PDF to view it: Download PDF
-                </object>
+                <img src="{{asset('img/Spielfeld-mit-Angaben-Feldergrossen.png')}}" alt="">
             </div>
         </div>
     </div>
