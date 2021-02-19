@@ -79,7 +79,6 @@
                                             <th>Product</th>
                                             <th>Qty</th>
                                             <th>Regular Price</th>
-                                            <th>Shipping</th>
                                             <th>Description</th>
 {{--                                            <th>Subtotal</th>--}}
                                         </tr>
@@ -90,7 +89,6 @@
                                                 <td>{{$orderProduct['product_name']}}</td>
                                                 <td>{{$orderProduct['quantity']}}</td>
                                                 <td>{{App\Order::$currency}} {{$orderProduct['price']}}</td>
-                                                <td>{{App\Order::getCurrency($orderProduct['quantity'])}} {{App\Order::getShippingCost($orderProduct['quantity'])}}</td>
                                                 <td style="max-width: 300px">{{Str::limit($orderProduct->product->short_description, 100)}}</td>
 {{--                                                <td rowspan="2">{{App\Order::$currency}} {{$order->sub_total}}</td>--}}
                                             </tr>

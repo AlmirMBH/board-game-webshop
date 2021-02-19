@@ -43,12 +43,19 @@ class StripeController extends Controller
                 $orderCustomerData = session()->get('orderCustomerData');
                 $requestItems = session()->get('requestItems');
 
+                $quantity = 0;
+                foreach ($requestItems as $jsonObjectItem) {
+                    $item = json_decode($jsonObjectItem, true);
+                    $quantity += $item['item_quantity'];
+                }
+
                 $orderCustomer = OrderCustomer::create($orderCustomerData);
                 if ($orderCustomer) {
                     Order::create([
                         'order_id'      => $orderCustomerData['order_id'],
                         'customer_id'   => $orderCustomer->id,
-                        'sub_total'     => $subTotalData
+                        'sub_total'     => $subTotalData,
+                        'quantity'      => $quantity
                     ]);
                 }
 
