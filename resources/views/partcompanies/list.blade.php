@@ -29,7 +29,7 @@
         <div class="d-flex justify-content-center">
             <div class="col-lg-8">
                 <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
-                    <p>Um eine Verkaufsstelle zu finden, wählen Sie den gewünschten Kanton und die Stadt auswählen.</p>
+                    <p>Um einen teilnehmenden Betrieb zu finden, wählen Sie den gewünschten Kanton und die Stadt aus.</p>
                 </div>
                 <div class="form-group text-center pt-1">
                     <select name="" class="form-control d-inline w-100 rounded-0 p-3" id="select-option-api-cantons">
