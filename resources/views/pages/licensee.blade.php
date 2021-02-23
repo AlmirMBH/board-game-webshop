@@ -32,10 +32,9 @@
                 <div class="licensee-text">
 
                     <div class="section-title text-medium-center">
-                        <h2>Hier finden Sie alle <span class="section-title-prominent">
-                            zertifizierten Lizenznehmer</span>, gegliedert nach Kantonen und Gemeinden.
+                        <h2>Hier finden Sie alle zertifizierten Lizenznehmer gegliedert nach Kantonen und Gemeinden.
                         </h2>
-                        <h3>Bei unseren Lizenznehmer können Sie gerne nachfragen bzgl. zukünftigen Erscheinungen.</h3>
+                        <h3>Bei unseren Lizenznehmern können Sie gerne über zukünftige Gewerbe-Spiele nachfragen.</h3>
                         <a class="btn slider-btn licensee-list" href="{{route('licensee-list')}}">Zertifzierte Lizenznehmer</a>
                     </div>
 
