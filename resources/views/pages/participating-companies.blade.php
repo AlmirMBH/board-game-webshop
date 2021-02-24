@@ -39,9 +39,7 @@
                     </div>
 
                     <div class="participating-companies-desc mt-5 justify-medium-text">
-                        <p>Hier finden Sie alle teilnehmenden Betriebe, Geschäfte, Büros,
-                            Praxen usw.., sowie auch alle öffentliche Verkaufstellen (wo Sie die GEWERBE-SPIELE kaufen
-                            können) gegliedert nach Kantone und Gemeinde.
+                        <p>Hier finden Sie alle teilnehmenden Betriebe, Geschäfte, Büros Praxen usw… sowie alle öffentlichen Verkaufsstellen in denen Sie die GEWERBE-SPIELE kaufen können (gegliedert nach Kantonen und Gemeinden).
                         </p>
                     </div>
 

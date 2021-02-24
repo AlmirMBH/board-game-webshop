@@ -77,7 +77,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.JPG')}}" alt="Tobler-Perspektive-Total-3"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total-3.jpg')}}" alt="Tobler-Perspektive-Total-3"/>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.JPG')}}" alt="Tobler-Inhalt"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.jpg')}}" alt="Tobler-Inhalt"/>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.JPG')}}" alt="Tobler-Spiel"/>
+                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.jpg')}}" alt="Tobler-Spiel"/>
                         </div>
                     </div>
                 </div>
@@ -144,13 +144,13 @@
                     </div>
 
                     <div class="benefits-wrapper">
-                        <div class="row pb-5">
+                        <div class="row pb-3">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="benefits-box d-flex align-items-center">
                                     <span class="benefits-icon-box">
                                         <i class="icon-problem"></i>
                                     </span>
-                                    <p>Shult das Zählen</p>
+                                    <p>Schult das Zählen</p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -158,18 +158,18 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-union"></i>
                                     </span>
-                                    <p>Spiele können Stress reduzieren</p>
+                                    <p>Spielen entspannt & reduziert Stress</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row pt-5">
+                        <div class="row pt-3">
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <div class="benefits-box d-flex align-items-center">
                                     <span class="benefits-icon-box">
                                         <i class="icon-goal"></i>
                                     </span>
-                                    <p>Fördest Umgang mit Mitmenschen</p>
+                                    <p>Fördert den sozialen Umgang</p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6">
@@ -177,7 +177,7 @@
                                     <span class="benefits-icon-box">
                                         <i class="icon-target"></i>
                                     </span>
-                                    <p>Stärkt das Gedächnis</p>
+                                    <p>Stärkt das Gedächtnis</p>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@
                                     <div class="product-desc mt-3">
                                         <p>{!! $product->description !!}</p>
                                         <ul>
-                                            <li>{{App\Order::shippingCost()}}</li>
+                                            <li>Versandkosten: {{App\Order::shippingCost()}}</li>
                                             <li>{{App\Order::freeShipping()}}</li>
                                         </ul>
                                     </div>

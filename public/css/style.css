@@ -118,7 +118,6 @@
 
 .header-shop-widget-list li {
     text-align: center;
-    display: inline-block;
 }
 
 .header-shop-widget-list li.header-item-list {
@@ -394,7 +393,7 @@
 }
 
 .product-price {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .product-btn {
@@ -560,6 +559,16 @@
     text-align: center;
 }
 
+#order-number {
+    position: absolute;
+    margin-top: 31px;
+    margin-left: 30px;
+    background: #502281;
+    border-radius: 10px;
+    width: 19px;
+    color: white;
+}
+
 .reviews-cardText3 {
     background-color: #ffd46e;
     color: #262626;
@@ -571,6 +580,10 @@
 
 .reviews-reviewername {
     margin-top: 40px;
+}
+
+.swiper-slide {
+    text-align: center;
 }
 
 .favorite-game-paragraph {
@@ -898,8 +911,48 @@ select {
     color: #e72150;
 }
 
+.remove-order-btn {
+    background-color: #502281!important;
+    border-color: #502281!important;
+}
+
 #video {
     border: 4px solid #502281;
+}
+
+.theme-btn-delete-order {
+    padding: 7px 15px!important;
+    border-radius: 0!important;
+    text-transform: uppercase!important;
+    border-width: 2px!important;
+    border-color: #e72250!important;
+    background-color: #e72250!important;
+    color: #ffffff!important;
+    transition: all 0.3s ease-in-out!important;
+    -moz-transition: all 0.3s ease-in-out!important;
+    -webkit-transition: all 0.3s ease-in-out!important;
+}
+
+.theme-btn-delete-order:hover {
+    background-color: #ab193b !important;
+    border-color: #ab193b !important;
+}
+
+.theme-btn {
+    padding: 10px 30px!important;
+    border-radius: 0!important;
+    text-transform: uppercase!important;
+    border-width: 2px!important;
+    border-color: #e72250!important;
+    background-color: #e72250!important;
+    color: #ffffff!important;
+    transition: all 0.3s ease-in-out!important;
+    -moz-transition: all 0.3s ease-in-out!important;
+    -webkit-transition: all 0.3s ease-in-out!important;
+}
+.theme-btn:hover {
+    background-color: #ab193b !important;
+    border-color: #ab193b !important;
 }
 
 .provider-profile-card {
@@ -936,6 +989,9 @@ ul.list-group li:hover a {
     width: 100%;
     text-align: center;
     color: #ffff;
+}
+.owl-nav {
+    display: none!important;
 }
 
 /* Media Query */
@@ -1045,11 +1101,37 @@ ul.list-group li:hover a {
     #product-image-box {
         width: 100% !important;
     }
+    #navbarSupportedContent {
+        background: rgb(51, 51, 51);
+        margin-top: 26px;
+        border-radius: 20px;
+        padding: 20px 0px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .display-1 {
         font-size: 2rem;
+    }
+    .product-image-box {
+        height: auto;
+        min-height: auto;
+    }
+    .product-card {
+        height: auto;
+        min-height: auto;
+    }
+    .product-title {
+        margin-top: 25px!important;
+    }
+    .who-we-are-titles {
+        margin-top: 25px;
+    }
+    .benefits-wrapper {
+        padding: 20px;
+    }
+    .benefits-wrapper .row {
+        padding: 0px!important;
     }
 }
 

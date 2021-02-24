@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Helpers\OrderHelper;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
@@ -12,11 +13,23 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $items = Cart::where('session_id', $request->session()->getId())->get();
-        $grandTotal = $this->grandTotal($items);
-        $currency = Order::$currency;
         $isCartEmpty = $this->isCartEmpty($items);
-        return view('cart.index', compact('items', 'grandTotal', 'currency', 'isCartEmpty'));
+
+        return view('cart.index', compact('items', 'isCartEmpty'));
     }
+
+
+   /* public function getCartQuantity($items) {
+        $quantity = null;
+
+        foreach ($items as $item) {
+            $quantity += $item->item_quantity;
+        }
+
+        return $quantity;
+    }*/
+
+
 
     public function store(Product $product, Request $request)
     {
@@ -33,7 +46,7 @@ class CartController extends Controller
         return back()->with('status', $request->get('quantity') . 'x ' . $product->name . ' wurden Ihrem Warenkorb hinzugefügt.');
     }
 
-    public function grandTotal($items)
+   /* public function grandTotal($items)
     {
         $grandTotal = null;
 
@@ -42,15 +55,23 @@ class CartController extends Controller
         }
 
         return $grandTotal;
-    }
+    }*/
 
     private function subtotal($price, $quantity)
     {
         return $price * $quantity;
     }
 
+    /**
+     * @param $items
+     * @return bool
+     */
     private function isCartEmpty($items): bool
     {
-        return $items ? true : false;
+        if (count($items) > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

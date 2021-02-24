@@ -50,7 +50,7 @@
                                                     </div>
                                                     <div class="text-center">
                                                         <h6>Versand</h6>
-                                                        <h6><strong>{{App\Order::getCurrency($product['quantity'])}} {{App\Order::getShippingCost($product['quantity'])}}</strong></h6>
+                                                        <h6><strong>{{App\Order::getCurrency($product['quantity']) . ' ' }} {{App\Order::getShippingCost($product['quantity'])}}</strong></h6>
                                                     </div>
                                                 </div>
                                             </div>

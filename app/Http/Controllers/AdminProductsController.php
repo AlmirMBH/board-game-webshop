@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class AdminProductsController extends Controller
 {
@@ -43,6 +44,7 @@ class AdminProductsController extends Controller
 
         $this->uploadGalleryIfExists($request, $product);
 
+        Session::flash('create_product', $input['name'] . ' Created Successfully');
         return redirect()->route('index-products');
     }
 

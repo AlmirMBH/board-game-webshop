@@ -69,6 +69,7 @@ class AdminProvidersController extends Controller
             }
         }
 
+        Session::flash('create_provider', $input['name'] . ' Created Successfully');
         return redirect('/admin/providers');
     }
 

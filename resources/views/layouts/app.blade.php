@@ -99,6 +99,7 @@
                             </li>
                             <li class="nav-item header-item-list item-basket">
                                 <a class="nav-link" href="{{ route('cart') }}" title="Warenkorb">
+                                    <span id="order-number"></span>
                                     <i class="icon-shopping-basket-go"></i>
                                 </a>
                             </li>
@@ -139,6 +140,25 @@
     <script src="{{asset('js/jquery.fancybox.pack.js')}}"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            let base_url = '{!! url('/') !!}';
+            let session_id = '<?php echo session()->getId() ?>'
+
+            $.ajax({
+                url: base_url + '/api/order/number/' + session_id,
+                data: {
+                    format: 'json'
+                },
+                type: 'GET',
+                success: function (data) {
+                    if (data.length > 0) {
+                        $("#order-number").append(data.length)
+                    }
+                }
+            })
+        });
+    </script>
     @yield('script')
 </body>
 </html>

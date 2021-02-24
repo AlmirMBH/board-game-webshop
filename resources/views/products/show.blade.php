@@ -33,7 +33,7 @@
                 @if (session('status'))
                     <div id="items-block-message" class="alert alert-success mb-4 d-flex justify-content-between align-items-center" role="alert">
                         <p class="mb-0">{{ session('status') }}</p>
-                        <a href="{{ route('cart') }}" class="btn btn-info">Warenkorb anzeigen</a>
+                        <a href="{{ route('cart') }}" class="btn btn-info theme-btn">Warenkorb anzeigen</a>
                     </div>
                 @endif
                 <div class="row">
@@ -63,7 +63,7 @@
                             <p>Der Preis pro Spiel beträgt Fr. 29.90 zusätzlich kommen folgende Portokosten (Paket
                                 Inland Post Economy) dazu:</p>
                             <ul>
-                                <li>{{App\Order::shippingCost()}}</li>
+                                <li>Versandkosten: {{App\Order::shippingCost()}}</li>
                                 <li>{{App\Order::freeShipping()}}</li>
                             </ul>
                         </div>

@@ -32,6 +32,7 @@ class AdminPartCompaniesController extends Controller
 
         $this->createPartCompanies($input);
 
+        Session::flash('create_partComp', $input['name'] . ' Created Successfully');
         return redirect()->route('index-partcompanies');
     }
 

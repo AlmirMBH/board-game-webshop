@@ -26,6 +26,7 @@
         </div>
     </section>
 
+    <div id="isCartEmpty">
     @if(!$isCartEmpty)
         <section class="notice">
             <div class="container">
@@ -33,13 +34,14 @@
                     <div class="col-md-8">
                         <div class="alert alert-warning mb-4 d-flex justify-content-between align-items-center" role="alert">
                             <p class="mb-0">Ihr Warenkorb ist gegenwärtig leer.</p>
-                            <a href="{{ route('web-shop') }}" class="btn btn-warning">Zurück zum WebShop</a>
+                            <a href="{{ route('web-shop') }}" class="btn btn-warning theme-btn">Zurück zum WebShop</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     @else
+    </div>
         <section class="cart-items-wrapper py-5">
             <div class="container">
                 <div class="row">
@@ -48,27 +50,21 @@
                             <table class="table table-striped table-hover mx-auto w-100 cart-table">
                                 <thead>
                                 <tr>
+                                    <th class="product-image">Bild</th>
+                                    <th class="product-name">Name</th>
+                                    <th class="product-quantity">Menge</th>
+                                    <th class="product-price">Preis</th>
+                                    <th class="product-subtotal">Zwischensumme</th>
                                     <th class="remove"></th>
-                                    <th class="product-image">Product Image</th>
-                                    <th class="product-name">Product Name</th>
-                                    <th class="product-quantity">Product Quantity</th>
-                                    <th class="product-price">Product Price</th>
-                                    <th class="product-subtotal">Product Subtotal</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                @foreach($items as $item)
-                                    <tr>
-                                        <td class="remove">x</td>
-                                        <td class="product-image" width="200px"><img src="{{ asset("img/product/$item->item_image") }}" alt="{{ $item->item_name }}" class="img-thumbnail"></td>
-                                        <td class="product-name">{{ $item->item_name }}</td>
-                                        <td class="product-quantity">{{ $item->item_quantity }}</td>
-                                        <td class="product-price">{{ $currency }}{{ $item->item_price }}</td>
-                                        <td class="product-subtotal">{{ $currency }}{{ $item->item_sub_total }}</td>
-                                    </tr>
-                                @endforeach
+                                <tbody id="list-cart-orders">
+
                                 </tbody>
                             </table>
+                            <div id="remove-all-btn" class="d-flex justify-content-end">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -87,17 +83,35 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
+                                        <td>Subtotal:</td>
+                                        <td><span class="currency"></span> <span id="subTotal"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Versand:</td>
+                                        <td><span id="cartQuantity"></span></td>
+                                    </tr>
+                                    <tr>
                                         <td>Total:</td>
-                                        <td>{{ $currency }}{{ number_format($grandTotal, 2) }}</td>
+                                        <td><span class="currency"></span> <span id="total"></span></td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="{{ route('checkout') }}" class="checkout-btn btn btn-primary">Weiter zur Kasse</a>
+                            <a href="{{ route('checkout') }}" class="checkout-btn theme-btn btn btn-primary">Weiter zur Kasse</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     @endif
+@endsection
+{{--{{ route('web-shop') }}--}}
+@section('script')
+    <script>
+        let base_url = '{!! url('/') !!}';
+        let session_id = '{!! session()->getId() !!}';
+        let asset = '{!! asset('img/product/') !!}';
+        let route_web_shop = '{!! route('web-shop') !!}';
+    </script>
+    <script src="{{asset('js/cart-management.js')}}"></script>
 @endsection
