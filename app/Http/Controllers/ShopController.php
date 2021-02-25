@@ -40,7 +40,6 @@ class ShopController extends Controller
         return view('pages.checkout', compact('order'));
     }
 
-
     public function generateOrderId(): string
     {
         $randomLetter = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 5);
@@ -54,12 +53,10 @@ class ShopController extends Controller
         return $randomNumLet;
     }
 
-
     public function orderIdExists($randomNumLet)
     {
         return Order::where('order_id', $randomNumLet)->exists();
     }
-
 
     public function confirmCheckout(Request $request)
     {
@@ -94,11 +91,7 @@ class ShopController extends Controller
         $customerInput['order_id'] = $sessionOrder['order_id'];
         $customer = OrderCustomer::create($customerInput);
 
-
-
         session()->forget('order');
-
-
 
         $order = Order::create([
             'order_id' => $sessionOrder['order_id'],
@@ -131,7 +124,6 @@ class ShopController extends Controller
             'phone' => $request['phone'],
             'email' => $request['email'],
         ];
-
 
         Mail::send('order-email', ['sessionData' => $sessionData], function($message) use ($sessionData) {
             $message->to('your@email.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
