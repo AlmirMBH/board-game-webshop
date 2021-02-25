@@ -68,7 +68,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="blog-title text-medium-center">
-                        <h2 class="section-title text-white">GEWERBE-SPIEL</h2>
+                        <h2 class="section-title text-white">KURZER SPIELBESCHRIEB</h2>
                     </div>
                 </div>
             </div>
@@ -85,25 +85,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">
                         <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Perspektive-Total.jpg')}}" alt="Tobler-Perspektive-Total"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
-                    <div class="blog-item">
-                        <div class="blog-item-img">
                             <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Feld-und-Karten.jpg')}}" alt="Tobler-Feld-und-Karten"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
-                    <div class="blog-item">
-                        <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Inhalt.jpg')}}" alt="Tobler-Inhalt"/>
                         </div>
                     </div>
                 </div>
@@ -112,14 +94,6 @@
                     <div class="blog-item">
                         <div class="blog-item-img">
                             <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Verpackt.jpg')}}" alt="Tobler-Verpackt"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
-                    <div class="blog-item">
-                        <div class="blog-item-img">
-                            <img class="img-fluid w-100" src="{{asset('img/product/Tobler-Spiel.jpg')}}" alt="Tobler-Spiel"/>
                         </div>
                     </div>
                 </div>
