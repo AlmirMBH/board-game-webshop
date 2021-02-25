@@ -137,10 +137,10 @@ app()->setLocale('de');
                     e.preventDefault();
                 }
             });
-            // pk_live_8id5EBqCR0K5cU8h6cPZtrTB
+
             if (!$form.data('cc-on-file')) {
                 e.preventDefault();
-                Stripe.setPublishableKey('pk_test_NrWsH6AT3UMDuDok0comnfig00X7dVRy9E');
+                Stripe.setPublishableKey('pk_live_8id5EBqCR0K5cU8h6cPZtrTB');
                 Stripe.createToken({
                     number: $('.card-num').val(),
                     cvc: $('.card-cvc').val(),

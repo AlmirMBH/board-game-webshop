@@ -27,9 +27,9 @@ class StripeController extends Controller
      */
     public function handlePost(Request $request)
     {
-//        sk_live_PPdpb8HHAyBvpXyTOY7C9HbS
+
         try {
-            Stripe\Stripe::setApiKey('sk_test_IzEl2v1duO0rkxXiXHoF8hl600X7tJ2OkF');
+            Stripe\Stripe::setApiKey('sk_live_PPdpb8HHAyBvpXyTOY7C9HbS');
             $subTotalData = session()->get('subTotal');
             $charge = Stripe\Charge::create([
                 "amount" => 100 * $subTotalData,
@@ -90,10 +90,10 @@ class StripeController extends Controller
                     'email' => $orderCustomerData['email'],
                 ];
 
-//                $emails = ['admin@gewerbe-spiel.ch', $orderCustomerData['email']];
+                $emails = ['admin@gewerbe-spiel.ch', $orderCustomerData['email']];
 
-                Mail::send('order-email', ['userInput' => $userInput], function($message) use ($userInput) {
-                    $message->to('test@live.com')->subject('Ihre Bestellung wurde erfolgreich versendet');
+                Mail::send('order-email', ['userInput' => $userInput], function($message) use ($emails, $userInput) {
+                    $message->to($emails)->subject('Ihre Bestellung wurde erfolgreich versendet');
                 });
 
                 Cart::where('session_id', $request->session()->getId())->delete();
