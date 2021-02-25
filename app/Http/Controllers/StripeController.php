@@ -136,7 +136,5 @@ class StripeController extends Controller
             Session::flash('error', $e->getMessage());
             return back();
         }
-
-
     }
 }
