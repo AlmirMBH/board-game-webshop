@@ -156,7 +156,11 @@ app()->setLocale('de');
             incorrect_number: "Ihre Kartennummer ist falsch.",
             invalid_expiry_year: "Das Ablaufjahr Ihrer Karte ist ungültig.",
             invalid_expiry_month: "Der Ablaufmonat Ihrer Karte ist ungültig.",
-            invalid_number: "Die Kartennummer ist keine gültige Kreditkartennummer."
+            invalid_number: "Die Kartennummer ist keine gültige Kreditkartennummer.",
+            amount_too_small: "Unzureichende Mittel auf dem Konto",
+            api_key_expired: "Der API-Schlüssel ist abgelaufen. Bitte versuchen Sie es erneut",
+            bank_account_declined: "Konto abgelehnt, weil es nicht registriert ist",
+            invalid_card_type: "Kartentyp wird nicht unterstützt",
         };
 
         function stripeHandleResponse(status, response) {
