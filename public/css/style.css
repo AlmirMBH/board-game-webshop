@@ -157,6 +157,12 @@
     color: #262626;
 }
 
+/* Game description section*/
+
+.game-description p{
+    color: #ffffff;
+}
+
 /* Bottom header */
 .header-bottom {
     background-color: #f0f2f5;
