@@ -30,7 +30,6 @@
         <div class="d-flex justify-content-center row mt-5">
             <div class="col-lg-8">
                 <div class="alert alert-success mt-5 mb-5 rounded-0 alert-theme-default" role="alert">
-                    <h4 class="alert-heading">Vor dem Start lesen!</h4>
                     <p>Um Ihren Lizenznehmer zu finden, müssen Sie Ihren Kanton und Ihre Stadt auswählen. Danach
                         erhalten Sie eine Tabelle mit allen Lizenznehmern in der ausgewählten Stadt.</p>
                     <hr>
