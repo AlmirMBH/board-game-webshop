@@ -73,6 +73,27 @@
                 </div>
             </div>
 
+            <div class="container mb-5 p-0">
+                <div class="row">
+                        <div class="col-md-6 col-sm-12 game-description">
+                            <p>Beim Gewerbe-Brett-Spiel geht es darum als Mitspieler möglichst viele Gewerbe-Felder von den regionalen Betrieben, welche auf dem Gewerbe-Spiel teilnehmen, zu besitzen.</p>
+                            <p>Die Gewerbe-Felder können von allen Mitspielern erworben werden in dem man auf das entsprechende Gewerbe-Feld kommt (mittels würfeln), dieses noch niemand besitzt und man genug Spielgeld hat um es zu kaufen.
+                                <br>Das Spielgeld wird vor Spielbeginn unter den Mitspielern gelichermassen (gemäss Spielregeln) verteilt.</p>
+                            <p>Die Mitspieler kaufen die Gewerbe-Felder und erhalten dafür die Spielkarte des entsprechenden Feldes (auch mit dem Logo vom teilnehmenden Betrieb).
+                                <br>Auf dieser Karte ist dann die Miete die der Mitspieler, welcher auf diesem Feld zum Stehen kommt, dem Besitzer bezahlen muss.</p>
+                        </div>
+                        <div class="col-md-6 col-sm-12 game-description">
+                            <p>Es gibt von einer Farbgruppe 2-4 Gewerbe-Felder. Besitzt man mehrere Gewerbe-Felder pro Farbgruppe wird die Miete für den Mitspieler, welcher auf dieses Feld kommt, teurer.</p>
+                            <p>Die verschiedenen Aktionsfelder zwischen den Gewerbe-Feldern machen das Spiel noch spannender.
+                                <br>Auf diesen Aktionsfelder steht dann z.B.: <strong>«Die Geschäfte laufen schlecht und du verlierst Dein teuerstes Feld an den Mitspieler rechts.»</strong>
+                                <br><strong>Oder: «Vertragsabschluss Gratulation Du erhältst 5'000.- von der Bank»</strong></p>
+                            <p>Ziel ist es möglichst viel Geld und natürlich viele Gewerbe-Felder zu besitzen.</p>
+                            <p>Für die regionalen Betriebe ist das eine tolle Möglichkeit originell in Ihrer Region präsent zu sein.</p>
+                            <p>VIEL SPASS!!</p>
+                        </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4 mb-5">
                     <div class="blog-item">

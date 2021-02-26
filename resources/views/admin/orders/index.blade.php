@@ -52,14 +52,8 @@
                                             <td>{{$order->customer->address}}</td>
                                             <td>{{$order->customer->email}}</td>
                                             <td>{{$order->customer->phone}}</td>
-                                            <td>
-                                                @foreach($order->orderProducts as $orderProduct)
-                                                    <span style="display:none">{{$total[] = $orderProduct->quantity}}</span>
-                                                @endforeach
-                                                {{array_sum($total)}}
-                                            </td>
+                                            <td>{{$order->quantity}}</td>
                                             <td>{{$order->sub_total}}</td>
-
                                             <td><a href="{{route('show-orders', $order->id)}}">View</a></td>
 
                                         </tr>
