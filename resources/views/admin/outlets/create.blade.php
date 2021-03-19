@@ -32,7 +32,7 @@
                                                 <input type="text" name="address" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label>Phone</label>
+                                                <label>URL</label>
                                                 <input type="text" name="phone" class="form-control">
                                             </div>
                                             <div class="form-group">

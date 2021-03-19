@@ -68,10 +68,21 @@ class AdminPartCompaniesController extends Controller
      */
     private function createPartCompanies(array $input): void
     {
+        $phone = $input['phone'];
+
+        $https = Str::contains($phone, 'https://');
+        $http = Str::contains($phone, 'http://');
+
+        if($http){
+            $phone = Str::replaceFirst('http://', '', $phone);
+        }elseif($https){
+            $phone = Str::replaceFirst('https://', '', $phone);
+        }
+
         ParticipatingCompanies::create([
             'name' => $input['name'],
             'address' => $input['address'],
-            'phone' => $input['phone'],
+            'phone' => $phone,
             'email' => $input['email'],
             'city_id' => $input['city_id'],
             'slug' => Str::slug($input['name']),
