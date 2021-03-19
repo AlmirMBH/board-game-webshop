@@ -64,7 +64,7 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Adresse</th>
-                        <th scope="col">Phone</th>
+                        <th scope="col">Homepage</th>
                         <th scope="col">E-Mail</th>
                         <th scope="col">Aktionen</th>
                     </tr>
