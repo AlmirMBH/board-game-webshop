@@ -130,10 +130,10 @@
                         <div class="benefits-titles">
                             <h6 class="section-strapline">Spielvorteile</h6>
                             <h2 class="section-title">VORTEILE VON <br/>
-                                <span class="section-title-prominent">BRETTSPEIELEN</span></h2>
+                                <span class="section-title-prominent">BRETTSPIELEN</span></h2>
                         </div>
                         <div class="benefits-text">
-                            <p>Gesellschaftsspiele unterhalten seit Jahrhunderten die Mensschheit. 2020 wurden  soviele Brettspiele wie noch nie verkauft!</p>
+                            <p>Gesellschaftsspiele unterhalten seit Jahrhunderten die Menschheit. 2020 wurden  soviele Brettspiele wie noch nie verkauft!</p>
                             <p>Lustige und unterhaltsame Stunden mit Familie und/oder Freunden, ohne Handystress, bestätigen den Trend.</p>
                         </div>
                     </div>
