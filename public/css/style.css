@@ -348,6 +348,64 @@
     border-color: #262626;
 }
 
+/* Categories Home Page */
+.category-title{
+    margin: 0 auto;
+}
+
+#category-section-title{
+    text-align: center !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    line-height:55px;
+    color: #262626;
+}
+
+#category-image{
+    width: auto;
+    margin-top: 20px;
+}
+
+.category-cards{
+    text-align: center;
+    border-radius: 15%;
+    padding: 20px 30px 20px 30px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.category-cards > p{
+    color: #ffffff;
+}
+
+#category-card1{
+    background-color: #E9CE31;
+}
+
+#category-card2{
+    background-color: #F27E00;
+}
+
+#category-card3{
+    background-color: #D93F81;
+}
+
+#category-card4{
+    background-color: #E23A1F;
+}
+
+#category-card5{
+    background-color: #5067B7;
+}
+
+#category-card6{
+
+}
+
+
+
 /* Benefits Section */
 .benefits-titles {
     margin-bottom: 40px;
