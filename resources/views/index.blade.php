@@ -67,11 +67,11 @@
         <div class="container section-padding-bottom">
             <div class="row mb-5">
                 <div id="category-section-title" class="category-title">
-                    <h2 class="section-title">TEILNAHMEBEDINGUNGEN/<br/>
+                    <h2 class="section-title">TEILNAHME&shy;BEDINGUNGEN/<br/>
                         <span class="section-title-prominent">UNSERE LEISTUNGEN</span></h2>
                 </div>
             </div>
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-4">
                     <div id="category-card1" class="category-cards">
                         <h3>Kategorie 1</h3>

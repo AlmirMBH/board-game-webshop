@@ -360,6 +360,7 @@
     font-size: 50px;
     line-height:55px;
     color: #262626;
+    word-break: break-word;
 }
 
 #category-image{
