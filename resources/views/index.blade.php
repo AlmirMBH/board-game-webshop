@@ -73,83 +73,93 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div id="category-card1" class="category-cards">
-                        <h3>Kategorie 1</h3>
-                        <p>kleine Felder bis CHF'4000.-<br>
-                            Preis pro Feld und Spiel<br>
-                            <strong>CHF 590.-</strong>
-                        </p>
-                        <p>Ihr Firmen-Logo auf einem<br>
-                            Spielfeld</p>
-                        <p>Spielkarte mit ihrem Firmen-Logo<br>
-                            auf Vorder -und Rückseite und<br>
-                            einem Kurzbeschrieb</p>
-                        <p>10 Spiele gratis (Wert CHF 299.-)</p>
-                    </div>
+                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">
+                        <div id="category-card1" class="category-cards">
+                            <h3>Kategorie 1</h3>
+                            <p>kleine Felder bis CHF'4000.-<br>
+                                Preis pro Feld und Spiel<br>
+                                <strong>CHF 590.-</strong>
+                            </p>
+                            <p>Ihr Firmen-Logo auf einem<br>
+                                Spielfeld</p>
+                            <p>Spielkarte mit ihrem Firmen-Logo<br>
+                                auf Vorder -und Rückseite und<br>
+                                einem Kurzbeschrieb</p>
+                            <p>10 Spiele gratis (Wert CHF 299.-)</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div id="category-card2" class="category-cards">
-                        <h3>Kategorie 2</h3>
-                        <p>kleine Felder bis CHF'6000.-<br>
-                            Preis pro Feld und Spiel<br>
-                            <strong>CHF 690.-</strong>
-                        </p>
-                        <p>Ihr Firmen-Logo auf einem<br>
-                            Spielfeld</p>
-                        <p>Spielkarte mit ihrem Firmen-Logo<br>
-                            auf Vorder -und Rückseite und<br>
-                            einem Kurzbeschrieb</p>
-                        <p>10 Spiele gratis (Wert CHF 299.-)</p>
-                    </div>
+                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">
+                        <div id="category-card2" class="category-cards">
+                            <h3>Kategorie 2</h3>
+                            <p>kleine Felder bis CHF'6000.-<br>
+                                Preis pro Feld und Spiel<br>
+                                <strong>CHF 690.-</strong>
+                            </p>
+                            <p>Ihr Firmen-Logo auf einem<br>
+                                Spielfeld</p>
+                            <p>Spielkarte mit ihrem Firmen-Logo<br>
+                                auf Vorder -und Rückseite und<br>
+                                einem Kurzbeschrieb</p>
+                            <p>10 Spiele gratis (Wert CHF 299.-)</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div id="category-card3" class="category-cards">
-                        <h3>Kategorie 3</h3>
-                        <p>kleine Felder mit Doppelfunktion<br>
-                            Preis pro Feld und Spiel<br>
-                            <strong>CHF 790.-</strong>
-                        </p>
-                        <p>Ihr Firmen-Logo auf einem<br>
-                            Spielfeld</p>
-                        <p>Spielkarte mit ihrem Firmen-Logo<br>
-                            auf Vorder -und Rückseite und<br>
-                            einem Kurzbeschrieb</p>
-                        <p>10 Spiele gratis (Wert CHF 299.-)</p>
-                    </div>
+                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">
+                        <div id="category-card3" class="category-cards">
+                            <h3>Kategorie 3</h3>
+                            <p>kleine Felder mit Doppelfunktion<br>
+                                Preis pro Feld und Spiel<br>
+                                <strong>CHF 790.-</strong>
+                            </p>
+                            <p>Ihr Firmen-Logo auf einem<br>
+                                Spielfeld</p>
+                            <p>Spielkarte mit ihrem Firmen-Logo<br>
+                                auf Vorder -und Rückseite und<br>
+                                einem Kurzbeschrieb</p>
+                            <p>10 Spiele gratis (Wert CHF 299.-)</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div id="category-card4" class="category-cards">
-                        <h3>Kategorie 4</h3>
-                        <p>kleine Felder bis CHF 7'000.-<br>
-                            Preis pro Feld und Spiel<br>
-                            <strong>CHF 890.-</strong>
-                        </p>
-                        <p>Ihr Firmen-Logo auf einem<br>
-                            Spielfeld</p>
-                        <p>Spielkarte mit ihrem Firmen-Logo<br>
-                            auf Vorder -und Rückseite und<br>
-                            einem Kurzbeschrieb</p>
-                        <p>10 Spiele gratis (Wert CHF 299.-)</p>
-                    </div>
+                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">
+                        <div id="category-card4" class="category-cards">
+                            <h3>Kategorie 4</h3>
+                            <p>kleine Felder bis CHF 7'000.-<br>
+                                Preis pro Feld und Spiel<br>
+                                <strong>CHF 890.-</strong>
+                            </p>
+                            <p>Ihr Firmen-Logo auf einem<br>
+                                Spielfeld</p>
+                            <p>Spielkarte mit ihrem Firmen-Logo<br>
+                                auf Vorder -und Rückseite und<br>
+                                einem Kurzbeschrieb</p>
+                            <p>10 Spiele gratis (Wert CHF 299.-)</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div id="category-card5" class="category-cards">
-                        <h3>Kategorie 5</h3>
-                        <p>grosse Felder mit Doppelfunktion<br>
-                            Preis pro Feld und Spiel<br>
-                            <strong>CHF 990.-</strong>
-                        </p>
-                        <p>Ihr Firmen-Logo auf einem<br>
-                            Spielfeld</p>
-                        <p>Spielkarte mit ihrem Firmen-Logo<br>
-                            auf Vorder -und Rückseite und<br>
-                            einem Kurzbeschrieb</p>
-                        <p>20 Spiele gratis (Wert CHF 598.-)</p>
-                    </div>
+                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">
+                        <div id="category-card5" class="category-cards">
+                            <h3>Kategorie 5</h3>
+                            <p>grosse Felder mit Doppelfunktion<br>
+                                Preis pro Feld und Spiel<br>
+                                <strong>CHF 990.-</strong>
+                            </p>
+                            <p>Ihr Firmen-Logo auf einem<br>
+                                Spielfeld</p>
+                            <p>Spielkarte mit ihrem Firmen-Logo<br>
+                                auf Vorder -und Rückseite und<br>
+                                einem Kurzbeschrieb</p>
+                            <p>20 Spiele gratis (Wert CHF 598.-)</p>
+                        </div>
+                    </a>
                 </div>
-                <div class="test col-sm-6 col-md-4 col-lg-4">
+                <div class="col-sm-6 col-md-4 col-lg-4">
                     <div id="category-image">
                         <img src="{{asset('img/category-logo.png')}}" alt="logo">
                     </div>
@@ -376,5 +386,9 @@
                 }
             })
         });
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
     </script>
 @endsection

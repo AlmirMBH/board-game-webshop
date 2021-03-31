@@ -47,6 +47,7 @@
                 </div>
             </div>
         </div>
+        <div id="game-anchor"></div>
         <div class="row mt-5 pdf-viewer">
             <div class="col-12">
                 <img src="{{asset('img/Spielfeld-mit-Angaben-Feldergrossen.png')}}" alt="">
