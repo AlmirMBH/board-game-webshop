@@ -71,9 +71,6 @@
                         <span class="section-title-prominent">UNSERE LEISTUNGEN</span></h2>
                 </div>
             </div>
-
-{{--            NEW CARDS--}}
-
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div id="game-categories">
@@ -170,8 +167,7 @@
                 </div>
             </div>
 
-{{--            NEW CARDS END--}}
-
+{{--            OLD CARDS WITH LINKS--}}
 {{--            <div class="row">--}}
 {{--                <div class="col-sm-6 col-md-4 col-lg-4">--}}
 {{--                    <a href="{{route('licensee') . '#game-anchor'}}" class="category-card-link d-block">--}}
@@ -266,6 +262,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
+{{--            END OF OLD CARDS WITH LINKS--}}
         </div>
     </section>
     <section class="blog section-padding-top section-padding-bottom">
