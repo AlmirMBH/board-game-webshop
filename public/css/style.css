@@ -363,9 +363,42 @@
     word-break: break-word;
 }
 
+#game-categories img{
+    height: min(670px);
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    #game-categories img{
+        width:auto;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .category-cards{
+        width: 50%;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #game-categories img{
+        width:auto;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .category-cards{
+        width: 100%;
+        margin: 0px auto;
+    }
+}
+
+.category-column{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
 #category-image{
     width: auto;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 
 .category-cards{
@@ -373,12 +406,12 @@
     border-radius: 15%;
     padding: 20px 30px 20px 30px;
     color: #ffffff;
-    margin-bottom: 20px;
-    width: auto;
-    transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
+    margin-bottom: 10px;
+    /*width: auto;*/
+    /*transition: all 0.3s;*/
+    /*-o-transition: all 0.3s;*/
+    /*-moz-transition: all 0.3s;*/
+    /*-webkit-transition: all 0.3s;*/
 }
 
 .category-card-link:hover .category-cards {
@@ -391,28 +424,51 @@
 
 #category-card1{
     background-color: #E9CE31;
+    padding-bottom: min(35px);
+}
+
+#category-card1 p{
+    font-size: 11px !important;
+    line-height: 15px;
 }
 
 #category-card2{
     background-color: #F27E00;
+    padding-bottom: min(35px);
+}
+
+#category-card2 p{
+    font-size: 11px !important;
+    line-height: 15px;
 }
 
 #category-card3{
     background-color: #D93F81;
 }
 
+#category-card3 p{
+    font-size: 11px !important;
+    line-height: 15px;
+}
+
 #category-card4{
     background-color: #E23A1F;
+    padding-bottom: min(35px);
+}
+
+#category-card4 p{
+    font-size: 11px !important;
+    line-height: 15px;
 }
 
 #category-card5{
     background-color: #5067B7;
 }
 
-#category-card6{
-
+#category-card5 p{
+    font-size: 11px !important;
+    line-height: 15px;
 }
-
 
 
 /* Benefits Section */
