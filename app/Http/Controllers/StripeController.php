@@ -27,12 +27,13 @@ class StripeController extends Controller
      */
     public function handlePost(Request $request)
     {
-
+        // This method is a bit longer as we were trying to avoid storing user data directly into the DB
+        // For example, if a session is interrupted the DB will still be filled, although no purchase has been made
         try {
             Stripe\Stripe::setApiKey('sk_live_PPdpb8HHAyBvpXyTOY7C9HbS');
             $subTotalData = session()->get('subTotal');
             $charge = Stripe\Charge::create([
-                "amount" => 100 * $subTotalData,
+                "amount" => 100 * $subTotalData, // stripe requires amounts to be multiplied by 100
                 "currency" => "CHF",
                 "source" => $request->stripeToken,
                 "description" => "Purchase"
@@ -43,6 +44,8 @@ class StripeController extends Controller
                 $orderCustomerData = session()->get('orderCustomerData');
                 $requestItems = session()->get('requestItems');
 
+
+
                 $quantity = 0;
                 foreach ($requestItems as $jsonObjectItem) {
                     $item = json_decode($jsonObjectItem, true);
@@ -50,6 +53,7 @@ class StripeController extends Controller
                 }
 
                 $orderCustomer = OrderCustomer::create($orderCustomerData);
+
                 if ($orderCustomer) {
                     Order::create([
                         'order_id'      => $orderCustomerData['order_id'],
