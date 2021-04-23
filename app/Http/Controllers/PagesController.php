@@ -4,24 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Canton;
 use App\Http\Requests\ContactFormRequest;
-use App\Order;
-use App\OrderCustomer;
 use App\Outlets;
 use App\ParticipatingCompanies;
 use App\Product;
 use App\Provider;
 use App\Slider;
+use App\VisitCounter;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 
 class PagesController extends Controller
 {
 
     public function home()
     {
+        $newSession = request()->session()->getId();
+        $dbSession = VisitCounter::where('session_id', $newSession)->first();
+
+        if($dbSession == null){
+            $visit = new VisitCounter();
+            $visit->session_id = $newSession;
+            $visit->IP = request()->server('REMOTE_ADDR');
+            $visit->country = "";
+            $visit->city = "";
+            $visit->visited_page = request()->server('REQUEST_URI');
+            $visit->views = 1;
+            $visit->save();
+        }
+
         $products = Product::all();
         $sliders = Slider::all();
         return view('index', compact('products', 'sliders'));

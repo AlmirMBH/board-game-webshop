@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -20,6 +19,30 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <!-- ./col -->
+                        <div class="col-lg-4 col-12"></div>
+                            <!-- small box -->
+                            <div class="small-box bg-gradient-blue">
+                                <div class="inner">
+                                    <h3>{{ $visits }}</h3>
+                                    <p>Visits</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+
+                        </div>
+                        <!-- ./col -->
+                    </div>
+                    <div class="col-lg-4 col-12">
+                    </div>
+                </div>
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-lg-4 col-12">
@@ -477,6 +500,7 @@
                     <!-- /.Left col -->
                     <!-- Right col -->
                     <section class="col-lg-8">
+
                     </section>
                     <!-- /.Right col -->
                 </div>
