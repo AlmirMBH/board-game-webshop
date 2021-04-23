@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ class CreateVisitCountersTable extends Migration
             $table->string('city')->nullable();
             $table->string('visited_page');
             $table->integer('views')->nullable();
-            $table->date('date');
+            $table->date('date')->default(Carbon::now());
         });
     }
 
