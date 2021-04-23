@@ -8,7 +8,9 @@ use App\Outlets;
 use App\ParticipatingCompanies;
 use App\Product;
 use App\Provider;
+use App\VisitCounter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -20,7 +22,9 @@ class AdminController extends Controller
         $products = Product::all()->count();
         $partcompanies = ParticipatingCompanies::all()->count();
         $orders = Order::all()->count();
+        $visits = VisitCounter::all()->count();
 
-        return view('admin.dashboard', compact('providers', 'outlets', 'cities', 'products', 'partcompanies', 'orders'));
+//        $visits = DB::table('visit_counters')->distinct()->count('session_id');
+        return view('admin.dashboard', compact('providers', 'outlets', 'cities', 'products', 'partcompanies', 'orders', 'visits'));
     }
 }
